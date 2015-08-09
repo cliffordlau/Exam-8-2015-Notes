@@ -1,6 +1,6 @@
 ---
 title: "A2 A Practitioner’s Guide to GLM"
-date: "August 9, 2015"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: html_document
 ---
 
