@@ -1,0 +1,12 @@
+---
+title: "A1 Risk Classification Statment of Principles"
+author: "Cliff Lau"
+date: "August 9, 2015"
+output: html_document
+---
+
+Risk classification
+
+  * Grouping of risk with similar risk characteristics (expected cost)
+  * Purpose: Setting prices
+  * Challenge is to identify the appropriate risk characteristics to classify the risk
