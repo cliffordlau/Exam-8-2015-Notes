@@ -1,0 +1,10 @@
+name: "Exam 8 Notes"
+description: "CAS Exam 8 Notes"
+
+baseurl:/Exam-8-2015-Notes
+
+paginate: 10
+
+markdown: rdiscount
+permalink: pretty
+highlighter: pygments
