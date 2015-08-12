@@ -8,3 +8,4 @@ paginate: 10
 markdown: rdiscount
 permalink: pretty
 highlighter: pygments
+github: [Repository metadata]
