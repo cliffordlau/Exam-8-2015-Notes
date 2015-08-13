@@ -1,0 +1,53 @@
+---
+title: "A4 Credibility and Shifting Risk Parameters"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: html_document
+---
+
+## Standard Credibility Formula
+
+$\text{New Estimate} = \text{Data} \times \text{Credibility} + (1 - \text{Credibility}) \times \text{Prior Estimate}$  
+Prior Estimate = Class Avaerage *or* Previous Estimate for the *group*
+
+## Question 1: Difference Between Risks?
+
+**Test #1** for shifting parameters:  
+Compare the average and $\sigma$ of the losing % of each team and see if it follows a binomial distribution
+
+* Recall Binomial dist^n^ has $\sigma = \sqrt{np(1-p)}$
+* Data shows many teams are outside 2$\sigma$ from mean $\Rightarrow$ There are differences between teams
+* There are correlation between years as well (tested below)
+
+## Question 2: Loss % over timer just random fluctuations?
+
+Is there risk parameters $\Delta$-ing overtime?
+
+* **Test #2**, $\chi^2$ test:
+    * $\chi^2 \: \text{Statistics} = \sum\limits_{i=1}^n \dfrac{(Actual_i - Expected_i)^2}{Expected_i}$
+    * n = Time Period
+    * n-1 Degree of Freedom
+    * If test stat > table value $\Rightarrow$ dist^n^ are different
+    * $\Rightarrow$ Risk parameters have shifted
+    * <span style="color:green">See 2012 Q8 </span>
+* **Text #3**, Correlations between years:
+    1. Calculate the correlation for each team across time
+    2. Take average of the correlation across all risk for each time seperation t
+    3. If $\rho$ greater for smaller time seperations $\Rightarrow$ Shifting risk parameters $\Rightarrow$ Recent years can help predict the future
+    
+Recall:  
+$\rho_{X,Y} = \dfrac{\mathrm{E[(X-\overline{X})(Y-\overline{Y})]}}{\sigma_X\sigma_Y}$
+
+## Credibility Weighting Options
+$\hat{X} = \sum\limits_{i=1}^n Z_iX_i$  
+$\sum\limits_{i=1}^n Z_i = 1$  
+$\mu = \text{Grand Mean}$
+
+6 Methods:
+
+1. 0% credibiliy to all past data $\Rightarrow$ Every risk is average  
+$\hat{X} = \mu$
+
+2. 100% credbility to most recent year $\Rightarrow$ Most recent year repeats  
+$\hat{X} = X_1$
+
+3. 
