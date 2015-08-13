@@ -1,0 +1,91 @@
+---
+title: "A3 Credibility of Experience of a Single Private Passenger Car"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: html_document
+---
+
+## Merit Rating Terminology
+
+Based on # of full years since most recent accident
+
+* $A: \space \geq 3 \text{yrs}$
+* $X: \space = 2 \text{yrs}$
+* $Y: \space = 1 \text{yr}$
+* $B: \space = 0 \text{yrs}$
+
+* $A + X: \space \geq 2 \text{yrs}$
+* $A + X + Y: \space \geq 1 \text{yr}$
+
+## Experience Rating Formula
+
+$\text{E-mod} = ZR + (1 - Z)$
+
+  * $Z = \text{credibility}$
+  * $R = \dfrac{\text{Actual Loss}}{\text{Expected Loss}}$
+      * $\text{Expected Loss} = \text{Past Experience}$
+
+Usually solve for $\textbf{Z}$ with $\text{E-mod}$ and $R$  
+R is based on prior policy term
+
+Perfect Mod:
+
+  * Based on experience in current policy period
+  * Values of the Mod that result in equal ratios of $\dfrac{\text{# Claims}}{\text{premium}}$ across all merit ratings based on the *current* year data
+  
+## Calculating the Mod
+
+Compare loss experience of the group within a class for which the Mod applies to the overall loss experience for the class
+
+  * Use relative frequency instead of PP
+      * $\dfrac{\text{# Claims}}{\text{On-level Premium}}$
+      * PP is not used because the size of claims can cause fluctuation
+      * Not using car years for denominator
+      * Avoid exposure correlation with car years
+  * Using Premium as the base only works if:
+      * High frequency territories are also high average premium territories
+      * Territorial rate differentials are proper (= LR across territories)
+      * <span style="color:green">See 2012 Q8 </span>
+  
+Mod Formula:
+
+$\text{Mod} = \dfrac{\dfrac{\text{# Claims in }\textbf{group}}{\text{EP in }\textbf{group}\text{ @ present B rates}}}{\dfrac{\text{# Claims in }\textbf{class}}{\text{EP in }\textbf{class}\text{ @ present B rates}}} = \dfrac{\text{Group Frequency}}{\text{Class Frequency}}$
+
+## Calculating R
+
+* $\text{No Claims} \rightarrow R = 0 \rightarrow \text{Mod} = 1 - Z$
+* All claims in the class are from 'B' ratings
+* Use relative claim frequency (instead of relative losses)
+* Claim Count $\sim$ Poisson
+
+$\text{R} = \dfrac{\dfrac{\text{# Claims in }\textbf{group}}{\text{Car Yr in }\textbf{group}\text{ @ present B rates}}}{\dfrac{\text{# Claims in }\textbf{class}}{\text{Car Yr in }\textbf{class}\text{ @ present B rates}}} = \dfrac{\text{Group Frequency}}{\text{Class Frequency}}$  
+
+* Note this is based on *Car Year*
+
+$\text{R} = \dfrac{\dfrac{N \lambda}{N(1-e^{- \lambda})}}{\dfrac{N\lambda}{N}} = (1 - e^{- \lambda})^{-1}$  
+$\lambda = \text{Class Total Frequency} = \dfrac{\text{# Claims from Class}}{\text{Earned }\textbf{Car Years}\text{ of Insured in Class}}$  
+<span style="color:green">See 2005 Q3 </span>
+
+
+
+Recall:
+$\mathrm{Pr(X=x)} = \dfrac{\lambda ^x e^{-\lambda}}{x!} \Rightarrow \mathrm{Pr(X=0)} = e^{-\lambda}, \mathrm{Pr(X \geq 1)} = 1 - e^{-\lambda}$
+
+## Conclusions
+
+* Experience rating of a single car for 1 year has significant and measurable credibility for experience rating
+* Individual risk experience is more credibl when there is more variance in loss experience within a risk class (less refined ris classification system)
+* Credibilities for varying years of experience should increase in proportion to the # of years of experience (This test the point above)
+    * Stability across time
+    * Only for low credibilities
+    * The closer the credibilities for 2 and 3 years of experience are to 2 and 3 times the 1 year credibility $\Rightarrow$
+        * Less variation in the insured's $\mathrm{Pr(Accident)}$;
+        * Less risk entering/ exiting the portfolio; 
+        * Risk characteristics not changing much over time
+    
+## Bühlmaan Credibility
+
+$Z = \dfrac{n}{n + k}$
+
+$k = \dfrac{\mathrm{E[Var(X|\theta))]}}{\mathrm{Var(E[X|\theta])}} = \dfrac{\text{Expected Process Variance}}{\text{Variance of Hypothetical Mean}} = \text{Constant for different sample of n size??}$
+
+If $X \sim Poi(\lambda), \space \lambda \sim N(\mu, \sigma^2) \Rightarrow k = \dfrac{\mu}{\sigma^2}$
