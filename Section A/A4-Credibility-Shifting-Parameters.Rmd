@@ -7,7 +7,7 @@ output: html_document
 ## Standard Credibility Formula
 
 $\text{New Estimate} = \text{Data} \times \text{Credibility} + (1 - \text{Credibility}) \times \text{Prior Estimate}$  
-Prior Estimate = Class Avaerage *or* Previous Estimate for the *group*
+Prior Estimate = Class Average *or* Previous Estimate for the *group*
 
 ## Question 1: Difference Between Risks?
 
@@ -31,8 +31,8 @@ Is there risk parameters $\Delta$-ing overtime?
     * <span style="color:green">See 2012 Q8 </span>
 * **Text #3**, Correlations between years:
     1. Calculate the correlation for each team across time
-    2. Take average of the correlation across all risk for each time seperation t
-    3. If $\rho$ greater for smaller time seperations $\Rightarrow$ Shifting risk parameters $\Rightarrow$ Recent years can help predict the future
+    2. Take average of the correlation across all risk for each time separation t
+    3. If $\rho$ greater for smaller time separations $\Rightarrow$ Shifting risk parameters $\Rightarrow$ Recent years can help predict the future
     
 Recall:  
 $\rho_{X,Y} = \dfrac{\mathrm{E[(X-\overline{X})(Y-\overline{Y})]}}{\sigma_X\sigma_Y}$
@@ -44,10 +44,50 @@ $\mu = \text{Grand Mean}$
 
 6 Methods:
 
-1. 0% credibiliy to all past data $\Rightarrow$ Every risk is average  
+1. 0% credibility to all past data $\Rightarrow$ Every risk is average  
 $\hat{X} = \mu$
 
-2. 100% credbility to most recent year $\Rightarrow$ Most recent year repeats  
+2. 100% credibility to most recent year $\Rightarrow$ Most recent year repeats  
 $\hat{X} = X_1$
 
-3. 
+3. Credibility weight of last year vs $\mu$  
+$\hat{X} = ZX_1 + (1-Z)\mu$
+
+4. Equal weight to the n most recent years and rest to $\mu$  
+$\hat{X} = Z\dfrac{\sum_{i=1}^n X_i}{n} + (1 - Z)\mu$
+
+5. Exponential smoothing  
+$\hat{X}_{i+1} = Z X_i + (1-Z) \hat{X}_i$
+
+6. Most general form  
+$\hat{X} = \sum\limits_{i=1}^n Z_i X_i + \Big(1 - \sum\limits_{i=1}^n Z_i \Big)\mu$
+
+## 3 Criteria to Select the Best Estimates
+
+**Least Squared Error**
+
+* Lowest MSE of the actual vs prediction
+* Bühlmann/Bayesian
+  
+$MSE = \dfrac{SSE}{\text{# risks}}$
+
+$SSE = \sum_{risks}(\hat{X}_{risks} - X_{i, risks})^2$
+
+**Limited Fluctuation**
+
+* Small chance of large errors
+* $\mathrm{Pr(\text{Observed differs by more than a certain % from the predicted})}$
+
+$\mathrm{Pr}\Big(\dfrac{\big|\hat{X}_{risks} - X_{i, risks}\big|}{\hat{X}_{risks}} > k \% \Big) < p$
+
+**Meyers Dorweiler**
+
+* $\rho$ between $\frac{Actual}{Expected}$ and $\frac{Expected}{Mean}$
+* See Kendall's $\tau$ P.271 of paper
+
+## Final Points
+
+When there are shifting risk parameters, older years will be less relevant $\Rightarrow$ Assign less credibility
+
+Having a delay in getting historical data significantly increase the square error
+
