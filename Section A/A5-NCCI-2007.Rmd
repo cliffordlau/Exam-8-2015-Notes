@@ -1,7 +1,10 @@
 ---
 title: "A5 NCCI 2007 HG Mapping"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-output: html_document
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
 ---
 
 ## Intro

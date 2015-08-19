@@ -65,6 +65,26 @@ img {
 <h4 class="date"><em>August 18, 2015</em></h4>
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#intro">Intro</a></li>
+<li><a href="#prior-hgs-1993">Prior HGs (1993)</a></li>
+<li><a href="#new-hgs-2007">New HGs (2007)</a><ul>
+<li><a href="#how-many-and-which-limits-to-calculate-elfs">1. How many and which limits to calculate ELFs</a></li>
+<li><a href="#calculate-normalized-excess-ratios-by-injury-type">2. Calculate normalized excess ratios by injury type</a></li>
+<li><a href="#calculating-injury-type-weighted-xs-ratios">3. Calculating injury type weighted XS ratios</a></li>
+<li><a href="#calculating-credibility-weighted-class-xs-ratio">4. Calculating credibility weighted class XS ratio</a></li>
+<li><a href="#distance-measure-for-cluster-analysis">5. Distance measure for cluster analysis</a><ul>
+<li><a href="#distance-measure">Distance Measure</a></li>
+<li><a href="#standardize-xs-ratio">Standardize XS ratio</a></li>
+<li><a href="#k-mean-clustering">K-mean clustering</a></li>
+</ul></li>
+<li><a href="#underwriter-review">6. Underwriter Review</a></li>
+<li><a href="#calculate-and-publish-the-final-elfs">7. Calculate and publish the final ELFs</a></li>
+</ul></li>
+<li><a href="#final-comments">Final Comments</a></li>
+</ul>
+</div>
 
 <div id="intro" class="section level2">
 <h2>Intro</h2>
@@ -143,7 +163,7 @@ img {
 <p><em>Def<sup>n</sup>:</em><br /><span class="math">\(X_i =\)</span> loss for <strong>injury type</strong> <span class="math">\(i\)</span> in a given <strong>state</strong></p>
 <ul>
 <li>PDF = <span class="math">\(f_i(x)\)</span></li>
-<li>Trended, fully developed, and on-leve</li>
+<li>Trended, fully developed, and on-level</li>
 </ul>
 <p><span class="math">\(\mu_i\)</span> = mean of <span class="math">\(X_i\)</span><br /><span class="math">\(g_i(x) = \mu_i f_i(\mu_i x) = \text{pdf of normalized losses}\)</span> <span class="math">\(r = \dfrac{L}{\mu} = \text{entry ratio}; r \geq 0\)</span></p>
 <p><em>Normalized excess ratio function for injury type <span class="math">\(i\)</span>:</em></p>
@@ -213,7 +233,7 @@ img {
 <p>NCCI didn’t standardize before doing the cluster:<br /><span style="color:red">Know</span></p>
 <ol style="list-style-type: decimal">
 <li>Result groups didn’t differ much with or without</li>
-<li>Standization eliminates the common denominator; XS ratio at different limits have <span class="math">\(\approx\)</span> unit <span class="math">\(\Rightarrow\)</span> <span class="math">\(\dfrac{\text{Dollar XS Loss}}{\text{Dollar Total Loss}}\)</span></li>
+<li>Standardization eliminates the common denominator; XS ratio at different limits have <span class="math">\(\approx\)</span> unit <span class="math">\(\Rightarrow\)</span> <span class="math">\(\dfrac{\text{Dollar XS Loss}}{\text{Dollar Total Loss}}\)</span></li>
 <li>XS ratio <span class="math">\(\in [0,1]\)</span>; standardized might not</li>
 <li>Standardization would have given real data less weight
 <ul>
@@ -275,7 +295,7 @@ img {
 <p><strong><em>5. Repeat 3 and 4 until no classes are re-assigned</em></strong></p>
 <p>Goal of k-means clustering:</p>
 <ul>
-<li>Minimizes the within variances and maximize the between variance <span class="math">\(\Rightarrow\)</span> HGs are homogeneous and well seperated</li>
+<li>Minimizes the within variances and maximize the between variance <span class="math">\(\Rightarrow\)</span> HGs are homogeneous and well separated</li>
 <li>Minimizes: <span class="math">\(\sum\limits_{i=1}^k \sum\limits_{c \in HG_i} w_c {\big|\big|} R_c - \overline{R}_i {\big|\big|}^2_2\)</span>
 <ul>
 <li><span class="math">\(\overline{R} = \frac{1}{\text{# of classes C}} \sum_c R_c\)</span></li>
@@ -295,7 +315,7 @@ img {
 <ul>
 <li>Similarity between class codes that were in different groups</li>
 <li>Degree of exposure to auto accidents in a given class</li>
-<li>Extend heavey machinery is used in a given class</li>
+<li>Extend heavy machinery is used in a given class</li>
 <li>Evaluate likelihood of:
 <ul>
 <li>Serious claims from a class</li>

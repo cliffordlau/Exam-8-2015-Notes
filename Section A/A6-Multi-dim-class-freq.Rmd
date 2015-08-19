@@ -1,0 +1,20 @@
+---
+title: Multi-Dimensional Credibility to Estimate Class Frequency Vectors in WC
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: html_document
+---
+
+## Intro
+
+Price XS and retro rated WC with ELFs (by state + limit)
+
+Challenges:  
+ELFs hard to estimate since losses driven by small \# of very large claims
+
+Solution:  
+Use correlations between different injury types to build a model based on less-severe injuries for which more data exists
+
+* The key idea is that since the physical circumstances are similar for significant injury types, claim frequencies between those injury types are correlated
+
+This also shows that the current NCCI practice of using the same ELFs for all classes within a hazard group can be further refined
+
