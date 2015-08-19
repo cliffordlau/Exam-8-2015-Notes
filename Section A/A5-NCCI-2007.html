@@ -9,7 +9,7 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="date" content="2015-08-17" />
+<meta name="date" content="2015-08-18" />
 
 <title>A5 NCCI 2007 HG Mapping</title>
 
@@ -62,7 +62,7 @@ img {
 
 <div id="header">
 <h1 class="title">A5 NCCI 2007 HG Mapping</h1>
-<h4 class="date"><em>August 17, 2015</em></h4>
+<h4 class="date"><em>August 18, 2015</em></h4>
 </div>
 
 
@@ -127,14 +127,18 @@ img {
 <li>Class mappings to HGs</li>
 </ol>
 <p>Process Summary:</p>
-<p><strong><em>1. How many and which limits to calculate ELFs</em></strong></p>
+<div id="how-many-and-which-limits-to-calculate-elfs" class="section level3">
+<h3>1. How many and which limits to calculate ELFs</h3>
 <ul>
 <li>5 Limit: 100K, 250K, 500K, 1M and 5M<br /></li>
 <li># of Limits <span class="math">\(\downarrow\)</span></li>
 <li><span class="math">\(\because\)</span> ELFs highly correlated across class</li>
 <li><span class="math">\(\because\)</span> Limits &lt; 100K were highly represented in the prior groupings of 17</li>
 </ul>
-<p><strong><em>2. Calculate normalized excess ratios by injury type</em></strong><br /><span style="color:red">Not as Important</span></p>
+</div>
+<div id="calculate-normalized-excess-ratios-by-injury-type" class="section level3">
+<h3>2. Calculate normalized excess ratios by injury type</h3>
+<p><span style="color:red">Not as Important</span></p>
 <p><em>Pre-req:</em><br /><span class="math">\(\text{Excess Ratios} \doteq R(L) = \dfrac{\mathrm{E[Loss \geq L]}}{\mathrm{E[L]}} = 1 - \text{Loss Elimination Ratio (L)}\)</span></p>
 <p><em>Def<sup>n</sup>:</em><br /><span class="math">\(X_i =\)</span> loss for <strong>injury type</strong> <span class="math">\(i\)</span> in a given <strong>state</strong></p>
 <ul>
@@ -150,7 +154,9 @@ img {
 <li><p>Individual <strong>Classes</strong> at the <strong>Countrywide</strong> level: <span class="math">\(S_i \Big( \dfrac{L}{\mu_{i,c}} \Big)\)</span></p></li>
 <li><p>Normalize so classes with different mean can use the factors</p></li>
 </ul>
-<p><strong><em>3. Calculating injury type weighted XS ratios</em></strong></p>
+</div>
+<div id="calculating-injury-type-weighted-xs-ratios" class="section level3">
+<h3>3. Calculating injury type weighted XS ratios</h3>
 <p>Get <span class="math">\(R_j(L)\)</span> and <span class="math">\(R_c(L)\)</span> weighted by Injury Type <span class="math">\(i\)</span> with the normalized XS ratios</p>
 <p><span class="math">\(R_j(L) = \sum\limits_i w_{i, j} S_i{\dfrac{L}{\mu_{i, j}}}\)</span></p>
 <p><span class="math">\(R_c(L) = \sum\limits_i w_{i, c} S_i{\dfrac{L}{\mu_{i, c}}}\)</span></p>
@@ -159,7 +165,9 @@ img {
 <p>n = number of limits</p>
 <p>Basically just credibility weighting the individual elements</p>
 <p>Note that <span class="math">\(R_j\)</span> is presumably calculated on a CW basis, since one of the goals was to produce new countrywide HG mappings</p>
-<p><strong><em>4. Calculating credibility weighted class XS ratio</em></strong></p>
+</div>
+<div id="calculating-credibility-weighted-class-xs-ratio" class="section level3">
+<h3>4. Calculating credibility weighted class XS ratio</h3>
 <p><span class="math">\(\vec{R}^{final}_c = Z\vec{R}_c + (1-Z)\vec{R}_j\)</span></p>
 <ul>
 <li><span class="math">\(Z = min(\frac{n}{n+k}\times 1.5, 1)\)</span></li>
@@ -174,9 +182,12 @@ img {
 <li>Requiring a minimum # of claims for classes used in the calculation of k</li>
 <li>Square root rules: <span class="math">\(Z = \sqrt{\frac{n}{384}}\)</span> <span class="math">\(\Rightarrow\)</span> 95% chance of <span class="math">\(n\)</span> being within 10% of expected value</li>
 </ul>
-<p>****5. Distance measure for cluster analysis***</p>
+</div>
+<div id="distance-measure-for-cluster-analysis" class="section level3">
+<h3>5. Distance measure for cluster analysis</h3>
 <p>From 4. we have credibility weighted XS ratio vectors exist for each class; Now group similar vectors into potential HGs</p>
-<p><strong>Distance Measure</strong></p>
+<div id="distance-measure" class="section level4">
+<h4>Distance Measure</h4>
 <p>Euclidean L<sup>2</sup> (Used):</p>
 <p><span class="math">\({\big|\big|}x-y{\big|\big|}_2 = \sqrt{\sum\limits_{i=1}^n (x_i - y_i)^2}\)</span></p>
 <ul>
@@ -189,7 +200,9 @@ img {
 <li>However, analysis not sensitive to distance measure <span class="math">\(\Rightarrow\)</span> use traditional euclidean distance</li>
 </ul>
 <p>The relative error in estimating XS for class <span class="math">\(c\)</span> with limit L <span class="math">\(= PLR \times \big| R_j(L) - R_c(L) \big|\)</span></p>
-<p><strong>Standardize XS ratio</strong> (NCCI did not use)</p>
+</div>
+<div id="standardize-xs-ratio" class="section level4">
+<h4>Standardize XS ratio</h4>
 <p>Standardize so that each XS ratio will have <span class="math">\(\approx\)</span> impact on the cluster</p>
 <p>2 different methods:</p>
 <ol style="list-style-type: decimal">
@@ -208,9 +221,107 @@ img {
 <li>Standardization would reduce influence of low loss limits</li>
 </ul></li>
 </ol>
-<p><strong>K-mean clustering</strong> <span style="color:red">Important</span></p>
+</div>
+<div id="k-mean-clustering" class="section level4">
+<h4>K-mean clustering</h4>
+<p><span style="color:red">Important</span></p>
 <p>Minimize error between class XS ratio <span class="math">\(R_c\)</span> and cluster XS ratio <span class="math">\(\bar{R}_i\)</span></p>
-<p>Steps:<br />1.</p>
+<p>Steps:</p>
+<p><strong><em>1. Pick the number of cluster k</em></strong> <span style="color:red">Important</span></p>
+<p>Recall that 7 HGs were picked, selected based on tests below:</p>
+<p><em>Calinski and Harabasz Statistic</em></p>
+<ul>
+<li><span class="math">\(\dfrac{Trace(B)/(k-1)}{Trace(W)/(n-k)}\)</span>
+<ul>
+<li>n = # of classes</li>
+<li>k = # of HG</li>
+<li>B = between cluster sum of square and cross product matrix</li>
+<li>W = within cluster sum of square and cross product matrix</li>
+</ul></li>
+<li>Higher the statistics <span class="math">\(\Rightarrow\)</span> better # of clusters<br /></li>
+<li>Pseudo-F test<br /></li>
+<li>NCCI assigned this more weight than CCC below</li>
+</ul>
+<p><em>Cubic Clustering Criterion</em></p>
+<ul>
+<li>Compares the amount of variance explained by a give set of clusters to that expected when clusters are formed randomly based on the multi-dimensional uniform dist<sup>n</sup></li>
+<li>High values indicates better performance</li>
+<li>Less reliable when data is highly correlated</li>
+</ul>
+<p>3 variations for each statistics (6 test)</p>
+<ul>
+<li>All classes, classes with 50% and 100% credibility</li>
+<li>5/6 test favored 7 group, 1 favored 9 (CCC with all classes)</li>
+<li>With 9 groups there was crossover in the XS ratios between HGs
+<ul>
+<li>i.e. For the same attachment point, XS ratio for a higher HG has a lower XS ratio</li>
+</ul></li>
+</ul>
+<p>Calinski and Harabasz vs Cubic Clustering Criterion</p>
+<ul>
+<li>CH outperformed CCC</li>
+<li>Less weight for CCC when correlation is present</li>
+<li>Selection should be driven by the large classes where most of the experience was concentrated</li>
+</ul>
+<p><strong><em>2. Start with a random initial assignment of classes to the k clusters</em></strong></p>
+<p><strong><em>3. Compute the centroid of each clusters <span class="math">\(i\)</span> for the k clusters</em></strong></p>
+<p><span class="math">\(\overline{R}_i = \dfrac{\sum_{c \in HG_i} w_c \vec{R}_c}{\sum_{c \in HG_i} w_c}\)</span></p>
+<ul>
+<li>Premium weighted centroid XS ratio vector</li>
+<li><span class="math">\(w_c =\)</span> % of total premium across all classes in all HGs</li>
+<li>Prevent small classes from having too much influences</li>
+</ul>
+<p><strong><em>4. For each class, find the closest centroid based on L<sup>2</sup> distance <span class="math">\(\Rightarrow\)</span> Assign the class to that cluster</em></strong></p>
+<p><strong><em>5. Repeat 3 and 4 until no classes are re-assigned</em></strong></p>
+<p>Goal of k-means clustering:</p>
+<ul>
+<li>Minimizes the within variances and maximize the between variance <span class="math">\(\Rightarrow\)</span> HGs are homogeneous and well seperated</li>
+<li>Minimizes: <span class="math">\(\sum\limits_{i=1}^k \sum\limits_{c \in HG_i} w_c {\big|\big|} R_c - \overline{R}_i {\big|\big|}^2_2\)</span>
+<ul>
+<li><span class="math">\(\overline{R} = \frac{1}{\text{# of classes C}} \sum_c R_c\)</span></li>
+</ul></li>
+<li>Maximizes: <span class="math">\(1 - \dfrac{\sum\limits_{i=1}^k \sum\limits_{c \in HG_i} w_c {\big|\big|} R_c - \overline{R}_i {\big|\big|}^2_2}{\sum\limits_c {\big|\big|} R_c - \overline{R}_i {\big|\big|}^2_2}\)</span>
+<ul>
+<li>Same as R<sup>2</sup> in linear regression</li>
+<li>% total variance explained by the HGs</li>
+</ul></li>
+<li>Think of this as <span class="math">\(\dfrac{Trace(B)}{Trace(T)}\)</span> or <span class="math">\(1 - \dfrac{Trace(W)}{Trace(T)}\)</span></li>
+</ul>
+</div>
+</div>
+<div id="underwriter-review" class="section level3">
+<h3>6. Underwriter Review</h3>
+<p>Considerations:</p>
+<ul>
+<li>Similarity between class codes that were in different groups</li>
+<li>Degree of exposure to auto accidents in a given class</li>
+<li>Extend heavey machinery is used in a given class</li>
+<li>Evaluate likelihood of:
+<ul>
+<li>Serious claims from a class</li>
+<li>Similar operations between class</li>
+</ul></li>
+<li>Evaluate feedback:
+<ul>
+<li>Consistency</li>
+<li>More weight for cluster for large credibility</li>
+<li>Compare class XS ratios to class average of 2 nearest HG</li>
+</ul></li>
+</ul>
+</div>
+<div id="calculate-and-publish-the-final-elfs" class="section level3">
+<h3>7. Calculate and publish the final ELFs</h3>
+<p>Not discussed</p>
+</div>
+</div>
+<div id="final-comments" class="section level2">
+<h2>Final Comments</h2>
+<p>NCCI mapped the new HG back into 4 groups for transition based on:</p>
+<ul>
+<li>Computing XS ratios by class</li>
+<li>Sorting classes based on XS ratios</li>
+<li>Cluster analysis</li>
+</ul>
 </div>
 
 
