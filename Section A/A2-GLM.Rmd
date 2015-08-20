@@ -1,7 +1,10 @@
 ---
 title: "A2 A Practitioner’s Guide to GLM"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-output: html_document
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
 ---
 
 **GLM**:  
@@ -23,10 +26,10 @@ Minimum bias
 * *No systematic test* on a particular variable's statistical significance
 * *No credible range* for parameter estimates
 * *Lack statistical framework* to assess quality
-* Iteratie so not as efficient
+* Iterate so not as efficient
 * (Some are special cases of GLM)
 
-Classicial linear models
+Classical linear models
 
 * Normality and constant variance assumptions don't hold
     * Dependent variable might have restricted range;
@@ -152,7 +155,7 @@ Logit is good for retention as is has prob $0 < p < 1$
 
 ## Offset Term $(\xi)$
 
-* To fix the impact of an explantory variable
+* To fix the impact of an explanatory variable
 * Known quantity for each observation
 * $\eta = \sum\limits_{j=1}^p \beta_j x_j + \xi$
 * Commonly use $\xi_i = ln(\text{exposure}_i)$ when modeling claim *counts* with a log link function
@@ -193,13 +196,13 @@ if $Y = \text{Pure Premium} \rightarrow e^{\beta_0} = \text{base rate}$; $e^{\be
 
 ## Aliasing and near-aliasing
 
-Aliasing = linear dependacy among covariates; model not uniquely defined
+Aliasing = linear dependency among covariates; model not uniquely defined
 
 **Intrinsic Aliasing**
 
 * Linear dependency occurs ***by definitions of the covariates***
     * Relationships in themselves don't cause intrinsic aliasing
-    * Issue occurs because there are just as many parameters in the model as there are uniqeu levels of the variables
+    * Issue occurs because there are just as many parameters in the model as there are unique levels of the variables
 * Solution: removing a parameter (or 2 parameter and add intercept)
 * Make sure you have fewer $\beta$ than there are unique levels in you model
 
@@ -207,7 +210,7 @@ Aliasing = linear dependacy among covariates; model not uniquely defined
 
 * Linear dependency occurs ***by nature of the data***
 * Perfect correlation in your data
-* Common with missing informations across variables (confounding)
+* Common with missing information across variables (confounding)
 * Solution: remove a covariate
 
 **Near Aliasing**
@@ -226,7 +229,7 @@ Feature selections
 
 ## Type III Test
 1. Create 2 models, one with the parameters to be tested the other without
-2. Calculate degress of freedom for each ($df = n - p$)
+2. Calculate degrees of freedom for each ($df = n - p$)
 3. Calculate deviance *D* or scaled deviance $D^* = 
 \frac{D}{\phi}$; use *D* if $\phi$ is unknown
 4. $\chi^2$ test if we used *D\**: $D^*_1 - D^*_2$  

@@ -1,7 +1,10 @@
 ---
 title: "A1 Risk Classification Statement of Principles"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-output: html_document
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
 ---
 
 **Definition**: Risk classification
@@ -59,7 +62,8 @@ The program design differs based on some of the considerations below:
 
   * If someone else is paying the premium rather than the insured, they're less likely to minimize their premium; less sophisticated risk class is more appropriate
       
-### 4. Statistical Criteria <span style="color:red">Memorize</span>
+### 4. Statistical Criteria 
+<span style="color:red">Memorize</span>
 
 * **Homogeneity**: $\mathrm{E[Costs]} \in$ a class should be $\approx$ with no clear sub classes with different loss potential
 
@@ -67,7 +71,8 @@ The program design differs based on some of the considerations below:
 
 * **Predictive Stability**: Prices should be responsive to $\Delta$ in $\mathrm{E[Loss]}$ by class without being too volatile
 
-### 5. Operational Criteria <span style="color:red">Memorize</span>
+### 5. Operational Criteria 
+<span style="color:red">Memorize</span>
 
 * **Expense**: Cost of obtaining/maintaining the data
 

@@ -1,7 +1,10 @@
 ---
 title: "A3 Credibility of Experience of a Single Private Passenger Car"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-output: html_document
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
 ---
 
 ## Merit Rating Terminology
@@ -73,11 +76,11 @@ $\mathrm{Pr(X=x)} = \dfrac{\lambda ^x e^{-\lambda}}{x!} \Rightarrow \mathrm{Pr(X
 ## Conclusions
 
 * Experience rating of a single car for 1 year has significant and measurable credibility for experience rating
-* Individual risk experience is more credibl when there is more variance in loss experience within a risk class (less refined ris classification system)
-* Credibilities for varying years of experience should increase in proportion to the # of years of experience (This test the point above)
+* Individual risk experience is more credible when there is more variance in loss experience within a risk class (less refined risk classification system)
+* Credibility for varying years of experience should increase in proportion to the # of years of experience (This test the point above)
     * Stability across time
-    * Only for low credibilities
-    * The closer the credibilities for 2 and 3 years of experience are to 2 and 3 times the 1 year credibility $\Rightarrow$
+    * Only for low credibility
+    * The closer the credibility for 2 and 3 years of experience are to 2 and 3 times the 1 year credibility $\Rightarrow$
         * Less variation in the insured's $\mathrm{Pr(Accident)}$;
         * Less risk entering/ exiting the portfolio; 
         * Risk characteristics not changing much over time
