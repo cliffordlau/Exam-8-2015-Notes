@@ -1,0 +1,273 @@
+---
+title: "A5 NCCI 2007 HG Mapping"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
+---
+
+## Intro
+
+Excess Loss Factors from NCCI
+
+* To price XS policies and retro rated WC
+* Segmentation: **HG**, **State**, for each **limit**
+* Same ELFs $\forall$ **class** $\in$ a given **HG** + **State** + **Limit**
+    * HGs are defined countrywide $\because$ injuries mix $\in$ class $\approx$
+* New HG def^n^ in 2007; 7 HG (from 4)
+
+## Prior HGs (1993)
+
+7 variables indicative of XS loss potential  
+
+Compared by looking at $\dfrac{\text{Class}}{\text{State}}$ ratio
+
+**Frequency**
+
+1. % claim frequency that are serious
+
+**Severity**
+
+2. Serious indemnity severity
+3. Serious medical severity
+4. Serious severity
+
+**Pure Premium**
+
+5. % indemnity pure premium that are serious
+6. % medical pure premium that are serious
+7. % pure premium that are serious
+
+*Sidenote:*
+
+* $\text{Serious} \subseteq \{ \text{Fatal, PT, Major PP}\}$
+* $\text{Non-Serious} \subseteq \{ \text{Minor PP, TT, Med Only}\}$
+
+Correlations between the 7 $\Rightarrow$ Group into 3 subsets
+
+PC based on 1, 2, 7 were the only predictor used to sort classes in to HGs
+
+Kept HG at 4 similar to prior work
+
+WCIRB has their own HGs using 2 variables from 2001
+
+1. % Claims in class >$150,000
+2. Difference between **class loss dist^n^** and **avg loss dist^n^ across all class**
+
+## New HGs (2007)
+
+Goal:
+
+1. HG def^n^ at CW level;
+2. ELFs for **limit** + **State** + **HG**
+
+Requires:
+
+1. Limits to calculate ELFs
+2. \# of HGs
+3. Class mappings to HGs
+
+Process Summary:
+
+###1. How many and which limits to calculate ELFs
+
+* 5 Limit: 100K, 250K, 500K, 1M and 5M  
+* \# of Limits $\downarrow$
+* $\because$ ELFs highly correlated across class
+* $\because$ Limits < 100K were highly represented in the prior groupings of 17
+
+###2. Calculate normalized excess ratios by injury type
+<span style="color:red">Not as Important</span>
+
+*Pre-req:*  
+$\text{Excess Ratios} \doteq R(L) = \dfrac{\mathrm{E[Loss \geq L]}}{\mathrm{E[L]}} = 1 - \text{Loss Elimination Ratio (L)}$
+    
+*Def^n^:*  
+$X_i =$ loss for **injury type** $i$ in a given **state**
+
+* PDF = $f_i(x)$
+* Trended, fully developed, and on-level
+
+$\mu_i$ = mean of $X_i$  
+$g_i(x) = \mu_i f_i(\mu_i x) = \text{pdf of normalized losses}$
+$r = \dfrac{L}{\mu} = \text{entry ratio}; r \geq 0$
+
+*Normalized excess ratio function for injury type $i$:*
+
+$S_i(r) = \mathrm{E} \Big[ \Big(\dfrac{X_i}{\mu_i} - r \Big)^+ \Big] = \int\limits_r^\infty(t-r)g_i(t)dt$
+
+Varies by **Limit** and **Injury Type** and either:
+
+* Current **hazard groups** $j$ at the **State** level: $S_i \Big( \dfrac{L}{\mu_{i,j}} \Big)$ ***OR***;
+* Individual **Classes** at the **Countrywide** level: $S_i \Big( \dfrac{L}{\mu_{i,c}} \Big)$
+
+* Normalize so classes with different mean can use the factors
+
+###3. Calculating injury type weighted XS ratios
+
+Get $R_j(L)$ and $R_c(L)$ weighted by Injury Type $i$ with the normalized XS ratios
+
+$R_j(L) = \sum\limits_i w_{i, j} S_i{\dfrac{L}{\mu_{i, j}}}$
+
+$R_c(L) = \sum\limits_i w_{i, c} S_i{\dfrac{L}{\mu_{i, c}}}$
+
+$\vec{R}_j = (R_j(L_1), R_j(L_2), \ldots, R_j(L_n))$
+
+$\vec{R}_c = (R_c(L_1), R_c(L_2), \ldots, R_c(L_n))$
+
+n = number of limits
+
+Basically just credibility weighting the individual elements
+
+Note that $R_j$ is presumably calculated on a CW basis, since one of the goals was to produce new countrywide HG mappings
+
+###4. Calculating credibility weighted class XS ratio
+
+$\vec{R}^{final}_c = Z\vec{R}_c + (1-Z)\vec{R}_j$
+
+* $Z = min(\frac{n}{n+k}\times 1.5, 1)$
+* n = \# of claims in the class (unrelated to the n used for the # of limits)
+* k = average \# of claims/class
+
+Other credibility options that weren't used (impact was small)
+
+* Use median of k
+* Exclude med only claims
+* Include only serious claims
+* Requiring a minimum # of claims for classes used in the calculation of k
+* Square root rules: $Z = \sqrt{\frac{n}{384}}$ $\Rightarrow$ 95% chance of $n$ being within 10% of expected value
+
+###5. Distance measure for cluster analysis
+
+From 4. we have credibility weighted XS ratio vectors exist for each class; Now group similar vectors into potential HGs
+
+####Distance Measure
+
+Euclidean L^2^ (Used):
+
+${\big|\big|}x-y{\big|\big|}_2 = \sqrt{\sum\limits_{i=1}^n (x_i - y_i)^2}$
+
+* Sqrt to penalize large deviations
+
+L^1^ (Not Used):
+
+${\big| \big|} x-y {\big| \big|}_1 = \sum\limits_{i=1}^n \big|x_i - y_i\big|$
+
+Advantage: Minimizes the relative error in estimating excess premium
+
+* However, analysis not sensitive to distance measure $\Rightarrow$ use traditional euclidean distance
+
+The relative error in estimating XS for class $c$ with limit L $= PLR \times \big| R_j(L) - R_c(L) \big|$
+
+####Standardize XS ratio
+
+Standardize so that each XS ratio will have $\approx$ impact on the cluster
+
+2 different methods:
+
+1. $z_i = \dfrac{x_i - \bar{x}}{s}$
+2. $z_i = \dfrac{x_i - min \: x_i}{max \: x_i - min \: x_i}$
+
+$x_i =$ sample of r.v. with mean $\bar{x}$ and $\sigma \: s$
+
+NCCI didn't standardize before doing the cluster:  
+<span style="color:red">Know</span>
+
+1. Result groups didn't differ much with or without
+2. Standardization eliminates the common denominator; XS ratio at different limits have $\approx$ unit $\Rightarrow$ $\dfrac{\text{Dollar XS Loss}}{\text{Dollar Total Loss}}$
+3. XS ratio $\in [0,1]$; standardized might not
+4. Standardization would have given real data less weight
+    * Greater range of XS at lower limits is a good thing since it is based on actual data (whereas XS ratios at higher limits being based more on fitted loss dist^n^)
+    * Standardization would reduce influence of low loss limits
+
+####K-mean clustering 
+<span style="color:red">Important</span>
+
+Minimize error between class XS ratio $R_c$ and cluster XS ratio $\bar{R}_i$
+
+Steps:
+
+***1. Pick the number of cluster k*** <span style="color:red">Important</span>
+
+Recall that 7 HGs were picked, selected based on tests below:
+
+*Calinski and Harabasz Statistic*
+
+* $\dfrac{Trace(B)/(k-1)}{Trace(W)/(n-k)}$
+    * n = \# of classes
+    * k = \# of HG
+    * B = between cluster sum of square and cross product matrix
+    * W = within cluster sum of square and cross product matrix
+* Higher the statistics $\Rightarrow$ better \# of clusters  
+* Pseudo-F test  
+* NCCI assigned this more weight than CCC below
+
+*Cubic Clustering Criterion*
+
+* Compares the amount of variance explained by a give set of clusters to that expected when clusters are formed randomly based on the multi-dimensional uniform dist^n^
+* High values indicates better performance
+* Less reliable when data is highly correlated
+
+3 variations for each statistics (6 test)
+
+* All classes, classes with 50% and 100% credibility
+* 5/6 test favored 7 group, 1 favored 9 (CCC with all classes)
+* With 9 groups there was crossover in the XS ratios between HGs
+    * i.e. For the same attachment point, XS ratio for a higher HG has a lower XS ratio
+
+Calinski and Harabasz vs Cubic Clustering Criterion
+
+* CH outperformed CCC
+* Less weight for CCC when correlation is present
+* Selection should be driven by the large classes where most of the experience was concentrated
+
+***2. Start with a random initial assignment of classes to the k clusters***
+
+***3. Compute the centroid of each clusters $i$ for the k clusters***
+
+$\overline{R}_i = \dfrac{\sum_{c \in HG_i} w_c \vec{R}_c}{\sum_{c \in HG_i} w_c}$
+
+* Premium weighted centroid XS ratio vector
+* $w_c =$ % of total premium across all classes in all HGs
+* Prevent small classes from having too much influences
+
+***4. For each class, find the closest centroid based on L^2^ distance $\Rightarrow$ Assign the class to that cluster***
+
+***5. Repeat 3 and 4 until no classes are re-assigned***
+
+Goal of k-means clustering:
+
+* Minimizes the within variances and maximize the between variance $\Rightarrow$ HGs are homogeneous and well separated
+* Minimizes: $\sum\limits_{i=1}^k \sum\limits_{c \in HG_i} w_c {\big|\big|} R_c - \overline{R}_i {\big|\big|}^2_2$
+    * $\overline{R} = \frac{1}{\text{# of classes C}} \sum_c R_c$
+* Maximizes: $1 - \dfrac{\sum\limits_{i=1}^k \sum\limits_{c \in HG_i} w_c {\big|\big|} R_c - \overline{R}_i {\big|\big|}^2_2}{\sum\limits_c {\big|\big|} R_c - \overline{R}_i {\big|\big|}^2_2}$
+    * Same as R^2^ in linear regression
+    * % total variance explained by the HGs
+* Think of this as $\dfrac{Trace(B)}{Trace(T)}$ or $1 - \dfrac{Trace(W)}{Trace(T)}$
+
+###6. Underwriter Review
+Considerations:
+
+* Similarity between class codes that were in different groups
+* Degree of exposure to auto accidents in a given class
+* Extend heavy machinery is used in a given class
+* Evaluate likelihood of:
+    * Serious claims from a class
+    * Similar operations between class
+* Evaluate feedback:
+    * Consistency
+    * More weight for cluster for large credibility
+    * Compare class XS ratios to class average of 2 nearest HG
+
+###7. Calculate and publish the final ELFs
+
+Not discussed
+
+##Final Comments
+
+NCCI mapped the new HG back into 4 groups for transition based on:
+
+* Computing XS ratios by class
+* Sorting classes based on XS ratios
+* Cluster analysis

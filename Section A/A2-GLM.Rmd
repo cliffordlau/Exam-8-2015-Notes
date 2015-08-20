@@ -1,0 +1,238 @@
+---
+title: "A2 A Practitioner’s Guide to GLM"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
+---
+
+**GLM**:  
+Measure the relationship that a function of a linear combination of 1 or more explanatory variables has on a single dependent variable that is assumes to come from the exponential family of distributions  
+Generalized -> linked function doesn't have to be the identity function
+Dependent variable doesn't have to be normally distributed
+Model: Pure Premium, frequency, severity, retention, loss development
+
+## Comparison with other methods
+
+One-way analysis
+
+* Distortion by *correlations* among rating variables
+* No consideration on *inter-dependencies* of rating variables on their impact on the dependent variable
+* See 2011 Q3b
+
+Minimum bias
+
+* *No systematic test* on a particular variable's statistical significance
+* *No credible range* for parameter estimates
+* *Lack statistical framework* to assess quality
+* Iterate so not as efficient
+* (Some are special cases of GLM)
+
+Classical linear models
+
+* Normality and constant variance assumptions don't hold
+    * Dependent variable might have restricted range;
+    * Variance might be related to the mean
+* Relationships between predictors might not be just additive
+
+GLM
+
+* Statistical framework -> explicit assumptions on the data and relationship with predictors
+* More efficient than iterative methods
+* Statistical diagnostics in selecting variables and validating model assumptions
+* Adjust for correlations between variables and allows for interaction
+
+## Classical Linear Models
+$i = \text{observations}$  
+$p = \text{variables}$
+
+$Y \sim X$
+
+* $Y$:Observed variable; $Y_i = \text{realization of r.v.} Y$
+    
+* $X$: covariates (predictors, levels of factors)
+
+$Y = \mu + \epsilon = \beta_0 + \beta_1 \times x_1 + \cdots + \beta_p \times x_p + \epsilon = \mathrm{E[Y]} + \epsilon$  
+$Y = X\beta + \epsilon$
+
+$Y \sim N(\mu, \sigma^2)$  
+$\epsilon \sim N(\mu, \sigma^2)$
+
+## Solving CLM by hand
+1. Setup equation
+2. $Y_1 = \beta_0 + \sum\limits_{j=1}^p \beta_j x_j + \epsilon_1$  
+$\vdots$  
+$Y_n = \beta_0 + \sum\limits_{j=1}^p \beta_j x_j + \epsilon_n$
+3. Solve for $\epsilon_i$
+4. Plug in $\epsilon^2_i$ formulas; $SSE = \sum\limits_{i=1}^n \epsilon^2_i$
+5. $\frac{\partial SSE}{\beta_0} = 0 \cdots \frac{\partial SSE}{\beta_p} = 0$
+6. solve for $\beta$
+
+See 2009 Q3
+
+## GLM vs CLM
+
+### 1. Systematic component
+**Both GLM and Classical Linear Model**  
+$\eta = \beta_1 x_1 + \cdots + \beta_p x_p$
+
+### 2. Random component
+**Classical Linear Model**  
+$Y_i \text{'s are } i.i.d. \sim N(\mu_i, \sigma^2)$  
+$Var(Y_i) = \sigma^2$
+
+**GLM**  
+$Y_i \text{'s are} i.i.d.$ from *exponential family* dist^n^  
+$\text{Variance function} = Var(Y_i) = \frac{\phi V(\mu_i)}{\omega_i}$  
+$\phi$ is constant across all observations; scale the variance  
+$\omega_i =$ prior weights; for each $i$
+
+### 3. Link function
+
+$Y = g^{-1}(\eta) + \epsilon$
+
+**Classical Linear Model**  
+$E[Y] = \mu = \eta = \text{identify function}$
+$g^{-1}(x) = x$
+
+**GLM**  
+Must be *differentiable* and *monotonic*  
+$E[Y] = \mu = g^{-1}(\eta)$
+
+## Common exponential family distributions and their variance functions
+
+| Error Distribution | Variance Function |
+| ------------------ | ----------------- |
+| Normal             | $V(x) = 1$        |
+| Poisson            | $V(x) = x$        |
+| Gamma              | $V(x) = x^2$      |
+| Binomial           | $V(x) = x(1 - x)$; \# of trials = 1 |
+| Inverse Gaussian   | $V(x) = x^3$      |
+| Tweedie (Good for PP) | $V(x) = \frac{1}{\lambda}x^p$ where $p<0 \text{ or } 1 < p <2 \text{ or } p >2$ |
+
+**Note**: 
+
+* For Poisson and Gamma, higher variance for larger values -> less weight
+* For Tweedie: $1 < p < 2$ is Poisson Gamma
+
+## Prior weights
+
+Use to give more weight to observations that should have more weight; e.g. if one observation is a day's worth where another is a year's worth
+
+For CLM, $SSE = \sum\limits_{i=1}^n \omega_i\epsilon^2_i$
+
+## Scale Parameter
+
+$\phi = 1$ for Poisson; else must be estimated from data along with $\beta$'s
+
+Don't need $\phi$ to get the $\beta$'s; use for standard error
+
+To estimate $\phi$:
+
+1. MLE (not feasible)
+2. Moment estimator (Pearson $\chi^2$):  
+$\hat \phi = \frac{1}{n-p}\sum\limits_{i=1}^n \frac{\omega_i(Y_i - \mu_i)^2}{V(\mu_i)}$
+3. Total deviance:  
+$\hat \phi = \frac{D}{n-p}$
+
+$n =$ \# of observations  
+$p =$ \# of parameters  
+$D =$ total deviance *(assume given if tested)*  
+For CLM, $D = SSE$
+
+## Common Link Functions
+
+| Link Function | $g(\eta)$   | $g^{-1}(\eta)$ |
+| ------------- | ----------- | -------------- |
+| Identity      | $\eta$      | $\eta$         |
+| Log           | $ln(\eta)$  | $e^{\eta}$     |
+| Logit         | $ln(\frac{\eta}{1 - \eta})$ | $\frac{e^{\eta}}{1 + e^{\eta}}$ |
+
+**Note**:  
+Log is good for freq, sev; makes everything multiplicative  
+Logit is good for retention as is has prob $0 < p < 1$
+
+## Offset Term $(\xi)$
+
+* To fix the impact of an explanatory variable
+* Known quantity for each observation
+* $\eta = \sum\limits_{j=1}^p \beta_j x_j + \xi$
+* Commonly use $\xi_i = ln(\text{exposure}_i)$ when modeling claim *counts* with a log link function
+
+## Common Model Forms
+**Claim frequencies/ counts**
+
+* Multiplicative Poisson
+* Log link; Poisson error
+
+**Claim severity**
+
+* Multiplicative Gamma
+* Log link; Gamma error
+
+**Pure Premium**
+
+* Tweedie
+* Compound Poisson and Gamma
+
+**Probability**
+
+* For p/h retention
+* Logistic
+* Logit link; Binomial error
+
+## Solving GLMs
+
+Use MLE theoretically, numerical technique in practice  
+ML set $\frac{\partial f}{\partial \beta_i} = 0$, solve  
+See 2010 Q3c
+
+## Interpreting Results
+
+log link: $g^{-1}(\eta) = e^{\eta}$  
+$E[Y] = exp(\beta_0 + \beta_1 x_1 + \cdots + \beta_p x_p)$  
+if $Y = \text{Pure Premium} \rightarrow e^{\beta_0} = \text{base rate}$; $e^{\beta_i x_i} = \text{rating factors}$
+
+## Aliasing and near-aliasing
+
+Aliasing = linear dependency among covariates; model not uniquely defined
+
+**Intrinsic Aliasing**
+
+* Linear dependency occurs ***by definitions of the covariates***
+    * Relationships in themselves don't cause intrinsic aliasing
+    * Issue occurs because there are just as many parameters in the model as there are unique levels of the variables
+* Solution: removing a parameter (or 2 parameter and add intercept)
+* Make sure you have fewer $\beta$ than there are unique levels in you model
+
+**Extrinsic Aliasing**
+
+* Linear dependency occurs ***by nature of the data***
+* Perfect correlation in your data
+* Common with missing information across variables (confounding)
+* Solution: remove a covariate
+
+**Near Aliasing**
+
+* Very high correlation in the data
+* Solution: reclassify or delete problematic observations
+* Can lead to convergence problem
+
+## Testing Statistical Significance of Explanatory Variables
+Feature selections
+
+1. Size of CI
+2. Type III testing
+3. See if the parameter estimate is consistent over time
+4. Intuitive that factor should impact result
+
+## Type III Test
+1. Create 2 models, one with the parameters to be tested the other without
+2. Calculate degrees of freedom for each ($df = n - p$)
+3. Calculate deviance *D* or scaled deviance $D^* = 
+\frac{D}{\phi}$; use *D* if $\phi$ is unknown
+4. $\chi^2$ test if we used *D\**: $D^*_1 - D^*_2$  
+*F* test if we used *D*: $\frac{D_1 - D_2}{(df_1 - df_2)/df_2}$
+5. Compare to the appropriate dist^n^ with $(df_1 - df_2)$ *df*  
+If test statistic is larger $\rightarrow$ additional parameters is statistically significant  

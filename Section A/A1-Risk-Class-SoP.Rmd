@@ -1,0 +1,115 @@
+---
+title: "A1 Risk Classification Statement of Principles"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
+---
+
+**Definition**: Risk classification
+
+  * Grouping of risk with similar risk characteristics (expected cost)
+  * Purpose: Setting prices
+  * Challenge is to identify the appropriate risk characteristics to classify the risk
+  * Especially useful when there are no retro/exp rating
+  
+## 3 Primary Purpose
+
+1. **Protect insurance system's financial soundness**
+    * Guard against adverse selection
+2. **Enhance fairness**
+    * Price reflect differences in $\mathrm{E[costs]}$
+    * Insured within same class should have $\approx \mathrm{E[costs]}$
+3. Permit **economic incentives to operate** and encourage widespread **availability of coverage**
+    * Profit incentives:
+        * Insurer makes a profit on all insured -> they'll write all risk
+    * Note that the cost of classification should be < reduction in $\mathrm{E[costs]}$ for the lower cost class
+    
+## 5 Principles to achieve the 3 Primary Purposes
+
+Risk classification system should:
+
+1. Reflect **$\mathrm{E[costs]}$ differences**
+2. **Distinguish** among risks on the basis of *relevant* **cost-related factors**
+3. Applied **objectively**
+4. **Practical** and **cost-effective**
+5. **Acceptable** to the *public*
+
+## 9 Considerations in design
+
+### 1. Underwriting
+Review risk for eligibility or schedule rating  
+Should be $\perp$ of *classification* system criteria
+
+### 2. Marketing
+Need to be able to sell to that type of customer
+
+### 3. Program Design
+The program design differs based on some of the considerations below:
+
+**Degree of choice** available
+
+  * Voluntary vs compulsory
+      * Compulsory: program's main goal is to get everyone on the plan; don't have to worry about adverse selection
+      * Voluntary: buyer has more choice so risk classification helps address the 3 principles
+      
+**Experience** based pricing
+
+  * If rating plans price based on loss experience after insured is in the plan, initial classifications doesn't need to be as sophisticated
+
+**Premium payer**
+
+  * If someone else is paying the premium rather than the insured, they're less likely to minimize their premium; less sophisticated risk class is more appropriate
+      
+### 4. Statistical Criteria 
+<span style="color:red">Memorize</span>
+
+* **Homogeneity**: $\mathrm{E[Costs]} \in$ a class should be $\approx$ with no clear sub classes with different loss potential
+
+* **Credibility**: Class large enough to be statistically credible
+
+* **Predictive Stability**: Prices should be responsive to $\Delta$ in $\mathrm{E[Loss]}$ by class without being too volatile
+
+### 5. Operational Criteria 
+<span style="color:red">Memorize</span>
+
+* **Expense**: Cost of obtaining/maintaining the data
+
+* **Consistency**: Shouldn't have to reclass frequently
+
+* **Availability**: Might have to add deductibles, limits or exclusions to make price more affordable for certain class
+
+* Avoid *extreme* price **discontinuities** between classes
+
+* **Absence of ambiguity**: Classes should be *exhaustive* and *mututally exclusive*
+
+* **Minimize ability for Manipulation**
+
+* **Measurability**
+
+### 6. Harzard Reduction Incentives
+
+### 7. Public Acceptability (Social Criteria)
+
+* ***Not*** **differentiate unfairly** among risks
+* Based on clearly **relevant data**
+* Respect personal **privacy**
+* Risks tend identify naturally with their classification
+
+### 8. Casuality (Social Criteria)
+
+Clear cause & effect will increase public acceptability; Nice to have but not a criteria
+
+### 9. Controllability (Social Criteria)
+
+Encourages risk mitigation but subject to manipulation; Nice to have but not a criteria
+
+## Evaluating a rating variable
+
+Likely exam question will be to evaluate a new rating variable against the considerations above
+
+## Good prior questions
+
+2008 Q2
+2013 Q8
