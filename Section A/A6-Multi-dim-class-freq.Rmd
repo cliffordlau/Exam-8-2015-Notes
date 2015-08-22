@@ -21,5 +21,31 @@ Use correlations between different injury types to build a model based on less-s
 
 This also shows that the current NCCI practice of using the same ELFs for all classes within a hazard group can be further refined
 
-## Injury Types
+Focuse on the frequencies relativities
+
+* Same accident can produce any injuries $\Rightarrow$ Correlation between relative frequency for different injury types
+
+* Can use more data (from smaller injury) to better predict larger claims from more infrequent types
+
+## Injury Types Definition
+
+In the order of increasing severity  
+(Frequency generally goes $\downarrow$ as you move down the list)
+
+$\begin{align}
+  \text{Med} &= \text{Med Only}\\
+  \text{TT} &= \text{Temporary Total}\\
+  \text{Minor PP} &= \text{Minor Permanent Partial}\\
+  \text{Minor PP} &= \text{Minor Permanent Partial} &= Y\\
+  \text{Major PP} &= \text{Major Permanent Partial} &= X\\
+  \text{PT} &= \text{Permanent Total} &= W\\
+  \text{F} &= \text{Fatal} &= V\\
+\end{align}$
+
+## Variables in the Analysis
+
+Looks at $\dfrac{\text{Claim Counts}_{Type}}{TT}$
+  
+* For every class code within the HG
+* Look at TT claim as an exposure that could produce more severe claim
 
