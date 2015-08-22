@@ -50,7 +50,7 @@ Looks at $\dfrac{\text{Claim Counts}_{Type}}{TT}$
 * For every class code within the HG
 * Look at TT claim as an exposure that could produce more severe claim
 
-| ${\color{red}\Box}$ | ${\color{blue}{\color{blue}\boxdot}}$ | ${\color{green}{\color{green}\boxtimes}}$  |
+| ${\color{red}\Box}$ | ${\color{blue}\boxdot}$ | ${\color{green}\boxtimes}$  |
 | ------ | --------- | ------------ |
 | V      | v         | F Claims     |
 | W      | w         | PT Claims    |
@@ -92,8 +92,7 @@ ${\color{red}\Box}_h = \dfrac{\sum\limits_{i=1}^N m_{h,t}{\color{red}\Box}_{h,t}
 
 Assumes variance ${\color{red}\Box}_i$ decreases as $m_i$ increases
 
-## The Multi-Dimensional Credibility Procedure
-<span style="color:red">Hard to test</span>
+## The Multi-Dimensional Credibility Procedure <span style="color:red">Hard to test</span>
 
 Goal:  
 Estimate population mean using credibility weighted $V_i, W_i, X_i, Y_i$ $\Rightarrow$ $v_i, w_i, x_i, y_i$
@@ -117,13 +116,113 @@ $\left[
   \end{array}
 \right] = 
 \left[
-  \begin{array}{cccc}
+  \begin{matrix}
     Var(V_i) & Cov(V_i W_i) & Cov(V_i, X_i) & Cov(V_i, Y_i)\\
     Cov(W_i, V_i) & Var(W_i) & & \vdots\\
     Cov(X_i, V_i) & & \ddots & \vdots\\
     Cov(Y_i, V_i) & \cdots & \cdots & \vdots\\
-  \end{array}
-\right]$
+  \end{matrix}
+\right] \times
+\begin{bmatrix}
+  b_{{\color{blue}\boxdot},i}\\
+  c_{{\color{blue}\boxdot},i}\\  
+  d_{{\color{blue}\boxdot},i}\\
+  e_{{\color{blue}\boxdot},i}\\
+\end{bmatrix}$
 
-    
+$Cov({\color{red}\Box}_i, {\color{blue}\boxdot}_i) = \widehat{\text{VHM}}_{\color{red}\Box} = \dfrac{\sum\limits_{i=1}^R m_i ({\color{red}\Box}_i - {\color{red}\Box}_h)^2 - (R - 1)\widehat{\text{EPV}}_{\color{red}\Box}}{m_h - m_h^{-1}\sum\limits_{i=1}^R m_i^2}$
+
+$\widehat{\text{EPV}}_{\color{red}\Box} = \dfrac{\sum\limits_{i=1}^R \sum\limits_{i=1}^N m_{i,t}({\color{red}\Box}_{i,t} - {\color{red}\Box}_i)^2}{R(N - 1)}$
+
+$Var({\color{red}\Box}_i) = \dfrac{\widehat{\text{EPV}}_{\color{red}\Box}}{m_i} + widehat{\text{VHM}}_{\color{red}\Box}$
+
+$\begin{align}
+Cov({\color{red}\Box}_i,{\color{yellow}\Box}_i) &= Cov({\color{red}\boxdot}_i,{\color{yellow}\Box}_i)\\
+  &= Cov({\color{red}\Box}_i,{\color{yellow}\boxdot}_i)\\
+  &= \mathrm{E}[({\color{red}\Box}_i - {\color{red}\Box}_h)({\color{yellow}\Box}_i - {\color{yellow}\Box}_h)]\\
+  &= \dfrac{\sum\limits_{i=1}^R ({\color{red}\Box}_i - {\color{red}\Box}_h)({\color{yellow}\Box}_i - {\color{yellow}\Box}_h) m_i}{m_h}\\
+  &= \frac{1}{m_h}\sum\limits_{i=1}^R({\color{red}\Box}_i{\color{yellow}\Box}_i m_i) - {\color{red}\Box}_h{\color{yellow}\Box}_h
+\end{align}$
+
+$\begin{align}
+  \mathrm{E}[{\color{blue}\boxdot} | i] = \mathrm{E}[{\color{red}\Box}] &+ b_{\color{blue}\boxdot}(V_i - \mathrm{E}[V])\\
+  &+ c_{\color{blue}\boxdot}(W_i - \mathrm{E}[W])\\
+  &+ d_{\color{blue}\boxdot}(X_i - \mathrm{E}[X])\\
+  &+ e_{\color{blue}\boxdot}(Y_i - \mathrm{E}[Y])
+\end{align}$
+
+##Calculating Expected Excess Losses <span style="color:red">Calculation</span>
+
+Expected XS losses at limit $L$ for class $i$ for ${\color{green}\boxtimes}$
+
+<span style="color:red; background-color:yellow">Formula</span>  
+$\begin{align}
+  \mathrm{E}[XSLoss_{{\color{red}\Box},i}(L)] = \frac{\text{payroll}_i}{100} &\times \: \text{Frequency}_{TT,i} \times \text{Severity}_{TT,i}\\
+  &\times \: \hat{{\color{blue}\boxdot}_i} \times \text{SeverityRel}_{{\color{red}\Box},i}\\
+  &\times \: (1 - \text{LER}_{{\color{red}\Box},i}(L))
+\end{align}$
+
+$\text{SeverityRel}_{{\color{red}\Box},i} = \dfrac{\text{Severity}_{\color{red}\Box}}{\text{Severity}_{TT}} \text{ for class }i$
+
+$\text{LER}_{{\color{red}\Box},i}(L) =$ Loss Elimination Ratio at limit $L$ for ${\color{green}\boxtimes}$ in class $i$
+
+$\mathrm{E}[XSLoss_i(L)] =\sum\limits_{\color{red}\Box} \mathrm{E}[XSLoss_{{\color{red}\Box},i}(L)]$
+
+## Testing the Results
+
+Test if there is an improvement in the estimate for injury type ratios
   
+Compare the 3 different options on calculating the injury type ratios:
+
+* HG injury type ratios (e.g. $V_h$)
+* Raw sample data injury type ratios (e.g. $V_i$)
+* Credibility procedure (e.g. $\hat{v}_i$)
+
+See which one best predict the injury type ratios for the holdout sample results using the data from the training set (split by even and odd years)
+
+Injury type ratios for the holdout sample are calculated just like the raw sample
+
+###Sum of Squared Error Tests
+
+$\begin{array}{lll}
+  \text{HG Method:} &SSE_h &= \sum({\color{red}\Box}_h - {\color{red}\Box}_{holdout})^2\\
+  \text{Raw Sample Method:} &SSE_{raw} &= \sum({\color{red}\Box}_i - {\color{red}\Box}_{holdout})^2\\
+  \text{Credibility Proc Method:} &SSE_{cred} &= \sum(\hat{{\color{blue}\boxdot}}_i - {\color{red}\Box}_{holdout})^2
+\end{array}$
+
+For each injury type ${\color{red}\Box}$ and HG $h$, calculate the above over all classes $i$
+
+Credibility Proc has the lowest SSE but not by much  
+Justification:
+
+* Estimators derived from the even year data are designed to fit that data
+* Class data by year is volatile
+
+###Quintiles Test <span style="color:red">Calculation</span>
+
+Procedure (for each combination of injury type and HG):
+
+1. Sort the injury type relativities produced by the credibility proc for all classes in increasing order i.e. sort the $\hat{{\color{blue}\boxdot}}_i$
+2. Use the above to classify classes into quintiles
+3. Group classes into 5 quintiles
+    * Each quintile should have about the same number of TT claims
+    * Same class can be in different quintiles for different injury types
+    * For a given injury type, the class will be in the same quintile in the holdout sample as it is from the modeled dataset <span stype="color:red">Not sure what this means</span>
+4. $\forall$ quintile, calculate $\dfrac{\overline{\text{injury type relativity}}_{class}}{\text{injury type relativity}_{HG}}$
+    * Do this for all 3 methods and the holdout sample
+5. Calculate the SSE:  
+$\begin{array}{lll}
+  \text{HG Method:} &SSE_h &= \sum\limits_{quintiles}(1 - \dfrac{{\color{red}\Box}_{holdout, quintile}^*}{{\color{red}\Box}_{holdout, h}})^2\\
+  \text{Raw Sample Method:} &SSE_{raw} &= \sum\limits_{quintiles}(\dfrac{{\color{red}\Box}_{i,quintile}^*}{{\color{red}\Box}_{h}} - \dfrac{{\color{red}\Box}_{holdout, quintile}^*}{{\color{red}\Box}_{holdout, h}})^2\\
+  \text{Credibility Proc Method:} &SSE_{cred} &= \sum\limits_{quintiles}(\dfrac{\hat{{\color{blue}\boxdot}}_{i, quintile}^*}{{\color{red}\Box}_{h}} - \dfrac{{\color{red}\Box}_{holdout, quintile}^*}{{\color{red}\Box}_{holdout, h}})^2
+\end{array}$
+
+    * Note the \* represents the average of the injury type ratio in that quintile
+6. The method with the lowest SSE = best
+    * Use this method’s injury type ratio for that particular injury for that particular class
+    
+This showed substantial reduction in the SSE
+
+* Just means that using quintile injury type ratios is more accurate than HG level ratios, but not necessarily that the procedure is appropriate for class-level estimation
+
+Note that if the classes in a HG are very homogeneous $\Rightarrow$ The injury type ratios won't vary much within that HG $\Rightarrow$ Cred Proc won't have much of an improvement
