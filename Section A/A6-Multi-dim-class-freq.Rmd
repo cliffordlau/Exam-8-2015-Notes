@@ -50,7 +50,7 @@ Looks at $\dfrac{\text{Claim Counts}_{Type}}{TT}$
 * For every class code within the HG
 * Look at TT claim as an exposure that could produce more severe claim
 
-| ${\color{red}\Box}$ | ${\color{blue}\boxdot}$ | ${\color{green}\boxtimes}$  |
+| ${\color{red}\Box}$ | ${\color{blue}{\color{blue}\boxdot}}$ | ${\color{green}\boxtimes}$  |
 | ------ | --------- | ------------ |
 | V      | v         | F Claims     |
 | W      | w         | PT Claims    |
@@ -98,22 +98,22 @@ Assumes variance ${\color{red}\Box}_i$ decreases as $m_i$ increases
 Goal:  
 Estimate population mean using credibility weighted $V_i, W_i, X_i, Y_i$ $\Rightarrow$ $v_i, w_i, x_i, y_i$
 
-Find credibility factors $b_{\boxdot,i}, c_{\boxdot,i}, d_{\boxdot,i}, e_{\boxdot,i}$
+Find credibility factors $b_{{\color{blue}\boxdot},i}, c_{{\color{blue}\boxdot},i}, d_{{\color{blue}\boxdot},i}, e_{{\color{blue}\boxdot},i}$
 
 **Estimate of population mean:**
 
-$\hat{\boxdot}_i = {\color{red}\Box}_h + b_{\boxdot, i}(V_i - V_h) + c_{\boxdot, i}(W_i - W_h) + d_{\boxdot, i}(X_i - X_h) + e_{\boxdot, i}(Y_i - Y-h)$
+$\hat{{\color{blue}\boxdot}}_i = {\color{red}\Box}_h + b_{{\color{blue}\boxdot}, i}(V_i - V_h) + c_{{\color{blue}\boxdot}, i}(W_i - W_h) + d_{{\color{blue}\boxdot}, i}(X_i - X_h) + e_{{\color{blue}\boxdot}, i}(Y_i - Y-h)$
 
 * If credibilities are 0 $\Rightarrow$ Estimate = HG ratios ${\color{red}\Box}_h$
 
-To solve for $b_{\boxdot,i}, c_{\boxdot,i}, d_{\boxdot,i}, e_{\boxdot,i}$ for a given Injury Type $\boxdot$, solve the matrix below:
+To solve for $b_{{\color{blue}\boxdot},i}, c_{{\color{blue}\boxdot},i}, d_{{\color{blue}\boxdot},i}, e_{{\color{blue}\boxdot},i}$ for a given Injury Type ${\color{blue}\boxdot}$, solve the matrix below:
 
 $\left[
   \begin{array}{c}
-    Cov(V_i, \boxdot_i)\\
-    Cov(W_i, \boxdot_i)\\
-    Cov(X_i, \boxdot_i)\\
-    Cov(Y_i, \boxdot_i)\\
+    Cov(V_i, {\color{blue}\boxdot}_i)\\
+    Cov(W_i, {\color{blue}\boxdot}_i)\\
+    Cov(X_i, {\color{blue}\boxdot}_i)\\
+    Cov(Y_i, {\color{blue}\boxdot}_i)\\
   \end{array}
 \right] = 
 \left[
