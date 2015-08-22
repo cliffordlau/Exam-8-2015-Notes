@@ -50,7 +50,7 @@ Looks at $\dfrac{\text{Claim Counts}_{Type}}{TT}$
 * For every class code within the HG
 * Look at TT claim as an exposure that could produce more severe claim
 
-| ${\color{red}\Box}$ | ${\color{blue}{\color{blue}\boxdot}}$ | ${\color{green}\boxtimes}$  |
+| ${\color{red}\Box}$ | ${\color{blue}{\color{blue}\boxdot}}$ | ${\color{green}{\color{green}\boxtimes}}$  |
 | ------ | --------- | ------------ |
 | V      | v         | F Claims     |
 | W      | w         | PT Claims    |
@@ -68,7 +68,7 @@ $N = \text{# of years in sample}$
 
 $m_i = \sum\limits_{t=1}^N m_{i,t}$
 
-${\color{red}\Box}_{i,t} = \dfrac{\text{# of } \boxtimes \text{ in class } i \text{ in year } t}{m_{i,t}}$
+${\color{red}\Box}_{i,t} = \dfrac{\text{# of } {\color{green}\boxtimes} \text{ in class } i \text{ in year } t}{m_{i,t}}$
 
 * Claim count relativity by class and year
 
@@ -82,7 +82,7 @@ $m_{h,t} = \text{# of TT claims in HG } h \text{ in year } t$
 
 $m_h = \sum\limits_{t=1}^N m_{h,t} = \sum\limits_{i=1}^R\sum\limits_{t=1}^N m_{i,t}$
 
-${\color{red}\Box}_{h,t} = \dfrac{\text{# of } \boxtimes \text{ in HG } h \text{ in year } t}{m_{h,t}}$
+${\color{red}\Box}_{h,t} = \dfrac{\text{# of } {\color{green}\boxtimes} \text{ in HG } h \text{ in year } t}{m_{h,t}}$
 
 * Claim count relativity by HG and year
 
