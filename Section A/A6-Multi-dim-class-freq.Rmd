@@ -30,17 +30,18 @@ Focuse on the frequencies relativities
 ## Injury Types Definition
 
 In the order of increasing severity  
-(Frequency generally goes $\downarrow$ as you move down the list)
+(Frequency generally goes $\downarrow$ as you move down the list, except PT is more severe than Fatal)
 
 $\begin{align}
   \text{Med} &= \text{Med Only}\\
-  \text{TT} &= \text{Temporary Total}\\
-  \text{Minor PP} &= \text{Minor Permanent Partial}\\
-  \text{Minor PP} &= \text{Minor Permanent Partial} &= Y\\
-  \text{Major PP} &= \text{Major Permanent Partial} &= X\\
-  \text{PT} &= \text{Permanent Total} &= W\\
-  \text{F} &= \text{Fatal} &= V\\
+  \text{TT} &= \text{Temporary Total} &= m\\
+  \text{Minor PP} &= \text{Minor Permanent Partial} &= y\\
+  \text{Major PP} &= \text{Major Permanent Partial} &= x\\
+  \text{PT} &= \text{Permanent Total} &= w\\
+  \text{F} &= \text{Fatal} &= v\\
 \end{align}$
+
+Letter = \# of claims
 
 ## Variables in the Analysis
 
@@ -49,3 +50,80 @@ Looks at $\dfrac{\text{Claim Counts}_{Type}}{TT}$
 * For every class code within the HG
 * Look at TT claim as an exposure that could produce more severe claim
 
+| ${\color{red}\Box}$ | ${\color{blue}\boxdot}$ | ${\color{green}\boxtimes}$  |
+| ------ | --------- | ------------ |
+| V      | v         | F Claims     |
+| W      | w         | PT Claims    |
+| X      | x         | Major Claims |
+| Y      | y         | Minor Claims |
+
+### For class code $i$ in year $t$
+
+$m_{i,t} = \text{# of TT claims in class code } i \text{ in year } t$
+
+* $i = 1, \ldots, R$  
+$R = \text{# of classes in HG }h$
+* $t = 1, \ldots, N$  
+$N = \text{# of years in sample}$
+
+$m_i = \sum\limits_{t=1}^N m_{i,t}$
+
+${\color{red}\Box}_{i,t} = \dfrac{\text{# of } \boxtimes \text{ in class } i \text{ in year } t}{m_{i,t}}$
+
+* Claim count relativity by class and year
+
+${\color{red}\Box}_i = \dfrac{\sum\limits_{i=1}^N m_{i,t}{\color{red}\Box}_{i,t}}{m_i}$
+
+* Claim count relativity by class
+
+### For HG $h$ in year $t$
+
+$m_{h,t} = \text{# of TT claims in HG } h \text{ in year } t$
+
+$m_h = \sum\limits_{t=1}^N m_{h,t} = \sum\limits_{i=1}^R\sum\limits_{t=1}^N m_{i,t}$
+
+${\color{red}\Box}_{h,t} = \dfrac{\text{# of } \boxtimes \text{ in HG } h \text{ in year } t}{m_{h,t}}$
+
+* Claim count relativity by HG and year
+
+${\color{red}\Box}_h = \dfrac{\sum\limits_{i=1}^N m_{h,t}{\color{red}\Box}_{h,t}}{m_h}$
+
+* Claim count relativity by HG
+
+Assumes variance ${\color{red}\Box}_i$ decreases as $m_i$ increases
+
+## The Multi-Dimensional Credibility Procedure
+<span style="color:red">Hard to test</span>
+
+Goal:  
+Estimate population mean using credibility weighted $V_i, W_i, X_i, Y_i$ $\Rightarrow$ $v_i, w_i, x_i, y_i$
+
+Find credibility factors $b_{\boxdot,i}, c_{\boxdot,i}, d_{\boxdot,i}, e_{\boxdot,i}$
+
+**Estimate of population mean:**
+
+$\hat{\boxdot}_i = {\color{red}\Box}_h + b_{\boxdot, i}(V_i - V_h) + c_{\boxdot, i}(W_i - W_h) + d_{\boxdot, i}(X_i - X_h) + e_{\boxdot, i}(Y_i - Y-h)$
+
+* If credibilities are 0 $\Rightarrow$ Estimate = HG ratios ${\color{red}\Box}_h$
+
+To solve for $b_{\boxdot,i}, c_{\boxdot,i}, d_{\boxdot,i}, e_{\boxdot,i}$ for a given Injury Type $\boxdot$, solve the matrix below:
+
+$\left[
+  \begin{array}{c}
+    Cov(V_i, \boxdot_i)\\
+    Cov(W_i, \boxdot_i)\\
+    Cov(X_i, \boxdot_i)\\
+    Cov(Y_i, \boxdot_i)\\
+  \end{array}
+\right] = 
+\left[
+  \begin{array}{cccc}
+    Var(V_i) & Cov(V_i W_i) & Cov(V_i, X_i) & Cov(V_i, Y_i)\\
+    Cov(W_i, V_i) & Var(W_i) & & \vdots\\
+    Cov(X_i, V_i) & & \ddots & \vdots\\
+    Cov(Y_i, V_i) & \cdots & \cdots & \vdots\\
+  \end{array}
+\right]$
+
+    
+  

@@ -69,7 +69,11 @@ img {
 <ul>
 <li><a href="#intro">Intro</a></li>
 <li><a href="#injury-types-definition">Injury Types Definition</a></li>
-<li><a href="#variables-in-the-analysis">Variables in the Analysis</a></li>
+<li><a href="#variables-in-the-analysis">Variables in the Analysis</a><ul>
+<li><a href="#for-class-code-i-in-year-t">For class code <span class="math">\(i\)</span> in year <span class="math">\(t\)</span></a></li>
+<li><a href="#for-hg-h-in-year-t">For HG <span class="math">\(h\)</span> in year <span class="math">\(t\)</span></a></li>
+</ul></li>
+<li><a href="#the-multi-dimensional-credibility-procedure">The Multi-Dimensional Credibility Procedure</a></li>
 </ul>
 </div>
 
@@ -90,8 +94,9 @@ img {
 </div>
 <div id="injury-types-definition" class="section level2">
 <h2>Injury Types Definition</h2>
-<p>In the order of increasing severity<br />(Frequency generally goes <span class="math">\(\downarrow\)</span> as you move down the list)</p>
-<p><span class="math">\(\begin{align}  \text{Med} &amp;= \text{Med Only}\\  \text{TT} &amp;= \text{Temporary Total}\\  \text{Minor PP} &amp;= \text{Minor Permanent Partial}\\  \text{Minor PP} &amp;= \text{Minor Permanent Partial} &amp;= Y\\  \text{Major PP} &amp;= \text{Major Permanent Partial} &amp;= X\\  \text{PT} &amp;= \text{Permanent Total} &amp;= W\\  \text{F} &amp;= \text{Fatal} &amp;= V\\ \end{align}\)</span></p>
+<p>In the order of increasing severity<br />(Frequency generally goes <span class="math">\(\downarrow\)</span> as you move down the list, except PT is more severe than Fatal)</p>
+<p><span class="math">\(\begin{align}  \text{Med} &amp;= \text{Med Only}\\  \text{TT} &amp;= \text{Temporary Total} &amp;= m\\  \text{Minor PP} &amp;= \text{Minor Permanent Partial} &amp;= y\\  \text{Major PP} &amp;= \text{Major Permanent Partial} &amp;= x\\  \text{PT} &amp;= \text{Permanent Total} &amp;= w\\  \text{F} &amp;= \text{Fatal} &amp;= v\\ \end{align}\)</span></p>
+<p>Letter = # of claims</p>
 </div>
 <div id="variables-in-the-analysis" class="section level2">
 <h2>Variables in the Analysis</h2>
@@ -100,6 +105,81 @@ img {
 <li>For every class code within the HG</li>
 <li>Look at TT claim as an exposure that could produce more severe claim</li>
 </ul>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><span class="math">\({\color{red}\Box}\)</span></th>
+<th align="left"><span class="math">\({\color{blue}\boxdot}\)</span></th>
+<th align="left"><span class="math">\({\color{green}\boxtimes}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">V</td>
+<td align="left">v</td>
+<td align="left">F Claims</td>
+</tr>
+<tr class="even">
+<td align="left">W</td>
+<td align="left">w</td>
+<td align="left">PT Claims</td>
+</tr>
+<tr class="odd">
+<td align="left">X</td>
+<td align="left">x</td>
+<td align="left">Major Claims</td>
+</tr>
+<tr class="even">
+<td align="left">Y</td>
+<td align="left">y</td>
+<td align="left">Minor Claims</td>
+</tr>
+</tbody>
+</table>
+<div id="for-class-code-i-in-year-t" class="section level3">
+<h3>For class code <span class="math">\(i\)</span> in year <span class="math">\(t\)</span></h3>
+<p><span class="math">\(m_{i,t} = \text{# of TT claims in class code } i \text{ in year } t\)</span></p>
+<ul>
+<li><span class="math">\(i = 1, \ldots, R\)</span><br /><span class="math">\(R = \text{# of classes in HG }h\)</span></li>
+<li><span class="math">\(t = 1, \ldots, N\)</span><br /><span class="math">\(N = \text{# of years in sample}\)</span></li>
+</ul>
+<p><span class="math">\(m_i = \sum\limits_{t=1}^N m_{i,t}\)</span></p>
+<p><span class="math">\({\color{red}\Box}_{i,t} = \dfrac{\text{# of } \boxtimes \text{ in class } i \text{ in year } t}{m_{i,t}}\)</span></p>
+<ul>
+<li>Claim count relativity by class and year</li>
+</ul>
+<p><span class="math">\({\color{red}\Box}_i = \dfrac{\sum\limits_{i=1}^N m_{i,t}{\color{red}\Box}_{i,t}}{m_i}\)</span></p>
+<ul>
+<li>Claim count relativity by class</li>
+</ul>
+</div>
+<div id="for-hg-h-in-year-t" class="section level3">
+<h3>For HG <span class="math">\(h\)</span> in year <span class="math">\(t\)</span></h3>
+<p><span class="math">\(m_{h,t} = \text{# of TT claims in HG } h \text{ in year } t\)</span></p>
+<p><span class="math">\(m_h = \sum\limits_{t=1}^N m_{h,t} = \sum\limits_{i=1}^R\sum\limits_{t=1}^N m_{i,t}\)</span></p>
+<p><span class="math">\({\color{red}\Box}_{h,t} = \dfrac{\text{# of } \boxtimes \text{ in HG } h \text{ in year } t}{m_{h,t}}\)</span></p>
+<ul>
+<li>Claim count relativity by HG and year</li>
+</ul>
+<p><span class="math">\({\color{red}\Box}_h = \dfrac{\sum\limits_{i=1}^N m_{h,t}{\color{red}\Box}_{h,t}}{m_h}\)</span></p>
+<ul>
+<li>Claim count relativity by HG</li>
+</ul>
+<p>Assumes variance <span class="math">\({\color{red}\Box}_i\)</span> decreases as <span class="math">\(m_i\)</span> increases</p>
+</div>
+</div>
+<div id="the-multi-dimensional-credibility-procedure" class="section level2">
+<h2>The Multi-Dimensional Credibility Procedure</h2>
+<p><span style="color:red">Hard to test</span></p>
+<p>Goal:<br />Estimate population mean using credibility weighted <span class="math">\(V_i, W_i, X_i, Y_i\)</span> <span class="math">\(\Rightarrow\)</span> <span class="math">\(v_i, w_i, x_i, y_i\)</span></p>
+<p>Find credibility factors <span class="math">\(b_{\boxdot,i}, c_{\boxdot,i}, d_{\boxdot,i}, e_{\boxdot,i}\)</span></p>
+<p><strong>Estimate of population mean:</strong></p>
+<p><span class="math">\(\hat{\boxdot}_i = {\color{red}\Box}_h + b_{\boxdot, i}(V_i - V_h) + c_{\boxdot, i}(W_i - W_h) + d_{\boxdot, i}(X_i - X_h) + e_{\boxdot, i}(Y_i - Y-h)\)</span></p>
+<ul>
+<li>If credibilities are 0 <span class="math">\(\Rightarrow\)</span> Estimate = HG ratios <span class="math">\({\color{red}\Box}_h\)</span></li>
+</ul>
+<p>To solve for <span class="math">\(b_{\boxdot,i}, c_{\boxdot,i}, d_{\boxdot,i}, e_{\boxdot,i}\)</span> for a given Injury Type <span class="math">\(\boxdot\)</span>, solve the matrix below:</p>
+<p><span class="math">\(\left[  \begin{array}{c}  Cov(V_i, \boxdot_i)\\  Cov(W_i, \boxdot_i)\\  Cov(X_i, \boxdot_i)\\  Cov(Y_i, \boxdot_i)\\  \end{array} \right] = \left[  \begin{array}{cccc}  Var(V_i) &amp; Cov(V_i W_i) &amp; Cov(V_i, X_i) &amp; Cov(V_i, Y_i)\\  Cov(W_i, V_i) &amp; Var(W_i) &amp; &amp; \vdots\\  Cov(X_i, V_i) &amp; &amp; \ddots &amp; \vdots\\  Cov(Y_i, V_i) &amp; \cdots &amp; \cdots &amp; \vdots\\  \end{array} \right]\)</span></p>
 </div>
 
 
