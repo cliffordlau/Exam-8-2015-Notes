@@ -1,0 +1,80 @@
+---
+title: "Section B Overview"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
+---
+
+##Beyond Classification Ratemaking
+
+Workers Comp focus
+
+Policy rating considerations:
+
+* Coverages:
+    * Deductibles
+    * XS
+    * Increased limits
+    * x Med
+* Loss sensitive
+    * Experience rating
+    * Retrospective rating
+* Catastrophe pricing (Section C)
+* Reinsurance pricing (Section C)
+
+##Deductible and XS Rating
+
+Deductible allow insured to retain risk $\Rightarrow$ Lower premiums
+
+Claims handling may or may not be done by the insurer
+
+Need $\mathrm{E}[Loss \geq Deductible]$
+
+Increased limit pricing
+
+*Lee 1, Mahler 2&3, Miccolis, Gillam & Sander 3, Teng*
+
+##Experience Rating
+
+Advantages:
+
+* Premium more fair (loss dependent on other risks)
+* Loss control incentives
+* More accurate premiums $\Rightarrow$ Insurer writes more business
+
+Applied with a single e-mod factor
+
+Credibility weighted between $Exp_{Actual}$ and $Exp_{Expected}$
+
+May limit losses from having unusually large impacts (Ballast Value)
+
+May split primary and XS losses to reflect frequency (NCCI)
+
+*Gillam, Gillam & Snader 1, ISO, NCCI, 1&2, Venter*
+
+##Retrospective Rating
+
+Similar to experience rating and maybe applied on top of the e-mod
+
+May have deductible
+
+Initial premium is charged up front
+
+Retro premium adjustments made starting at some point (e.g. 6mo after policy term) and  are made every 12 months after based on actual losses until agreement to finalize premium
+
+May include ALAE (Losses used fro retro premium calculation)
+
+May subject to min and max
+
+* Priced using Table M
+* Charge for max and savings for min
+
+May subject to individual and/or aggregate loss limits
+
+* Priced with limited loss table M
+* or standard Table M with lookup adjustments
+* or Table L
+
+*Brosius, Fisher, Gillam & Snader 2, Lee 2, NCCI 3, Skurnick*
