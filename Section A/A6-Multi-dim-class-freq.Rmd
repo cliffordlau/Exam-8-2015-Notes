@@ -211,6 +211,7 @@ Procedure (for each combination of injury type and HG):
 4. $\forall$ quintile, calculate $\dfrac{\overline{\text{injury type relativity}}_{class}}{\text{injury type relativity}_{HG}}$
     * Do this for all 3 methods and the holdout sample
 5. Calculate the SSE:  
+<span style="color:red; background-color:yellow">Formula</span>  
 $\begin{array}{lll}
   \text{HG Method:} &SSE_h &= \sum\limits_{quintiles}(1 - \dfrac{{\color{red}\Box}_{holdout, quintile}^*}{{\color{red}\Box}_{holdout, h}})^2\\
   \text{Raw Sample Method:} &SSE_{raw} &= \sum\limits_{quintiles}(\dfrac{{\color{red}\Box}_{i,quintile}^*}{{\color{red}\Box}_{h}} - \dfrac{{\color{red}\Box}_{holdout, quintile}^*}{{\color{red}\Box}_{holdout, h}})^2\\
