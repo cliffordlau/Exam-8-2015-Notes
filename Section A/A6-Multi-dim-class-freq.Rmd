@@ -21,7 +21,7 @@ Use correlations between different injury types to build a model based on less-s
 
 This also shows that the current NCCI practice of using the same ELFs for all classes within a hazard group can be further refined
 
-Focuse on the frequencies relativities
+Focus on the frequencies relativities
 
 * Same accident can produce any injuries $\Rightarrow$ Correlation between relative frequency for different injury types
 
@@ -207,7 +207,7 @@ Procedure (for each combination of injury type and HG):
 3. Group classes into 5 quintiles
     * Each quintile should have about the same number of TT claims
     * Same class can be in different quintiles for different injury types
-    * For a given injury type, the class will be in the same quintile in the holdout sample as it is from the modeled dataset <span stype="color:red">Not sure what this means</span>
+    * For a given injury type, the class will be in the same quintile in the holdout sample as it is from the modeled dataset <span style="color:red">Not sure what this means</span>
 4. $\forall$ quintile, calculate $\dfrac{\overline{\text{injury type relativity}}_{class}}{\text{injury type relativity}_{HG}}$
     * Do this for all 3 methods and the holdout sample
 5. Calculate the SSE:  
