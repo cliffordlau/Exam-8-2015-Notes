@@ -1,0 +1,152 @@
+---
+title: "Retrospective Rating"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
+---
+
+##Recall: Prospective WC Rating
+
+<span style="color:green">2000 Q6</span>
+
+$\begin{align}
+  \text{Premium} = &\sum\limits_{i \in class} \dfrac{Payroll_i}{100} \text{Manual Rate}_i &\cdots (1)\\
+  &\times \: \text{Exp Mod} &\cdots (2)\\ 
+  &\times \: \text{Sch Mod} &\cdots (3)\\
+  &\times \: (1 - \text{Premium Discount %}) &\cdots (4)
+\end{align}$
+
+$(1)$ **Manual Premium**
+
+$(1) \times (2)$ **Modified Premium**
+
+$(1) \times (2) \times (3)$ **Standard Premium**
+
+* Authorized rates + E-mod + Loss constant + Min Premium
+
+$(1) \times (2) \times (3) \times (4)$ **Guaranteed Cost Premium**
+
+* Assume no expense fee
+* Reflects lower proportion of fixed expense for larger risk
+    * Usually calculated by Standard Premium tiers
+    
+##Retrospecitive Rating: Intro
+
+Uses insured's loss experience during the current policy term to determine their current policy premium
+
+Initial premium collected at the start (deposit premium) $\Rightarrow$ Adjust based on reported loss starting 6 months after policy expires, then every 12 months after
+
+$\text{Premium} = \left[\text{U/W Expense & Profit xTax} + \left(1 + \dfrac{\mathrm{E}[LAE]}{\mathrm{E}[Loss]}\right) \times Loss_{actual}\right] \times \text{Tax Multiplier}$
+
+There's always going to be a max and min premium or else this would defeat the purpose of risk transfer
+
+Caps are applied to the premium amount $\equiv$ Capping actual losses at max/min aggregate loss limits $\Rightarrow$ Add a charge to the premium calculation to account for this
+
+In addition to aggregate caps, can also limit losses per occurence (Use limited losses in the retro premium calculation) $\Rightarrow$ A seperate charge to the premium calculation to account for the per occurence limit
+
+With both occurence and agg limits, need to consider the overlap between the 2 charges
+
+##Retrospective Rating: w/o Occurence Limit
+
+NCCI retro premium formula for each individual policy
+
+$R = (b + C \times A + P \times C \times V) \times T$ <span style="color:red; background-color:yellow">Memorize</span>
+
+* $R$: Retro premium @ t $\in [G, H]$
+
+* $b$: Basic premium = Profit + Charge for max/min premium + non-LAE expense xTax
+
+    * Charge for max/min premium $\equiv$ Net insurance charge
+    
+* $A$: Reported loss @ t (may include ALAE)
+
+* $C$: Loss conversion factor $= 1 + \dfrac{\mathrm{E}[LAE]}{\mathrm{E}[Loss]}$
+
+    * If $A$ includes ALAE $\Rightarrow$ $= 1 + \dfrac{\mathrm{E}[ULAE]}{\mathrm{E}[Loss \& LAE]}$
+
+* $T$: Tax multiplier $=\dfrac{0.2 + PLR(1+\mu)}{0.2 + PLR} \left({\dfrac{1}{1-\tau}}\right)$ <span style="color:red; background-color:yellow">Memorize</span>
+    * $PLR = \text{Permissable Loss Ratio} = \dfrac{\mathrm{E}[A]}{P}$ 
+    * $\mu = \text{Assessments}$
+    * $\tau = \text{Premium Based Tax}$
+
+* $V$: Retro development factor (Optional)
+
+    * $= (1-\frac{1}{CDF}) \Rightarrow \text{Unreported Losses}$
+    
+    * $C \times A + P \times C \times V \equiv \text{B-F Ultimate}$
+    
+    * To stablize premium adjustments
+    
+    * Only used for the first 3 adjustments
+    
+* $P$: Standard Premium
+
+***
+
+For a balanced plan:
+
+$\mathrm{E}[R] = \text{Premium for Prospectively Rated Policy} = b = e - (C - 1)\mathrm{E}[A] + C \times I$ <span style="color:red; background-color:yellow">Memorize</span>
+
+* $b$: Insurer expense + loss control + premium audit G&A + Adj for limiting ratio + profit contingencies
+* $e$: Total expense xTax and profit
+* $I$: Net insurance charge for the max/min premium
+
+<span style="color:green">2001 Q32</span>
+
+## Understanding the Net Insurance Charge: w/o Net Insurance Charge
+
+Ignore the retro development for now
+
+$R = (b + C \times A) \times T \: \: \: \text{for} \: H \leq R \leq G$
+
+Max and min premiums $\equiv$ Aggregate limits on losses
+
+<span style="color:red; background-color:yellow">Formula</span>  
+<span style="color:green">2001 Q31</span>
+
+$\begin{align}
+  H &= (b + C \times A_H) \times T &= \text{min}\\
+  G &= (b + C \times A_G) \times T &= \text{max}\\
+\end{align}$
+
+$R = (b + C \times {\color{blue}L}) \times T \: \: \: \: {\color{blue}L} = \left\{
+  \begin{array}
+    AA_H & A \leq A_H\\
+    A & A_H < A <A_G\\
+    A_G & A \geq A_G\\
+  \end{array}
+  \right.$
+
+<span style="color:red; background-color:yellow">Understand Formula</span>
+
+$\begin{array}{ccc}
+  \text{Net Insurance Charge} = &I = (&\text{Ins Chg} &- &\text{Ins Saving}&) \times \mathrm{E}[A]\\
+  &I = (&\dfrac{\mathrm{E}[Loss > A_G]}{\mathrm{E}[A]} &- &\dfrac{\mathrm{E}[Loss < A_H]}{\mathrm{E}[A]}&) \times \mathrm{E}[A]\\
+  &I = (&\text{Tbl M Max Prem Chg} &- &\text{Tbl M Min Prem Savings}&) \times \mathrm{E}[A]\\
+  &I = (&\phi(r_G) &- &\psi(r_H)&) \times \mathrm{E}[A]\\
+  &I = (&\phi(\dfrac{A_G}{\mathrm{E}[A]}) &- &\psi(\dfrac{A_H}{\mathrm{E}[A]})&) \times \mathrm{E}[A]\\
+\end{array}$
+
+###Table M
+
+Rows are **entry ratios** = $r = \dfrac{Loss_{Actual}}{Loss_{Expected}}$
+
+* $\because$ Standarized $\therefore$ Table M can be applied to various states and LOB
+
+Columns are for **different risk size** groups
+
+* Since dist^n^ of charges vary by risk size $\Rightarrow$ Curve differ by risk size
+
+Entry ratio at maximum premium $= r_G = \dfrac{A_G}{\mathrm{E}[A]}$
+
+Entry ratio at minimum premium $= r_H = \dfrac{A_H}{\mathrm{E}[A]}$
+
+##Retrospective Rating: with Occurence Limit
+
+Per occurrence limit impact the likelihood of hitting the max/min premiums $\Rightarrow$ Table M not appropriate $\Rightarrow$ Need to recognize the potential overlap between the occurrence and aggregate limits
+
+3 options to handle this:
+
+### Option 1: Limited Loss Table M
