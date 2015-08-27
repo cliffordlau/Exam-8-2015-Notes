@@ -48,7 +48,7 @@ In addition to aggregate caps, can also limit losses per occurence (Use limited 
 
 With both occurence and agg limits, need to consider the overlap between the 2 charges
 
-##Retrospective Rating: w/o Occurence Limit
+##Retrospective Rating: w/o Occurence Limit <span style="color:red;color-background:yellow">Important Formulas</span>
 
 NCCI retro premium formula for each individual policy
 
@@ -149,4 +149,63 @@ Per occurrence limit impact the likelihood of hitting the max/min premiums $\Rig
 
 3 options to handle this:
 
-### Option 1: Limited Loss Table M
+### Option 1: Limited Loss Table M <span style="color:red;background-color:yellow">Important Formulas</span>
+
+$R^* = (b^{LLM} + C \times A^* + P \times C \times F + P \times C \times V) \times T$<span style="color:red;background-color:yellow">Memorize</span>
+
+* $b^{LLM}$: From the limited loss Table M
+
+* $A^*$: Reported limited loss @ t (might include ALAE)
+
+* $F = ELF = \dfrac{\mathrm{E}[Loss \geq \text{Per Occ Limit}]}{\text{Standard Premium}}$
+    * Varies by State + HG + Occ Limit
+    * Recall Robertson paper
+
+* $A \neq A^* + PF$
+
+* $\mathrm{E}[A] = \mathrm{E}[A^*] = PF$
+
+* $PCF$ and $PCV$ are electives
+
+* $V$: Development different with occ limit than w/o
+
+***
+
+Theoretically correct approach
+
+Caveat:
+
+* Requires a large number of tables
+
+* Charge need to vary by occ limit, entry ratio, risk size group, HG, etc
+
+### Option 2: Table M with ICRLL Adjustment (NCCI)
+
+ICRLL = Insurance Charge Reflecting Loss Limitation
+
+Change the Table M column used to be the column approriate for a larger size risk
+
+* Per occurrence limit reduces the skewness of the entry ratio dist^n^ $\Rightarrow$ Similarly for larger risk size
+    
+Caveat:
+
+* Table M doesn't vary by loss limit $\Rightarrow$ Compromises a bit on accuracy
+
+### Option 3: Table L (WCIRB)
+
+$R^* = (b^L + C \times A^* + P \times C \times V) \times T$
+
+Accurately correct for overlap between the occurence and aggregate charges similar to the LLM
+
+Combines occurence charge with the aggregate charge
+  
+* Whereas LLM's occ charge has to be added separately
+
+WCIRB uses different HG than NCCI
+
+$V$ varies by occ limit
+
+* $\uparrow$ limits $\uparrow$ $V$ $\because$ $\uparrow$ potential for development
+
+## NCCI Filings for Optional Components
+

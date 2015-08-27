@@ -69,12 +69,14 @@ img {
 <ul>
 <li><a href="#recall-prospective-wc-rating">Recall: Prospective WC Rating</a></li>
 <li><a href="#retrospecitive-rating-intro">Retrospecitive Rating: Intro</a></li>
-<li><a href="#retrospective-rating-wo-occurence-limit">Retrospective Rating: w/o Occurence Limit</a></li>
+<li><a href="#retrospective-rating-wo-occurence-limit-important-formulas">Retrospective Rating: w/o Occurence Limit <span style="color:red;color-background:yellow">Important Formulas</span></a></li>
 <li><a href="#understanding-the-net-insurance-charge-wo-net-insurance-charge">Understanding the Net Insurance Charge: w/o Net Insurance Charge</a><ul>
 <li><a href="#table-m">Table M</a></li>
 </ul></li>
 <li><a href="#retrospective-rating-with-occurence-limit">Retrospective Rating: with Occurence Limit</a><ul>
-<li><a href="#option-1-limited-loss-table-m">Option 1: Limited Loss Table M</a></li>
+<li><a href="#option-1-limited-loss-table-m-important-formulas">Option 1: Limited Loss Table M <span style="color:red;background-color:yellow">Important Formulas</span></a></li>
+<li><a href="#option-2-table-m-with-icrll-adjustment-ncci">Option 2: Table M with ICRLL Adjustment (NCCI)</a></li>
+<li><a href="#option-3-table-l-wcirb">Option 3: Table L (WCIRB)</a></li>
 </ul></li>
 </ul>
 </div>
@@ -108,8 +110,8 @@ img {
 <p>In addition to aggregate caps, can also limit losses per occurence (Use limited losses in the retro premium calculation) <span class="math">\(\Rightarrow\)</span> A seperate charge to the premium calculation to account for the per occurence limit</p>
 <p>With both occurence and agg limits, need to consider the overlap between the 2 charges</p>
 </div>
-<div id="retrospective-rating-wo-occurence-limit" class="section level2">
-<h2>Retrospective Rating: w/o Occurence Limit</h2>
+<div id="retrospective-rating-wo-occurence-limit-important-formulas" class="section level2">
+<h2>Retrospective Rating: w/o Occurence Limit <span style="color:red;color-background:yellow">Important Formulas</span></h2>
 <p>NCCI retro premium formula for each individual policy</p>
 <p><span class="math">\(R = (b + C \times A + P \times C \times V) \times T\)</span> <span style="color:red; background-color:yellow">Memorize</span></p>
 <ul>
@@ -176,8 +178,44 @@ img {
 <h2>Retrospective Rating: with Occurence Limit</h2>
 <p>Per occurrence limit impact the likelihood of hitting the max/min premiums <span class="math">\(\Rightarrow\)</span> Table M not appropriate <span class="math">\(\Rightarrow\)</span> Need to recognize the potential overlap between the occurrence and aggregate limits</p>
 <p>3 options to handle this:</p>
-<div id="option-1-limited-loss-table-m" class="section level3">
-<h3>Option 1: Limited Loss Table M</h3>
+<div id="option-1-limited-loss-table-m-important-formulas" class="section level3">
+<h3>Option 1: Limited Loss Table M <span style="color:red;background-color:yellow">Important Formulas</span></h3>
+<p><span class="math">\(R^* = (b^{LLM} + C \times A^* + P \times C \times F + P \times C \times V) \times T\)</span><span style="color:red;background-color:yellow">Memorize</span></p>
+<ul>
+<li><p><span class="math">\(b^{LLM}\)</span>: From the limited loss Table M</p></li>
+<li><p><span class="math">\(A^*\)</span>: Reported limited loss @ t (might include ALAE)</p></li>
+<li><span class="math">\(F = ELF = \dfrac{\mathrm{E}[Loss \geq \text{Per Occ Limit}]}{\text{Standard Premium}}\)</span>
+<ul>
+<li>Varies by State + HG + Occ Limit</li>
+<li>Recall Robertson paper</li>
+</ul></li>
+<li><p><span class="math">\(A \neq A^* + PF\)</span></p></li>
+<li><p><span class="math">\(\mathrm{E}[A] = \mathrm{E}[A^*] = PF\)</span></p></li>
+<li><p><span class="math">\(PCF\)</span> and <span class="math">\(PCV\)</span> are electives</p></li>
+</ul>
+<hr />
+<p>Theoretically correct approach</p>
+<p>Caveat:</p>
+<ul>
+<li><p>Requires a large number of tables</p></li>
+<li><p>Charge need to vary by occ limit, entry ratio, risk size group, HG, etc</p></li>
+<li><p><span class="math">\(V\)</span>: Development different with occ limit than w/o</p></li>
+</ul>
+</div>
+<div id="option-2-table-m-with-icrll-adjustment-ncci" class="section level3">
+<h3>Option 2: Table M with ICRLL Adjustment (NCCI)</h3>
+<p>ICRLL = Insurance Charge Reflecting Loss Limitation</p>
+<p>Change the Table M column used to be the column approriate for a larger size risk</p>
+<ul>
+<li>Per occurrence limit reduces the skewness of the entry ratio dist<sup>n</sup> <span class="math">\(\Rightarrow\)</span> Similarly for larger risk size</li>
+</ul>
+<p>Caveat:</p>
+<ul>
+<li>Table M doesn’t vary by loss limit <span class="math">\(\Rightarrow\)</span> Compromises a bit on accuracy</li>
+</ul>
+</div>
+<div id="option-3-table-l-wcirb" class="section level3">
+<h3>Option 3: Table L (WCIRB)</h3>
 </div>
 </div>
 
