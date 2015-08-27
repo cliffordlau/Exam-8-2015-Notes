@@ -131,7 +131,7 @@ $\begin{array}{ccc}
 
 ###Table M
 
-Rows are **entry ratios** = $r = \dfrac{Loss_{Actual}}{Loss_{Expected}}$
+Rows are **entry ratios** = $r = \dfrac{Loss_{Actual}}{Loss_{Expected}}$ <span style="color:red">Understand</span>
 
 * $\because$ Standarized $\therefore$ Table M can be applied to various states and LOB
 
@@ -208,4 +208,112 @@ $V$ varies by occ limit
 * $\uparrow$ limits $\uparrow$ $V$ $\because$ $\uparrow$ potential for development
 
 ## NCCI Filings for Optional Components
+
+NCCI do full rates or loss costs depending on the state
+
+**Full Rates**:
+
+* Files $ELF$ from option 1
+
+* Files $V$, Retro Development Factors, from option 1
+
+**Loss Costs**:
+
+* Files $ELPPF$ (XS Loss Pure Premium Factors)
+    
+    * $\begin{array}{cccc}
+        ELF &= &ELPPF &\times &ELR\\
+        \dfrac{\mathrm{E}[XSLoss]}{\text{Standard Premium}} &= &\dfrac{\mathrm{E}[XSLoss]}{\mathrm{E}[Loss]} &\times &\dfrac{\mathrm{E}[Loss]}{\text{Standard Premium}}\\
+      \end{array}$
+    
+    * $ELR$ from company's own estimate
+    
+* Use $ELAEPPF$ if per occ limit includes Loss & ALAE
+
+* Files Development Retrospective Pure Premium Factors
+
+    * $\begin{array}{cccc}
+        \text{Retro Dev Factor} &= &\text{Retro Dev PP Factor} &\times &ELR\\
+        \dfrac{\mathrm{E}[\text{Unreported Limited Loss}]}{\text{Standard Premium}} &= &\dfrac{\mathrm{E}[\text{Unreported Limited Loss}]}{\mathrm{E}[Loss]} &\times &\dfrac{\mathrm{E}[Loss]}{\text{Standard Premium}}\\
+      \end{array}$
+    
+    * XS Loss and ALlocated Expense Pure Premium Factors
+
+## Constructing Table M
+
+**Aggregate dist^n^** across a large number of risks
+
+* For losses, LR, entry ratios, etc
+* Each data point is a single policy for a single term
+
+**Table M Charge**
+
+* $\begin{align}
+    \text{Table M Charge} &= \dfrac{\sum_{r_i > r} Loss_i}{\sum_i Loss_i}\\
+    &= \dfrac{\text{Total Losses }\forall \text{ Policies w/ Losses > Entry Ratio r}}{\text{Total Losses }\forall \text{ Policies}}
+  \end{align}$
+
+* $\begin{align}
+    \text{Table M Savings} &= \dfrac{\sum_{r_i < r} Loss_i}{\sum_i Loss_i}\\
+    &= \dfrac{\text{Total Losses }\forall \text{ Policies w/ Losses < Entry Ratio r}}{\text{Total Losses }\forall \text{ Policies}}
+  \end{align}$
+  
+**2 Components to build Table M**
+
+* Sample of experience from a group of similarly sized risks
+    * Risk measure can be actual losses, LR, etc
+* $\mathrm{E}[\textit{Experience Measure}]$ from the sample
+
+**Normalize** table if the sample average $\neq$ assumed expected value:
+
+* Ignore actual expecte $\Rightarrow$ Use sample avg $\Rightarrow$ $\phi(0) = 1$
+* Divide *charge* and *entry ratio* columns by $\phi(0)$ to normalize
+
+## Constructing Table M Example
+
+```{r echo=F, message=F}
+library(dplyr)
+library(ggplot2)
+library(knitr)
+library(scales)
+
+d1 <- data_frame(
+  "Annual Claim Total ($)" = c(1000,1500,4000,10000,15000,40000),
+  "# of Policies" = c(8,3,2,5,2,1)
+)
+```
+
+`r kable(d1, align = 'l')`
+
+```{r echo=F}
+maxlr <- 0.8
+minlr <- 0.2
+sp <- 10000
+```
+
+Each risk has `r dollar(sp)` of standard premium
+
+$\text{Max Premium} \Leftrightarrow$ `r percent(maxlr)` LR w.r.t. Standard Premium
+
+$\text{Min Premium} \Leftrightarrow$ `r percent(minlr)` LR w.r.t. Standard Premium
+
+Loss @ Max Premium = `r percent(maxlr)` $\times$ `r dollar(sp)` = `r dollar(sp * maxlr)` = $A_G$
+
+Loss @ Min Premium = `r percent(minlr)` $\times$ `r dollar(sp)` = `r dollar(sp * minlr)` = $A_H$
+
+Total \# of Policies = `r sum(d1[2])`
+
+Total Losses = `r dollar(sum(d1[1]*d1[2]))`
+
+$\mathrm{E}[A] = \text{Expected Loss per Policy} = \dfrac{\text{Total Losses}}{\text{Total # of Policies}} =$ `r dollar(sum(d1[1]*d1[2])/sum(d1[2]))` = Total area under curve
+
+```{r echo = F}
+g <-
+  ggplot(d1, aes(`Annual Claim Total ($)`, `# of Policies`)) +
+  stat_ecdf() + coord_flip() + 
+  ylab("Cumulative % of Policies") + xlab("Losses") + theme_minimal() +
+  geom_vline(aes(xintercept = minlr * sp), linetype = "longdash") +
+  geom_vline(aes(xintercept = maxlr * sp), linetype = "longdash")
+
+```
 
