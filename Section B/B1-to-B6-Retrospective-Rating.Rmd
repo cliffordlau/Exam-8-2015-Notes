@@ -309,13 +309,13 @@ $\mathrm{E}[A] = \text{Expected Loss per Policy} = \dfrac{\text{Total Losses}}{\
 
 ```{r echo = F, fig.height=7}
 g <-
-  ggplot(d1, aes(`Annual Claim Total ($)`, `# of Policies`)) +
-  stat_ecdf() + coord_flip(xlim=c(0, max(d1[1]))) + 
-  ylab("Cumulative % of Policies") + xlab("Losses") + theme_minimal() +
-  geom_vline(aes(xintercept = minlr * sp), linetype = "longdash") +
-  geom_vline(aes(xintercept = maxlr * sp), linetype = "longdash") +
-  scale_y_continuous(labels = percent) + 
-  scale_x_continuous(breaks = sort(c(d1[[1]],  minlr*sp,maxlr*sp)), labels = dollar) +
+  ggplot(d1_ecdf, aes(`Claim EWCDF`, `Annual Claim Total ($)`)) +
+  geom_step() + 
+  xlab("Cumulative % of Policies") + ylab("Losses") + theme_minimal() +
+  geom_hline(aes(yintercept = minlr * sp), linetype = "longdash") +
+  geom_hline(aes(yintercept = maxlr * sp), linetype = "longdash") +
+  scale_x_continuous(labels = percent) + 
+  scale_y_continuous(breaks = sort(c(d1[[1]],  minlr*sp,maxlr*sp)), labels = dollar) +
   theme(axis.text.y = element_text(size=6))
 g
 ```
