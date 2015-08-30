@@ -9,7 +9,7 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="date" content="2015-08-23" />
+<meta name="date" content="2015-08-30" />
 
 <title>Multi-Dimensional Credibility to Estimate Class Frequency Vectors in WC</title>
 
@@ -62,7 +62,7 @@ img {
 
 <div id="header">
 <h1 class="title">Multi-Dimensional Credibility to Estimate Class Frequency Vectors in WC</h1>
-<h4 class="date"><em>August 23, 2015</em></h4>
+<h4 class="date"><em>August 30, 2015</em></h4>
 </div>
 
 <div id="TOC">
@@ -176,14 +176,14 @@ img {
 <div id="the-multi-dimensional-credibility-procedure-hard-to-test" class="section level2">
 <h2>The Multi-Dimensional Credibility Procedure <span style="color:red">Hard to test</span></h2>
 <p>Goal:<br />Estimate population mean using credibility weighted <span class="math">\(V_i, W_i, X_i, Y_i\)</span> <span class="math">\(\Rightarrow\)</span> <span class="math">\(v_i, w_i, x_i, y_i\)</span></p>
-<p>Find credibility factors <span class="math">\(b_{{\color{blue}\boxdot},i}, c_{{\color{blue}\boxdot},i}, d_{{\color{blue}\boxdot},i}, e_{{\color{blue}\boxdot},i}\)</span></p>
+<p>Find credibility factors <span class="math">\(b_{ {\color{blue}\boxdot},i}, c_{ {\color{blue}\boxdot},i}, d_{ {\color{blue}\boxdot},i}, e_{ {\color{blue}\boxdot},i}\)</span></p>
 <p><strong>Estimate of population mean:</strong></p>
-<p><span class="math">\(\hat{{\color{blue}\boxdot}}_i = {\color{red}\Box}_h + b_{{\color{blue}\boxdot}, i}(V_i - V_h) + c_{{\color{blue}\boxdot}, i}(W_i - W_h) + d_{{\color{blue}\boxdot}, i}(X_i - X_h) + e_{{\color{blue}\boxdot}, i}(Y_i - Y-h)\)</span></p>
+<p><span class="math">\(\hat{ {\color{blue}\boxdot}}_i = {\color{red}\Box}_h + b_{ {\color{blue}\boxdot}, i}(V_i - V_h) + c_{ {\color{blue}\boxdot}, i}(W_i - W_h) + d_{ {\color{blue}\boxdot}, i}(X_i - X_h) + e_{ {\color{blue}\boxdot}, i}(Y_i - Y-h)\)</span></p>
 <ul>
 <li>If credibilities are 0 <span class="math">\(\Rightarrow\)</span> Estimate = HG ratios <span class="math">\({\color{red}\Box}_h\)</span></li>
 </ul>
-<p>To solve for <span class="math">\(b_{{\color{blue}\boxdot},i}, c_{{\color{blue}\boxdot},i}, d_{{\color{blue}\boxdot},i}, e_{{\color{blue}\boxdot},i}\)</span> for a given Injury Type <span class="math">\({\color{blue}\boxdot}\)</span>, solve the matrix below:</p>
-<p><span class="math">\(\left[  \begin{array}{c}  Cov(V_i, {\color{blue}\boxdot}_i)\\  Cov(W_i, {\color{blue}\boxdot}_i)\\  Cov(X_i, {\color{blue}\boxdot}_i)\\  Cov(Y_i, {\color{blue}\boxdot}_i)\\  \end{array} \right] = \left[  \begin{matrix}  Var(V_i) &amp; Cov(V_i W_i) &amp; Cov(V_i, X_i) &amp; Cov(V_i, Y_i)\\  Cov(W_i, V_i) &amp; Var(W_i) &amp; &amp; \vdots\\  Cov(X_i, V_i) &amp; &amp; \ddots &amp; \vdots\\  Cov(Y_i, V_i) &amp; \cdots &amp; \cdots &amp; \vdots\\  \end{matrix} \right] \times \begin{bmatrix}  b_{{\color{blue}\boxdot},i}\\  c_{{\color{blue}\boxdot},i}\\  d_{{\color{blue}\boxdot},i}\\  e_{{\color{blue}\boxdot},i}\\ \end{bmatrix}\)</span></p>
+<p>To solve for <span class="math">\(b_{ {\color{blue}\boxdot},i}, c_{ {\color{blue}\boxdot},i}, d_{ {\color{blue}\boxdot},i}, e_{ {\color{blue}\boxdot},i}\)</span> for a given Injury Type <span class="math">\({\color{blue}\boxdot}\)</span>, solve the matrix below:</p>
+<p><span class="math">\(\left[  \begin{array}{c}  Cov(V_i, {\color{blue}\boxdot}_i)\\  Cov(W_i, {\color{blue}\boxdot}_i)\\  Cov(X_i, {\color{blue}\boxdot}_i)\\  Cov(Y_i, {\color{blue}\boxdot}_i)\\  \end{array} \right] = \left[  \begin{matrix}  Var(V_i) &amp; Cov(V_i W_i) &amp; Cov(V_i, X_i) &amp; Cov(V_i, Y_i)\\  Cov(W_i, V_i) &amp; Var(W_i) &amp; &amp; \vdots\\  Cov(X_i, V_i) &amp; &amp; \ddots &amp; \vdots\\  Cov(Y_i, V_i) &amp; \cdots &amp; \cdots &amp; \vdots\\  \end{matrix} \right] \times \begin{bmatrix}  b_{ {\color{blue}\boxdot},i}\\  c_{ {\color{blue}\boxdot},i}\\  d_{ {\color{blue}\boxdot},i}\\  e_{ {\color{blue}\boxdot},i}\\ \end{bmatrix}\)</span></p>
 <p><span class="math">\(Cov({\color{red}\Box}_i, {\color{blue}\boxdot}_i) = \widehat{\text{VHM}}_{\color{red}\Box} = \dfrac{\sum\limits_{i=1}^R m_i ({\color{red}\Box}_i - {\color{red}\Box}_h)^2 - (R - 1)\widehat{\text{EPV}}_{\color{red}\Box}}{m_h - m_h^{-1}\sum\limits_{i=1}^R m_i^2}\)</span></p>
 <p><span class="math">\(\widehat{\text{EPV}}_{\color{red}\Box} = \dfrac{\sum\limits_{i=1}^R \sum\limits_{i=1}^N m_{i,t}({\color{red}\Box}_{i,t} - {\color{red}\Box}_i)^2}{R(N - 1)}\)</span></p>
 <p><span class="math">\(Var({\color{red}\Box}_i) = \dfrac{\widehat{\text{EPV}}_{\color{red}\Box}}{m_i} + widehat{\text{VHM}}_{\color{red}\Box}\)</span></p>
@@ -193,10 +193,10 @@ img {
 <div id="calculating-expected-excess-losses-calculation" class="section level2">
 <h2>Calculating Expected Excess Losses <span style="color:red">Calculation</span></h2>
 <p>Expected XS losses at limit <span class="math">\(L\)</span> for class <span class="math">\(i\)</span> for <span class="math">\({\color{green}\boxtimes}\)</span></p>
-<p><span style="color:red; background-color:yellow">Formula</span><br /><span class="math">\(\begin{align}  \mathrm{E}[XSLoss_{{\color{red}\Box},i}(L)] = \frac{\text{payroll}_i}{100} &amp;\times \: \text{Frequency}_{TT,i} \times \text{Severity}_{TT,i}\\  &amp;\times \: \hat{{\color{blue}\boxdot}_i} \times \text{SeverityRel}_{{\color{red}\Box},i}\\  &amp;\times \: (1 - \text{LER}_{{\color{red}\Box},i}(L)) \end{align}\)</span></p>
-<p><span class="math">\(\text{SeverityRel}_{{\color{red}\Box},i} = \dfrac{\text{Severity}_{\color{red}\Box}}{\text{Severity}_{TT}} \text{ for class }i\)</span></p>
-<p><span class="math">\(\text{LER}_{{\color{red}\Box},i}(L) =\)</span> Loss Elimination Ratio at limit <span class="math">\(L\)</span> for <span class="math">\({\color{green}\boxtimes}\)</span> in class <span class="math">\(i\)</span></p>
-<p><span class="math">\(\mathrm{E}[XSLoss_i(L)] =\sum\limits_{\color{red}\Box} \mathrm{E}[XSLoss_{{\color{red}\Box},i}(L)]\)</span></p>
+<p><span style="color:red; background-color:yellow">Formula</span><br /><span class="math">\(\begin{align}  \mathrm{E}[XSLoss_{ {\color{red}\Box},i}(L)] = \frac{\text{payroll}_i}{100} &amp;\times \: \text{Frequency}_{TT,i} \times \text{Severity}_{TT,i}\\  &amp;\times \: \hat{ {\color{blue}\boxdot}_i} \times \text{SeverityRel}_{ {\color{red}\Box},i}\\  &amp;\times \: (1 - \text{LER}_{ {\color{red}\Box},i}(L)) \end{align}\)</span></p>
+<p><span class="math">\(\text{SeverityRel}_{ {\color{red}\Box},i} = \dfrac{\text{Severity}_{\color{red}\Box}}{\text{Severity}_{TT}} \text{ for class }i\)</span></p>
+<p><span class="math">\(\text{LER}_{ {\color{red}\Box},i}(L) =\)</span> Loss Elimination Ratio at limit <span class="math">\(L\)</span> for <span class="math">\({\color{green}\boxtimes}\)</span> in class <span class="math">\(i\)</span></p>
+<p><span class="math">\(\mathrm{E}[XSLoss_i(L)] =\sum\limits_{\color{red}\Box} \mathrm{E}[XSLoss_{ {\color{red}\Box},i}(L)]\)</span></p>
 </div>
 <div id="testing-the-results" class="section level2">
 <h2>Testing the Results</h2>
@@ -211,7 +211,7 @@ img {
 <p>Injury type ratios for the holdout sample are calculated just like the raw sample</p>
 <div id="sum-of-squared-error-tests" class="section level3">
 <h3>Sum of Squared Error Tests</h3>
-<p><span class="math">\(\begin{array}{lll}  \text{HG Method:} &amp;SSE_h &amp;= \sum({\color{red}\Box}_h - {\color{red}\Box}_{holdout})^2\\  \text{Raw Sample Method:} &amp;SSE_{raw} &amp;= \sum({\color{red}\Box}_i - {\color{red}\Box}_{holdout})^2\\  \text{Credibility Proc Method:} &amp;SSE_{cred} &amp;= \sum(\hat{{\color{blue}\boxdot}}_i - {\color{red}\Box}_{holdout})^2 \end{array}\)</span></p>
+<p><span class="math">\(\begin{array}{lll}  \text{HG Method:} &amp;SSE_h &amp;= \sum({\color{red}\Box}_h - {\color{red}\Box}_{holdout})^2\\  \text{Raw Sample Method:} &amp;SSE_{raw} &amp;= \sum({\color{red}\Box}_i - {\color{red}\Box}_{holdout})^2\\  \text{Credibility Proc Method:} &amp;SSE_{cred} &amp;= \sum(\hat{ {\color{blue}\boxdot}}_i - {\color{red}\Box}_{holdout})^2 \end{array}\)</span></p>
 <p>For each injury type <span class="math">\({\color{red}\Box}\)</span> and HG <span class="math">\(h\)</span>, calculate the above over all classes <span class="math">\(i\)</span></p>
 <p>Credibility Proc has the lowest SSE but not by much<br />Justification:</p>
 <ul>
@@ -223,7 +223,7 @@ img {
 <h3>Quintiles Test <span style="color:red">Calculation</span></h3>
 <p>Procedure (for each combination of injury type and HG):</p>
 <ol style="list-style-type: decimal">
-<li>Sort the injury type relativities produced by the credibility proc for all classes in increasing order i.e. sort the <span class="math">\(\hat{{\color{blue}\boxdot}}_i\)</span></li>
+<li>Sort the injury type relativities produced by the credibility proc for all classes in increasing order i.e. sort the <span class="math">\(\hat{ {\color{blue}\boxdot}}_i\)</span></li>
 <li>Use the above to classify classes into quintiles</li>
 <li>Group classes into 5 quintiles
 <ul>
@@ -235,7 +235,7 @@ img {
 <ul>
 <li>Do this for all 3 methods and the holdout sample</li>
 </ul></li>
-<li><p>Calculate the SSE:<br /><span style="color:red; background-color:yellow">Formula</span><br /><span class="math">\(\begin{array}{lll}  \text{HG Method:} &amp;SSE_h &amp;= \sum\limits_{quintiles}(1 - \dfrac{{\color{red}\Box}_{holdout, quintile}^*}{{\color{red}\Box}_{holdout, h}})^2\\  \text{Raw Sample Method:} &amp;SSE_{raw} &amp;= \sum\limits_{quintiles}(\dfrac{{\color{red}\Box}_{i,quintile}^*}{{\color{red}\Box}_{h}} - \dfrac{{\color{red}\Box}_{holdout, quintile}^*}{{\color{red}\Box}_{holdout, h}})^2\\  \text{Credibility Proc Method:} &amp;SSE_{cred} &amp;= \sum\limits_{quintiles}(\dfrac{\hat{{\color{blue}\boxdot}}_{i, quintile}^*}{{\color{red}\Box}_{h}} - \dfrac{{\color{red}\Box}_{holdout, quintile}^*}{{\color{red}\Box}_{holdout, h}})^2 \end{array}\)</span></p>
+<li><p>Calculate the SSE:<br /><span style="color:red; background-color:yellow">Formula</span><br /><span class="math">\(\begin{array}{lll}  \text{HG Method:} &amp;SSE_h &amp;= \sum\limits_{quintiles}(1 - \dfrac{ {\color{red}\Box}_{holdout, quintile}^*}{ {\color{red}\Box}_{holdout, h}})^2\\  \text{Raw Sample Method:} &amp;SSE_{raw} &amp;= \sum\limits_{quintiles}(\dfrac{ {\color{red}\Box}_{i,quintile}^*}{ {\color{red}\Box}_{h}} - \dfrac{ {\color{red}\Box}_{holdout, quintile}^*}{ {\color{red}\Box}_{holdout, h}})^2\\  \text{Credibility Proc Method:} &amp;SSE_{cred} &amp;= \sum\limits_{quintiles}(\dfrac{\hat{ {\color{blue}\boxdot}}_{i, quintile}^*}{ {\color{red}\Box}_{h}} - \dfrac{ {\color{red}\Box}_{holdout, quintile}^*}{ {\color{red}\Box}_{holdout, h}})^2 \end{array}\)</span></p>
 <ul>
 <li>Note the * represents the average of the injury type ratio in that quintile</li>
 </ul></li>

@@ -426,7 +426,7 @@ kable(tbl_m, align = 'l')
 $\phi(r) = 0$ for the largest value of r $\Rightarrow$ No $\mathrm{E}[L]$ above the
 largest loss
 
-$\phi(r_i) = \phi(r_{i+1}) + (r_{i+1} - r_i)(\text{Perc risks above }r_i)$ <span style="color:red; background-color:yellow"> Memorize Formula </span>
+$\phi(r_i) = \phi(r_{i+1}) + (r_{i+1} - r_i)(\text{ % risks above }r_i)$ <span style="color:red; background-color:yellow"> Memorize Formula </span>
 
 Savings $= \psi(r) = \phi(r) + r - 1$ <span style="color:red; background-color:yellow"> Memorize Formula </span>
 
@@ -436,8 +436,8 @@ Looking at groups of losses based on the size of loss
 
 Probably start from the right but don't seem to matter
 
-* For Tbl M Charge: $\text{Perc of Policies hitting cap} \times \text{XS Loss Amount}$
-* For Tbl M Savings: $\text{Perc of Policies hitting cap} \times \text{Difference of the Minimum Bound and Loss Amount}
+* For Tbl M Charge: $\text{ % of Policies hitting cap} \times \text{XS Loss Amount}$
+* For Tbl M Savings: $\text{ % of Policies hitting cap} \times \text{Difference of the Minimum Bound and Loss Amount}
 
 **Advantages:**
 
@@ -711,7 +711,7 @@ If Standard Premium $\neq$ $\forall$ risk $\Rightarrow$ Create Tbl L with P inst
 
 * Denominator of Entry Ratios $= \dfrac{\mathrm{E}[A]}{P}$
 * Numerator of Entry Ratios $= \dfrac{A^*}{P}$
-* $\phi^L(r_i) = \phi^L(r_{i+1}) + (r_{i+1} - r_i)(\text{Perc Premium above }r_i)$
+* $\phi^L(r_i) = \phi^L(r_{i+1}) + (r_{i+1} - r_i)(\text{ % Premium above }r_i)$
 
 <span style="color:green">2008 Q32</span>
 

@@ -97,15 +97,15 @@ Assumes variance ${\color{red}\Box}_i$ decreases as $m_i$ increases
 Goal:  
 Estimate population mean using credibility weighted $V_i, W_i, X_i, Y_i$ $\Rightarrow$ $v_i, w_i, x_i, y_i$
 
-Find credibility factors $b_{{\color{blue}\boxdot},i}, c_{{\color{blue}\boxdot},i}, d_{{\color{blue}\boxdot},i}, e_{{\color{blue}\boxdot},i}$
+Find credibility factors $b_{ {\color{blue}\boxdot},i}, c_{ {\color{blue}\boxdot},i}, d_{ {\color{blue}\boxdot},i}, e_{ {\color{blue}\boxdot},i}$
 
 **Estimate of population mean:**
 
-$\hat{{\color{blue}\boxdot}}_i = {\color{red}\Box}_h + b_{{\color{blue}\boxdot}, i}(V_i - V_h) + c_{{\color{blue}\boxdot}, i}(W_i - W_h) + d_{{\color{blue}\boxdot}, i}(X_i - X_h) + e_{{\color{blue}\boxdot}, i}(Y_i - Y-h)$
+$\hat{ {\color{blue}\boxdot}}_i = {\color{red}\Box}_h + b_{ {\color{blue}\boxdot}, i}(V_i - V_h) + c_{ {\color{blue}\boxdot}, i}(W_i - W_h) + d_{ {\color{blue}\boxdot}, i}(X_i - X_h) + e_{ {\color{blue}\boxdot}, i}(Y_i - Y-h)$
 
 * If credibilities are 0 $\Rightarrow$ Estimate = HG ratios ${\color{red}\Box}_h$
 
-To solve for $b_{{\color{blue}\boxdot},i}, c_{{\color{blue}\boxdot},i}, d_{{\color{blue}\boxdot},i}, e_{{\color{blue}\boxdot},i}$ for a given Injury Type ${\color{blue}\boxdot}$, solve the matrix below:
+To solve for $b_{ {\color{blue}\boxdot},i}, c_{ {\color{blue}\boxdot},i}, d_{ {\color{blue}\boxdot},i}, e_{ {\color{blue}\boxdot},i}$ for a given Injury Type ${\color{blue}\boxdot}$, solve the matrix below:
 
 $\left[
   \begin{array}{c}
@@ -124,10 +124,10 @@ $\left[
   \end{matrix}
 \right] \times
 \begin{bmatrix}
-  b_{{\color{blue}\boxdot},i}\\
-  c_{{\color{blue}\boxdot},i}\\  
-  d_{{\color{blue}\boxdot},i}\\
-  e_{{\color{blue}\boxdot},i}\\
+  b_{ {\color{blue}\boxdot},i}\\
+  c_{ {\color{blue}\boxdot},i}\\  
+  d_{ {\color{blue}\boxdot},i}\\
+  e_{ {\color{blue}\boxdot},i}\\
 \end{bmatrix}$
 
 $Cov({\color{red}\Box}_i, {\color{blue}\boxdot}_i) = \widehat{\text{VHM}}_{\color{red}\Box} = \dfrac{\sum\limits_{i=1}^R m_i ({\color{red}\Box}_i - {\color{red}\Box}_h)^2 - (R - 1)\widehat{\text{EPV}}_{\color{red}\Box}}{m_h - m_h^{-1}\sum\limits_{i=1}^R m_i^2}$
@@ -157,16 +157,16 @@ Expected XS losses at limit $L$ for class $i$ for ${\color{green}\boxtimes}$
 
 <span style="color:red; background-color:yellow">Formula</span>  
 $\begin{align}
-  \mathrm{E}[XSLoss_{{\color{red}\Box},i}(L)] = \frac{\text{payroll}_i}{100} &\times \: \text{Frequency}_{TT,i} \times \text{Severity}_{TT,i}\\
-  &\times \: \hat{{\color{blue}\boxdot}_i} \times \text{SeverityRel}_{{\color{red}\Box},i}\\
-  &\times \: (1 - \text{LER}_{{\color{red}\Box},i}(L))
+  \mathrm{E}[XSLoss_{ {\color{red}\Box},i}(L)] = \frac{\text{payroll}_i}{100} &\times \: \text{Frequency}_{TT,i} \times \text{Severity}_{TT,i}\\
+  &\times \: \hat{ {\color{blue}\boxdot}_i} \times \text{SeverityRel}_{ {\color{red}\Box},i}\\
+  &\times \: (1 - \text{LER}_{ {\color{red}\Box},i}(L))
 \end{align}$
 
-$\text{SeverityRel}_{{\color{red}\Box},i} = \dfrac{\text{Severity}_{\color{red}\Box}}{\text{Severity}_{TT}} \text{ for class }i$
+$\text{SeverityRel}_{ {\color{red}\Box},i} = \dfrac{\text{Severity}_{\color{red}\Box}}{\text{Severity}_{TT}} \text{ for class }i$
 
-$\text{LER}_{{\color{red}\Box},i}(L) =$ Loss Elimination Ratio at limit $L$ for ${\color{green}\boxtimes}$ in class $i$
+$\text{LER}_{ {\color{red}\Box},i}(L) =$ Loss Elimination Ratio at limit $L$ for ${\color{green}\boxtimes}$ in class $i$
 
-$\mathrm{E}[XSLoss_i(L)] =\sum\limits_{\color{red}\Box} \mathrm{E}[XSLoss_{{\color{red}\Box},i}(L)]$
+$\mathrm{E}[XSLoss_i(L)] =\sum\limits_{\color{red}\Box} \mathrm{E}[XSLoss_{ {\color{red}\Box},i}(L)]$
 
 ## Testing the Results
 
@@ -187,7 +187,7 @@ Injury type ratios for the holdout sample are calculated just like the raw sampl
 $\begin{array}{lll}
   \text{HG Method:} &SSE_h &= \sum({\color{red}\Box}_h - {\color{red}\Box}_{holdout})^2\\
   \text{Raw Sample Method:} &SSE_{raw} &= \sum({\color{red}\Box}_i - {\color{red}\Box}_{holdout})^2\\
-  \text{Credibility Proc Method:} &SSE_{cred} &= \sum(\hat{{\color{blue}\boxdot}}_i - {\color{red}\Box}_{holdout})^2
+  \text{Credibility Proc Method:} &SSE_{cred} &= \sum(\hat{ {\color{blue}\boxdot}}_i - {\color{red}\Box}_{holdout})^2
 \end{array}$
 
 For each injury type ${\color{red}\Box}$ and HG $h$, calculate the above over all classes $i$
@@ -202,7 +202,7 @@ Justification:
 
 Procedure (for each combination of injury type and HG):
 
-1. Sort the injury type relativities produced by the credibility proc for all classes in increasing order i.e. sort the $\hat{{\color{blue}\boxdot}}_i$
+1. Sort the injury type relativities produced by the credibility proc for all classes in increasing order i.e. sort the $\hat{ {\color{blue}\boxdot}}_i$
 2. Use the above to classify classes into quintiles
 3. Group classes into 5 quintiles
     * Each quintile should have about the same number of TT claims
@@ -213,9 +213,9 @@ Procedure (for each combination of injury type and HG):
 5. Calculate the SSE:  
 <span style="color:red; background-color:yellow">Formula</span>  
 $\begin{array}{lll}
-  \text{HG Method:} &SSE_h &= \sum\limits_{quintiles}(1 - \dfrac{{\color{red}\Box}_{holdout, quintile}^*}{{\color{red}\Box}_{holdout, h}})^2\\
-  \text{Raw Sample Method:} &SSE_{raw} &= \sum\limits_{quintiles}(\dfrac{{\color{red}\Box}_{i,quintile}^*}{{\color{red}\Box}_{h}} - \dfrac{{\color{red}\Box}_{holdout, quintile}^*}{{\color{red}\Box}_{holdout, h}})^2\\
-  \text{Credibility Proc Method:} &SSE_{cred} &= \sum\limits_{quintiles}(\dfrac{\hat{{\color{blue}\boxdot}}_{i, quintile}^*}{{\color{red}\Box}_{h}} - \dfrac{{\color{red}\Box}_{holdout, quintile}^*}{{\color{red}\Box}_{holdout, h}})^2
+  \text{HG Method:} &SSE_h &= \sum\limits_{quintiles}(1 - \dfrac{ {\color{red}\Box}_{holdout, quintile}^*}{ {\color{red}\Box}_{holdout, h}})^2\\
+  \text{Raw Sample Method:} &SSE_{raw} &= \sum\limits_{quintiles}(\dfrac{ {\color{red}\Box}_{i,quintile}^*}{ {\color{red}\Box}_{h}} - \dfrac{ {\color{red}\Box}_{holdout, quintile}^*}{ {\color{red}\Box}_{holdout, h}})^2\\
+  \text{Credibility Proc Method:} &SSE_{cred} &= \sum\limits_{quintiles}(\dfrac{\hat{ {\color{blue}\boxdot}}_{i, quintile}^*}{ {\color{red}\Box}_{h}} - \dfrac{ {\color{red}\Box}_{holdout, quintile}^*}{ {\color{red}\Box}_{holdout, h}})^2
 \end{array}$
 
     * Note the \* represents the average of the injury type ratio in that quintile
