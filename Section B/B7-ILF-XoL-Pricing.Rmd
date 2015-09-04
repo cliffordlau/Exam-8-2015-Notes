@@ -14,7 +14,7 @@ output:
 Loss size $x_i$ occurs $n_i$ times
 
 * Total claims $= \sum\limits_{i=1}^k n_i$
-* Total loss $= \sum\limits_{i=1}^k n_i x_i
+* Total loss $= \sum\limits_{i=1}^k n_i x_i$
 
 **Continuous**
 
@@ -110,7 +110,7 @@ $\begin{array}{cl}
 
 $ILF$ = Relativity for the rate @ limit k to the rate @ basic limit b
 
-$\text{Rate @ Limit k} = ILF(k) \times \text{Rate @ Basic Limit b}
+$\text{Rate @ Limit k} = ILF(k) \times \text{Rate @ Basic Limit b}$
 
 $\mathrm{E}[h(X;b)] =$ Average Basic Limits Severity (ABLS)
 
@@ -178,7 +178,7 @@ Fit separate severity curve for each policy limit
 
 <span style="color:green">2000 Q31</span>
 
-Trend on $Sev_k$ > $Sev_total$ or $Sev_b$ for $k > b$ when trend > 0
+Trend on $Sev_k$ > $Sev_{total}$ or $Sev_b$ for $k > b$ when trend > 0
 
 * $\because$ for losses > $b$, trend in entirely in the XS layer
 * Losses just < $b$ are pushed into the XS layer by the trend $\Rightarrow$ New losses for the XS layer
@@ -245,7 +245,7 @@ Pricing risk $\Rightarrow$ Degree of uncertainty in pure premium
 
 $I_r(k) = \dfrac{\mathrm{E}[h(X;k)] + \lambda \mathrm{E}[h(X;k)^2]}{\mathrm{E}[h(X;b)] + \lambda \mathrm{E}[h(X;b)^2]}$<span style="color:red;background-color:yellow">Important Memorize</span>
 
-* $n \: \sim Poi$
+* $n \: \sim Poi(\theta)$
 * Risk charge $\propto$ Variance of loss based on factor $\lambda$
 
 $\mathrm{E}[h(X;k)] = \int_0^k G(x)dx$
@@ -265,7 +265,7 @@ $\begin{array}{ll}
 
 ***
 
-Premium $= \mathrm{E}[Y] + \lambda Var(Y)$
+Premium $= \mathrm{E}[Y] + \lambda \: Var(Y)$
 
 * Risk charge $\propto$ Variance of loss
 

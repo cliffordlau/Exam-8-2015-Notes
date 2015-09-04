@@ -100,7 +100,7 @@ img {
 <p>Loss size <span class="math">\(x_i\)</span> occurs <span class="math">\(n_i\)</span> times</p>
 <ul>
 <li>Total claims <span class="math">\(= \sum\limits_{i=1}^k n_i\)</span></li>
-<li>Total loss $= _{i=1}^k n_i x_i</li>
+<li>Total loss <span class="math">\(= \sum\limits_{i=1}^k n_i x_i\)</span></li>
 </ul>
 <p><strong>Continuous</strong></p>
 <p>Loss size <span class="math">\(x\)</span> with <span class="math">\(n\)</span> total claims</p>
@@ -163,7 +163,7 @@ img {
 <h2>Increased Limit Factors (ILF)</h2>
 <p><strong>Def<sup>n</sup></strong></p>
 <p><span class="math">\(ILF\)</span> = Relativity for the rate @ limit k to the rate @ basic limit b</p>
-<p>$ = ILF(k) </p>
+<p><span class="math">\(\text{Rate @ Limit k} = ILF(k) \times \text{Rate @ Basic Limit b}\)</span></p>
 <p><span class="math">\(\mathrm{E}[h(X;b)] =\)</span> Average Basic Limits Severity (ABLS)</p>
 <p><strong>Key Assumptions</strong> <span style="color:red;background-color:yellow">Important Concept</span></p>
 <ol style="list-style-type: decimal">
@@ -225,7 +225,7 @@ img {
 <div id="impact-of-trend" class="section level2">
 <h2>Impact of Trend</h2>
 <p><span style="color:green">2000 Q31</span></p>
-<p>Trend on <span class="math">\(Sev_k\)</span> &gt; <span class="math">\(Sev_total\)</span> or <span class="math">\(Sev_b\)</span> for <span class="math">\(k &gt; b\)</span> when trend &gt; 0</p>
+<p>Trend on <span class="math">\(Sev_k\)</span> &gt; <span class="math">\(Sev_{total}\)</span> or <span class="math">\(Sev_b\)</span> for <span class="math">\(k &gt; b\)</span> when trend &gt; 0</p>
 <ul>
 <li><span class="math">\(\because\)</span> for losses &gt; <span class="math">\(b\)</span>, trend in entirely in the XS layer</li>
 <li>Losses just &lt; <span class="math">\(b\)</span> are pushed into the XS layer by the trend <span class="math">\(\Rightarrow\)</span> New losses for the XS layer</li>
@@ -278,7 +278,7 @@ img {
 <h3>Risk Adjusted ILF for limit <span class="math">\(k\)</span></h3>
 <p><span class="math">\(I_r(k) = \dfrac{\mathrm{E}[h(X;k)] + \lambda \mathrm{E}[h(X;k)^2]}{\mathrm{E}[h(X;b)] + \lambda \mathrm{E}[h(X;b)^2]}\)</span><span style="color:red;background-color:yellow">Important Memorize</span></p>
 <ul>
-<li><span class="math">\(n \: \sim Poi\)</span></li>
+<li><span class="math">\(n \: \sim Poi(\theta)\)</span></li>
 <li>Risk charge <span class="math">\(\propto\)</span> Variance of loss based on factor <span class="math">\(\lambda\)</span></li>
 </ul>
 <p><span class="math">\(\mathrm{E}[h(X;k)] = \int_0^k G(x)dx\)</span></p>
@@ -288,7 +288,7 @@ img {
 <p><span class="math">\(\begin{array}{ll}  \mathrm{E}[h(X;R,L)^2] &amp;= \mathrm{E}[h(X;S)^2] - \mathrm{E}[h(X;R)^2] - 2R \: \mathrm{E}[h(X;R,L)]\\  \text{OR} &amp;= 2\int_R^S (x - R) G(x)dx\\ \end{array}\)</span></p>
 <p><span style="color:green">2009 Q18</span></p>
 <hr />
-<p>Premium <span class="math">\(= \mathrm{E}[Y] + \lambda Var(Y)\)</span></p>
+<p>Premium <span class="math">\(= \mathrm{E}[Y] + \lambda \: Var(Y)\)</span></p>
 <ul>
 <li>Risk charge <span class="math">\(\propto\)</span> Variance of loss</li>
 </ul>
