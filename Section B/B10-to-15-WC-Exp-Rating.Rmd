@@ -1,0 +1,17 @@
+---
+title: "Work Comp Experience Rating papers"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
+---
+
+## Purpose of Experience Rating
+
+Relates an insured's premium for $policy_t$ to their own loss experience from $policy_{t-1}$
+
+$\begin{array}{lcccc}
+  \text{Standard Premium} &= &\textbf{Modified Premium} &\times &\text{Schedule Mod Factor} \\
+  &= &\left( \textbf{Manual Premium} \times \textbf{Experience Mod Factor} \right) &\times &\text{Schedule Mod Factor} \\
+\end{array}$
