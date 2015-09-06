@@ -9,7 +9,7 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="date" content="2015-09-05" />
+<meta name="date" content="2015-09-06" />
 
 <title>Work Comp Experience Rating papers</title>
 
@@ -62,7 +62,7 @@ img {
 
 <div id="header">
 <h1 class="title">Work Comp Experience Rating papers</h1>
-<h4 class="date"><em>September 05, 2015</em></h4>
+<h4 class="date"><em>September 06, 2015</em></h4>
 </div>
 
 <div id="TOC">
@@ -84,8 +84,18 @@ img {
 <li><a href="#changes">1940 Changes</a></li>
 <li><a href="#changes-1">1961 Changes</a></li>
 <li><a href="#changes-2">1991 Changes</a></li>
-</ul></li>
 <li><a href="#change">1998 Change</a></li>
+</ul></li>
+<li><a href="#testing-the-experience-rating-plan">Testing the Experience Rating Plan</a><ul>
+<li><a href="#test-1-dorweilers-test">Test 1: Dorweiler’s Test</a></li>
+<li><a href="#test-2-gillams-quintiles-test">Test 2: Gillam’s Quintiles Test</a></li>
+<li><a href="#test-3-efficiency-test">Test 3: Efficiency Test</a></li>
+<li><a href="#example-for-quintiles-and-efficiency-tests">Example for Quintiles and Efficiency Tests</a><ul>
+<li><a href="#quintiles-test">Quintiles Test:</a></li>
+<li><a href="#efficiency-test">Efficiency Test:</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#data-used-for-experience-rating">Data Used for Experience Rating</a></li>
 </ul>
 </div>
 
@@ -352,9 +362,484 @@ img {
 <p>For large risk, <span class="math">\(\because\)</span> <span class="math">\(Z_e \: \downarrow \: &gt; Z_p \: \downarrow \: \Rightarrow\)</span> Effectively gave primary losses more weight for large risks</p>
 <p>New plan performed better for small and large risks, and performed equally well for medium sized risks based on quintiles test</p>
 </div>
+<div id="change" class="section level3">
+<h3>1998 Change</h3>
+<p><span style="color:red">Not in 2015 syllabus Concepts</span></p>
+<ol style="list-style-type: decimal">
+<li><span class="math">\(\downarrow\)</span> <span class="math">\(Z\)</span> on Med-only by about 70%
+<ul>
+<li>Deincentivise not reporting med-only clais</li>
+<li>Lowered ELRs and D-ratios to maintain balance</li>
+</ul></li>
+<li><span class="math">\(\uparrow\)</span> <span class="math">\(Z_e\)</span> as premium <span class="math">\(\uparrow\)</span>
+<ul>
+<li>Promote safety incentive</li>
+</ul></li>
+<li>Inflation sensitive split point</li>
+</ol>
 </div>
-<div id="change" class="section level2">
-<h2>1998 Change</h2>
+</div>
+<div id="testing-the-experience-rating-plan" class="section level2">
+<h2>Testing the Experience Rating Plan</h2>
+<p><span style="color:red;background-color:yellow">Important know all test</span></p>
+<p>Main challenge: Determining the proper <span class="math">\(Z\)</span> to give to prior losses</p>
+<p>Correct <span class="math">\(Z\)</span> <span class="math">\(\Rightarrow\)</span> maximizing predictive accuracy of plan</p>
+<p>Dorweiler’s 2 conditions for correct credibility:</p>
+<ol style="list-style-type: decimal">
+<li>Necessary: <span class="math">\(PLR_i = PLR_j \forall \: i,j\)</span> credit and debit risks in prospective period (each random subgroup as well)</li>
+<li>Sufficient: <span class="math">\(\nexists \: \subset\)</span> risks with <span class="math">\(PLR_i \neq PLR_j\)</span> in prospective period</li>
+</ol>
+<p>3 test for predictive accuracy of the plan; All tests are performed for each size group separately</p>
+<div id="test-1-dorweilers-test" class="section level3">
+<h3>Test 1: Dorweiler’s Test</h3>
+<p><span style="color:green">2006 Q23, 2013 Q8</span></p>
+<p><strong>Setup:</strong></p>
+<ol style="list-style-type: decimal">
+<li><em>Sort</em> risks by <em>mods</em> in <em>increasing</em> order</li>
+<li><em>Group</em> into subdivisions</li>
+<li>For each subdivisions: calculate <em>manual</em> and <em>standard</em> LR using weighted averages by respective premium (w/ actual loss) <span style="color:red;background-color:yellow">Not super sure what to weight</span>
+<ul>
+<li>If no premium: Manual LR <span class="math">\(\Rightarrow\)</span> Use <span class="math">\(\dfrac{Loss_{Actual}}{Loss_{Expected}}\)</span>; Standard LR <span class="math">\(\Rightarrow\)</span> Use <span class="math">\(\dfrac{Loss_{Actual}}{Loss_{Modified Expected}}\)</span></li>
+</ul></li>
+</ol>
+<p><strong>For plan performing ideally:</strong></p>
+<ul>
+<li>Max dispersion in manual LRs (Identifies)
+<ul>
+<li>Plan is good at identifying risk difference</li>
+</ul></li>
+<li>Equal standard LRs (Corrects)
+<ul>
+<li>Shows plan corrects for risk difference</li>
+</ul></li>
+<li>Same as Venter’s convergence test</li>
+<li>If there’s increasing trend in Standard LR <span class="math">\(\Rightarrow\)</span> Too little credibility is applied; Vice versa</li>
+</ul>
+</div>
+<div id="test-2-gillams-quintiles-test" class="section level3">
+<h3>Test 2: Gillam’s Quintiles Test</h3>
+<p>Only for comparing 2 or more plans</p>
+<p><strong>Setup:</strong></p>
+<ol style="list-style-type: decimal">
+<li><em>Sort</em> risks by <em>mod</em> in <em>increasin</em> order</li>
+<li><em>Group</em> into <strong>5 quintiles</strong></li>
+<li>For each quintiles: calculate <em>manual</em> and <em>standard</em> LR using weighted averages by manual premium</li>
+<li><em>Quintiles test statistics:</em> <span class="math">\(\dfrac{\sigma^2(Standard \: LR)}{\sigma^2(Manual \: LR)}\)</span></li>
+</ol>
+<p><strong>For plan performing ideally:</strong></p>
+<p>Low test statistics</p>
+</div>
+<div id="test-3-efficiency-test" class="section level3">
+<h3>Test 3: Efficiency Test</h3>
+<p>Only for comparing 2 or more plans</p>
+<p><strong>Setup:</strong></p>
+<ol style="list-style-type: decimal">
+<li><em>No</em> sorting necessary</li>
+<li><em>No Grouping</em> within the size group
+<ul>
+<li>Recall all 3 test are done for each size group</li>
+</ul></li>
+<li>For each group, calculate <em>manual</em> and <em>standard</em> LR</li>
+<li><em>Efficiency test statistics:</em> <span class="math">\(\dfrac{\sigma^2(Standard \: LR)}{\sigma^2(Manual \: LR)}\)</span></li>
+</ol>
+<p><strong>For plan performing ideally:</strong></p>
+<p>Low test statistics</p>
+<ul>
+<li>Better risk reduction in risk LR variance</li>
+</ul>
+<hr />
+<p>For each test, if no premium data available:</p>
+<ul>
+<li><p>Replace manual LR <span class="math">\(\Rightarrow\)</span> Use <span class="math">\(\dfrac{Loss_{Actual}}{Loss_{Expected}}\)</span></p></li>
+<li><p>Replace standard LR <span class="math">\(\Rightarrow\)</span> Use <span class="math">\(\dfrac{Loss_{Actual}}{Loss_{Modified Expected}}\)</span></p></li>
+</ul>
+</div>
+<div id="example-for-quintiles-and-efficiency-tests" class="section level3">
+<h3>Example for Quintiles and Efficiency Tests</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Pol No</th>
+<th align="left">Manual LR</th>
+<th align="left">Plan A E Mod</th>
+<th align="left">Plan B E Mod</th>
+<th align="left">Plan A Standard LR</th>
+<th align="left">Plan B Standard LR</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left">0.62</td>
+<td align="left">0.75</td>
+<td align="left">0.68</td>
+<td align="left">0.8266667</td>
+<td align="left">0.9117647</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="left">0.65</td>
+<td align="left">0.80</td>
+<td align="left">0.84</td>
+<td align="left">0.8125000</td>
+<td align="left">0.7738095</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="left">0.69</td>
+<td align="left">0.85</td>
+<td align="left">0.95</td>
+<td align="left">0.8117647</td>
+<td align="left">0.7263158</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="left">0.68</td>
+<td align="left">0.90</td>
+<td align="left">0.78</td>
+<td align="left">0.7555556</td>
+<td align="left">0.8717949</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="left">0.77</td>
+<td align="left">0.95</td>
+<td align="left">1.00</td>
+<td align="left">0.8105263</td>
+<td align="left">0.7700000</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="left">0.81</td>
+<td align="left">1.00</td>
+<td align="left">1.08</td>
+<td align="left">0.8100000</td>
+<td align="left">0.7500000</td>
+</tr>
+<tr class="odd">
+<td align="left">7</td>
+<td align="left">0.85</td>
+<td align="left">1.10</td>
+<td align="left">1.00</td>
+<td align="left">0.7727273</td>
+<td align="left">0.8500000</td>
+</tr>
+<tr class="even">
+<td align="left">8</td>
+<td align="left">0.81</td>
+<td align="left">1.15</td>
+<td align="left">1.11</td>
+<td align="left">0.7043478</td>
+<td align="left">0.7297297</td>
+</tr>
+<tr class="odd">
+<td align="left">9</td>
+<td align="left">0.85</td>
+<td align="left">1.20</td>
+<td align="left">1.17</td>
+<td align="left">0.7083333</td>
+<td align="left">0.7264957</td>
+</tr>
+<tr class="even">
+<td align="left">10</td>
+<td align="left">0.93</td>
+<td align="left">1.25</td>
+<td align="left">1.22</td>
+<td align="left">0.7440000</td>
+<td align="left">0.7622951</td>
+</tr>
+</tbody>
+</table>
+<div id="quintiles-test" class="section level4">
+<h4>Quintiles Test:</h4>
+<p><strong><em>1. Sort by mod and group into 5 quintiles</em></strong></p>
+<pre class="r"><code>d1_1 &lt;- 
+  d1 %&gt;%
+  mutate(QuintileA = ntile(`Plan A E Mod`, 5),
+         QuintileB = ntile(`Plan B E Mod`, 5))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Pol No</th>
+<th align="left">Manual LR</th>
+<th align="left">Plan A E Mod</th>
+<th align="left">Plan B E Mod</th>
+<th align="left">Plan A Standard LR</th>
+<th align="left">Plan B Standard LR</th>
+<th align="left">QuintileA</th>
+<th align="left">QuintileB</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left">0.62</td>
+<td align="left">0.75</td>
+<td align="left">0.68</td>
+<td align="left">0.8266667</td>
+<td align="left">0.9117647</td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="left">0.65</td>
+<td align="left">0.80</td>
+<td align="left">0.84</td>
+<td align="left">0.8125000</td>
+<td align="left">0.7738095</td>
+<td align="left">1</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="left">0.69</td>
+<td align="left">0.85</td>
+<td align="left">0.95</td>
+<td align="left">0.8117647</td>
+<td align="left">0.7263158</td>
+<td align="left">2</td>
+<td align="left">2</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="left">0.68</td>
+<td align="left">0.90</td>
+<td align="left">0.78</td>
+<td align="left">0.7555556</td>
+<td align="left">0.8717949</td>
+<td align="left">2</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="left">0.77</td>
+<td align="left">0.95</td>
+<td align="left">1.00</td>
+<td align="left">0.8105263</td>
+<td align="left">0.7700000</td>
+<td align="left">3</td>
+<td align="left">3</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="left">0.81</td>
+<td align="left">1.00</td>
+<td align="left">1.08</td>
+<td align="left">0.8100000</td>
+<td align="left">0.7500000</td>
+<td align="left">3</td>
+<td align="left">4</td>
+</tr>
+<tr class="odd">
+<td align="left">7</td>
+<td align="left">0.85</td>
+<td align="left">1.10</td>
+<td align="left">1.00</td>
+<td align="left">0.7727273</td>
+<td align="left">0.8500000</td>
+<td align="left">4</td>
+<td align="left">3</td>
+</tr>
+<tr class="even">
+<td align="left">8</td>
+<td align="left">0.81</td>
+<td align="left">1.15</td>
+<td align="left">1.11</td>
+<td align="left">0.7043478</td>
+<td align="left">0.7297297</td>
+<td align="left">4</td>
+<td align="left">4</td>
+</tr>
+<tr class="odd">
+<td align="left">9</td>
+<td align="left">0.85</td>
+<td align="left">1.20</td>
+<td align="left">1.17</td>
+<td align="left">0.7083333</td>
+<td align="left">0.7264957</td>
+<td align="left">5</td>
+<td align="left">5</td>
+</tr>
+<tr class="even">
+<td align="left">10</td>
+<td align="left">0.93</td>
+<td align="left">1.25</td>
+<td align="left">1.22</td>
+<td align="left">0.7440000</td>
+<td align="left">0.7622951</td>
+<td align="left">5</td>
+<td align="left">5</td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>2. Calculate Weighted average manual and standard LR</em></strong></p>
+<pre class="r"><code>d1_2_a &lt;-
+  d1_1 %&gt;%
+  group_by(QuintileA) %&gt;%
+  summarize(`Plan A Manual Avg LR` = mean(`Manual LR`),
+            # Straight average
+            `Plan A Standard Wtd Avg LR` = weighted.mean(`Plan A Standard LR`, `Manual LR`)
+            # Wtd by Manual LR
+  )</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">QuintileA</th>
+<th align="left">Plan A Manual Avg LR</th>
+<th align="left">Plan A Standard Wtd Avg LR</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left">0.635</td>
+<td align="left">0.8194160</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="left">0.685</td>
+<td align="left">0.7838653</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="left">0.790</td>
+<td align="left">0.8102565</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="left">0.830</td>
+<td align="left">0.7393614</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="left">0.890</td>
+<td align="left">0.7269682</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>d1_2_b &lt;-
+  d1_1 %&gt;%
+  group_by(QuintileB) %&gt;%
+  summarize(`Plan B Manual Avg LR` = mean(`Manual LR`),
+            # Straight average = Wtd by Manual LR
+            `Plan B Standard Wtd Avg LR` = weighted.mean(`Plan B Standard LR`, `Manual LR`)
+            # Wtd by Manual LR
+  )</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">QuintileB</th>
+<th align="left">Plan B Manual Avg LR</th>
+<th align="left">Plan B Standard Wtd Avg LR</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left">0.65</td>
+<td align="left">0.8908574</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="left">0.67</td>
+<td align="left">0.7493538</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="left">0.81</td>
+<td align="left">0.8119753</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="left">0.81</td>
+<td align="left">0.7398649</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="left">0.89</td>
+<td align="left">0.7451999</td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>3. Quintile Statistics</em></strong></p>
+<pre class="r"><code>d1_3_a &lt;-
+  d1_2_a %&gt;%
+  summarize(`Manual LR Var` = var(`Plan A Manual Avg LR`)*(nrow(.)-1)/(nrow(.)),
+            `Standard LR Var` = var(`Plan A Standard Wtd Avg LR`)*(nrow(.)-1)/(nrow(.)))
+
+kable(d1_3_a, align = 'l')</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Manual LR Var</th>
+<th align="left">Standard LR Var</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.008754</td>
+<td align="left">0.0013734</td>
+</tr>
+</tbody>
+</table>
+<p>Quintiles Test Statistics for Plan A = <span class="math">\(\dfrac{\sigma^2(\text{Standard LR})}{\sigma^2(\text{Manual LR})}\)</span> = 0.1568843</p>
+<pre class="r"><code>d1_3_b &lt;-
+  d1_2_b %&gt;%
+  summarize(`Manual LR Var` = var(`Plan B Manual Avg LR`)*(nrow(.)-1)/(nrow(.)),
+            `Standard LR Var` = var(`Plan B Standard Wtd Avg LR`)*(nrow(.)-1)/(nrow(.)))
+
+kable(d1_3_b, align = 'l')</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Manual LR Var</th>
+<th align="left">Standard LR Var</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.008384</td>
+<td align="left">0.0033591</td>
+</tr>
+</tbody>
+</table>
+<p>Quintiles Test Statistics for Plan B = <span class="math">\(\dfrac{\sigma^2(\text{Standard LR})}{\sigma^2(\text{Manual LR})}\)</span> = 0.4006517</p>
+<p><span class="math">\(\because\)</span> Plan A has a lower test statistics <span class="math">\(\therefore\)</span> Plan A is more effective</p>
+</div>
+<div id="efficiency-test" class="section level4">
+<h4>Efficiency Test:</h4>
+<p>Calculate the variance of the manual LR and standard LR under the 2 plan with out any sorting and grouping</p>
+<pre class="r"><code>d2 &lt;-
+  d1_1 %&gt;%
+  summarize(`Manual LR Var` = var(`Manual LR`)*(nrow(.)-1)/(nrow(.)),
+            `Plan A Standard LR Var` = var(`Plan A Standard LR`)*(nrow(.)-1)/(nrow(.)),
+            `Plan B Standard LR Var` = var(`Plan B Standard LR`)*(nrow(.)-1)/(nrow(.)))
+
+kable(d2, align = 'l')</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Manual LR Var</th>
+<th align="left">Plan A Standard LR Var</th>
+<th align="left">Plan B Standard LR Var</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.009284</td>
+<td align="left">0.0018691</td>
+<td align="left">0.003979</td>
+</tr>
+</tbody>
+</table>
+<p>Quintiles Test Statistics for Plan A = <span class="math">\(\dfrac{\sigma^2(\text{Standard LR})}{\sigma^2(\text{Manual LR})}\)</span> = 0.2013223</p>
+<p>Quintiles Test Statistics for Plan A = <span class="math">\(\dfrac{\sigma^2(\text{Standard LR})}{\sigma^2(\text{Manual LR})}\)</span> = 0.4285918</p>
+</div>
+</div>
+</div>
+<div id="data-used-for-experience-rating" class="section level2">
+<h2>Data Used for Experience Rating</h2>
 </div>
 
 

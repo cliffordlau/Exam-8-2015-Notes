@@ -314,7 +314,178 @@ Dorweiler's 2 conditions for correct credibility:
 
 3 test for predictive accuracy of the plan; All tests are performed for each size group separately
 
-### Test 1: Dorweiler's
+### Test 1: Dorweiler's Test
 
 <span style="color:green">2006 Q23, 2013 Q8</span>
+
+**Setup:**
+
+1. *Sort* risks by *mods* in *increasing* order
+2. *Group* into subdivisions
+3. For each subdivisions: calculate *manual* and *standard* LR using weighted averages by respective premium (w/ actual loss) <span style="color:red;background-color:yellow">Not super sure what to weight</span> 
+    * If no premium: Manual LR $\Rightarrow$ Use $\dfrac{Loss_{Actual}}{Loss_{Expected}}$; Standard LR $\Rightarrow$ Use $\dfrac{Loss_{Actual}}{Loss_{Modified Expected}}$
+
+**For plan performing ideally:**
+
+* Max dispersion in manual LRs (Identifies)
+    * Plan is good at identifying risk difference
+* Equal standard LRs (Corrects)
+    * Shows plan corrects for risk difference
+* Same as Venter's convergence test
+* If there's increasing trend in Standard LR $\Rightarrow$ Too little credibility is applied; Vice versa
+
+### Test 2: Gillam's Quintiles Test
+
+Only for comparing 2 or more plans
+
+**Setup:**
+
+1. *Sort* risks by *mod* in *increasin* order
+2. *Group* into **5 quintiles**
+3. For each quintiles: calculate *manual* and *standard* LR using weighted averages by manual premium
+4. *Quintiles test statistics:* $\dfrac{\sigma^2(Standard \:  LR)}{\sigma^2(Manual \: LR)}$
+
+**For plan performing ideally:**
+
+Low test statistics
+
+### Test 3: Efficiency Test
+
+Only for comparing 2 or more plans
+
+**Setup:**
+
+1. *No* sorting necessary
+2. *No Grouping* within the size group
+    * Recall all 3 test are done for each size group
+3. For each group, calculate *manual* and *standard* LR
+4. *Efficiency test statistics:* $\dfrac{\sigma^2(Standard \:  LR)}{\sigma^2(Manual \: LR)}$
+
+**For plan performing ideally:**
+
+Low test statistics
+
+* Better risk reduction in risk LR variance
+
+***
+
+For each test, if no premium data available:
+
+* Replace manual LR $\Rightarrow$ Use $\dfrac{Loss_{Actual}}{Loss_{Expected}}$
+
+* Replace standard LR $\Rightarrow$ Use $\dfrac{Loss_{Actual}}{Loss_{Modified Expected}}$
+
+### Example for Quintiles and Efficiency Tests
+
+```{r echo = FALSE, message=FALSE}
+library(dplyr)
+library(scales)
+library(knitr)
+
+d1 <- data_frame(
+  "Pol No" = seq(1,10,1),
+  "Manual LR" = c(0.62, 0.65, 0.69, 0.68, 0.77, 0.81, 0.85, 0.81, 0.85, 0.93),
+  "Plan A E Mod" = c(0.75, 0.80, 0.85, 0.90, 0.95, 1.00, 1.1, 1.15, 1.2, 1.25),
+  "Plan B E Mod" = c(0.68, 0.84, 0.95, 0.78, 1.0, 1.08, 1.00, 1.11, 1.17, 1.22)
+)
+
+d1 <-
+  d1 %>% 
+  mutate(`Plan A Standard LR` = `Manual LR`/`Plan A E Mod`,
+         `Plan B Standard LR` = `Manual LR`/`Plan B E Mod`,
+         `Manual LR` = `Manual LR`)
+```
+
+`r kable(d1, align = 'l')`
+
+#### Quintiles Test:
+
+***1. Sort by mod and group into 5 quintiles***
+
+```{r}
+d1_1 <- 
+  d1 %>%
+  mutate(QuintileA = ntile(`Plan A E Mod`, 5),
+         QuintileB = ntile(`Plan B E Mod`, 5))
+```
+
+`r kable(d1_1, align = 'l')`
+
+***2. Calculate Weighted average manual and standard LR***
+
+```{r}
+d1_2_a <-
+  d1_1 %>%
+  group_by(QuintileA) %>%
+  summarize(`Plan A Manual Avg LR` = mean(`Manual LR`),
+            # Straight average
+            `Plan A Standard Wtd Avg LR` = weighted.mean(`Plan A Standard LR`, `Manual LR`)
+            # Wtd by Manual LR
+  )
+```
+
+`r kable(d1_2_a, align = 'l')`
+
+```{r}
+d1_2_b <-
+  d1_1 %>%
+  group_by(QuintileB) %>%
+  summarize(`Plan B Manual Avg LR` = mean(`Manual LR`),
+            # Straight average = Wtd by Manual LR
+            `Plan B Standard Wtd Avg LR` = weighted.mean(`Plan B Standard LR`, `Manual LR`)
+            # Wtd by Manual LR
+  )
+```
+
+`r kable(d1_2_b, align = 'l')`
+
+***3. Quintile Statistics***
+
+```{r}
+d1_3_a <-
+  d1_2_a %>%
+  summarize(`Manual LR Var` = var(`Plan A Manual Avg LR`)*(nrow(.)-1)/(nrow(.)),
+            `Standard LR Var` = var(`Plan A Standard Wtd Avg LR`)*(nrow(.)-1)/(nrow(.)))
+
+kable(d1_3_a, align = 'l')
+
+```
+
+Quintiles Test Statistics for Plan A = $\dfrac{\sigma^2(\text{Standard LR})}{\sigma^2(\text{Manual LR})}$ = `r d1_3_a[[2]]/d1_3_a[[1]]`
+
+```{r}
+d1_3_b <-
+  d1_2_b %>%
+  summarize(`Manual LR Var` = var(`Plan B Manual Avg LR`)*(nrow(.)-1)/(nrow(.)),
+            `Standard LR Var` = var(`Plan B Standard Wtd Avg LR`)*(nrow(.)-1)/(nrow(.)))
+
+kable(d1_3_b, align = 'l')
+
+```
+
+Quintiles Test Statistics for Plan B = $\dfrac{\sigma^2(\text{Standard LR})}{\sigma^2(\text{Manual LR})}$ = `r d1_3_b[[2]]/d1_3_b[[1]]`
+
+$\because$ Plan A has a lower test statistics $\therefore$ Plan A is more effective
+
+#### Efficiency Test:
+
+Calculate the variance of the manual LR and standard LR under the 2 plan with out any sorting and grouping
+
+```{r}
+d2 <-
+  d1_1 %>%
+  summarize(`Manual LR Var` = var(`Manual LR`)*(nrow(.)-1)/(nrow(.)),
+            `Plan A Standard LR Var` = var(`Plan A Standard LR`)*(nrow(.)-1)/(nrow(.)),
+            `Plan B Standard LR Var` = var(`Plan B Standard LR`)*(nrow(.)-1)/(nrow(.)))
+
+kable(d2, align = 'l')
+```
+
+Quintiles Test Statistics for Plan A = $\dfrac{\sigma^2(\text{Standard LR})}{\sigma^2(\text{Manual LR})}$ = `r d2[[2]]/d2[[1]]`
+
+Quintiles Test Statistics for Plan A = $\dfrac{\sigma^2(\text{Standard LR})}{\sigma^2(\text{Manual LR})}$ = `r d2[[3]]/d2[[1]]`
+
+$\because$ Plan A has a lower test statistics $\therefore$ Plan A is more effective
+
+## Data Used for Experience Rating
 
