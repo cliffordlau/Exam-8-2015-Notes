@@ -28,7 +28,8 @@ Credibility of actual loss experience depends on:
 * $\sigma$ between the loss experience of risks within a classification
     * Experience rating is more useful when the class plan doesn't sufficiently explain $\sigma$ in loss experience between risks
     
-## Goals of Experience Ratings <span style="color:red;background-color:yellow">Important Concepts</span>
+## Goals of Experience Ratings
+<span style="color:red;background-color:yellow">Important Concepts</span>
 
 1. **Predictive accuracy** $\Rightarrow$ Individual risk equity  
 Degree of charge based on past experience should be the degree to which it is predictive of future losses $\Rightarrow$ Insureds charged more closely relates to their loss potential $\Rightarrow$ Ensures equity, rates not unfairly discriminatory
@@ -43,11 +44,11 @@ Increase availability of insurance since experience rating helps guarantee an eq
 
 ## Types of Experience Rating Plans
 
-Maximize predictive accuracy $\Rightarrow$ Minimize between predictedand actual losses
+Maximize predictive accuracy $\Rightarrow$ Minimize between predicted and actual losses
 
-Use $\mathrm{E}[error^2] since it's solvable and penalizes large errors
+Use $\mathrm{E}[error^2]$ since it's solvable and penalizes large errors
 
-Linearity contraint: E-mod has to be a linear function of losses
+Linearity constraint: E-mod has to be a linear function of losses
 
 * Simplify math and make them more understandable
 
@@ -129,7 +130,7 @@ Split plan works better because:
 
 ### Split Plans
 
-Subdivision losses into *primary* and *XS* components and $\mathrm{E}[error^2]$ is minimized seperately
+Subdivision losses into *primary* and *XS* components and $\mathrm{E}[error^2]$ is minimized separately
 
 **Primary:**
 
@@ -266,7 +267,7 @@ $A_p =
 $A_e = \hat{A} - A_p$
 
 Reason for change:  
-Too much credibility given to large risk and not enough for small risk $\Rightarrow$ <10K and >100K becamse preferred business
+Too much credibility given to large risk and not enough for small risk $\Rightarrow$ <10K and >100K became preferred business
 
 Theoretically:
 
@@ -278,7 +279,7 @@ Variance did not decrease that quickly
 
 **Impact:**<span style="color:red;background-color:yellow">Important Memorize</span>
 
-| Samll risks $Z_p$  | Small risks $Z_e$      |
+| Small risks $Z_p$  | Small risks $Z_e$      |
 | ------------------ | ---------------------- |
 | $\uparrow$         | $\uparrow; \: Z_e > 0$ |
 
@@ -294,7 +295,7 @@ New plan performed better for small and large risks, and performed equally well 
 <span style="color:red">Not in 2015 syllabus Concepts</span>
 
 1. $\downarrow$ $Z$ on Med-only by about 70%
-    * Deincentivise not reporting med-only clais
+    * Disincentivize not reporting med-only claims
     * Lowered ELRs and D-ratios to maintain balance
 2. $\uparrow$ $Z_e$ as premium $\uparrow$
     * Promote safety incentive
@@ -487,5 +488,325 @@ Quintiles Test Statistics for Plan A = $\dfrac{\sigma^2(\text{Standard LR})}{\si
 
 $\because$ Plan A has a lower test statistics $\therefore$ Plan A is more effective
 
-## Data Used for Experience Rating
+## Experience Rating: Data
 
+NCCI data source for *classs ratemaking* and *experience rating*: 
+ 
+* Workers Compensation Statistical Plan, a.k.a. Unit Plan
+* Report losses by injury type, payroll, and class codes for every risk from insurers up to the 5th report
+
+**Time Period** for E-mod calculation:
+
+* 3 prior years of actual loss
+* e.g. 7/2013 policy uses 7/2009-2011 (x2012 since it's still in effect as the price is quoted)
+
+2 **adjustments** to loss data
+
+1. Add contract med losses (med portion of indemnity) to Med-only
+2. Separate PP into Major PP and Minor PP
+
+**Group** losses into 3 categories
+
+1. *Serious*: Fatal, PT, Major PP
+2. *Non-serious*: TT, Minor PP
+3. *Med*: Medical from all claims
+
+NCCI make adjustments (detrend/dev) to the $\mathrm{E}[L]$ to make them comparable to historical actual
+
+Does **Not** *develop* nor *trend* nor adjust for *benefit levels* on the ***actual*** losses
+
+## Experience Rating: Plan Parameters & Rating Value
+
+Plan parameters by **State** + **Insured Size**
+
+* **State Reference Point (SRP)**:  
+Calculate $Z$ and loss limits  
+Depends on trended *State Average Cost per Claims (SACC)*
+
+* **Weighting Value (W)**:  
+Limit weight of XS $loss_{actual}$
+
+* **Ballast (B)**:  
+Provide stability on E-mod by limiting impact from any single loss
+
+Rating value by **State** + **Class**
+
+* **ELR**:  
+$\dfrac{\mathrm{E}[L]}{ \$100 \text{ payroll}}$
+
+* **Discount Ratio (D ratios)**:  
+Expected primary % of expected loss $\dfrac{\mathrm{E}[L_{Primary}]}{\mathrm{E}[L]}$
+
+Note: Might not need to know how to calculate ELR and D-ratios. But know all the adjustments made to get the ELRs from the class rate (PLR Adj, time frames, limiting loss)
+
+### Plan Parameters
+
+![alt text](figures/Exam 8 B8 - 15 - 6.png)
+
+#### Trended State Average Cost per Claim SACC
+
+$\text{Trended SACC} = \left( \dfrac{\sum\limits_{y=1}^3 \text{Inc'd Loss}_y}{\sum_{y=1}^3 \text{Claim Count}_y} \right) \times e^{rt}$
+
+* Forward trended wtd avg 3 years undeveloped severity
+* $r$ = continuously compounded annual trend
+* $t$ = trend period = midpoint of mod experience period
+* Employer's liability claim is capped at 100K
+
+Rationale:
+
+* Undeveloped losses so data has = maturity as the data that is used for actual losses entering the E-mod calculation
+* Trend to bring older data to current cost level
+
+***
+
+#### State Reference Point (SRP)
+
+$SRP = 250 \times \text{Trended SACC}$
+
+Additional adjustments/constraints:
+
+* **Round** to nearest \$5,000
+* $SRP_t \nless SRP_{t-1}$ unless significant reduction in WC benefits
+* $\Delta SRP > 20\%$ will be investigated
+
+***
+
+#### State Accident Limit (SAL)
+
+Limit for individual actual losses entering the experience mod calculation
+
+$SAL = 10\% \times SRP$
+
+Other dependents:
+
+* Limit on the total losses from a multiple claim occurrence = $2 \times SAL$
+* See rule 2.C.13
+
+***
+
+#### Scale factor (G)
+
+$G = \dfrac{SRP}{250{,}000}$
+
+Additional adjustments/constraints:
+
+* **Round** to nearest 0.05
+
+***
+
+#### Ballast (B),  Weighting Value (W) (and C = $K_e$)
+
+$\begin{array}{llll}
+  B &= \max \left( 7500, \: E \times \dfrac{0.1E + 2{,}500G}{E + 700G} \right) &= K_p & B>0 \\
+  C &= \max \left( 150{,}000, \: E \times \dfrac{0.75E + 200{,}000G}{E + 5{,}100G} \right) &= K_e \\
+\end{array}$
+
+$W = \dfrac{E + B}{E + C}$
+
+Additional adjustments/constraints:
+
+* **Round** to nearest 0.01
+* $0 < W <1$
+* $W$ can **not** $\uparrow$ for $\downarrow$ $E$
+
+Constraint on $B$ and $W$ so that no risk has 100% credibility
+
+***
+
+### Plan Rating Values
+
+Need *ELRs* and *D-ratios* for each class $i$ to get $E$ and $E_e$
+
+$E_i = ELR_i \times \left( \dfrac{\sum\limits_{y=1}^3 Payroll_{i,y}}{100} \right)$
+
+$E = \sum\limits_{i \in class} E_i$
+
+$E_p = \sum\limits_{i \in class} D_i \times E_i$
+
+$E_e = E - E_p$
+
+####$ELR_i$ Expected Loss Ratio by Class: 
+
+***Step 0. Starting Point***
+
+Class rates (or class loss costs) published by NCCI (by States)
+
+***Step 1. Calculate ELR Level Factor***
+
+Purpose:  
+Reduces manual rates (or loss costs) to pure premiums at 2nd report, @ the same benefit level as in the experience period
+
+Calculations/Adjustments:
+
+1. Class rate (or loss costs) $\times PLR$  
+Remove remove profit, taxes, and expenses
+
+2. Time frame difference adjustments between prospective class rates and historical losses  
+Benefit levels, loss development, trend
+
+***Step 2. ELR factors by HG and ELR factors by class***
+
+Purpose:  
+To reflect that losses going into the experience rating calculation are limited by the $SAL$, but the losses underlying the rates are not limited
+
+Calculations/Adjustments:
+
+1. $\forall$ HG: $\dfrac{\sum\limits_i Cost_{i,j}}{\sum\limits_i Claim_{i,j}}$ $j \in \{\text{Serious Injury Types}\}$
+
+2. $\forall$ types, HG: $\dfrac{SAL}{\text{injury type average cost per case}} = \text{Entry Ratio} \: r$
+
+3. Use $r$ from 2. and tables of $R(L)$ $\Rightarrow$ $R(L)$ $\forall$ injury type and HG
+
+4. $\forall$ HG: weight the 3 $R(L)$ by injury type weights to get a single $R(L)$ for each HG
+
+5. $[\text{HG adjustment factor}] = 1 - R(L)$ from 4.
+
+6. $\forall$ HG $[ELR \text{ level factor}]_{HG} \times [\text{HG adjustment factor}] = [\text{HG }ELR\text{ Factor}]$
+
+7. $[\text{HG }ELR\text{ Factor}] \times \text{Class rate in HG} = ELR\text{ by class}$
+
+$ELR_i = (\text{Manual Rate}_i) \times (\text{ELR level factor}_i) \times (\text{HG Adj Factor}_i)$
+
+***Step 3. Check the ELRs for reasonability***
+
+Not in syllabus
+
+####$D_i$ D-ratios by Class  
+<span style="color:red">Calculation not in syllabus</span>
+
+Portion of loss that will be primary
+
+1. Use 3 most recently available years of data
+2. Calculate expected primary percentage of losses for serious, non-serious, and medical claim types
+3. Weight the 3 together to produce a single D-ratios for each class
+
+## Application of NCCI Experience Rating Plan
+
+$\text{Standard Premium} = \text{Experience Mod} \times \sum\limits_{i \in class} \sum\limits_{j \in locations} \text{Manual Premium}_{i,j}$
+
+Mod only differentiates loss potential for risks within a class, not between classes since it's applied to the manual premium which varies by class
+
+Debit and credit could just means a poor class fit and not necessary poor safety habits
+
+## The Off-balance
+
+Rate level vs premium level:
+
+* Rate level: just manual premium
+    * No Exp/Sch rating, prem discount, retro rating, dividends
+* Premium level: includes all the above
+    * Premium level can $\Delta$ due to $\Delta$ in any one of the above factors without rate level $\Delta$
+
+$\begin{array}
+  \text{Off-Balance} &= \dfrac{\text{Standard Premium}}{\text{Manual Premium}} \\
+  &= \text{weighted average experience mod across all risks} \\
+  &= f(\text{Adequacy of the rating values of the ELRs and D-ratios})
+\end{array}$
+
+If ELRs and D-ratios adequate:  
+
+* Off-Balance $\approx$ 1; or
+* Slight credit (< 1.00) since risks large enough for experience rating tend to have better loss experience
+
+Off-balance is not used to change the overall premium adequacy
+
+* Varies by state, usually within $\pm$ 1-2 points of 1.00
+
+**Off-balance mismatch:**  
+<span style="color:green">2013</span>
+
+* Due to the fact that rate indications are based on standard loss ratios, but the rate changes are applied to the manual rates
+* Usually happens when rate adequacy deteriorates for several years due to lack of regulatory approval
+* Example:
+    1. DOI refuses to approve NCCI class rate level $\Delta$ (Individual E-mod $\uparrow$) $\Rightarrow$ rates are considered 10% inadequate (This is starting point for $E$)
+    2. Off-balance $\uparrow$ > 1, since the $E$ values are too low relative to the A values; reduce the premium inadequacy, but not the rate inadequacy
+    3. Rate indications are based on standard loss ratios, the indications will be too low compare to real inadequacy since the off-balance is reducing the premium inadequacy
+    4. If adequate rates are then approved by the DOI, the off-balance will move back down towards 1, and the premiums will become inadequate once again
+* Example 2:    
+    1. Projected LR to determine indication = $\dfrac{\text{Projected Losses}}{\text{Projected Final Premium (w/ e-mod)}}$
+    2. Indication = $+x\%$
+    3. DOI approve $+x\%$
+    4. ELR used to get the $\mathrm{E}[L]$ in the Exp rating formula is based on manual rates $\Rightarrow$ $\mathrm{E}[L]$ in the mod formula $\uparrow$
+    5. Mod formulas now compare actual losses vs higher $\mathrm{E}[L] $\Rightarrow$ Mod for individual risk start coming down $\Rightarrow$ Average mod $\downarrow$ (off-balance)
+    6. Mods $\downarrow$ %\Rightarrow$ Premium collected $\downarrow$ $\Rightarrow$ Premium inadequate
+  
+## Using the NCCI Experience Rating Plan Manual  
+<span style="color:green">2002 Q33, 2009 Q25</span>
+
+Some highlights
+
+### Rule 2.A.2.  
+<span style="color:red;background-color:yellow">Important</span>
+
+Table showing the premium **eligibility for experience rating** by **state**
+
+Mod is *mandatory* once an insured is eligible
+
+Need one of the following:
+
+* $\sum\limits_{t=1}^2 \text{Manual Premium}_t \geq \text{Column A}$; OR
+* $\dfrac{\sum\limits_{t=1}^3 \text{Manual Premium}}{3} \geq \text{Column B}$
+
+### Rule 2.C
+
+Descriptions of all the items in Experience mod formula
+
+**2.C.9** and **2.C.10.** shows calculation for *interstate* $W$ and $B$
+
+### Rule 2.C.13.  
+<span style="color:red;background-color:yellow">Important</span>
+
+Rules for different loss limits to apply to actual losses
+
+Per claim accident limitation = $SAL$
+
+### Rule 2.D.1.  
+<span style="color:red;background-color:yellow">Important</span>
+
+Experience Mod Formula
+
+### Rule 2.D.2.  
+<span style="color:red;background-color:yellow">Important</span>
+
+Maximum debit mod, varies by risk
+
+### Rule 5.B.
+
+Ex-Med coverage, formula to convert expected losses to an ex-medical basis
+
+### Appendix Table  
+<span style="color:red;background-color:yellow">Important</span>
+
+Table for **ELRs** and **D-ratios** by class for AL
+
+Table for $W$ values based on $E$ for AL
+    * Also has $G$ and various loss limits and **state multi limit**
+    
+Table for $B$ values based on $E$ for AL
+
+### Miscellaneous Rules
+
+**Rule 1.C.8.**
+
+Reasons why risk might have mod = 1.00
+
+**Rule 2.A.5.**
+
+Qualification for interstate experience rating
+
+**Rule 2.B.2.**
+
+Rating effective dates for multiple policy risks with different effective dates
+
+**Rule 3.**  
+<span style="color:green">2001 Q25</span>
+
+Ownership changes and combination of entities
+
+**Rule 4.B.1-3**
+
+Corrections for payroll, losses of classifications can result in revised mods
+
+**Rule 4.C.**
+
+Definitions for preliminary, final, and contingent mod
