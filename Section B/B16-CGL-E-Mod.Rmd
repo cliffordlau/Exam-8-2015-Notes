@@ -1,0 +1,140 @@
+---
+title: "Commercial General Liability Experience and Schedule Rating Plan"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
+---
+<span style="color:green">2004 Q11, 2006 Q28, 2008 Q24</span>
+
+## ISO Experience Mod Formula  
+<span style="color:red;background-color:yellow">Important Formulas</span>
+
+$Mod = Z \times \dfrac{AER - EER}{EER}$
+
+$Z = \text{Credibility}$
+
+$\begin{array}{ll}
+  AER &= \text{Actual Experience Ratio} \\
+  &= \dfrac{\text{Actual Reported @ }\textbf{Basic Limits}\text{ L&ALAE }\textbf{Limited by MSL } + \text{ Expected Unreported}}{\text{Expected Ult @ }\textbf{Basic Limit}\text{ L&ALAE }\textbf{Not}\text{ Limited by MSL}}
+\end{array}$
+
+$\begin{array}{ll}
+  EER &= \text{Expected Experience Ratio} \\
+  &= \dfrac{\text{Expected Ult @ }\textbf{Basic Limits}\text{ L&ALAE }\textbf{Limited by MSL }}{\text{Expected Ult @ }\textbf{Basic Limit}\text{ L&ALAE }\textbf{Not}\text{ Limited by MSL}}
+\end{array}$
+
+***Notes on ISO Exp Mod***  
+<span style="color:red;background-color:yellow">Important Details</span>
+
+Company Subject Loss Cost (CSLC) = Denominator of both $AER$ and $EER$
+
+Without MSL $\Rightarrow$ $EER = 1$ since top and bottom only difference by the MSL
+
+EER is conceptually similar to NCCI's D-Ratio
+
+No-split plan
+
+$Mod$ is not produced in factor form $\Rightarrow$ Need to add 1 to use
+
+The ISO plan responds primarily to **frequency** and less to severity
+
+* Only uses losses @ **basic** policy limits
+* Ignores XS losses above basic limit
+* Additional cap, Maximum Single Loss, on top of the basic limits
+
+Uses 3 years of actual experience $sim$ NCCI
+
+## Calculation of CSLC
+
+Company Subject Loss Cost = $\mathrm{E}[L]$ + Basic Policy Limits + $Adj_{Trend}$ + $Adj_{Coverage}$
+
+* So that $\mathrm{E}[L]$ comparable to historical
+
+3 methods to calculate CSLC
+
+* Use standard method unless there is dramatic $\Delta$ in exposures besides inflation
+
+### Standard Method
+
+Data Requirement:  
+**Annual premium** for each **subline** for the **prospective** period @**Basic Limit** prior to any individual risk mod
+
+**Rule 5A** defines basic limits
+
+**Rule 10** Step 1-3 if no premium
+
+***
+
+$CSLC = \sum\limits_{y=1}^3 \sum\limits_{sl} CSLC_{y,sl}$
+
+$\begin{array}{llll}
+  CSLC_{y,sl} &= BLEL_{sl} &\times &\cdots (1) \\
+  &= [\text{Table 13 B }PAF]_{sl} &\times &\cdots (2) \\
+  &= [\text{Table 13 C }PAF]_{y, sl} &\times &\cdots (3) \\
+  &= Detrend_{y, sl} & &\cdots(4) \\
+\end{array}$
+
+$(1)$ $BLEL$ by subline
+
+* $\text{Basic Limits Expected Losses}_{sl} = \text{Company }ELR \times \text{Annual Basic Limits Company Premium}_{sl}$
+
+$(2)$ Convert to occurrence level (only when policy rated is CM)
+
+* Based on prospective period policy type
+
+$(3)$ Convert to level matching historical experience
+
+* Based on experience period policy type
+
+$(4)$ Detrend to same level as historical
+
+* Account for both pure premium and exposure trend
+* By subline and year of experience
+* Use the column in Table 14 related to Rule 5B
+
+### Present Average Company Rate Method  
+<span style="color:green>2007 Q27</span>
+
+Additional Requirements:  
+Special u/w exposure base
+
+***
+
+$CSLC = \sum\limits_{y=1}^3 \sum\limits_{sl} CSLC_{y,sl}$
+
+$\begin{array}{llll}
+  CSLC_{y,sl} &= AvgPrem_{sl} &\times &\cdots (1) \\
+  &= SpecialExposures_y &\times &\cdots (2) \\
+  &= ELR &\times &\cdots (3) \\
+  &= [\text{Table 13 B }PAF]_{sl} &\times &\cdots (4) \\
+  &= [\text{Table 13 C }PAF]_{y, sl} &\times &\cdots (5) \\
+  &= Detrend_{y, sl} & &\cdots(6) \\
+\end{array}$
+
+$(1)$ $\dfrac{\text{Annual Company Premium @ Basic Limit by subline for new policy period}}{\text{Special u/w exposure}}$
+
+$(2)$ Special underwriting exposure base use for both policy period rated and experience periods
+
+$(1) \times (2) \times (3) =$ Basic Level Loss Cost
+
+$(3), (4), (5)$ Same as Standard Method
+
+$(6)$ Only adjust for PP trend
+
+* Use the column in Table 14 related to Rule 5C
+* Since using $(1)$ we don't need to trend exposure
+
+## Historical Exposures @ Present Company Rates Method
+
+Additional Requirements:  
+Actual exposures by **class** + **location** + **year** + **subline** of the experience period
+
+***
+
+$CSLC = \sum\limits_{y=1}^3 \sum\limits_{sl} CSLC_{y,sl}$
+
+$CSLC_{y,sl} = Premium_{y,sl} \times ELR \times Detrend_{y,sl}$
+
+$Premium_{y,sl} = \sum\limits_{class, location} \left\{Exposure_{actual} \times [\text{Current Basic Limit Company Rates}] \times ILF_{\text{basic per occ limits and actual policy annual agg limits}}\right\}$
