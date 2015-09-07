@@ -163,7 +163,7 @@ $Mod = \dfrac{A_p + W A_e + (1 - W)E_e + B}{E_{total} + B}$ <span style="color:r
 
 * $Z_p = \dfrac{E}{E + B}$
 
-* $Z_e = W Z_p
+* $Z_e = W Z_p$
 
 * Weight: $W = \dfrac{E + K_p}{E + K_e}$
     * $0 < W < 1$
