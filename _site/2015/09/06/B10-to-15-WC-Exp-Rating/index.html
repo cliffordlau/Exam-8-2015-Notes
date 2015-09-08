@@ -1,82 +1,4 @@
-    <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Exam 8 Notes</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.">
-    <meta name="description" content="CAS Exam 8 Notes">
-
-    <link href="/css/bootstrap.css" rel="stylesheet">
-    <style>
-      body {
-        padding-top: 60px;
-      }
-    </style>
-    <link href="/css/bootstrap.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-  </head>
-  <style>
-    #forkongithub
-      a{background:#000;color:#fff;text-decoration:none;
-        font-family:arial,sans-serif;text-align:center;
-        font-weight:bold;padding:5px 40px;font-size:1rem;line-height:2rem;
-        position:relative;transition:0.5s;}
-    #forkongithub
-      a:hover{background:#c11;color:#fff;}
-    #forkongithub a::before,
-    #forkongithub
-      a::after{content:"";width:100%;display:block;position:absolute;top:1px;
-      left:0;height:1px;background:#fff;}
-    #forkongithub
-      a::after{bottom:1px;top:auto;}
-    @media screen and (min-width:800px)
-    {#forkongithub{position:fixed;display:block;top:0;right:0;width:200px;
-      overflow:hidden;height:200px;z-index:9999;}
-    #forkongithub a{width:200px;position:absolute;top:60px;
-      right:-60px;transform:rotate(45deg);-webkit-transform:rotate(45deg);
-      -ms-transform:rotate(45deg);
-      -moz-transform:rotate(45deg);-o-transform:rotate(45deg);
-      box-shadow:4px 4px 10px rgba(0,0,0,0.8);}}
-    </style>
-    <span id="forkongithub">
-      <a href="https://github.com/cliffordlau/Exam-8-2015-Notes">
-        Fork me on GitHub
-      </a>
-    </span>
-
-  <body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Exam 8 Notes</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
-    <div class="container">
-
-    <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8">
-            <!DOCTYPE html>
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -130,9 +52,9 @@ code {
   color: inherit;
   background-color: rgba(0, 0, 0, 0.04);
 }
-img {
-  max-width:100%;
-  height: auto;
+img { 
+  max-width:100%; 
+  height: auto; 
 }
 </style>
 <div class="container-fluid main-container">
@@ -317,7 +239,7 @@ img {
 <ul>
 <li><p><span class="math">\(B = (1 - W)K &gt; 0\)</span></p></li>
 <li><p><span class="math">\(Z_p = \dfrac{E}{E + B}\)</span></p></li>
-<li><p>$Z_e = W Z_p</p></li>
+<li><p><span class="math">\(Z_e = W Z_p\)</span></p></li>
 <li>Weight: <span class="math">\(W = \dfrac{E + K_p}{E + K_e}\)</span>
 <ul>
 <li><span class="math">\(0 &lt; W &lt; 1\)</span></li>
@@ -657,7 +579,7 @@ img {
 <div id="quintiles-test" class="section level4">
 <h4>Quintiles Test:</h4>
 <p><strong><em>1. Sort by mod and group into 5 quintiles</em></strong></p>
-<pre class="r"><code>d1_1 &lt;-
+<pre class="r"><code>d1_1 &lt;- 
   d1 %&gt;%
   mutate(QuintileA = ntile(`Plan A E Mod`, 5),
          QuintileB = ntile(`Plan B E Mod`, 5))</code></pre>
@@ -1232,33 +1154,3 @@ $(document).ready(function () {
 
 </body>
 </html>
-
-        </div>
-        <div class="col-md-4">
-            <h4>About This</h4>
-
-<p>Just a bunch of notes for Exam 8</p>
-
-<h4>Recent Post<h4>
-  <ul>
-  
-    <li><a href="/2015/09/06/B10-to-15-WC-Exp-Rating/">B10 To 15 Wc Exp Rating</a></li>
-  
-    <li><a href="/2015/09/03/B9-XS-Ratios-Alt-Method/">B9 Xs Ratios Alt Method</a></li>
-  
-    <li><a href="/2015/09/02/B8-1997-ELF/">B8 1997 Elf</a></li>
-  
-    <li><a href="/2015/08/31/B7-ILF-XoL-Pricing/">B7 Ilf Xol Pricing</a></li>
-  
-    <li><a href="/2015/08/30/B1-to-B6-Retrospective-Rating/">B1 To B6 Retrospective Rating</a></li>
-  
-  </ul>
-
-        </div>
-    </div>
-    </div>
-       </div>
-
- </body>
-</html>
-
