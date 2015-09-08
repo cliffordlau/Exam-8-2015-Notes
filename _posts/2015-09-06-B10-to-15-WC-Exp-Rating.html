@@ -1,7 +1,3 @@
----
-layout: default
----
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -56,9 +52,9 @@ code {
   color: inherit;
   background-color: rgba(0, 0, 0, 0.04);
 }
-img {
-  max-width:100%;
-  height: auto;
+img { 
+  max-width:100%; 
+  height: auto; 
 }
 </style>
 <div class="container-fluid main-container">
@@ -243,7 +239,7 @@ img {
 <ul>
 <li><p><span class="math">\(B = (1 - W)K &gt; 0\)</span></p></li>
 <li><p><span class="math">\(Z_p = \dfrac{E}{E + B}\)</span></p></li>
-<li><p>$Z_e = W Z_p</p></li>
+<li><p><span class="math">\(Z_e = W Z_p\)</span></p></li>
 <li>Weight: <span class="math">\(W = \dfrac{E + K_p}{E + K_e}\)</span>
 <ul>
 <li><span class="math">\(0 &lt; W &lt; 1\)</span></li>
@@ -583,7 +579,7 @@ img {
 <div id="quintiles-test" class="section level4">
 <h4>Quintiles Test:</h4>
 <p><strong><em>1. Sort by mod and group into 5 quintiles</em></strong></p>
-<pre class="r"><code>d1_1 &lt;-
+<pre class="r"><code>d1_1 &lt;- 
   d1 %&gt;%
   mutate(QuintileA = ntile(`Plan A E Mod`, 5),
          QuintileB = ntile(`Plan B E Mod`, 5))</code></pre>

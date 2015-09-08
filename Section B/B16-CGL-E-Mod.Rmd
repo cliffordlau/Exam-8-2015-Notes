@@ -83,10 +83,12 @@ $(1)$ $BLEL$ by subline
 $(2)$ Convert to occurrence level (only when policy rated is CM)
 
 * Based on prospective period policy type
+* Based on the year in CM program (1-4, mature) for the prospective policy period
 
-$(3)$ Convert to level matching historical experience
+$(3)$ Convert to level matching historical actual
 
 * Based on experience period policy type
+* Based on the year in CM program (1-4, mature) for the historical policy period
 
 $(4)$ Detrend to same level as historical
 
@@ -95,7 +97,7 @@ $(4)$ Detrend to same level as historical
 * Use the column in Table 14 related to Rule 5B
 
 ### Present Average Company Rate Method  
-<span style="color:green>2007 Q27</span>
+<span style="color:green">2007 Q27</span>
 
 Additional Requirements:  
 Special u/w exposure base
@@ -126,7 +128,7 @@ $(6)$ Only adjust for PP trend
 * Use the column in Table 14 related to Rule 5C
 * Since using $(1)$ we don't need to trend exposure
 
-## Historical Exposures @ Present Company Rates Method
+### Historical Exposures @ Present Company Rates Method
 
 Additional Requirements:  
 Actual exposures by **class** + **location** + **year** + **subline** of the experience period
@@ -138,3 +140,108 @@ $CSLC = \sum\limits_{y=1}^3 \sum\limits_{sl} CSLC_{y,sl}$
 $CSLC_{y,sl} = Premium_{y,sl} \times ELR \times Detrend_{y,sl}$
 
 $Premium_{y,sl} = \sum\limits_{class, location} \left\{Exposure_{actual} \times [\text{Current Basic Limit Company Rates}] \times ILF_{\text{basic per occ limits and actual policy annual agg limits}}\right\}$
+
+* Use the column in Table 14 related to Rule 5C
+* Using current rates for the policy type in each year of the experience $\Rightarrow$ No need for Table 13B and 13C PAFs
+
+## Completing Mod Calculation
+
+With CSLC, lookup $EER$, $MSL$, $Z$ from *Table 16*
+
+If $Z \geq 0.03 \: \Rightarrow$ Schedule Rating
+
+If $Z \geq 0.07 \: \Rightarrow$ Experience Rating
+
+### AER
+
+Numerator is BF estimate of ult @ basic limits L&ALAE limited by the MSL
+
+$\begin{array}{ll}
+  AER &= \text{Actual Experience Ratio} \\
+  &= \dfrac{\text{Actual Reported @ }\textbf{Basic Limits}\text{ L&ALAE }\textbf{Limited by MSL } + \text{ Expected Unreported}}{CSLC}
+\end{array}$
+
+***1. Actual historical L&ALAE @ basic limits and the MSL***
+
+Data Requirements:  
+Historical L&ALAE data for the experience period with claims level details split into loss and ALAE
+
+1. **Basic limit loss**: Basic per occ limit (from Rule 5A) for **loss** only
+2. **MSL**: $\min \left( \text{Basic Limit Loss + ALAE}, MSL \right)$ 
+
+Annual agg limits in Rule 5A are NOT applied according to Rule 5D part 1 <span style="color:red">What?</span>
+
+***2. Expected future loss development from experience period L&ALAE***
+
+Not based on actual historical losses
+
+$\text{Expected Development}_{y,sl} = \sum\limits_{y=1}^3 \sum\limits_{sl} CSLC_{y,sl} \times EER \times LDF_{y,sl}$
+
+$LDF$
+
+* Really just % unreported
+* Age: Starting of historical policy term to data evaluation date
+* Company *or* ISO in Table 15 *or* Table 11B
+* If historical policies is CM always $LDF = 0$
+
+## Comparison with NCCI Experience Rating  
+<span style="color:red;background-color:yellow">Important Concepts</span>
+
+| Component          | ISO                   | NCCI                      |
+| -------------------| --------------------- | ------------------------- |
+| Experience period  | 3 years lag 1         | Same                      |
+| Experience mod     | Add 1 to be factor    | Factor form               |
+| Credibility        | Up to 100 %           | < 100 %                   |
+| Plan type          | No-split              | Single-split              |
+| ALAE               | Included in Mod       | Not included              |
+| Other expenses     | Excluded              | Same                      |
+| Trending of losses | Only detrend expected | Same                      |
+| Benefit level      | N/A                   | Adj expected              |
+| PAFs               | For CM                | No CM so no PAFs          |
+| Loss development   | Compare Ult           | Compare undeveloped       |
+| XS loss definition | > basic & > MSL       | > split                   |
+| Use of XS loss     | Ignores XS            | Uses XS                   |
+| Loss limit         | Basic limit & MSL     | SAL (multi-claim/disease) |
+| Responds to        | Frequency mostly      | Frequency and severity   | 
+
+## Miscellaneous items in ISO Manual (Neve tested)
+
+Rule 5H:  
+Adj historical loss experience to match deductible level of prospective policy
+
+Rule 8:  
+If ELR for company manual premium for the class $\neq$ actual ELR for the risk, multiply the premium after the mod by the *Expense Variation Factor (EVF)*
+
+Rule 12:  
+Converting the plan from a loss cost basis to a premium basis
+
+## Schedule Rating
+
+For underwriters to adjust the premium for individual risks based on risk characteristics not reflected in the premium calculation and experience rating
+
+Require $Z \geq 0.03$
+
+List of risk characteristics to be considered with max/min for each category and then summed together with a total max/min
+
+Credit or debit is given in each category if the risk is either above average or below average related to other risks for that category
+
+<span style="color:red">All in manual</span>
+
+Rule 9
+
+| Category | Description and Max/Min |
+| -------- | ----------------------- |
+| Location | Exposure inside and out $\pm 5\%$ each for inside and outside |
+| Premise | Condition and care $\pm 10\%$ |
+| Equipment | Type, condition and care $\pm 10\%$ |
+| Classification | Peculiarities $\pm 10\%$ |
+| Employees | Selection, training, supervision, experience $\pm 6\%$ |
+| Cooperation | Medical facilities and safety program $\pm 2%$ each for med and safety |
+
+Total cap @ $\pm 25%$
+
+## Relation to Experience Rating
+
+Need to avoid reflecting any risk characteristics that are already fully reflected in experience rating
+
+Schedule mod is applied after the experience mod
