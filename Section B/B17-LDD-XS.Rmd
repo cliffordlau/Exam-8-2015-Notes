@@ -1,0 +1,25 @@
+---
+title: "Work Comp LDD and Excess papers"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
+---
+<span style="color:green">2002 Q39, 2003 Q35</span>
+
+## Intro to LDD and XS Policies
+
+###Large Dollar Deductible
+
+Employer:
+
+* Self-retain a per occ deductible and/or aggregate deductible
+
+Insurer:
+
+* Indemnifies all losses > deductible
+* Provides services = full coverage
+* Adjusts all claims
+* Endoresement to full coverage
+
