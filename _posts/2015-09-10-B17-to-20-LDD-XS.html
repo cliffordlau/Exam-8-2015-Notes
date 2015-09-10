@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -52,9 +56,9 @@ code {
   color: inherit;
   background-color: rgba(0, 0, 0, 0.04);
 }
-img { 
-  max-width:100%; 
-  height: auto; 
+img {
+  max-width:100%;
+  height: auto;
 }
 </style>
 <div class="container-fluid main-container">
@@ -417,7 +421,7 @@ img {
 <h3>Pricing LDD: Discount</h3>
 <p><span class="math">\(\text{Discount} = D = \dfrac{(ELR)(PLER)(f)}{1-A-T-p}\)</span><span style="color:red;background-color:yellow">Memorize Formula</span></p>
 <p><em>Proof:</em></p>
-<p><span class="math">\(\begin{array}{lll}  D &amp;= 1 - \dfrac{P'}{P} &amp;\text{by definition} \\  &amp;= 1 - \dfrac{ (EEL + \phi^{LLM}(r_G) \times EPL) + EL \: (ULAE + LBA) + SP \: (GO + CR)}{(EL) + EL \: (ULAE + LBA) + SP \: (GO)} &amp;\text{From Pricing LDD: By Components}\\  &amp;= \dfrac{EL - \left[EEL + \phi^{LLM}(r_G) \times EPL\right] - SP(CR)}{(EL) + EL \: (ULAE + LBA) + SP \: (GO)} \\  &amp;= \dfrac{{\color{blue}{EL}} - \left[{\color{blue}{EEL}} + \phi^{LLM}(r_G) \times {\color{blue}{EPL}}\right] - SP(CR)}{P(1-A-T-p)} &amp; \text{From definition of }P \\  &amp;= \dfrac{{\color{blue}{P(ELR)}} - \left[{\color{blue}{P(ELR)(1-PLER)}} + \phi^{LLM}(r_G) \times {\color{blue}{(P)(ELR)(PLER)}}\right] - SP(CR)}{P(1-A-T-p)} &amp; \text{Restate losses with LR and }P \\  &amp;= \dfrac{P(ELR) - P(ELR)(1-PLER) - SP(CR)}{P(1-A-T-p)} &amp; \text{Assumption 4. No agg deductible }\Rightarrow \phi^{LLM}(r_G) = 0 \\  &amp;= \dfrac{P(ELR)(PLER) - SP(CR)}{P(1-A-T-p)}\\  &amp;= \dfrac{P(ELR)(PLER)(f)}{P(1-A-T-p)} &amp;\text{Assumption 1. Use safety factor for credit risk}\\  &amp;= \dfrac{(ELR)(PLER)(f)}{1-A-T-p} &amp;\text{Final formula }{\color{red}{Memorize}}\\ \end{array}\)</span></p>
+<p><span class="math">\(\begin{array}{lll}  D &amp;= 1 - \dfrac{P'}{P} &amp;\text{by definition} \\  &amp;= 1 - \dfrac{ (EEL + \phi^{LLM}(r_G) \times EPL) + EL \: (ULAE + LBA) + SP \: (GO + CR)}{(EL) + EL \: (ULAE + LBA) + SP \: (GO)} &amp;\text{From Pricing LDD: By Components}\\  &amp;= \dfrac{EL - \left[EEL + \phi^{LLM}(r_G) \times EPL\right] - SP(CR)}{(EL) + EL \: (ULAE + LBA) + SP \: (GO)} \\  &amp;= \dfrac{ {\color{blue}{EL}} - \left[{\color{blue}{EEL}} + \phi^{LLM}(r_G) \times {\color{blue}{EPL}}\right] - SP(CR)}{P(1-A-T-p)} &amp; \text{From definition of }P \\  &amp;= \dfrac{ {\color{blue}{P(ELR)}} - \left[{\color{blue}{P(ELR)(1-PLER)}} + \phi^{LLM}(r_G) \times {\color{blue}{(P)(ELR)(PLER)}}\right] - SP(CR)}{P(1-A-T-p)} &amp; \text{Restate losses with LR and }P \\  &amp;= \dfrac{P(ELR) - P(ELR)(1-PLER) - SP(CR)}{P(1-A-T-p)} &amp; \text{Assumption 4. No agg deductible }\Rightarrow \phi^{LLM}(r_G) = 0 \\  &amp;= \dfrac{P(ELR)(PLER) - SP(CR)}{P(1-A-T-p)}\\  &amp;= \dfrac{P(ELR)(PLER)(f)}{P(1-A-T-p)} &amp;\text{Assumption 1. Use safety factor for credit risk}\\  &amp;= \dfrac{(ELR)(PLER)(f)}{1-A-T-p} &amp;\text{Final formula }{\color{red}{Memorize}}\\ \end{array}\)</span></p>
 <p>Make sure we’re consistent with all the factors on whether we include ALAE or not</p>
 </div>
 </div>

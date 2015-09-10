@@ -380,8 +380,8 @@ $\begin{array}{lll}
   D &= 1 - \dfrac{P'}{P} &\text{by definition} \\
   &= 1 - \dfrac{ (EEL + \phi^{LLM}(r_G) \times EPL) + EL \: (ULAE + LBA) + SP \: (GO + CR)}{(EL) + EL \: (ULAE + LBA) + SP \: (GO)} &\text{From Pricing LDD: By Components}\\
   &= \dfrac{EL - \left[EEL + \phi^{LLM}(r_G) \times EPL\right] - SP(CR)}{(EL) + EL \: (ULAE + LBA) + SP \: (GO)} \\
-  &= \dfrac{{\color{blue}{EL}} - \left[{\color{blue}{EEL}} + \phi^{LLM}(r_G) \times {\color{blue}{EPL}}\right] - SP(CR)}{P(1-A-T-p)} & \text{From definition of }P \\
-  &= \dfrac{{\color{blue}{P(ELR)}} - \left[{\color{blue}{P(ELR)(1-PLER)}} + \phi^{LLM}(r_G) \times {\color{blue}{(P)(ELR)(PLER)}}\right] - SP(CR)}{P(1-A-T-p)} & \text{Restate losses with LR and }P \\
+  &= \dfrac{ {\color{blue}{EL}} - \left[{\color{blue}{EEL}} + \phi^{LLM}(r_G) \times {\color{blue}{EPL}}\right] - SP(CR)}{P(1-A-T-p)} & \text{From definition of }P \\
+  &= \dfrac{ {\color{blue}{P(ELR)}} - \left[{\color{blue}{P(ELR)(1-PLER)}} + \phi^{LLM}(r_G) \times {\color{blue}{(P)(ELR)(PLER)}}\right] - SP(CR)}{P(1-A-T-p)} & \text{Restate losses with LR and }P \\
   &= \dfrac{P(ELR) - P(ELR)(1-PLER) - SP(CR)}{P(1-A-T-p)} & \text{Assumption 4. No agg deductible }\Rightarrow \phi^{LLM}(r_G) = 0 \\
   &= \dfrac{P(ELR)(PLER) - SP(CR)}{P(1-A-T-p)}\\
   &= \dfrac{P(ELR)(PLER)(f)}{P(1-A-T-p)} &\text{Assumption 1. Use safety factor for credit risk}\\
