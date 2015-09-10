@@ -1,0 +1,12 @@
+---
+title: 'Catastrophe Modeling: A New Approach to Managing Risk'
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
+---
+
+## Intro to Catastrophe Models
+
+Multi-discipline: Physics, geology, engineering, actuarial science
