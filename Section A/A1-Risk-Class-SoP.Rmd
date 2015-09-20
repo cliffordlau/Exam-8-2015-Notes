@@ -7,26 +7,28 @@ output:
     toc_depth: 4
 ---
 
-**Definition**: Risk classification
+## Concepts of Risk classification
 
   * Grouping of risk with similar risk characteristics (expected cost)
   * Purpose: Setting prices
   * Challenge is to identify the appropriate risk characteristics to classify the risk
   * Especially useful when there are no retro/exp rating
   
-## 3 Primary Purpose
+## 3 Primary Purpose <span style="color:red; background-color:yellow">Key Concepts</span>
 
 1. **Protect insurance system's financial soundness**
     * Guard against adverse selection
+        * *Adverse selection*: When insurer not using risk characteristics used by competitors $\Rightarrow$ Good risk attracted by competitors $\Rightarrow$ Left with higher share of higher risks
+        * Compulsory insurance also guard against adverse selection
 2. **Enhance fairness**
     * Price reflect differences in $\mathrm{E[costs]}$
     * Insured within same class should have $\approx \mathrm{E[costs]}$
 3. Permit **economic incentives to operate** and encourage widespread **availability of coverage**
     * Profit incentives:
-        * Insurer makes a profit on all insured -> they'll write all risk
+        * Insurer makes a profit on all insured $\Rightarrow$ Will write all risk
     * Note that the cost of classification should be < reduction in $\mathrm{E[costs]}$ for the lower cost class
     
-## 5 Principles to achieve the 3 Primary Purposes
+## 5 Principles to achieve the 3 Primary Purposes <span style="color:red; background-color:yellow">Key Concepts</span>
 
 Risk classification system should:
 
@@ -62,8 +64,7 @@ The program design differs based on some of the considerations below:
 
   * If someone else is paying the premium rather than the insured, they're less likely to minimize their premium; less sophisticated risk class is more appropriate
       
-### 4. Statistical Criteria 
-<span style="color:red">Memorize</span>
+### 4. Statistical Criteria <span style="color:red">Memorize</span>
 
 * **Homogeneity**: $\mathrm{E[Costs]} \in$ a class should be $\approx$ with no clear sub classes with different loss potential
 
@@ -71,8 +72,7 @@ The program design differs based on some of the considerations below:
 
 * **Predictive Stability**: Prices should be responsive to $\Delta$ in $\mathrm{E[Loss]}$ by class without being too volatile
 
-### 5. Operational Criteria 
-<span style="color:red">Memorize</span>
+### 5. Operational Criteria <span style="color:red">Memorize</span>
 
 * **Expense**: Cost of obtaining/maintaining the data
 
@@ -90,12 +90,16 @@ The program design differs based on some of the considerations below:
 
 ### 6. Harzard Reduction Incentives
 
-### 7. Public Acceptability (Social Criteria)
+***
+
+### 7. Public Acceptability (Social Criteria)  
+<span style="color:green">Good Question: 98 Q43</span>
 
 * ***Not*** **differentiate unfairly** among risks
 * Based on clearly **relevant data**
 * Respect personal **privacy**
 * Risks tend identify naturally with their classification
+* **Affordability**, especially when there is a negative correlation between incomes and insurance rates
 
 ### 8. Casuality (Social Criteria)
 
@@ -109,7 +113,10 @@ Encourages risk mitigation but subject to manipulation; Nice to have but not a c
 
 Likely exam question will be to evaluate a new rating variable against the considerations above
 
-## Good prior questions
+## Sample questions
 
+* How a proposed plan affect certain criterias
+    * 1998 Q43
+    
 2008 Q2
 2013 Q8
