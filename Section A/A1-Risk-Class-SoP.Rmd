@@ -9,26 +9,28 @@ output:
 
 ## Concepts of Risk classification
 
-  * Grouping of risk with similar risk characteristics (expected cost)
-  * Purpose: Setting prices
+  * Grouping of risk with similar risk characteristics ($\mathrm{E}[Cost]) for the purpose of setting prices
   * Challenge is to identify the appropriate risk characteristics to classify the risk
   * Especially useful when there are no retro/exp rating
   
-## 3 Primary Purpose <span style="color:red; background-color:yellow">Key Concepts</span>
+## 3 Primary Purpose  
+<span style="color:red; background-color:yellow">Key Concepts</span>
 
 1. **Protect insurance system's financial soundness**
     * Guard against adverse selection
-        * *Adverse selection*: When insurer not using risk characteristics used by competitors $\Rightarrow$ Good risk attracted by competitors $\Rightarrow$ Left with higher share of higher risks
+        * *Adverse selection*: Exist when buyers are free to select from who they buy from; When insurer not using risk characteristics used by competitors $\Rightarrow$ Good risk attracted by competitors $\Rightarrow$ Left with higher share of higher risks
         * Compulsory insurance also guard against adverse selection
 2. **Enhance fairness**
     * Price reflect differences in $\mathrm{E[costs]}$
+    * No unfairly discriminatory
     * Insured within same class should have $\approx \mathrm{E[costs]}$
 3. Permit **economic incentives to operate** and encourage widespread **availability of coverage**
     * Profit incentives:
-        * Insurer makes a profit on all insured $\Rightarrow$ Will write all risk
+        * Insurer makes a profit on all insured $\Rightarrow$ Will write all risk $\Rightarrow$ Availability of coverage
     * Note that the cost of classification should be < reduction in $\mathrm{E[costs]}$ for the lower cost class
     
-## 5 Principles to achieve the 3 Primary Purposes <span style="color:red; background-color:yellow">Key Concepts</span>
+## 5 Principles to achieve the 3 Primary Purposes  
+<span style="color:red; background-color:yellow">Key Concepts</span>
 
 Risk classification system should:
 
@@ -64,7 +66,8 @@ The program design differs based on some of the considerations below:
 
   * If someone else is paying the premium rather than the insured, they're less likely to minimize their premium; less sophisticated risk class is more appropriate
       
-### 4. Statistical Criteria <span style="color:red">Memorize</span>
+### 4. Statistical Criteria  
+<span style="color:red">Memorize</span>
 
 * **Homogeneity**: $\mathrm{E[Costs]} \in$ a class should be $\approx$ with no clear sub classes with different loss potential
 
@@ -72,7 +75,12 @@ The program design differs based on some of the considerations below:
 
 * **Predictive Stability**: Prices should be responsive to $\Delta$ in $\mathrm{E[Loss]}$ by class without being too volatile
 
-### 5. Operational Criteria <span style="color:red">Memorize</span>
+***
+
+Homogeneity and credibility are in conflict since making a class more homogeneous by eliminating risks comes at the expense of credibility (less volume)
+
+### 5. Operational Criteria
+<span style="color:red">Memorize</span>
 
 * **Expense**: Cost of obtaining/maintaining the data
 
@@ -93,7 +101,8 @@ The program design differs based on some of the considerations below:
 ***
 
 ### 7. Public Acceptability (Social Criteria)  
-<span style="color:green">Good Question: 98 Q43</span>
+<span style="color:green">Good Question: 98 Q43</span>  
+<span style="color:red">Memorize</span>
 
 * ***Not*** **differentiate unfairly** among risks
 * Based on clearly **relevant data**
@@ -103,20 +112,50 @@ The program design differs based on some of the considerations below:
 
 ### 8. Casuality (Social Criteria)
 
-Clear cause & effect will increase public acceptability; Nice to have but not a criteria
+Pros: Clear cause & effect will increase public acceptability
+
+Nice to have but not a criteria
 
 ### 9. Controllability (Social Criteria)
 
-Encourages risk mitigation but subject to manipulation; Nice to have but not a criteria
+Pros: Encourages risk mitigation
+
+Cons: Subject to manipulation
+
+Nice to have but not a criteria
 
 ## Evaluating a rating variable
 
 Likely exam question will be to evaluate a new rating variable against the considerations above
 
-## Sample questions
+## Cliff's Summary
 
-* How a proposed plan affect certain criterias
+Short but lots of concepts to memorize and digest
+
+What is risk classification $\Rightarrow$ 3 Purpose $\Rightarrow$ 5 Principles $\Rightarrow$ 9 Considerations in design
+
+3 of the key design criteria: Ops, Social, Stat
+
+![alt text](figures/Exam 8 A - 1.png)
+
+## Questions Types
+
+* List out criteria and principles
+    * Just memorize
+* If a given plan satisfy some of the criteria
     * 1998 Q43
+    * 2004 Q40
+    * 2004 Q23 
+    * 2004 Q24 (Compare 2 plans)
+    * 2006 Q38 (Miles driven; stat and op criteria)
+    * 2008 Q28 (Color of car; op and social)
+    * 2008 Q2 (stat and op with data) $\star$
+    * 2009 Q34 (free for all pick 2)
+    * 2013 Q1 (Principles achieve?) $\star$
+    * 2014 Q6 $\star$
+* Impacts on inadequate risk classification
+    * 2006 Q20
+* Other good questions
+    * 2004 Q29
+    * 2009 Q1 (When is risk class important)
     
-2008 Q2
-2013 Q8
