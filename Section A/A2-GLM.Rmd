@@ -7,38 +7,45 @@ output:
     toc_depth: 4
 ---
 
-**GLM**:  
-Measure the relationship that a function of a linear combination of 1 or more explanatory variables has on a single dependent variable that is assumes to come from the exponential family of distributions  
-Generalized -> linked function doesn't have to be the identity function
-Dependent variable doesn't have to be normally distributed
+**GLM**
+
+Measure the relationship that a function of a linear combination of 1 or more explanatory variables has on a single dependent variable that is assumes to come from the exponential family of dist^n^
+
+Generalized $\Rightarrow$ 
+
+1. Linked function doesn't have to be the identity function
+
+2. Dependent variable doesn't have to be normally distributed
+
 Model: Pure Premium, frequency, severity, retention, loss development
 
 ## Comparison with other methods
 
-One-way analysis
+***One-way analysis***
 
-* Distortion by *correlations* among rating variables
-* No consideration on *inter-dependencies* of rating variables on their impact on the dependent variable
-* See 2011 Q3b
+* Distortion by **correlations** among rating variables
+* No consideration on **inter-dependencies** of rating variables on their impact on the dependent variable
 
-Minimum bias
+<span style="color:green">Good Question: 2011 Q3b</span>
 
-* *No systematic test* on a particular variable's statistical significance
-* *No credible range* for parameter estimates
-* *Lack statistical framework* to assess quality
+***Minimum bias***
+
+* **No systematic test** on a particular variable's statistical significance
+* **No credible range** for parameter estimates
+* **Lack statistical framework** to assess quality
 * Iterate so not as efficient
 * (Some are special cases of GLM)
 
-Classical linear models
+***Classical linear models***
 
-* Normality and constant variance assumptions don't hold
+* **Normality** and **constant variance** assumptions don't hold
     * Dependent variable might have restricted range;
     * Variance might be related to the mean
-* Relationships between predictors might not be just additive
+* **Relationships between predictors** might not be just additive
 
-GLM
+***GLM***
 
-* Statistical framework -> explicit assumptions on the data and relationship with predictors
+* Statistical framework $\Rightarrow$ Explicit assumptions on the data and relationship with predictors
 * More efficient than iterative methods
 * Statistical diagnostics in selecting variables and validating model assumptions
 * Adjust for correlations between variables and allows for interaction
@@ -59,7 +66,9 @@ $Y = X\beta + \epsilon$
 $Y \sim N(\mu, \sigma^2)$  
 $\epsilon \sim N(\mu, \sigma^2)$
 
-## Solving CLM by hand
+## Solving CLM by hand  
+<span style="color:green">Good Question: 2009 Q3</span>  
+
 1. Setup equation
 2. $Y_1 = \beta_0 + \sum\limits_{j=1}^p \beta_j x_j + \epsilon_1$  
 $\vdots$  
@@ -68,8 +77,6 @@ $Y_n = \beta_0 + \sum\limits_{j=1}^p \beta_j x_j + \epsilon_n$
 4. Plug in $\epsilon^2_i$ formulas; $SSE = \sum\limits_{i=1}^n \epsilon^2_i$
 5. $\frac{\partial SSE}{\beta_0} = 0 \cdots \frac{\partial SSE}{\beta_p} = 0$
 6. solve for $\beta$
-
-See 2009 Q3
 
 ## GLM vs CLM
 
@@ -97,10 +104,11 @@ $E[Y] = \mu = \eta = \text{identify function}$
 $g^{-1}(x) = x$
 
 **GLM**  
-Must be *differentiable* and *monotonic*  
+Must be **differentiable** and *&monotonic**  
 $E[Y] = \mu = g^{-1}(\eta)$
 
-## Common exponential family distributions and their variance functions
+## Common exponential family distributions and their variance functions  
+<span style="color:red;background-color:yellow">Memorize</span>  
 
 | Error Distribution | Variance Function |
 | ------------------ | ----------------- |
@@ -113,12 +121,14 @@ $E[Y] = \mu = g^{-1}(\eta)$
 
 **Note**: 
 
-* For Poisson and Gamma, higher variance for larger values -> less weight
+* For Poisson and Gamma, higher variance for larger values $\Rightarrow$ less weight
 * For Tweedie: $1 < p < 2$ is Poisson Gamma
 
 ## Prior weights
 
-Use to give more weight to observations that should have more weight; e.g. if one observation is a day's worth where another is a year's worth
+Use to give more weight to observations that should have more weight;
+
+e.g. if one observation is a day's worth where another is a year's worth
 
 For CLM, $SSE = \sum\limits_{i=1}^n \omega_i\epsilon^2_i$
 
@@ -141,7 +151,8 @@ $p =$ \# of parameters
 $D =$ total deviance *(assume given if tested)*  
 For CLM, $D = SSE$
 
-## Common Link Functions
+## Common Link Functions  
+<span style="color:red;background-color:yellow">Memorize</span>  
 
 | Link Function | $g(\eta)$   | $g^{-1}(\eta)$ |
 | ------------- | ----------- | -------------- |
@@ -155,12 +166,17 @@ Logit is good for retention as is has prob $0 < p < 1$
 
 ## Offset Term $(\xi)$
 
-* To fix the impact of an explanatory variable
-* Known quantity for each observation
-* $\eta = \sum\limits_{j=1}^p \beta_j x_j + \xi$
-* Commonly use $\xi_i = ln(\text{exposure}_i)$ when modeling claim *counts* with a log link function
+To fix the impact of an explanatory variable
 
-## Common Model Forms
+Known quantity for each observation
+
+$\eta = \sum\limits_{j=1}^p \beta_j x_j + \xi$
+
+Commonly use $\xi_i = ln(\text{exposure}_i)$ when modeling claim *counts* with a log link function
+
+## Common Model Forms  
+<span style="color:red;background-color:yellow">Memorize</span>
+
 **Claim frequencies/ counts**
 
 * Multiplicative Poisson
@@ -178,23 +194,25 @@ Logit is good for retention as is has prob $0 < p < 1$
 
 **Probability**
 
-* For p/h retention
+* For policyholder retention
 * Logistic
 * Logit link; Binomial error
 
-## Solving GLMs
+## Solving GLMs  
+<span style="color:green">2010 Q3c</span>
 
 Use MLE theoretically, numerical technique in practice  
-ML set $\frac{\partial f}{\partial \beta_i} = 0$, solve  
+ML set $\dfrac{\partial f}{\partial \beta_i} = 0$, solve  
 See 2010 Q3c
 
 ## Interpreting Results
 
 log link: $g^{-1}(\eta) = e^{\eta}$  
 $E[Y] = exp(\beta_0 + \beta_1 x_1 + \cdots + \beta_p x_p)$  
-if $Y = \text{Pure Premium} \rightarrow e^{\beta_0} = \text{base rate}$; $e^{\beta_i x_i} = \text{rating factors}$
+if $Y = \text{Pure Premium} \Rightarrow e^{\beta_0} = \text{base rate}$; $e^{\beta_i x_i} = \text{rating factors}$
 
-## Aliasing and near-aliasing
+## Aliasing and near-aliasing  
+<span style="color:red;background-color:yellow">Understand Concepts</span>
 
 Aliasing = linear dependency among covariates; model not uniquely defined
 
@@ -227,7 +245,7 @@ Feature selections
 3. See if the parameter estimate is consistent over time
 4. Intuitive that factor should impact result
 
-## Type III Test
+### Type III Test
 1. Create 2 models, one with the parameters to be tested the other without
 2. Calculate degrees of freedom for each ($df = n - p$)
 3. Calculate deviance *D* or scaled deviance $D^* = 
@@ -235,4 +253,7 @@ Feature selections
 4. $\chi^2$ test if we used *D\**: $D^*_1 - D^*_2$  
 *F* test if we used *D*: $\frac{D_1 - D_2}{(df_1 - df_2)/df_2}$
 5. Compare to the appropriate dist^n^ with $(df_1 - df_2)$ *df*  
-If test statistic is larger $\rightarrow$ additional parameters is statistically significant  
+If test statistic is larger $\rightarrow$ additional parameters is statistically significant
+
+## Cliff's Summary
+
