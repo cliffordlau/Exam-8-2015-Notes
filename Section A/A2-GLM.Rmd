@@ -6,7 +6,6 @@ output:
     toc: true
     toc_depth: 4
 ---
-
 **GLM**
 
 Measure the relationship that a function of a linear combination of 1 or more explanatory variables has on a single dependent variable that is assumes to come from the exponential family of dist^n^
@@ -25,16 +24,26 @@ Model: Pure Premium, frequency, severity, retention, loss development
 
 * Distortion by **correlations** among rating variables
 * No consideration on **inter-dependencies** of rating variables on their impact on the dependent variable
+    * Assumes no correlation between exposures for different rating variables
 
-<span style="color:green">Good Question: 2011 Q3b</span>
+***
+
+<a name="2011q3b"></a><span style="color:green">Good Question: 2011 Q3b</span>
+
+* An example of a correlation would be if younger drivers were more likely to drive older cars. If a one-way analysis was being performed on age of vehicle, the older vehicles might look worse even though this might really relate to younger drivers.
+
+* An example of an inter-dependency would be if 16 year old males have twice the claim frequency as 16 year old females, but 50 year old males have the same frequency as 50 year old females.
 
 ***Minimum bias***
+
+<span style="color:green">Look it up later...</span>
 
 * **No systematic test** on a particular variable's statistical significance
 * **No credible range** for parameter estimates
 * **Lack statistical framework** to assess quality
 * Iterate so not as efficient
 * (Some are special cases of GLM)
+* From 2002 Feldblum Brosius
 
 ***Classical linear models***
 
@@ -43,7 +52,8 @@ Model: Pure Premium, frequency, severity, retention, loss development
     * Variance might be related to the mean
 * **Relationships between predictors** might not be just additive
 
-***GLM***
+<a name="memorize1"></a>***GLM***  
+<span style="color:red;background-color:yellow">Memorize</span>
 
 * Statistical framework $\Rightarrow$ Explicit assumptions on the data and relationship with predictors
 * More efficient than iterative methods
@@ -67,7 +77,7 @@ $Y \sim N(\mu, \sigma^2)$
 $\epsilon \sim N(\mu, \sigma^2)$
 
 ## Solving CLM by hand  
-<span style="color:green">Good Question: 2009 Q3</span>  
+<a name="2009q3b"></a><span style="color:green">Good Question: 2009 Q3b</span>
 
 1. Setup equation
 2. $Y_1 = \beta_0 + \sum\limits_{j=1}^p \beta_j x_j + \epsilon_1$  
@@ -81,21 +91,34 @@ $Y_n = \beta_0 + \sum\limits_{j=1}^p \beta_j x_j + \epsilon_n$
 ## GLM vs CLM
 
 ### 1. Systematic component
-**Both GLM and Classical Linear Model**  
+**Same for both GLM and Classical Linear Model**  
+Systematic component via a linear predictor
+
 $\eta = \beta_1 x_1 + \cdots + \beta_p x_p$
 
 ### 2. Random component
+
 **Classical Linear Model**  
-$Y_i \text{'s are } i.i.d. \sim N(\mu_i, \sigma^2)$  
+Normal dist^n^ for response
+
+$Y_i \text{'s are } i.i.d. \sim N(\mu_i, \sigma^2)$
+
 $Var(Y_i) = \sigma^2$
 
 **GLM**  
-$Y_i \text{'s are} i.i.d.$ from *exponential family* dist^n^  
-$\text{Variance function} = Var(Y_i) = \frac{\phi V(\mu_i)}{\omega_i}$  
-$\phi$ is constant across all observations; scale the variance  
-$\omega_i =$ prior weights; for each $i$
+Exponential family for response
+
+$Y_i$: i.i.d. from *exponential family* dist^n^
+
+Variance function: $Var(Y_i) = \dfrac{\phi V(\mu_i)}{\omega_i}$
+
+* $\phi$ is constant across all observations; scale the variance
+
+* $\omega_i =$ prior weights; for each $i$
 
 ### 3. Link function
+
+Connects the mean of the response to the linear predictor
 
 $Y = g^{-1}(\eta) + \epsilon$
 
@@ -104,7 +127,7 @@ $E[Y] = \mu = \eta = \text{identify function}$
 $g^{-1}(x) = x$
 
 **GLM**  
-Must be **differentiable** and *&monotonic**  
+Must be **differentiable** and **monotonic**  
 $E[Y] = \mu = g^{-1}(\eta)$
 
 ## Common exponential family distributions and their variance functions  
@@ -123,6 +146,7 @@ $E[Y] = \mu = g^{-1}(\eta)$
 
 * For Poisson and Gamma, higher variance for larger values $\Rightarrow$ less weight
 * For Tweedie: $1 < p < 2$ is Poisson Gamma
+* Side notes on [Tweedie](http://blog.revolutionanalytics.com/2014/10/a-note-on-tweedie.html)
 
 ## Prior weights
 
@@ -138,7 +162,7 @@ $\phi = 1$ for Poisson; else must be estimated from data along with $\beta$'s
 
 Don't need $\phi$ to get the $\beta$'s; use for standard error
 
-To estimate $\phi$:
+3 ways to estimate $\phi$:
 
 1. MLE (not feasible)
 2. Moment estimator (Pearson $\chi^2$):  
@@ -151,6 +175,12 @@ $p =$ \# of parameters
 $D =$ total deviance *(assume given if tested)*  
 For CLM, $D = SSE$
 
+***
+
+The scale parameters allow the model to have a more flexible variance
+
+* e.g. so your response doesn't have to actually have the mean = variance structure of a Poisson
+
 ## Common Link Functions  
 <span style="color:red;background-color:yellow">Memorize</span>  
 
@@ -159,20 +189,28 @@ For CLM, $D = SSE$
 | Identity      | $\eta$      | $\eta$         |
 | Log           | $ln(\eta)$  | $e^{\eta}$     |
 | Logit         | $ln(\frac{\eta}{1 - \eta})$ | $\frac{e^{\eta}}{1 + e^{\eta}}$ |
+| Reciprocal    | $\frac{1}{\eta}$ | $\frac{1}{\eta}$ |
 
 **Note**:  
 Log is good for freq, sev; makes everything multiplicative  
 Logit is good for retention as is has prob $0 < p < 1$
 
+* Logit is basically the natural log odds
+* Odd is $\frac{p}{1-p}$
+
 ## Offset Term $(\xi)$
 
 To fix the impact of an explanatory variable
 
-Known quantity for each observation
+* Used for covariate with *known* slope 
+
+*Known* quantity for **each observation**
 
 $\eta = \sum\limits_{j=1}^p \beta_j x_j + \xi$
 
-Commonly use $\xi_i = ln(\text{exposure}_i)$ when modeling claim *counts* with a log link function
+Commonly use $\xi_i = ln(\text{exposure}_i)$ when modeling claim *counts* with a log link function  
+
+Other source [explanation](http://stats.stackexchange.com/questions/11182/when-to-use-an-offset-in-a-poisson-regression)
 
 ## Common Model Forms  
 <span style="color:red;background-color:yellow">Memorize</span>
@@ -203,7 +241,8 @@ Commonly use $\xi_i = ln(\text{exposure}_i)$ when modeling claim *counts* with a
 
 Use MLE theoretically, numerical technique in practice  
 ML set $\dfrac{\partial f}{\partial \beta_i} = 0$, solve  
-See 2010 Q3c
+
+Solve the normal equations or quasi-normal equations for maximum likelihood
 
 ## Interpreting Results
 
@@ -250,10 +289,77 @@ Feature selections
 2. Calculate degrees of freedom for each ($df = n - p$)
 3. Calculate deviance *D* or scaled deviance $D^* = 
 \frac{D}{\phi}$; use *D* if $\phi$ is unknown
+    * *D* is usually given in exam or = to SSE in CLM
 4. $\chi^2$ test if we used *D\**: $D^*_1 - D^*_2$  
 *F* test if we used *D*: $\frac{D_1 - D_2}{(df_1 - df_2)/df_2}$
 5. Compare to the appropriate dist^n^ with $(df_1 - df_2)$ *df*  
 If test statistic is larger $\rightarrow$ additional parameters is statistically significant
 
+***
+
+If the model with additional parameter(s) has much lower SSE $\Rightarrow$ The parameters are significant
+
+* We're judging how much lower the SSE needs to be with the test statistics that either follows a $\chi^2$ or *F* dist^n^
+
 ## Cliff's Summary
 
+Know the [advantages](#memorize1) of GLM over other methods (Especially one-way and CLM)
+
+Be able to set up a the GLM matrices
+
+Know the 3 components of GLM (sys, response, link)
+
+Know how to interpret the results
+
+Aliasing
+
+Memorize:
+
+* Variance functions
+* Link functions
+* Common model forms
+
+Calculations:
+
+* Scale
+* Deviance
+* Type III test
+
+## Types of Exam Questions
+
+Shortcomings of methods compare to GLM
+
+* 2003 Q25
+* [2011 Q3b](#2011q3b)
+
+Describe GLM and CLM assumptions and compare
+
+* 2006 Q5 (GLM vs CLM)
+* 2007 Q4
+* 2009 Q3a
+
+Aliasing
+
+* 2008 Q3
+
+Setting up equations, process
+
+* [2009 Q3b](#2009q3b) (CLM)
+* 2010 Q3 (GLM) $\star$
+* 2012 Q2 (GLM) $\star$
+* 2013 Q2 (Solve CLM) $\star$
+    * Don't forget to weight them
+
+Calculate results given parameters
+
+* 2012 Q4a
+
+Def of GLM parameters
+
+* 2014 Q3a
+
+Common Modeling form  
+
+* 2014 Q3b
+    * Not sure about why each of the dist^n^ are appropriate
+    * The explaining weight part i'm not super sure as well
