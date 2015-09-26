@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.">
     <meta name="description" content="CAS Exam 8 Notes">
 
-    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/Exam-8-2015-Notes/css/bootstrap.css" rel="stylesheet">
     <style>
       body {
         padding-top: 60px;
       }
     </style>
-    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/Exam-8-2015-Notes/css/bootstrap.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -61,11 +61,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Exam 8 Notes</a>
+          <a class="navbar-brand" href="/Exam-8-2015-Notes/">Exam 8 Notes</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
+            <li class="active"><a href="/Exam-8-2015-Notes/">Home</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -87,7 +87,7 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="date" content="2015-08-19" />
+<meta name="date" content="2015-09-26" />
 
 <title>A2 A Practitioner’s Guide to GLM</title>
 
@@ -140,7 +140,7 @@ img {
 
 <div id="header">
 <h1 class="title">A2 A Practitioner’s Guide to GLM</h1>
-<h4 class="date"><em>August 19, 2015</em></h4>
+<h4 class="date"><em>September 26, 2015</em></h4>
 </div>
 
 <div id="TOC">
@@ -162,40 +162,60 @@ img {
 <li><a href="#solving-glms">Solving GLMs</a></li>
 <li><a href="#interpreting-results">Interpreting Results</a></li>
 <li><a href="#aliasing-and-near-aliasing">Aliasing and near-aliasing</a></li>
-<li><a href="#testing-statistical-significance-of-explanatory-variables">Testing Statistical Significance of Explanatory Variables</a></li>
+<li><a href="#testing-statistical-significance-of-explanatory-variables">Testing Statistical Significance of Explanatory Variables</a><ul>
 <li><a href="#type-iii-test">Type III Test</a></li>
+</ul></li>
+<li><a href="#cliffs-summary">Cliff’s Summary</a></li>
+<li><a href="#types-of-exam-questions">Types of Exam Questions</a></li>
 </ul>
 </div>
 
-<p><strong>GLM</strong>:<br />Measure the relationship that a function of a linear combination of 1 or more explanatory variables has on a single dependent variable that is assumes to come from the exponential family of distributions<br />Generalized -&gt; linked function doesn’t have to be the identity function Dependent variable doesn’t have to be normally distributed Model: Pure Premium, frequency, severity, retention, loss development</p>
+<p><strong>GLM</strong></p>
+<p>Measure the relationship that a function of a linear combination of 1 or more explanatory variables has on a single dependent variable that is assumes to come from the exponential family of dist<sup>n</sup></p>
+<p>Generalized <span class="math">\(\Rightarrow\)</span></p>
+<ol style="list-style-type: decimal">
+<li><p>Linked function doesn’t have to be the identity function</p></li>
+<li><p>Dependent variable doesn’t have to be normally distributed</p></li>
+</ol>
+<p>Model: Pure Premium, frequency, severity, retention, loss development</p>
 <div id="comparison-with-other-methods" class="section level2">
 <h2>Comparison with other methods</h2>
-<p>One-way analysis</p>
+<p><strong><em>One-way analysis</em></strong></p>
 <ul>
-<li>Distortion by <em>correlations</em> among rating variables</li>
-<li>No consideration on <em>inter-dependencies</em> of rating variables on their impact on the dependent variable</li>
-<li>See 2011 Q3b</li>
+<li>Distortion by <strong>correlations</strong> among rating variables</li>
+<li>No consideration on <strong>inter-dependencies</strong> of rating variables on their impact on the dependent variable
+<ul>
+<li>Assumes no correlation between exposures for different rating variables</li>
+</ul></li>
 </ul>
-<p>Minimum bias</p>
+<hr />
+<p><a name="2011q3b"></a><span style="color:green">Good Question: 2011 Q3b</span></p>
 <ul>
-<li><em>No systematic test</em> on a particular variable’s statistical significance</li>
-<li><em>No credible range</em> for parameter estimates</li>
-<li><em>Lack statistical framework</em> to assess quality</li>
+<li><p>An example of a correlation would be if younger drivers were more likely to drive older cars. If a one-way analysis was being performed on age of vehicle, the older vehicles might look worse even though this might really relate to younger drivers.</p></li>
+<li><p>An example of an inter-dependency would be if 16 year old males have twice the claim frequency as 16 year old females, but 50 year old males have the same frequency as 50 year old females.</p></li>
+</ul>
+<p><strong><em>Minimum bias</em></strong></p>
+<p><span style="color:green">Look it up later…</span></p>
+<ul>
+<li><strong>No systematic test</strong> on a particular variable’s statistical significance</li>
+<li><strong>No credible range</strong> for parameter estimates</li>
+<li><strong>Lack statistical framework</strong> to assess quality</li>
 <li>Iterate so not as efficient</li>
 <li>(Some are special cases of GLM)</li>
+<li>From 2002 Feldblum Brosius</li>
 </ul>
-<p>Classical linear models</p>
+<p><strong><em>Classical linear models</em></strong></p>
 <ul>
-<li>Normality and constant variance assumptions don’t hold
+<li><strong>Normality</strong> and <strong>constant variance</strong> assumptions don’t hold
 <ul>
 <li>Dependent variable might have restricted range;</li>
 <li>Variance might be related to the mean</li>
 </ul></li>
-<li>Relationships between predictors might not be just additive</li>
+<li><strong>Relationships between predictors</strong> might not be just additive</li>
 </ul>
-<p>GLM</p>
+<p><a name="memorize1"></a><strong><em>GLM</em></strong><br /><span style="color:red;background-color:yellow">Memorize</span></p>
 <ul>
-<li>Statistical framework -&gt; explicit assumptions on the data and relationship with predictors</li>
+<li>Statistical framework <span class="math">\(\Rightarrow\)</span> Explicit assumptions on the data and relationship with predictors</li>
 <li>More efficient than iterative methods</li>
 <li>Statistical diagnostics in selecting variables and validating model assumptions</li>
 <li>Adjust for correlations between variables and allows for interaction</li>
@@ -214,6 +234,7 @@ img {
 </div>
 <div id="solving-clm-by-hand" class="section level2">
 <h2>Solving CLM by hand</h2>
+<p><a name="2009q3b"></a><span style="color:green">Good Question: 2009 Q3b</span></p>
 <ol style="list-style-type: decimal">
 <li>Setup equation</li>
 <li><span class="math">\(Y_1 = \beta_0 + \sum\limits_{j=1}^p \beta_j x_j + \epsilon_1\)</span><br /><span class="math">\(\vdots\)</span><br /><span class="math">\(Y_n = \beta_0 + \sum\limits_{j=1}^p \beta_j x_j + \epsilon_n\)</span></li>
@@ -222,28 +243,38 @@ img {
 <li><span class="math">\(\frac{\partial SSE}{\beta_0} = 0 \cdots \frac{\partial SSE}{\beta_p} = 0\)</span></li>
 <li>solve for <span class="math">\(\beta\)</span></li>
 </ol>
-<p>See 2009 Q3</p>
 </div>
 <div id="glm-vs-clm" class="section level2">
 <h2>GLM vs CLM</h2>
 <div id="systematic-component" class="section level3">
 <h3>1. Systematic component</h3>
-<p><strong>Both GLM and Classical Linear Model</strong><br /><span class="math">\(\eta = \beta_1 x_1 + \cdots + \beta_p x_p\)</span></p>
+<p><strong>Same for both GLM and Classical Linear Model</strong><br />Systematic component via a linear predictor</p>
+<p><span class="math">\(\eta = \beta_1 x_1 + \cdots + \beta_p x_p\)</span></p>
 </div>
 <div id="random-component" class="section level3">
 <h3>2. Random component</h3>
-<p><strong>Classical Linear Model</strong><br /><span class="math">\(Y_i \text{'s are } i.i.d. \sim N(\mu_i, \sigma^2)\)</span><br /><span class="math">\(Var(Y_i) = \sigma^2\)</span></p>
-<p><strong>GLM</strong><br /><span class="math">\(Y_i \text{'s are} i.i.d.\)</span> from <em>exponential family</em> dist<sup>n</sup><br /><span class="math">\(\text{Variance function} = Var(Y_i) = \frac{\phi V(\mu_i)}{\omega_i}\)</span><br /><span class="math">\(\phi\)</span> is constant across all observations; scale the variance<br /><span class="math">\(\omega_i =\)</span> prior weights; for each <span class="math">\(i\)</span></p>
+<p><strong>Classical Linear Model</strong><br />Normal dist<sup>n</sup> for response</p>
+<p><span class="math">\(Y_i \text{'s are } i.i.d. \sim N(\mu_i, \sigma^2)\)</span></p>
+<p><span class="math">\(Var(Y_i) = \sigma^2\)</span></p>
+<p><strong>GLM</strong><br />Exponential family for response</p>
+<p><span class="math">\(Y_i\)</span>: i.i.d. from <em>exponential family</em> dist<sup>n</sup></p>
+<p>Variance function: <span class="math">\(Var(Y_i) = \dfrac{\phi V(\mu_i)}{\omega_i}\)</span></p>
+<ul>
+<li><p><span class="math">\(\phi\)</span> is constant across all observations; scale the variance</p></li>
+<li><p><span class="math">\(\omega_i =\)</span> prior weights; for each <span class="math">\(i\)</span></p></li>
+</ul>
 </div>
 <div id="link-function" class="section level3">
 <h3>3. Link function</h3>
+<p>Connects the mean of the response to the linear predictor</p>
 <p><span class="math">\(Y = g^{-1}(\eta) + \epsilon\)</span></p>
 <p><strong>Classical Linear Model</strong><br /><span class="math">\(E[Y] = \mu = \eta = \text{identify function}\)</span> <span class="math">\(g^{-1}(x) = x\)</span></p>
-<p><strong>GLM</strong><br />Must be <em>differentiable</em> and <em>monotonic</em><br /><span class="math">\(E[Y] = \mu = g^{-1}(\eta)\)</span></p>
+<p><strong>GLM</strong><br />Must be <strong>differentiable</strong> and <strong>monotonic</strong><br /><span class="math">\(E[Y] = \mu = g^{-1}(\eta)\)</span></p>
 </div>
 </div>
 <div id="common-exponential-family-distributions-and-their-variance-functions" class="section level2">
 <h2>Common exponential family distributions and their variance functions</h2>
+<p><span style="color:red;background-color:yellow">Memorize</span></p>
 <table>
 <thead>
 <tr class="header">
@@ -280,29 +311,37 @@ img {
 </table>
 <p><strong>Note</strong>:</p>
 <ul>
-<li>For Poisson and Gamma, higher variance for larger values -&gt; less weight</li>
+<li>For Poisson and Gamma, higher variance for larger values <span class="math">\(\Rightarrow\)</span> less weight</li>
 <li>For Tweedie: <span class="math">\(1 &lt; p &lt; 2\)</span> is Poisson Gamma</li>
+<li>Side notes on <a href="http://blog.revolutionanalytics.com/2014/10/a-note-on-tweedie.html">Tweedie</a></li>
 </ul>
 </div>
 <div id="prior-weights" class="section level2">
 <h2>Prior weights</h2>
-<p>Use to give more weight to observations that should have more weight; e.g. if one observation is a day’s worth where another is a year’s worth</p>
+<p>Use to give more weight to observations that should have more weight;</p>
+<p>e.g. if one observation is a day’s worth where another is a year’s worth</p>
 <p>For CLM, <span class="math">\(SSE = \sum\limits_{i=1}^n \omega_i\epsilon^2_i\)</span></p>
 </div>
 <div id="scale-parameter" class="section level2">
 <h2>Scale Parameter</h2>
 <p><span class="math">\(\phi = 1\)</span> for Poisson; else must be estimated from data along with <span class="math">\(\beta\)</span>’s</p>
 <p>Don’t need <span class="math">\(\phi\)</span> to get the <span class="math">\(\beta\)</span>’s; use for standard error</p>
-<p>To estimate <span class="math">\(\phi\)</span>:</p>
+<p>3 ways to estimate <span class="math">\(\phi\)</span>:</p>
 <ol style="list-style-type: decimal">
 <li>MLE (not feasible)</li>
 <li>Moment estimator (Pearson <span class="math">\(\chi^2\)</span>):<br /><span class="math">\(\hat \phi = \frac{1}{n-p}\sum\limits_{i=1}^n \frac{\omega_i(Y_i - \mu_i)^2}{V(\mu_i)}\)</span></li>
 <li>Total deviance:<br /><span class="math">\(\hat \phi = \frac{D}{n-p}\)</span></li>
 </ol>
 <p><span class="math">\(n =\)</span> # of observations<br /><span class="math">\(p =\)</span> # of parameters<br /><span class="math">\(D =\)</span> total deviance <em>(assume given if tested)</em><br />For CLM, <span class="math">\(D = SSE\)</span></p>
+<hr />
+<p>The scale parameters allow the model to have a more flexible variance</p>
+<ul>
+<li>e.g. so your response doesn’t have to actually have the mean = variance structure of a Poisson</li>
+</ul>
 </div>
 <div id="common-link-functions" class="section level2">
 <h2>Common Link Functions</h2>
+<p><span style="color:red;background-color:yellow">Memorize</span></p>
 <table>
 <thead>
 <tr class="header">
@@ -327,21 +366,33 @@ img {
 <td align="left"><span class="math">\(ln(\frac{\eta}{1 - \eta})\)</span></td>
 <td align="left"><span class="math">\(\frac{e^{\eta}}{1 + e^{\eta}}\)</span></td>
 </tr>
+<tr class="even">
+<td align="left">Reciprocal</td>
+<td align="left"><span class="math">\(\frac{1}{\eta}\)</span></td>
+<td align="left"><span class="math">\(\frac{1}{\eta}\)</span></td>
+</tr>
 </tbody>
 </table>
 <p><strong>Note</strong>:<br />Log is good for freq, sev; makes everything multiplicative<br />Logit is good for retention as is has prob <span class="math">\(0 &lt; p &lt; 1\)</span></p>
+<ul>
+<li>Logit is basically the natural log odds</li>
+<li>Odd is <span class="math">\(\frac{p}{1-p}\)</span></li>
+</ul>
 </div>
 <div id="offset-term-xi" class="section level2">
 <h2>Offset Term <span class="math">\((\xi)\)</span></h2>
+<p>To fix the impact of an explanatory variable</p>
 <ul>
-<li>To fix the impact of an explanatory variable</li>
-<li>Known quantity for each observation</li>
-<li><span class="math">\(\eta = \sum\limits_{j=1}^p \beta_j x_j + \xi\)</span></li>
-<li>Commonly use <span class="math">\(\xi_i = ln(\text{exposure}_i)\)</span> when modeling claim <em>counts</em> with a log link function</li>
+<li>Used for covariate with <em>known</em> slope</li>
 </ul>
+<p><em>Known</em> quantity for <strong>each observation</strong></p>
+<p><span class="math">\(\eta = \sum\limits_{j=1}^p \beta_j x_j + \xi\)</span></p>
+<p>Commonly use <span class="math">\(\xi_i = ln(\text{exposure}_i)\)</span> when modeling claim <em>counts</em> with a log link function</p>
+<p>Other source <a href="http://stats.stackexchange.com/questions/11182/when-to-use-an-offset-in-a-poisson-regression">explanation</a></p>
 </div>
 <div id="common-model-forms" class="section level2">
 <h2>Common Model Forms</h2>
+<p><span style="color:red;background-color:yellow">Memorize</span></p>
 <p><strong>Claim frequencies/ counts</strong></p>
 <ul>
 <li>Multiplicative Poisson</li>
@@ -359,21 +410,24 @@ img {
 </ul>
 <p><strong>Probability</strong></p>
 <ul>
-<li>For p/h retention</li>
+<li>For policyholder retention</li>
 <li>Logistic</li>
 <li>Logit link; Binomial error</li>
 </ul>
 </div>
 <div id="solving-glms" class="section level2">
 <h2>Solving GLMs</h2>
-<p>Use MLE theoretically, numerical technique in practice<br />ML set <span class="math">\(\frac{\partial f}{\partial \beta_i} = 0\)</span>, solve<br />See 2010 Q3c</p>
+<p><span style="color:green">2010 Q3c</span></p>
+<p>Use MLE theoretically, numerical technique in practice<br />ML set <span class="math">\(\dfrac{\partial f}{\partial \beta_i} = 0\)</span>, solve</p>
+<p>Solve the normal equations or quasi-normal equations for maximum likelihood</p>
 </div>
 <div id="interpreting-results" class="section level2">
 <h2>Interpreting Results</h2>
-<p>log link: <span class="math">\(g^{-1}(\eta) = e^{\eta}\)</span><br /><span class="math">\(E[Y] = exp(\beta_0 + \beta_1 x_1 + \cdots + \beta_p x_p)\)</span><br />if <span class="math">\(Y = \text{Pure Premium} \rightarrow e^{\beta_0} = \text{base rate}\)</span>; <span class="math">\(e^{\beta_i x_i} = \text{rating factors}\)</span></p>
+<p>log link: <span class="math">\(g^{-1}(\eta) = e^{\eta}\)</span><br /><span class="math">\(E[Y] = exp(\beta_0 + \beta_1 x_1 + \cdots + \beta_p x_p)\)</span><br />if <span class="math">\(Y = \text{Pure Premium} \Rightarrow e^{\beta_0} = \text{base rate}\)</span>; <span class="math">\(e^{\beta_i x_i} = \text{rating factors}\)</span></p>
 </div>
 <div id="aliasing-and-near-aliasing" class="section level2">
 <h2>Aliasing and near-aliasing</h2>
+<p><span style="color:red;background-color:yellow">Understand Concepts</span></p>
 <p>Aliasing = linear dependency among covariates; model not uniquely defined</p>
 <p><strong>Intrinsic Aliasing</strong></p>
 <ul>
@@ -408,16 +462,88 @@ img {
 <li>See if the parameter estimate is consistent over time</li>
 <li>Intuitive that factor should impact result</li>
 </ol>
-</div>
-<div id="type-iii-test" class="section level2">
-<h2>Type III Test</h2>
+<div id="type-iii-test" class="section level3">
+<h3>Type III Test</h3>
 <ol style="list-style-type: decimal">
 <li>Create 2 models, one with the parameters to be tested the other without</li>
 <li>Calculate degrees of freedom for each (<span class="math">\(df = n - p\)</span>)</li>
-<li>Calculate deviance <em>D</em> or scaled deviance <span class="math">\(D^* = \frac{D}{\phi}\)</span>; use <em>D</em> if <span class="math">\(\phi\)</span> is unknown</li>
+<li>Calculate deviance <em>D</em> or scaled deviance <span class="math">\(D^* = \frac{D}{\phi}\)</span>; use <em>D</em> if <span class="math">\(\phi\)</span> is unknown
+<ul>
+<li><em>D</em> is usually given in exam or = to SSE in CLM</li>
+</ul></li>
 <li><span class="math">\(\chi^2\)</span> test if we used <em>D*</em>: <span class="math">\(D^*_1 - D^*_2\)</span><br /><em>F</em> test if we used <em>D</em>: <span class="math">\(\frac{D_1 - D_2}{(df_1 - df_2)/df_2}\)</span></li>
 <li>Compare to the appropriate dist<sup>n</sup> with <span class="math">\((df_1 - df_2)\)</span> <em>df</em><br />If test statistic is larger <span class="math">\(\rightarrow\)</span> additional parameters is statistically significant</li>
 </ol>
+<hr />
+<p>If the model with additional parameter(s) has much lower SSE <span class="math">\(\Rightarrow\)</span> The parameters are significant</p>
+<ul>
+<li>We’re judging how much lower the SSE needs to be with the test statistics that either follows a <span class="math">\(\chi^2\)</span> or <em>F</em> dist<sup>n</sup></li>
+</ul>
+</div>
+</div>
+<div id="cliffs-summary" class="section level2">
+<h2>Cliff’s Summary</h2>
+<p>Know the <a href="#memorize1">advantages</a> of GLM over other methods (Especially one-way and CLM)</p>
+<p>Be able to set up a the GLM matrices</p>
+<p>Know the 3 components of GLM (sys, response, link)</p>
+<p>Know how to interpret the results</p>
+<p>Aliasing</p>
+<p>Memorize:</p>
+<ul>
+<li>Variance functions</li>
+<li>Link functions</li>
+<li>Common model forms</li>
+</ul>
+<p>Calculations:</p>
+<ul>
+<li>Scale</li>
+<li>Deviance</li>
+<li>Type III test</li>
+</ul>
+</div>
+<div id="types-of-exam-questions" class="section level2">
+<h2>Types of Exam Questions</h2>
+<p>Shortcomings of methods compare to GLM</p>
+<ul>
+<li>2003 Q25</li>
+<li><a href="#2011q3b">2011 Q3b</a></li>
+</ul>
+<p>Describe GLM and CLM assumptions and compare</p>
+<ul>
+<li>2006 Q5 (GLM vs CLM)</li>
+<li>2007 Q4</li>
+<li>2009 Q3a</li>
+</ul>
+<p>Aliasing</p>
+<ul>
+<li>2008 Q3</li>
+</ul>
+<p>Setting up equations, process</p>
+<ul>
+<li><a href="#2009q3b">2009 Q3b</a> (CLM)</li>
+<li>2010 Q3 (GLM) <span class="math">\(\star\)</span></li>
+<li>2012 Q2 (GLM) <span class="math">\(\star\)</span></li>
+<li>2013 Q2 (Solve CLM) <span class="math">\(\star\)</span>
+<ul>
+<li>Don’t forget to weight them</li>
+</ul></li>
+</ul>
+<p>Calculate results given parameters</p>
+<ul>
+<li>2012 Q4a</li>
+</ul>
+<p>Def of GLM parameters</p>
+<ul>
+<li>2014 Q3a</li>
+</ul>
+<p>Common Modeling form</p>
+<ul>
+<li>2014 Q3b
+<ul>
+<li>Not sure about why each of the dist<sup>n</sup> are appropriate</li>
+<li>The explaining weight part i’m not super sure as well</li>
+</ul></li>
+</ul>
 </div>
 
 
@@ -454,15 +580,15 @@ $(document).ready(function () {
 <h4>Recent Post<h4>
   <ul>
   
-    <li><a href="/2015/09/20/C3-Exposure-Curves/">C3 Exposure Curves</a></li>
+    <li><a href="/Exam-8-2015-Notes/2015/09/20/C3-Exposure-Curves/">C3 Exposure Curves</a></li>
   
-    <li><a href="/2015/09/19/C2-Basics-Reinsurance-Pricing/">C2 Basics Reinsurance Pricing</a></li>
+    <li><a href="/Exam-8-2015-Notes/2015/09/19/C2-Basics-Reinsurance-Pricing/">C2 Basics Reinsurance Pricing</a></li>
   
-    <li><a href="/2015/09/15/C1-Cat-Model/">C1 Cat Model</a></li>
+    <li><a href="/Exam-8-2015-Notes/2015/09/15/C1-Cat-Model/">C1 Cat Model</a></li>
   
-    <li><a href="/2015/09/10/B17-to-20-LDD-XS/">B17 To 20 Ldd Xs</a></li>
+    <li><a href="/Exam-8-2015-Notes/2015/09/10/B17-to-20-LDD-XS/">B17 To 20 Ldd Xs</a></li>
   
-    <li><a href="/2015/09/07/B16-CGL-E-Mod/">B16 Cgl E Mod</a></li>
+    <li><a href="/Exam-8-2015-Notes/2015/09/07/B16-CGL-E-Mod/">B16 Cgl E Mod</a></li>
   
   </ul>
 
