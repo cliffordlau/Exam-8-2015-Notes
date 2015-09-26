@@ -138,24 +138,31 @@ What is risk classification $\Rightarrow$ 3 Purpose $\Rightarrow$ 5 Principles $
 
 ![alt text](figures/Exam 8 A - 1.png)
 
-## Questions Types
+## Types of Exam Questions
 
-* List out criteria and principles
-    * Just memorize
-* If a given plan satisfy some of the criteria
-    * 1998 Q43
-    * 2004 Q40
-    * 2004 Q23 
-    * 2004 Q24 (Compare 2 plans)
-    * 2006 Q38 (Miles driven; stat and op criteria)
-    * 2008 Q28 (Color of car; op and social)
-    * 2008 Q2 (stat and op with data) $\star$
-    * 2009 Q34 (free for all pick 2)
-    * 2013 Q1 (Principles achieve?) $\star$
-    * 2014 Q6 $\star$
-* Impacts on inadequate risk classification
-    * 2006 Q20
-* Other good questions
-    * 2004 Q29
-    * 2009 Q1 (When is risk class important)
-    
+List out criteria and principles
+
+* Just memorize
+
+If a given plan satisfy some of the criteria
+
+* 1998 Q43
+* 2004 Q40
+* 2004 Q23 
+* 2004 Q24 (Compare 2 plans)
+* 2006 Q38 (Miles driven; stat and op criteria)
+* 2008 Q28 (Color of car; op and social)
+* 2008 Q2 (stat and op with data) $\star$
+* 2009 Q34 (free for all pick 2)
+* 2012 Q4b (In conjunction with part a from GLM)
+* 2013 Q1 (Principles achieve?) $\star$
+* 2014 Q6 $\star$
+
+Impacts on inadequate risk classification
+
+* 2006 Q20
+
+Other good questions
+
+* 2004 Q29
+* 2009 Q1 (When is risk class important)

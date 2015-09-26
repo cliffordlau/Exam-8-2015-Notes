@@ -67,30 +67,40 @@ $\hat{X} = \sum\limits_{i=1}^n Z_i X_i + \Big(1 - \sum\limits_{i=1}^n Z_i \Big)\
 
 ## 3 Criteria to Select the Best Estimates
 
-**Least Squared Error**
+***Least Squared Error***
 
-* Lowest MSE of the actual vs prediction
-* Bühlmann/Bayesian
+Lowest MSE of the actual vs prediction
+
+Bühlmann/Bayesian
   
 $MSE = \dfrac{SSE}{\text{# risks}}$
 
 $SSE = \sum_{risks}(\hat{X}_{risks} - X_{i, risks})^2$
 
-**Limited Fluctuation**
+***Limited Fluctuation***
 
-* Small chance of large errors
-* $\mathrm{Pr(\text{Observed differs by more than a certain % from the predicted})}$
+Small chance of large errors
 
-$\mathrm{Pr}\Big(\dfrac{\big|\hat{X}_{risks} - X_{i, risks}\big|}{\hat{X}_{risks}} > k \% \Big) < p$
+Pr(Observed differs by more than a certain % from the predicted)
 
-**Meyers Dorweiler**
+$\mathrm{Pr}\left(\dfrac{\big|\hat{X}_{risks} - X_{i, risks}\big|}{\hat{X}_{risks}} > k \% \right) < p$
 
-* $\rho$ between $\frac{Actual}{Expected}$ and $\frac{Expected}{Mean}$
-* See Kendall's $\tau$ P.271 of paper
+***Meyers Dorweiler***
+
+Correlation between $\frac{Actual}{Expected}$ and $\frac{Expected}{Mean}$
+
+Confirms that there is no evidence that large predictions lead to large errors and small predictions lead to small errors
+
+See Kendall's $\tau$ P.271 of paper (But not on syllabus)
+
+***
+
+First 2 tests are for minimizing errors whereas
+
+The third one is to make sure you don't have correlation in your errors, pattern etc
 
 ## Final Points
 
 When there are shifting risk parameters, older years will be less relevant $\Rightarrow$ Assign less credibility
 
 Having a delay in getting historical data significantly increase the square error
-

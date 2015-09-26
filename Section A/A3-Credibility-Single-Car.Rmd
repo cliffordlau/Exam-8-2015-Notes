@@ -7,6 +7,14 @@ output:
     toc_depth: 4
 ---
 
+##Goal of paper
+
+Show that a single car's experience for a single year has significant and measurable credibility for experience ratin
+
+* The implied credibility of experience from a single car for 1 year
+
+Show that credibility of individual risk experience within a class varies based on how narrowly the class is defined
+
 ## Merit Rating Terminology
 
 Based on # of full years since most recent accident
@@ -19,23 +27,58 @@ Based on # of full years since most recent accident
 * $A + X: \space \geq 2 \text{yrs}$
 * $A + X + Y: \space \geq 1 \text{yr}$
 
-## Experience Rating Formula
+Similar to experience rating, each rating has a factor associate with them (Base is $B$)
 
-$\text{E-mod} = ZR + (1 - Z)$
+##Implied Credibility from Merit Rating
 
-  * $Z = \text{credibility}$
-  * $R = \dfrac{\text{Actual Loss}}{\text{Expected Loss}}$
-      * $\text{Expected Loss} = \text{Past Experience}$
+Determine the implied credibility of experience from a single car for 1 year
 
-Usually solve for $\textbf{Z}$ with $\text{E-mod}$ and $R$  
-R is based on prior policy term
+Pretend the merit rating doesn't exist and rate with experience mod insteadfrom 
 
-Perfect Mod:
+* Change from (1) to (2)
 
-  * Based on experience in current policy period
-  * Values of the Mod that result in equal ratios of $\dfrac{\text{# Claims}}{\text{premium}}$ across all merit ratings based on the *current* year data
+* $\begin{array}{lcll}
+    \text{Premium} = Base \times &Merit &\times Territory \times \cdots &(1)\\
+    \text{Premium} = Base \times &\text{E-Mod} &\times Territory \times \cdots &(2)\\
+  \end{array}$
   
-## Calculating the Mod
+### Experience Rating Formula
+
+> $\text{E-mod} = ZR + (1 - Z)$
+
+  * $Z$: Credibility
+  * $R$: Relative loss experience
+
+***
+
+
+
+***
+
+***In Baily & Simon we want Z***
+
+1. Use current policy term data $\Rightarrow$ Figure out ideal $\text{E-mod} would have been
+2. Estimate the $R$ they would have used in **prior** policy term
+    * Only use 1 year experience (what they're trying to prove); IRL it'll be more
+3. Solve for $Z$ with $\text{E-mod}$ and $R$
+    * $Z$ = Appropriate crredibility for that individual risk for one year
+
+Calculate what the "perfect"" mod would be based on experience in **current** policy period
+  * Values of the Mod that result in equal ratios of $\dfrac{\text{# Claims}}{\text{premium}}$ across all merit ratings based on the **current** year data
+  
+***
+
+***In normal experience rating:***
+
+* Use prior experience to produce $\text{E-Mod}$ for current policy term
+
+### Measure of Experience
+
+***Loss Ratio***
+
+
+
+### Calculating the Mod
 
 Compare loss experience of the group within a class for which the Mod applies to the overall loss experience for the class
 
@@ -92,3 +135,8 @@ $Z = \dfrac{n}{n + k}$
 $k = \dfrac{\mathrm{E[Var(X|\theta))]}}{\mathrm{Var(E[X|\theta])}} = \dfrac{\text{Expected Process Variance}}{\text{Variance of Hypothetical Mean}} = \text{Constant for different sample of n size??}$
 
 If $X \sim Poi(\lambda), \space \lambda \sim N(\mu, \sigma^2) \Rightarrow k = \dfrac{\mu}{\sigma^2}$
+
+##Questions
+
+Why is his R example uses Car years?
+
