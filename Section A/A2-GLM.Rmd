@@ -34,6 +34,8 @@ Model: Pure Premium, frequency, severity, retention, loss development
 
 * An example of an inter-dependency would be if 16 year old males have twice the claim frequency as 16 year old females, but 50 year old males have the same frequency as 50 year old females.
 
+***
+
 ***Minimum bias***
 
 <span style="color:green">Look it up later...</span>
@@ -88,7 +90,8 @@ $Y_n = \beta_0 + \sum\limits_{j=1}^p \beta_j x_j + \epsilon_n$
 5. $\frac{\partial SSE}{\beta_0} = 0 \cdots \frac{\partial SSE}{\beta_p} = 0$
 6. solve for $\beta$
 
-## GLM vs CLM
+## GLM vs CLM  
+<a name="memorize2"></a><span style="color:red;background-color:yellow">Memorize</span>
 
 ### 1. Systematic component
 **Same for both GLM and Classical Linear Model**  
@@ -237,7 +240,7 @@ Other source [explanation](http://stats.stackexchange.com/questions/11182/when-t
 * Logit link; Binomial error
 
 ## Solving GLMs  
-<span style="color:green">2010 Q3c</span>
+<a name="2010q3c"></a><span style="color:green">Good Question: 2010 Q3c</span>
 
 Use MLE theoretically, numerical technique in practice  
 ML set $\dfrac{\partial f}{\partial \beta_i} = 0$, solve  
@@ -307,7 +310,7 @@ Know the [advantages](#memorize1) of GLM over other methods (Especially one-way 
 
 Be able to set up a the GLM matrices
 
-Know the 3 components of GLM (sys, response, link)
+Know the [3 components](#memorize2) of GLM (sys, response, link)
 
 Know how to interpret the results
 
@@ -345,7 +348,7 @@ Aliasing
 Setting up equations, process
 
 * [2009 Q3b](#2009q3b) (CLM)
-* 2010 Q3 (GLM) $\star$
+* [2010 Q3c](#2010q3c) (GLM) $\star$
 * 2012 Q2 (GLM) $\star$
 * 2013 Q2 (Solve CLM) $\star$
     * Don't forget to weight them

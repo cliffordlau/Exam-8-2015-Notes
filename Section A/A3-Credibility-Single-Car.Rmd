@@ -9,13 +9,14 @@ output:
 
 ##Goal of paper
 
-Show that a single car's experience for a single year has significant and measurable credibility for experience ratin
+Show that a single car's experience for a single year has significant and measurable credibility for experience rating
 
 * The implied credibility of experience from a single car for 1 year
 
 Show that credibility of individual risk experience within a class varies based on how narrowly the class is defined
 
-## Merit Rating Terminology
+## Merit Rating Terminology  
+<a name="definition"></a>
 
 Based on # of full years since most recent accident
 
@@ -33,7 +34,7 @@ Similar to experience rating, each rating has a factor associate with them (Base
 
 Determine the implied credibility of experience from a single car for 1 year
 
-Pretend the merit rating doesn't exist and rate with experience mod insteadfrom 
+Pretend the merit rating doesn't exist and rate with experience mod instead of 
 
 * Change from (1) to (2)
 
@@ -44,14 +45,19 @@ Pretend the merit rating doesn't exist and rate with experience mod insteadfrom
   
 ### Experience Rating Formula
 
-> $\text{E-mod} = ZR + (1 - Z)$
+$\text{E-mod} = ZR + (1 - Z)$
 
   * $Z$: Credibility
   * $R$: Relative loss experience
 
 ***
 
+Example:
 
+$\begin{array}{cllcl}
+  \text{Cred-Wtd Individual Risk LR} &= &Z \times &\text{Individual Risk LR} &+ (1-Z) \times &\text{Class LR} & \cdots (1)\\
+  \text{E-mod} &= &Z \times &\dfrac{\text{Individual Risk LR}}{\text{Class LR}} &+ (1-Z)  & & \cdots (2) = (1) \div \text{Class LR}\\
+\end{array}$
 
 ***
 
@@ -61,10 +67,7 @@ Pretend the merit rating doesn't exist and rate with experience mod insteadfrom
 2. Estimate the $R$ they would have used in **prior** policy term
     * Only use 1 year experience (what they're trying to prove); IRL it'll be more
 3. Solve for $Z$ with $\text{E-mod}$ and $R$
-    * $Z$ = Appropriate crredibility for that individual risk for one year
-
-Calculate what the "perfect"" mod would be based on experience in **current** policy period
-  * Values of the Mod that result in equal ratios of $\dfrac{\text{# Claims}}{\text{premium}}$ across all merit ratings based on the **current** year data
+    * $Z$ = Appropriate credibility for that individual risk for one year
   
 ***
 
@@ -76,67 +79,184 @@ Calculate what the "perfect"" mod would be based on experience in **current** po
 
 ***Loss Ratio***
 
+Problematic: severity across risks is generally too volatile to be reliable
 
+***
 
-### Calculating the Mod
+***Freqency***
 
-Compare loss experience of the group within a class for which the Mod applies to the overall loss experience for the class
+Omit severity $\equiv$ relative LR with constant severity (so sev cancel out)
 
-  * Use relative frequency instead of PP
-      * $\dfrac{\text{# Claims}}{\text{On-level Premium}}$
-      * PP is not used because the size of claims can cause fluctuation
-      * Not using car years for denominator
-      * Avoid exposure correlation with car years
-  * Using Premium as the base only works if:
-      * High frequency territories are also high average premium territories
-      * Territorial rate differentials are proper (= LR across territories)
-      * <span style="color:green">See 2012 Q8 </span>
-  
-Mod Formula:
+Use frequency with **Premium**
+
+***
+
+#### Exposure
+
+**Premium**<a name="usepremium"></a>
+
+$\dfrac{\text{# Claims}}{\text{On-level Premium}}$
+
+* On-leveled
+    * Not to double count the impact of past rate change
+* Back out current merit rating factor
+    * since we'll be replacing it with experience mod
+* Use premium to avoid exposure correlation with car years
+    * Only works when:  
+    <span style="color:red;background-color:yellow">Memorize</span>
+    1. High frequency (to car years) territories are also high average premium territories
+    2. Territorial rate differentials are proper (Equal LR across territories)
+    
+<a name="2012q8"></a><span style="color:green">Good Question: 2012 Q8 </span>
+
+***
+
+**Car Year**
+
+* Not used due to potential maldistribution
+* Exposure correlation between territory rating variable and merit rating variable
+* Can use this if there are no other rating variable
+
+### Calculating the Mod  
+<a name="calcmod"></a>
+
+Use data in **current** period (Paper use 2 PY combined) to calculate **ideal mod** for a given risk
+
+Compare:  
+[loss experience of the group (same merit rating) within a class for which the Mod applies] to the [overall loss experience for the class]
 
 $\text{Mod} = \dfrac{\dfrac{\text{# Claims in }\textbf{group}}{\text{EP in }\textbf{group}\text{ @ present B rates}}}{\dfrac{\text{# Claims in }\textbf{class}}{\text{EP in }\textbf{class}\text{ @ present B rates}}} = \dfrac{\text{Group Frequency}}{\text{Class Frequency}}$
 
-## Calculating R
+This results in ideal Mod values for all ratings that, if used in the rating algorithm instead of merit rating factors, would produce equal ratios of frequency to earned premium across all merit ratings.
 
-* $\text{No Claims} \rightarrow R = 0 \rightarrow \text{Mod} = 1 - Z$
-* All claims in the class are from 'B' ratings
-* Use relative claim frequency (instead of relative losses)
-* Claim Count $\sim$ Poisson
+### Calculating R  
+<a name="calcr"></a>
 
-$\text{R} = \dfrac{\dfrac{\text{# Claims in }\textbf{group}}{\text{Car Yr in }\textbf{group}\text{ @ present B rates}}}{\dfrac{\text{# Claims in }\textbf{class}}{\text{Car Yr in }\textbf{class}\text{ @ present B rates}}} = \dfrac{\text{Group Frequency}}{\text{Class Frequency}}$  
+$R$ is the ratio of relative $\frac{Frequency}{Premium}$ from **last year's** experience for each individual risk
 
-* Note this is based on *Car Year*
+For $A$, $X$, $Y$:  
+<span style="color:red;background-color:yellow">Memorize</span>
 
-$\text{R} = \dfrac{\dfrac{N \lambda}{N(1-e^{- \lambda})}}{\dfrac{N\lambda}{N}} = (1 - e^{- \lambda})^{-1}$  
-$\lambda = \text{Class Total Frequency} = \dfrac{\text{# Claims from Class}}{\text{Earned }\textbf{Car Years}\text{ of Insured in Class}}$  
-<span style="color:green">See 2005 Q3 </span>
+* $\text{No Claims} \Rightarrow R = 0 \Rightarrow Mod = 1 - Z$
+* $Z = 1 - Mod$
 
+***
 
+For $B$:
 
-Recall:
-$\mathrm{Pr(X=x)} = \dfrac{\lambda ^x e^{-\lambda}}{x!} \Rightarrow \mathrm{Pr(X=0)} = e^{-\lambda}, \mathrm{Pr(X \geq 1)} = 1 - e^{-\lambda}$
+Calculate last year's relative frequency (to premium) for current $B$ ratings **OR**
 
-## Conclusions
+**Assumption 1.** Assume $\forall$ years, $\frac{\text{Class total claim frequency}}{\text{Class total  earned car-years}}$ are the same  
+<span style="color:red;background-color:yellow">Memorize</span>
 
-* Experience rating of a single car for 1 year has significant and measurable credibility for experience rating
-* Individual risk experience is more credible when there is more variance in loss experience within a risk class (less refined risk classification system)
-* Credibility for varying years of experience should increase in proportion to the # of years of experience (This test the point above)
+* $\text{R} = \dfrac{\dfrac{\text{# Claims in }\textbf{group}}{\text{Car Yr in }\textbf{group}\text{ @ present B rates}}}{\dfrac{\text{# Claims in }\textbf{class}}{\text{Car Yr in }\textbf{class}\text{ @ present B rates}}} = \dfrac{\text{Group Frequency}}{\text{Class Frequency}}$
+
+**Assumption 2.** Claim Count $\sim$ Poisson  
+<a name="2005q3"></a><span style="color:green">Good Question: 2005 Q3 </span>  
+<span style="color:red;background-color:yellow">Memorize</span>
+
+* $\text{R} = \dfrac{\dfrac{N \lambda}{N(1-e^{- \lambda})}}{\dfrac{N\lambda}{N}} = (1 - e^{- \lambda})^{-1}$  
+
+* Recall: $\mathrm{Pr(X=x)} = \dfrac{\lambda ^x e^{-\lambda}}{x!} \Rightarrow \mathrm{Pr(X=0)} = e^{-\lambda}, \mathrm{Pr(X \geq 1)} = 1 - e^{-\lambda}$
+
+* $\lambda = \text{Class Total Frequency} = \dfrac{\text{# Claims from Class}}{\text{Earned }\textbf{Car Years}\text{ of Insured in Class}}$  
+
+***
+
+**Use of Car Year for R**
+
+* No exposure correlation issue here 
+* Only an issue for the Mod, since that impacts premium and thus LR and frequency where premium is the denominator
+
+***
+<span style="color:red;background-color:yellow">Memorize</span>
+
+$Z = \dfrac{Mod - 1}{R - 1}$
+
+## Conclusions  
+<a name="conclusions"></a>
+
+1. Experience rating of a single car for 1 year has significant and measurable credibility for experience rating
+    * Credibility for the 1 year range between [0.038, 0.071] $\Rightarrow$ Imply some credibility is warranted for the experience of a single car for a single year of claims-free experience
+
+2. Individual risk experience is more credible when there is more variance in loss experience within a risk class (less refined risk classification system)
+    * Class 2-5 are more narrowly defined than class 1, so less credible in classes 2-5
+
+3 Credibility for varying years of experience should increase in proportion to the # of years of experience (This test the point above)
     * Stability across time
     * Only for low credibility
-    * The closer the credibility for 2 and 3 years of experience are to 2 and 3 times the 1 year credibility $\Rightarrow$
-        * Less variation in the insured's $\mathrm{Pr(Accident)}$;
-        * Less risk entering/ exiting the portfolio; 
-        * Risk characteristics not changing much over time
-    
-## Bühlmaan Credibility
+
+4 The closer the credibility for 2 and 3 years of experience are to 2 and 3 times the 1 year credibility $\Rightarrow$
+    * Less variation in the insured's $\mathrm{Pr(Accident)}$;
+    * Less risk entering/ exiting the portfolio; 
+    * Risk characteristics not changing much over time
+    * Only for low credibility values
+    * Opposite when the ratios are less than the multiples
+
+## Bühlmaan Credibility  
+<a name="buhlmaan"></a>
 
 $Z = \dfrac{n}{n + k}$
 
-$k = \dfrac{\mathrm{E[Var(X|\theta))]}}{\mathrm{Var(E[X|\theta])}} = \dfrac{\text{Expected Process Variance}}{\text{Variance of Hypothetical Mean}} = \text{Constant for different sample of n size??}$
+* n = # of claims in sample
+
+$k = \dfrac{\mathrm{E[Var(X|\Theta))]}}{\mathrm{Var(E[X|\Theta])}} = \dfrac{\text{Expected Process Variance}}{\text{Variance of Hypothetical Mean}}$
 
 If $X \sim Poi(\lambda), \space \lambda \sim N(\mu, \sigma^2) \Rightarrow k = \dfrac{\mu}{\sigma^2}$
 
-##Questions
+$k$ is constant for different sample of $n$ sizes taken from the $X$ variable
 
-Why is his R example uses Car years?
+Paper backs into $k$ by assuming $n=100$ $\Rightarrow$ $Z=0.046$ then recalc $Z$ for other values of $n$
 
+## Cliff's Summary
+
+Memorize the [definitions](#definition) of the bucketing
+
+Know how to calculate [E-Mod](#calcmod) and [R](#calcr)
+
+* E-Mod is based on **current** data
+* R is based on **prior** data
+* Make sure premium is on-level
+* Should pretty much always calculate 3+, 2+, 1+ years (and not just 3, 2, 1)
+
+Know when to use [premium](#usepremium) for mod
+
+Know the paper's 3 [conclusions](#conclusions)
+
+Know the [Bühlmaan](#buhlmaan) stuff
+
+## Types of Exam Questions
+
+Calculate Z
+
+* 2000 Q32a
+* 2001 Q22a
+* 2002 Q47a
+* 2003 Q22
+* 2004 Q2
+* 2006 Q2
+* 2007 Q2
+* 2008 Q5 (Use PP instead of Frequency since data not available)
+* 2009 Q4 $\star$ (Backing out numbers with Poisson)
+    * Questions about the interpretation of these numbers
+* 2010 Q5
+* 2011 Q1
+* 2014 Q5 $\star$
+    * See alt method with premium
+
+Proof the Poisson formula
+
+* 2005 Q3 $\star$
+
+Why and when use premium instead of car years
+
+* 2012 Q6 $\star$
+
+Related to paper's conclusion
+
+* 2000 Q32b,c
+* 2007 Q2
+* 2011 Q1
+
+## Questions
+Why is the premium at the current rate of the no-risk free group?
