@@ -11,41 +11,43 @@ output:
 
 Price XS and retro rated WC with ELFs (by state + limit)
 
-Challenges:  
+**Challenges:**  
 ELFs hard to estimate since losses driven by small \# of very large claims
 
-Solution:  
+**Solution:**  
 Use correlations between different injury types to build a model based on less-severe injuries for which more data exists
 
-* The key idea is that since the physical circumstances are similar for significant injury types, claim frequencies between those injury types are correlated
+**Key idea:**  
+Since the physical circumstances are similar for significant injury types, claim frequencies between those injury types are correlated
 
-This also shows that the current NCCI practice of using the same ELFs for all classes within a hazard group can be further refined
-
-Focus on the frequencies relativities
+* Focus on the frequencies relativities
 
 * Same accident can produce any injuries $\Rightarrow$ Correlation between relative frequency for different injury types
 
 * Can use more data (from smaller injury) to better predict larger claims from more infrequent types
+
+**Corollary:**  
+This also shows that the current NCCI practice of using the same ELFs for all classes within a hazard group can be further refined
 
 ## Injury Types Definition
 
 In the order of increasing severity  
 (Frequency generally goes $\downarrow$ as you move down the list, except PT is more severe than Fatal)
 
-$\begin{align}
+$\begin{array}{lll}
   \text{Med} &= \text{Med Only}\\
   \text{TT} &= \text{Temporary Total} &= m\\
   \text{Minor PP} &= \text{Minor Permanent Partial} &= y\\
   \text{Major PP} &= \text{Major Permanent Partial} &= x\\
   \text{PT} &= \text{Permanent Total} &= w\\
   \text{F} &= \text{Fatal} &= v\\
-\end{align}$
+\end{array}$
 
 Letter = \# of claims
 
 ## Variables in the Analysis
 
-Looks at $\dfrac{\text{Claim Counts}_{Type}}{TT}$
+Looks at $\dfrac{\text{Claim Counts}_{Type}}{\text{Claim Counts}_{TT}}$
   
 * For every class code within the HG
 * Look at TT claim as an exposure that could produce more severe claim
@@ -59,53 +61,71 @@ Looks at $\dfrac{\text{Claim Counts}_{Type}}{TT}$
 
 ### For class code $i$ in year $t$
 
-$m_{i,t} = \text{# of TT claims in class code } i \text{ in year } t$
+\# of TT **claims** in *class* $i$ in *year* $t$
 
-* $i = 1, \ldots, R$  
-$R = \text{# of classes in HG }h$
-* $t = 1, \ldots, N$  
-$N = \text{# of years in sample}$
+* $m_{i,t} = \text{# of TT claims in class code } i \text{ in year } t$
+    * $i = 1, \ldots, R$  
+        * $R = \text{# of classes in HG }h$
+    * $t = 1, \ldots, N$  
+        * $N = \text{# of years in sample}$
 
-$m_i = \sum\limits_{t=1}^N m_{i,t}$
+\# of TT **claims** in *class* $i$
 
-${\color{red}\Box}_{i,t} = \dfrac{\text{# of } {\color{green}\boxtimes} \text{ in class } i \text{ in year } t}{m_{i,t}}$
+* $m_i = \sum\limits_{t=1}^N m_{i,t}$
 
-* Claim count relativity by class and year
+***
 
-${\color{red}\Box}_i = \dfrac{\sum\limits_{i=1}^N m_{i,t}{\color{red}\Box}_{i,t}}{m_i}$
+Claim count **relativity** by *class* $i$ and *year* $t$
 
-* Claim count relativity by class
+* ${\color{red}\Box}_{i,t} = \dfrac{\text{# of } {\color{green}\boxtimes} \text{ in class } i \text{ in year } t}{m_{i,t}}$
+
+Claim count **relativity** by *class* $i$
+
+* ${\color{red}\Box}_i = \dfrac{\sum\limits_{i=1}^N m_{i,t}{\color{red}\Box}_{i,t}}{m_i}$
 
 ### For HG $h$ in year $t$
 
-$m_{h,t} = \text{# of TT claims in HG } h \text{ in year } t$
+\# of TT **claims** in *HG* $h$ in *year* $t$
 
-$m_h = \sum\limits_{t=1}^N m_{h,t} = \sum\limits_{i=1}^R\sum\limits_{t=1}^N m_{i,t}$
+* $m_{h,t} = \text{# of TT claims in HG } h \text{ in year } t$
 
-${\color{red}\Box}_{h,t} = \dfrac{\text{# of } {\color{green}\boxtimes} \text{ in HG } h \text{ in year } t}{m_{h,t}}$
+\# of TT **claims** in *HG* $h$
 
-* Claim count relativity by HG and year
+* $m_h = \sum\limits_{t=1}^N m_{h,t} = \sum\limits_{i=1}^R\sum\limits_{t=1}^N m_{i,t}$
 
-${\color{red}\Box}_h = \dfrac{\sum\limits_{i=1}^N m_{h,t}{\color{red}\Box}_{h,t}}{m_h}$
+***
 
-* Claim count relativity by HG
+Claim count **relativity** by *HG* $h$ and *year* $t$
 
-Assumes variance ${\color{red}\Box}_i$ decreases as $m_i$ increases
+* ${\color{red}\Box}_{h,t} = \dfrac{\text{# of } {\color{green}\boxtimes} \text{ in HG } h \text{ in year } t}{m_{h,t}}$
 
-## The Multi-Dimensional Credibility Procedure <span style="color:red">Hard to test</span>
+Claim count **relativity** by *HG* $h$ and *year* $t$
 
-Goal:  
+* ${\color{red}\Box}_h = \dfrac{\sum\limits_{i=1}^N m_{h,t}{\color{red}\Box}_{h,t}}{m_h}$
+
+**Assumes** variance ${\color{red}\Box}_i$ decreases as $m_i$ increases
+
+## The Multi-Dimensional Credibility Procedure  
+<span style="color:red;background-color:yellow">Hard to test</span>
+
+**Goal:**  
 Estimate population mean using credibility weighted $V_i, W_i, X_i, Y_i$ $\Rightarrow$ $v_i, w_i, x_i, y_i$
 
 Find credibility factors $b_{ {\color{blue}\boxdot},i}, c_{ {\color{blue}\boxdot},i}, d_{ {\color{blue}\boxdot},i}, e_{ {\color{blue}\boxdot},i}$
 
-**Estimate of population mean:**
+***
+
+###Credibility weighted relativities
 
 $\hat{ {\color{blue}\boxdot}}_i = {\color{red}\Box}_h + b_{ {\color{blue}\boxdot}, i}(V_i - V_h) + c_{ {\color{blue}\boxdot}, i}(W_i - W_h) + d_{ {\color{blue}\boxdot}, i}(X_i - X_h) + e_{ {\color{blue}\boxdot}, i}(Y_i - Y-h)$
 
 * If credibilities are 0 $\Rightarrow$ Estimate = HG ratios ${\color{red}\Box}_h$
 
-To solve for $b_{ {\color{blue}\boxdot},i}, c_{ {\color{blue}\boxdot},i}, d_{ {\color{blue}\boxdot},i}, e_{ {\color{blue}\boxdot},i}$ for a given Injury Type ${\color{blue}\boxdot}$, solve the matrix below:
+***
+
+###Credibility factors
+
+To solve for $b_{ {\color{blue}\boxdot},i}, c_{ {\color{blue}\boxdot},i}, d_{ {\color{blue}\boxdot},i}, e_{ {\color{blue}\boxdot},i}$ for a **given Injury Type** ${\color{blue}\boxdot}$, solve the matrix below:
 
 $\left[
   \begin{array}{c}
@@ -130,19 +150,31 @@ $\left[
   e_{ {\color{blue}\boxdot},i}\\
 \end{bmatrix}$
 
+***
+
+**Variance of the Hypothetical Mean Vector**
+
 $Cov({\color{red}\Box}_i, {\color{blue}\boxdot}_i) = \widehat{\text{VHM}}_{\color{red}\Box} = \dfrac{\sum\limits_{i=1}^R m_i ({\color{red}\Box}_i - {\color{red}\Box}_h)^2 - (R - 1)\widehat{\text{EPV}}_{\color{red}\Box}}{m_h - m_h^{-1}\sum\limits_{i=1}^R m_i^2}$
 
-$\widehat{\text{EPV}}_{\color{red}\Box} = \dfrac{\sum\limits_{i=1}^R \sum\limits_{i=1}^N m_{i,t}({\color{red}\Box}_{i,t} - {\color{red}\Box}_i)^2}{R(N - 1)}$
+***
 
-$Var({\color{red}\Box}_i) = \dfrac{\widehat{\text{EPV}}_{\color{red}\Box}}{m_i} + widehat{\text{VHM}}_{\color{red}\Box}$
+**Variance-covariance Matrix**
+
+$Var({\color{red}\Box}_i) = \dfrac{\widehat{\text{EPV}}_{\color{red}\Box}}{m_i} + \widehat{\text{VHM}}_{\color{red}\Box}$
+
+* $\widehat{\text{EPV}}_{\color{red}\Box} = \dfrac{\sum\limits_{i=1}^R \sum\limits_{i=1}^N m_{i,t}({\color{red}\Box}_{i,t} - {\color{red}\Box}_i)^2}{R(N - 1)}$
 
 $\begin{align}
-Cov({\color{red}\Box}_i,{\color{yellow}\Box}_i) &= Cov({\color{red}\boxdot}_i,{\color{yellow}\Box}_i)\\
-  &= Cov({\color{red}\Box}_i,{\color{yellow}\boxdot}_i)\\
-  &= \mathrm{E}[({\color{red}\Box}_i - {\color{red}\Box}_h)({\color{yellow}\Box}_i - {\color{yellow}\Box}_h)]\\
-  &= \dfrac{\sum\limits_{i=1}^R ({\color{red}\Box}_i - {\color{red}\Box}_h)({\color{yellow}\Box}_i - {\color{yellow}\Box}_h) m_i}{m_h}\\
-  &= \frac{1}{m_h}\sum\limits_{i=1}^R({\color{red}\Box}_i{\color{yellow}\Box}_i m_i) - {\color{red}\Box}_h{\color{yellow}\Box}_h
+Cov({\color{red}\Box}_i,{\color{magenta}\Box}_i) &= Cov({\color{red}\boxdot}_i,{\color{magenta}\Box}_i)\\
+  &= Cov({\color{red}\Box}_i,{\color{magenta}\boxdot}_i)\\
+  &= \mathrm{E}[({\color{red}\Box}_i - {\color{red}\Box}_h)({\color{magenta}\Box}_i - {\color{magenta}\Box}_h)]\\
+  &= \dfrac{\sum\limits_{i=1}^R ({\color{red}\Box}_i - {\color{red}\Box}_h)({\color{magenta}\Box}_i - {\color{magenta}\Box}_h) m_i}{m_h}\\
+  &= \frac{1}{m_h}\sum\limits_{i=1}^R({\color{red}\Box}_i{\color{magenta}\Box}_i m_i) - {\color{red}\Box}_h{\color{magenta}\Box}_h
 \end{align}$
+
+***
+
+**Expected Relativity given HG**
 
 $\begin{align}
   \mathrm{E}[{\color{blue}\boxdot} | i] = \mathrm{E}[{\color{red}\Box}] &+ b_{\color{blue}\boxdot}(V_i - \mathrm{E}[V])\\
@@ -151,11 +183,14 @@ $\begin{align}
   &+ e_{\color{blue}\boxdot}(Y_i - \mathrm{E}[Y])
 \end{align}$
 
-##Calculating Expected Excess Losses <span style="color:red">Calculation</span>
+##Calculating Expected Excess Losses  
+<span style="color:red">Calculation bit</span>
 
-Expected XS losses at limit $L$ for class $i$ for ${\color{green}\boxtimes}$
+**Calculate:**  
+Expected XS losses at limit $L$ for class $i$ for injury type (${\color{green}\boxtimes}$)
 
-<span style="color:red; background-color:yellow">Formula</span>  
+<span style="color:red; background-color:yellow">Memorize Formula</span>
+
 $\begin{align}
   \mathrm{E}[XSLoss_{ {\color{red}\Box},i}(L)] = \frac{\text{payroll}_i}{100} &\times \: \text{Frequency}_{TT,i} \times \text{Severity}_{TT,i}\\
   &\times \: \hat{ {\color{blue}\boxdot}_i} \times \text{SeverityRel}_{ {\color{red}\Box},i}\\
