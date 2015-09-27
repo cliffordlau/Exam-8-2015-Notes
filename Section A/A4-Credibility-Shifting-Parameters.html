@@ -9,7 +9,7 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="date" content="2015-09-21" />
+<meta name="date" content="2015-09-27" />
 
 <title>A4 Credibility and Shifting Risk Parameters</title>
 
@@ -62,7 +62,7 @@ img {
 
 <div id="header">
 <h1 class="title">A4 Credibility and Shifting Risk Parameters</h1>
-<h4 class="date"><em>September 21, 2015</em></h4>
+<h4 class="date"><em>September 27, 2015</em></h4>
 </div>
 
 <div id="TOC">
@@ -73,7 +73,8 @@ img {
 <li><a href="#credibility-weighting-options">Credibility Weighting Options</a></li>
 <li><a href="#criteria-to-select-the-best-estimates">3 Criteria to Select the Best Estimates</a></li>
 <li><a href="#final-points">Final Points</a></li>
-<li><a href="#notes">Notes:</a></li>
+<li><a href="#cliffs-summary">Cliff’s Summary</a></li>
+<li><a href="#types-of-exam-questions">Types of Exam Questions</a></li>
 </ul>
 </div>
 
@@ -83,7 +84,7 @@ img {
 </div>
 <div id="question-1-difference-between-risks" class="section level2">
 <h2>Question 1: Difference Between Risks?</h2>
-<p><strong>Test #1</strong> for shifting parameters:<br />Compare the average and <span class="math">\(\sigma\)</span> of the losing % of each team and see if it follows a binomial distribution</p>
+<p><a name="bintest"></a><br /><strong>Test #1</strong> for shifting parameters:<br />Compare the average and <span class="math">\(\sigma\)</span> of the losing % of each team and see if it follows a binomial distribution</p>
 <ul>
 <li>Recall Binomial dist<sup>n</sup> has <span class="math">\(\sigma = \sqrt{np(1-p)}\)</span></li>
 <li>Data shows many teams are outside 2<span class="math">\(\sigma\)</span> from mean <span class="math">\(\Rightarrow\)</span> There are differences between teams</li>
@@ -93,28 +94,33 @@ img {
 <div id="question-2-loss-over-timer-just-random-fluctuations" class="section level2">
 <h2>Question 2: Loss % over timer just random fluctuations?</h2>
 <p>Is there risk parameters <span class="math">\(\Delta\)</span>-ing overtime?</p>
-<ul>
-<li><strong>Test #2</strong>, <span class="math">\(\chi^2\)</span> test:
-<ul>
-<li><span class="math">\(\chi^2 \: \text{Statistics} = \sum\limits_{i=1}^n \dfrac{(Actual_i - Expected_i)^2}{Expected_i}\)</span></li>
-<li>n = Time Period</li>
-<li>n-1 Degree of Freedom</li>
-<li>If test stat &gt; table value <span class="math">\(\Rightarrow\)</span> dist<sup>n</sup> are different</li>
-<li><span class="math">\(\Rightarrow\)</span> Risk parameters have shifted</li>
-<li><span style="color:green">See 2012 Q8 </span></li>
-</ul></li>
-<li><strong>Text #3</strong>, Correlations between years:
+<p><a name="chisqtest"></a><strong><em>Test #2</em></strong><br /><span style="color:red;background-color:yellow">Memorize</span><br /><span class="math">\(\chi^2\)</span> test:<br /><span style="color:green">Good Question: 2012 Q8</span></p>
 <ol style="list-style-type: decimal">
-<li>Calculate the correlation for each team across time</li>
-<li>Take average of the correlation across all risk for each time separation t</li>
-<li>If <span class="math">\(\rho\)</span> greater for smaller time separations <span class="math">\(\Rightarrow\)</span> Shifting risk parameters <span class="math">\(\Rightarrow\)</span> Recent years can help predict the future</li>
-</ol></li>
+<li><p>Group data into appropriate intervals</p></li>
+<li><p>Calculate <span class="math">\(\chi^2 \: \text{Statistics} = \sum\limits_{i=1}^n \dfrac{(Actual_i - Expected_i)^2}{Expected_i}\)</span></p>
+<ul>
+<li><p>n = Time Intervals</p></li>
+<li><p>n-1 Degree of Freedom</p></li>
+</ul></li>
+</ol>
+<p>If test stat &gt; table value <span class="math">\(\Rightarrow\)</span> dist<sup>n</sup> are different <span class="math">\(\Rightarrow\)</span> Risk parameters have shifted</p>
+<ul>
+<li><span class="math">\(H_0\)</span> is that risk parameters do not shift over time</li>
 </ul>
-<p>Recall:<br /><span class="math">\(\rho_{X,Y} = \dfrac{\mathrm{E[(X-\overline{X})(Y-\overline{Y})]}}{\sigma_X\sigma_Y}\)</span></p>
+<hr />
+<p><a name="corrtest"></a><strong><em>Text #3</em></strong><br /><span style="color:red;background-color:yellow">Memorize</span><br />Correlations between years:</p>
+<ol style="list-style-type: decimal">
+<li><p>Calculate the correlation for each team across time</p>
+<ul>
+<li><span class="math">\(\rho_{X,Y} = \dfrac{\mathrm{E[(X-\overline{X})(Y-\overline{Y})]}}{\sigma_X\sigma_Y}\)</span></li>
+</ul></li>
+<li><p>Take average of the correlation across all risk for each time separation t</p></li>
+</ol>
+<p>If <span class="math">\(\rho\)</span> greater for smaller time separations <span class="math">\(\Rightarrow\)</span> Shifting risk parameters <span class="math">\(\Rightarrow\)</span> Recent years can help predict the future</p>
 </div>
 <div id="credibility-weighting-options" class="section level2">
 <h2>Credibility Weighting Options</h2>
-<p><span class="math">\(\hat{X} = \sum\limits_{i=1}^n Z_iX_i\)</span><br /><span class="math">\(\sum\limits_{i=1}^n Z_i = 1\)</span><br /><span class="math">\(\mu = \text{Grand Mean}\)</span></p>
+<p><a name="credwt"></a><br /><span class="math">\(\hat{X} = \sum\limits_{i=1}^n Z_iX_i\)</span><br /><span class="math">\(\sum\limits_{i=1}^n Z_i = 1\)</span><br /><span class="math">\(\mu = \text{Grand Mean}\)</span></p>
 <p>6 Methods:</p>
 <ol style="list-style-type: decimal">
 <li><p>0% credibility to all past data <span class="math">\(\Rightarrow\)</span> Every risk is average<br /><span class="math">\(\hat{X} = \mu\)</span></p></li>
@@ -127,21 +133,21 @@ img {
 </div>
 <div id="criteria-to-select-the-best-estimates" class="section level2">
 <h2>3 Criteria to Select the Best Estimates</h2>
-<p><strong>Least Squared Error</strong></p>
-<ul>
-<li>Lowest MSE of the actual vs prediction</li>
-<li>Bühlmann/Bayesian</li>
-</ul>
+<p><strong><em>Least Squared Error</em></strong><br /><span style="color:red;background-color:yellow">Memorize</span></p>
+<p>Minimize MSE of the actual vs prediction</p>
 <p><span class="math">\(MSE = \dfrac{SSE}{\text{# risks}}\)</span></p>
 <p><span class="math">\(SSE = \sum_{risks}(\hat{X}_{risks} - X_{i, risks})^2\)</span></p>
-<p><strong>Limited Fluctuation</strong></p>
-<p>Small chance of large errors</p>
-<p><span class="math">\(\mathrm{Pr(\text{Observed differs by more than a certain % from the predicted})}\)</span></p>
+<p><strong><em>Limited Fluctuation</em></strong><br /><span style="color:red;background-color:yellow">Memorize</span></p>
+<p>Minimize the likelihood that any one actual observation will be a certain % different from the predicted result</p>
+<ul>
+<li>Small chance of large errors</li>
+<li>Minimize Pr(Observed differs by more than a certain % from the predicted)</li>
+</ul>
 <p><span class="math">\(\mathrm{Pr}\left(\dfrac{\big|\hat{X}_{risks} - X_{i, risks}\big|}{\hat{X}_{risks}} &gt; k \% \right) &lt; p\)</span></p>
-<p><strong>Meyers Dorweiler</strong></p>
-<p>Correlation between <span class="math">\(\frac{Actual}{Expected}\)</span> and <span class="math">\(\frac{Expected}{Mean}\)</span></p>
+<p><strong><em>Meyers Dorweiler</em></strong><br /><span style="color:red;background-color:yellow">Memorize</span></p>
+<p>Minimize correlation between <span class="math">\(\frac{Actual}{Predicted}\)</span> and <span class="math">\(\frac{Predicted}{Mean}\)</span></p>
 <p>Confirms that there is no evidence that large predictions lead to large errors and small predictions lead to small errors</p>
-<p>See Kendall’s <span class="math">\(\tau\)</span> P.271 of paper</p>
+<p>Can check out Kendall’s <span class="math">\(\tau\)</span> P.271 of paper (But not on syllabus)</p>
 <hr />
 <p>First 2 tests are for minimizing errors whereas</p>
 <p>The third one is to make sure you don’t have correlation in your errors, pattern etc</p>
@@ -151,9 +157,31 @@ img {
 <p>When there are shifting risk parameters, older years will be less relevant <span class="math">\(\Rightarrow\)</span> Assign less credibility</p>
 <p>Having a delay in getting historical data significantly increase the square error</p>
 </div>
-<div id="notes" class="section level2">
-<h2>Notes:</h2>
-<p>first 2 test is for minimizig errors whereas the third one is that you dont’ want a correlation in your errors, pattern etc</p>
+<div id="cliffs-summary" class="section level2">
+<h2>Cliff’s Summary</h2>
+<p>Know the 3 test</p>
+<ul>
+<li><a href="#bintest">Binomial</a> test for if risk are different</li>
+<li><a href="#chisqtest"><span class="math">\(\chi^2\)</span></a> test for changing risk parameters</li>
+<li><a href="#corrtest">Correlation</a> test for changing risk parameters</li>
+</ul>
+<p>Know the <a href="#credwt">credibility weighting</a> options</p>
+<p>3 selection criteria related to select <a href="#errors">best estimates</a></p>
+<ul>
+<li>Lowest mean square error</li>
+<li>Limited fluctuation</li>
+<li>Meyers Dorweiler (No correlation in errors)</li>
+</ul>
+<p>With shifting risk parameters:</p>
+<ul>
+<li>Older years should get less credibility</li>
+<li>Delay in getting historical data significantly increase the error<sup>2</sup></li>
+</ul>
+</div>
+<div id="types-of-exam-questions" class="section level2">
+<h2>Types of Exam Questions</h2>
+<p>Credibility selection criteria</p>
+<p>Shifting parameters test</p>
 </div>
 
 

@@ -7,6 +7,12 @@ output:
     toc_depth: 4
 ---
 
+## Simplifications in dataset
+
+* A constant set of risks
+* The baseball loss data is readily available, accurate, and not subject to development
+* Each team is of equal size; they each play roughly the same # of games each year
+
 ## Standard Credibility Formula
 
 $\text{New Estimate} = \text{Data} \times \text{Credibility} + (1 - \text{Credibility}) \times \text{Prior Estimate}$  
@@ -14,6 +20,7 @@ Prior Estimate = Class Average *or* Previous Estimate for the *group*
 
 ## Question 1: Difference Between Risks?
 
+<a name="bintest"></a>  
 **Test #1** for shifting parameters:  
 Compare the average and $\sigma$ of the losing % of each team and see if it follows a binomial distribution
 
@@ -25,22 +32,39 @@ Compare the average and $\sigma$ of the losing % of each team and see if it foll
 
 Is there risk parameters $\Delta$-ing overtime?
 
-* **Test #2**, $\chi^2$ test:
-    * $\chi^2 \: \text{Statistics} = \sum\limits_{i=1}^n \dfrac{(Actual_i - Expected_i)^2}{Expected_i}$
-    * n = Time Period
-    * n-1 Degree of Freedom
-    * If test stat > table value $\Rightarrow$ dist^n^ are different
-    * $\Rightarrow$ Risk parameters have shifted
-    * <span style="color:green">See 2012 Q8 </span>
-* **Text #3**, Correlations between years:
-    1. Calculate the correlation for each team across time
-    2. Take average of the correlation across all risk for each time separation t
-    3. If $\rho$ greater for smaller time separations $\Rightarrow$ Shifting risk parameters $\Rightarrow$ Recent years can help predict the future
+<a name="chisqtest"></a>***Test #2***  
+<span style="color:red;background-color:yellow">Memorize</span>  
+$\chi^2$ test:  
+<span style="color:green">Good Question: 2012 Q8</span>
+
+1. Group data into appropriate intervals
+
+2. Calculate $\chi^2 \: \text{Statistics} = \sum\limits_{i=1}^n \dfrac{(Actual_i - Expected_i)^2}{Expected_i}$
     
-Recall:  
-$\rho_{X,Y} = \dfrac{\mathrm{E[(X-\overline{X})(Y-\overline{Y})]}}{\sigma_X\sigma_Y}$
+    * n = Time Intervals
+
+    * n-1 Degree of Freedom
+
+If test stat > table value $\Rightarrow$ dist^n^ are different $\Rightarrow$ Risk parameters have shifted
+
+* $H_0$ is that risk parameters do not shift over time
+
+***
+
+<a name="corrtest"></a>***Text #3***  
+<span style="color:red;background-color:yellow">Memorize</span>  
+Correlations between years:
+
+1. Calculate the correlation for each risk across time
+
+    * $\rho_{X,Y} = \dfrac{\mathrm{E[(X-\overline{X})(Y-\overline{Y})]}}{\sigma_X\sigma_Y}$
+
+2. Take average of the correlation across all risk for each time separation t
+
+If $\rho$ greater for smaller time separations $\Rightarrow$ Shifting risk parameters $\Rightarrow$ Recent years can help predict the future
 
 ## Credibility Weighting Options
+<a name="credwt"></a>  
 $\hat{X} = \sum\limits_{i=1}^n Z_iX_i$  
 $\sum\limits_{i=1}^n Z_i = 1$  
 $\mu = \text{Grand Mean}$
@@ -67,31 +91,33 @@ $\hat{X} = \sum\limits_{i=1}^n Z_i X_i + \Big(1 - \sum\limits_{i=1}^n Z_i \Big)\
 
 ## 3 Criteria to Select the Best Estimates
 
-***Least Squared Error***
+***Least Squared Error***  
+<span style="color:red;background-color:yellow">Memorize</span>
 
-Lowest MSE of the actual vs prediction
-
-Bühlmann/Bayesian
+Minimize MSE of the actual vs prediction
   
 $MSE = \dfrac{SSE}{\text{# risks}}$
 
 $SSE = \sum_{risks}(\hat{X}_{risks} - X_{i, risks})^2$
 
-***Limited Fluctuation***
+***Limited Fluctuation***  
+<span style="color:red;background-color:yellow">Memorize</span>
 
-Small chance of large errors
+Minimize the likelihood that any one actual observation will be a certain % different from the predicted result
 
-Pr(Observed differs by more than a certain % from the predicted)
+* Small chance of large errors
+* Minimize Pr(Observed differs by more than a certain % from the predicted)
 
 $\mathrm{Pr}\left(\dfrac{\big|\hat{X}_{risks} - X_{i, risks}\big|}{\hat{X}_{risks}} > k \% \right) < p$
 
-***Meyers Dorweiler***
+***Meyers Dorweiler***  
+<span style="color:red;background-color:yellow">Memorize</span>
 
-Correlation between $\frac{Actual}{Expected}$ and $\frac{Expected}{Mean}$
+Minimize correlation between $\frac{Actual}{Predicted}$ and $\frac{Predicted}{Mean}$
 
 Confirms that there is no evidence that large predictions lead to large errors and small predictions lead to small errors
 
-See Kendall's $\tau$ P.271 of paper (But not on syllabus)
+Can check out Kendall's $\tau$ P.271 of paper (But not on syllabus)
 
 ***
 
@@ -104,3 +130,50 @@ The third one is to make sure you don't have correlation in your errors, pattern
 When there are shifting risk parameters, older years will be less relevant $\Rightarrow$ Assign less credibility
 
 Having a delay in getting historical data significantly increase the square error
+
+## Cliff's Summary
+
+Know the 3 test
+
+* [Binomial](#bintest) test for if risk are different
+* [$\chi^2$](#chisqtest) test for changing risk parameters
+* [Correlation](#corrtest) test for changing risk parameters
+
+Know the [credibility weighting](#credwt) options
+
+3 selection criteria related to select [best estimates](#errors)
+
+* Lowest mean square error
+* Limited fluctuation
+* Meyers Dorweiler (No correlation in errors)
+
+With shifting risk parameters:
+
+* Older years should get less credibility
+* Delay in getting historical data significantly increase the error^2^
+
+Know the other "constants" need for all this to work
+
+* Constant number of exposures
+* Uniform mix of business
+* No other changes besides shift in risk parameters
+* 
+
+## Types of Exam Questions  
+<span style="color:green">Questions a bit thin</span>
+
+Credibility selection criteria
+
+* 2004 Q3 (apply the criterias to data set)
+* Haven't seen actual calc...
+
+Shifting parameters tests
+
+* 2007 Q6
+* 2012 Q3 (actual calc of chi sq)
+* Haven't seen actual calc of the correlation test
+* Practice 2
+
+Different credibility weighting
+
+* 2005 Q2 (Exp smoothing) $\star$
