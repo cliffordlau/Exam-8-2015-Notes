@@ -80,8 +80,11 @@ img {
 <li><a href="#calculating-expected-excess-losses">Calculating Expected Excess Losses</a></li>
 <li><a href="#testing-the-results">Testing the Results</a><ul>
 <li><a href="#sum-of-squared-error-tests">Sum of Squared Error Tests</a></li>
-<li><a href="#quintiles-test-calculation">Quintiles Test <span style="color:red">Calculation</span></a></li>
+<li><a href="#quintiles-test">Quintiles Test</a></li>
 </ul></li>
+<li><a href="#cliffs-summary">Cliff’s Summary</a></li>
+<li><a href="#types-of-exam-questions">Types of Exam Questions</a></li>
+<li><a href="#questions">Questions</a></li>
 </ul>
 </div>
 
@@ -90,13 +93,17 @@ img {
 <p>Price XS and retro rated WC with ELFs (by state + limit)</p>
 <p><strong>Challenges:</strong><br />ELFs hard to estimate since losses driven by small # of very large claims</p>
 <p><strong>Solution:</strong><br />Use correlations between different injury types to build a model based on less-severe injuries for which more data exists</p>
-<p><strong>Key idea:</strong><br />Since the physical circumstances are similar for significant injury types, claim frequencies between those injury types are correlated</p>
+<p><strong>Key idea:</strong><br /><a name="keyidea"></a><br />Since the physical circumstances are similar for significant injury types, claim frequencies between those injury types are correlated</p>
 <ul>
 <li><p>Focus on the frequencies relativities</p></li>
 <li><p>Same accident can produce any injuries <span class="math">\(\Rightarrow\)</span> Correlation between relative frequency for different injury types</p></li>
 <li><p>Can use more data (from smaller injury) to better predict larger claims from more infrequent types</p></li>
+<li><p>Physical circumstances underlying various injury types are correlated, and those correlations are used to gain additional information in estimating credibility weighted claim frequencies by injury type</p></li>
 </ul>
 <p><strong>Corollary:</strong><br />This also shows that the current NCCI practice of using the same ELFs for all classes within a hazard group can be further refined</p>
+<ul>
+<li>NCCI estimates excess ratios for each injury type separately, and does not use information about correlations between injury types</li>
+</ul>
 </div>
 <div id="injury-types-definition" class="section level2">
 <h2>Injury Types Definition</h2>
@@ -106,6 +113,7 @@ img {
 </div>
 <div id="variables-in-the-analysis" class="section level2">
 <h2>Variables in the Analysis</h2>
+<p><a name="rel"></a></p>
 <p>Looks at <span class="math">\(\dfrac{\text{Claim Counts}_{Type}}{\text{Claim Counts}_{TT}}\)</span></p>
 <ul>
 <li>For every class code within the HG</li>
@@ -202,6 +210,7 @@ img {
 <hr />
 <div id="credibility-weighted-relativities" class="section level3">
 <h3>Credibility weighted relativities</h3>
+<p><a name="credibility"></a></p>
 <p><span class="math">\(\hat{ {\color{blue}\boxdot}}_i = {\color{red}\Box}_h + b_{ {\color{blue}\boxdot}, i}(V_i - V_h) + c_{ {\color{blue}\boxdot}, i}(W_i - W_h) + d_{ {\color{blue}\boxdot}, i}(X_i - X_h) + e_{ {\color{blue}\boxdot}, i}(Y_i - Y-h)\)</span></p>
 <ul>
 <li>If credibilities are 0 <span class="math">\(\Rightarrow\)</span> Estimate = HG ratios <span class="math">\({\color{red}\Box}_h\)</span></li>
@@ -229,11 +238,22 @@ img {
 </div>
 <div id="calculating-expected-excess-losses" class="section level2">
 <h2>Calculating Expected Excess Losses</h2>
-<p><span style="color:red">Calculation big</span></p>
-<p><strong>Calculate:</strong><br />Expected XS losses at limit <span class="math">\(L\)</span> for class <span class="math">\(i\)</span> for injury type (<span class="math">\({\color{green}\boxtimes}\)</span>)</p>
-<p><span style="color:red; background-color:yellow">Formula</span><br /><span class="math">\(\begin{align}  \mathrm{E}[XSLoss_{ {\color{red}\Box},i}(L)] = \frac{\text{payroll}_i}{100} &amp;\times \: \text{Frequency}_{TT,i} \times \text{Severity}_{TT,i}\\  &amp;\times \: \hat{ {\color{blue}\boxdot}_i} \times \text{SeverityRel}_{ {\color{red}\Box},i}\\  &amp;\times \: (1 - \text{LER}_{ {\color{red}\Box},i}(L)) \end{align}\)</span></p>
-<p><span class="math">\(\text{SeverityRel}_{ {\color{red}\Box},i} = \dfrac{\text{Severity}_{\color{red}\Box}}{\text{Severity}_{TT}} \text{ for class }i\)</span></p>
-<p><span class="math">\(\text{LER}_{ {\color{red}\Box},i}(L) =\)</span> Loss Elimination Ratio at limit <span class="math">\(L\)</span> for <span class="math">\({\color{green}\boxtimes}\)</span> in class <span class="math">\(i\)</span></p>
+<p><a name="xsloss"></a></p>
+<p><strong><em>Expected XS losses at limit <span class="math">\(L\)</span> for class <span class="math">\(i\)</span> for injury type (<span class="math">\({\color{green}\boxtimes}\)</span>)</em></strong></p>
+<p><span style="color:red; background-color:yellow">Memorize Formula</span></p>
+<p><span class="math">\(\begin{array}{lllll}  \mathrm{E}[XSLoss_{ {\color{red}\Box},i}(L)] &amp;= &amp;\dfrac{\text{payroll}_i}{100} &amp; &amp;\cdots (1)\\  &amp; &amp;\times \: \text{Frequency}_{TT,i} &amp;\times \: \hat{ {\color{blue}\boxdot}_i} &amp;\cdots (2)\\  &amp; &amp;\times \: \text{Severity}_{TT,i} &amp;\times \: \text{SeverityRel}_{ {\color{red}\Box},i} &amp;\cdots (3)\\  &amp; &amp;\times \: (1 - \text{LER}_{ {\color{red}\Box},i}(L)) &amp; &amp;\cdots (4) \\ \end{array}\)</span></p>
+<p><span class="math">\((1)\)</span> Exposure</p>
+<p><span class="math">\((2)\)</span> Frequencey based on <span class="math">\(Freq_{TT}\)</span> and credibility weighted relativity</p>
+<p><span class="math">\((3)\)</span> Severity based on <span class="math">\(Sev_{TT}\)</span> and relativity</p>
+<ul>
+<li><span class="math">\(\text{SeverityRel}_{ {\color{red}\Box},i} = \dfrac{\text{Severity}_{\color{red}\Box}}{\text{Severity}_{TT}} \text{ for class }i\)</span></li>
+</ul>
+<p><span class="math">\((4)\)</span> XS Ratio</p>
+<ul>
+<li><span class="math">\(\text{LER}_{ {\color{red}\Box},i}(L) =\)</span> Loss Elimination Ratio at limit <span class="math">\(L\)</span> for <span class="math">\({\color{green}\boxtimes}\)</span> in class <span class="math">\(i\)</span></li>
+</ul>
+<hr />
+<p><strong><em>Expected XS losses at limit <span class="math">\(L\)</span> for class <span class="math">\(i\)</span></em></strong></p>
 <p><span class="math">\(\mathrm{E}[XSLoss_i(L)] =\sum\limits_{\color{red}\Box} \mathrm{E}[XSLoss_{ {\color{red}\Box},i}(L)]\)</span></p>
 </div>
 <div id="testing-the-results" class="section level2">
@@ -249,6 +269,7 @@ img {
 <p>Injury type ratios for the holdout sample are calculated just like the raw sample</p>
 <div id="sum-of-squared-error-tests" class="section level3">
 <h3>Sum of Squared Error Tests</h3>
+<p><span style="color:red;background-color:yellow">Memorize</span> <a name="SSE"></a></p>
 <p><span class="math">\(\begin{array}{lll}  \text{HG Method:} &amp;SSE_h &amp;= \sum({\color{red}\Box}_h - {\color{red}\Box}_{holdout})^2\\  \text{Raw Sample Method:} &amp;SSE_{raw} &amp;= \sum({\color{red}\Box}_i - {\color{red}\Box}_{holdout})^2\\  \text{Credibility Proc Method:} &amp;SSE_{cred} &amp;= \sum(\hat{ {\color{blue}\boxdot}}_i - {\color{red}\Box}_{holdout})^2 \end{array}\)</span></p>
 <p>For each injury type <span class="math">\({\color{red}\Box}\)</span> and HG <span class="math">\(h\)</span>, calculate the above over all classes <span class="math">\(i\)</span></p>
 <p>Credibility Proc has the lowest SSE but not by much<br />Justification:</p>
@@ -257,29 +278,31 @@ img {
 <li>Class data by year is volatile</li>
 </ul>
 </div>
-<div id="quintiles-test-calculation" class="section level3">
-<h3>Quintiles Test <span style="color:red">Calculation</span></h3>
+<div id="quintiles-test" class="section level3">
+<h3>Quintiles Test</h3>
+<p><span style="color:red;background-color:yellow">Know</span><br /> <a name="quintiles"></a></p>
 <p>Procedure (for each combination of injury type and HG):</p>
 <ol style="list-style-type: decimal">
-<li>Sort the injury type relativities produced by the credibility proc for all classes in increasing order i.e. sort the <span class="math">\(\hat{ {\color{blue}\boxdot}}_i\)</span></li>
-<li>Use the above to classify classes into quintiles</li>
-<li>Group classes into 5 quintiles
+<li><p><strong>Sort</strong> the <strong>injury type relativities</strong> produced by the credibility proc for <strong>all classes</strong> in <strong>increasing</strong> order (i.e. sort the <span class="math">\(\hat{ {\color{blue}\boxdot}}_i\)</span>)</p></li>
+<li><p>Use results from 1. to classify classes into quintiles</p></li>
+<li><p>Group classes into <strong>5 quintiles</strong></p>
 <ul>
-<li>Each quintile should have about the same number of TT claims</li>
-<li>Same class can be in different quintiles for different injury types</li>
-<li>For a given injury type, the class will be in the same quintile in the holdout sample as it is from the modeled dataset <span style="color:red">Not sure what this means</span></li>
+<li><p>Each quintile should have <strong>about the same number of TT claims</strong></p></li>
+<li><p>Same class can be in different quintiles for different injury types</p></li>
+<li><p>For a given injury type, the class will be in the same quintile in the holdout sample as it is from the modeled dataset <span style="color:red">Not sure what this means</span></p></li>
 </ul></li>
-<li><span class="math">\(\forall\)</span> quintile, calculate <span class="math">\(\dfrac{\overline{\text{injury type relativity}}_{class}}{\text{injury type relativity}_{HG}}\)</span>
+<li><p><span class="math">\(\forall\)</span> quintile, calculate <span class="math">\(\dfrac{\overline{\text{injury type relativity}}_{class}}{\text{injury type relativity}_{HG}}\)</span></p>
 <ul>
-<li>Do this for all 3 methods and the holdout sample</li>
+<li>Do this for all 3 methods and the holdout sample with their respective relativities</li>
 </ul></li>
-<li><p>Calculate the SSE:<br /><span style="color:red; background-color:yellow">Formula</span><br /><span class="math">\(\begin{array}{lll}  \text{HG Method:} &amp;SSE_h &amp;= \sum\limits_{quintiles}(1 - \dfrac{ {\color{red}\Box}_{holdout, quintile}^*}{ {\color{red}\Box}_{holdout, h}})^2\\  \text{Raw Sample Method:} &amp;SSE_{raw} &amp;= \sum\limits_{quintiles}(\dfrac{ {\color{red}\Box}_{i,quintile}^*}{ {\color{red}\Box}_{h}} - \dfrac{ {\color{red}\Box}_{holdout, quintile}^*}{ {\color{red}\Box}_{holdout, h}})^2\\  \text{Credibility Proc Method:} &amp;SSE_{cred} &amp;= \sum\limits_{quintiles}(\dfrac{\hat{ {\color{blue}\boxdot}}_{i, quintile}^*}{ {\color{red}\Box}_{h}} - \dfrac{ {\color{red}\Box}_{holdout, quintile}^*}{ {\color{red}\Box}_{holdout, h}})^2 \end{array}\)</span></p>
+<li><p>Calculate the SSE:<br /><span style="color:red; background-color:yellow">Memorize</span><br /><span class="math">\(\begin{array}{lll}  \text{HG Method:} &amp;SSE_h &amp;= \sum\limits_{quintiles}(1 - \dfrac{ {\color{red}\Box}_{holdout, quintile}^*}{ {\color{red}\Box}_{holdout, h}})^2\\  \text{Raw Sample Method:} &amp;SSE_{raw} &amp;= \sum\limits_{quintiles}(\dfrac{ {\color{red}\Box}_{i,quintile}^*}{ {\color{red}\Box}_{h}} - \dfrac{ {\color{red}\Box}_{holdout, quintile}^*}{ {\color{red}\Box}_{holdout, h}})^2\\  \text{Credibility Proc Method:} &amp;SSE_{cred} &amp;= \sum\limits_{quintiles}(\dfrac{\hat{ {\color{blue}\boxdot}}_{i, quintile}^*}{ {\color{red}\Box}_{h}} - \dfrac{ {\color{red}\Box}_{holdout, quintile}^*}{ {\color{red}\Box}_{holdout, h}})^2 \end{array}\)</span></p>
 <ul>
 <li>Note the * represents the average of the injury type ratio in that quintile</li>
+<li><span class="math">\(i\)</span> can be dropped since we’re now looking a quintile level data</li>
 </ul></li>
-<li>The method with the lowest SSE = best
+<li><p>The method with the lowest SSE = best</p>
 <ul>
-<li>Use this method’s injury type ratio for that particular injury for that particular class</li>
+<li>Use this method’s injury type ratio for that particular injury for that particular class <span style="color:red">Not sure what this means</span></li>
 </ul></li>
 </ol>
 <p>This showed substantial reduction in the SSE</p>
@@ -288,6 +311,70 @@ img {
 </ul>
 <p>Note that if the classes in a HG are very homogeneous <span class="math">\(\Rightarrow\)</span> The injury type ratios won’t vary much within that HG <span class="math">\(\Rightarrow\)</span> Cred Proc won’t have much of an improvement</p>
 </div>
+</div>
+<div id="cliffs-summary" class="section level2">
+<h2>Cliff’s Summary</h2>
+<p>Understand the <a href="#keyidea">key idea</a></p>
+<p>3 main steps + test</p>
+<ol style="list-style-type: decimal">
+<li>Calculate the frequencey <a href="#rel">relativities</a> by HG and by class</li>
+<li><a href="#credibility">Credibility</a> weight the HG and class to get credibility weighted relativies</li>
+<li>Get the <a href="#xsloss">expected XS loss</a></li>
+<li>Test if it’s any imporvement</li>
+</ol>
+<p>Know the <a href="#SSE">SSE</a> test and <a href="#quintiles">Quintiles</a> test</p>
+<ul>
+<li>Holdout is calculated same as raw</li>
+</ul>
+</div>
+<div id="types-of-exam-questions" class="section level2">
+<h2>Types of Exam Questions</h2>
+<p><span style="color:green">Questions a bit thin</span></p>
+<p>Quintiles Test</p>
+<ul>
+<li>2011 Q2
+<ul>
+<li>How do you know they are the numbers from step 3?</li>
+</ul></li>
+<li>2012 Q5a</li>
+<li>2014 Q1 <span class="math">\(\star\)</span> (interpretation)</li>
+<li>Practice 4
+<ul>
+<li>Revisit the answer to make sure it ties to the notes</li>
+</ul></li>
+</ul>
+<p>Expected XS loss</p>
+<ul>
+<li>2012 Q5b <span class="math">\(\star\)</span>
+<ul>
+<li>Make sure you understand this</li>
+<li>See <a href="http://www.theinfiniteactuary.com/mb/viewtopic.php?f=18024&amp;t=12645">TIA</a></li>
+</ul></li>
+</ul>
+<p>Ties to A4 shifting risk parameters</p>
+<ul>
+<li>2013 Q3d <span class="math">\(\star\)</span></li>
+</ul>
+<p>SSE</p>
+<ul>
+<li>2013 Q3c</li>
+</ul>
+<p>Holdout</p>
+<ul>
+<li>2013 Q3a,b</li>
+</ul>
+<p>Tie to A1 risk classification principles</p>
+<ul>
+<li>2014 Q4 <span class="math">\(\star\)</span></li>
+</ul>
+<p>1D vs multi-D credibility formula</p>
+<ul>
+<li>Practice 2</li>
+</ul>
+</div>
+<div id="questions" class="section level2">
+<h2>Questions</h2>
+<p>See the 2 red font, not sure what it means</p>
 </div>
 
 

@@ -78,6 +78,8 @@ Note:
 * \# of Limits $\downarrow$
 * $\because$ ELFs highly correlated across class
 * $\because$ Limits < 100K were highly represented in the prior groupings of 17
+* Using 1 limit wouldn’t have captured the full variability in excess ratios
+* The NCCI wanted to cover the range of limits commonly used for rating
 
 ###2. Calculate normalized excess ratios by injury type
 <span style="color:red">Not as Important</span>
@@ -397,6 +399,10 @@ Use the overall structure of this paper for something else
 Credibility weighted class XS ratio [considerations](#credconsider)
 
 * 2014 Q2
+
+Do the k-means cluster proc
+
+* Practice 1
 
 Relate this to principles of risk class from A1 $\star$
 

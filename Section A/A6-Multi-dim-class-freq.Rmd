@@ -18,6 +18,7 @@ ELFs hard to estimate since losses driven by small \# of very large claims
 Use correlations between different injury types to build a model based on less-severe injuries for which more data exists
 
 **Key idea:**  
+<a name="keyidea"></a>  
 Since the physical circumstances are similar for significant injury types, claim frequencies between those injury types are correlated
 
 * Focus on the frequencies relativities
@@ -26,8 +27,13 @@ Since the physical circumstances are similar for significant injury types, claim
 
 * Can use more data (from smaller injury) to better predict larger claims from more infrequent types
 
+* Physical circumstances underlying various injury types are correlated, and those correlations are used to gain additional information in estimating credibility
+weighted claim frequencies by injury type
+
 **Corollary:**  
 This also shows that the current NCCI practice of using the same ELFs for all classes within a hazard group can be further refined
+
+* NCCI estimates excess ratios for each injury type separately, and does not use information about correlations between injury types
 
 ## Injury Types Definition
 
@@ -45,7 +51,8 @@ $\begin{array}{lll}
 
 Letter = \# of claims
 
-## Variables in the Analysis
+## Variables in the Analysis  
+<a name="rel"></a>
 
 Looks at $\dfrac{\text{Claim Counts}_{Type}}{\text{Claim Counts}_{TT}}$
   
@@ -115,7 +122,8 @@ Find credibility factors $b_{ {\color{blue}\boxdot},i}, c_{ {\color{blue}\boxdot
 
 ***
 
-###Credibility weighted relativities
+###Credibility weighted relativities  
+<a name="credibility"></a>
 
 $\hat{ {\color{blue}\boxdot}}_i = {\color{red}\Box}_h + b_{ {\color{blue}\boxdot}, i}(V_i - V_h) + c_{ {\color{blue}\boxdot}, i}(W_i - W_h) + d_{ {\color{blue}\boxdot}, i}(X_i - X_h) + e_{ {\color{blue}\boxdot}, i}(Y_i - Y-h)$
 
@@ -184,22 +192,34 @@ $\begin{align}
 \end{align}$
 
 ##Calculating Expected Excess Losses  
-<span style="color:red">Calculation bit</span>
+<a name="xsloss"></a>
 
-**Calculate:**  
-Expected XS losses at limit $L$ for class $i$ for injury type (${\color{green}\boxtimes}$)
+***Expected XS losses at limit $L$ for class $i$ for injury type (${\color{green}\boxtimes}$)***
 
 <span style="color:red; background-color:yellow">Memorize Formula</span>
 
-$\begin{align}
-  \mathrm{E}[XSLoss_{ {\color{red}\Box},i}(L)] = \frac{\text{payroll}_i}{100} &\times \: \text{Frequency}_{TT,i} \times \text{Severity}_{TT,i}\\
-  &\times \: \hat{ {\color{blue}\boxdot}_i} \times \text{SeverityRel}_{ {\color{red}\Box},i}\\
-  &\times \: (1 - \text{LER}_{ {\color{red}\Box},i}(L))
-\end{align}$
+$\begin{array}{lllll}
+  \mathrm{E}[XSLoss_{ {\color{red}\Box},i}(L)] &= &\dfrac{\text{payroll}_i}{100} & &\cdots (1)\\
+  & &\times \: \text{Frequency}_{TT,i} &\times \: \hat{ {\color{blue}\boxdot}_i} &\cdots (2)\\
+  & &\times \: \text{Severity}_{TT,i} &\times \: \text{SeverityRel}_{ {\color{red}\Box},i} &\cdots (3)\\
+  & &\times \: (1 - \text{LER}_{ {\color{red}\Box},i}(L)) & &\cdots (4) \\
+\end{array}$
 
-$\text{SeverityRel}_{ {\color{red}\Box},i} = \dfrac{\text{Severity}_{\color{red}\Box}}{\text{Severity}_{TT}} \text{ for class }i$
+$(1)$ Exposure
 
-$\text{LER}_{ {\color{red}\Box},i}(L) =$ Loss Elimination Ratio at limit $L$ for ${\color{green}\boxtimes}$ in class $i$
+$(2)$ Frequencey based on $Freq_{TT}$ and credibility weighted relativity
+
+$(3)$ Severity based on $Sev_{TT}$ and relativity
+
+* $\text{SeverityRel}_{ {\color{red}\Box},i} = \dfrac{\text{Severity}_{\color{red}\Box}}{\text{Severity}_{TT}} \text{ for class }i$
+
+$(4)$ XS Ratio 
+
+* $\text{LER}_{ {\color{red}\Box},i}(L) =$ Loss Elimination Ratio at limit $L$ for ${\color{green}\boxtimes}$ in class $i$
+
+***
+
+***Expected XS losses at limit $L$ for class $i$***
 
 $\mathrm{E}[XSLoss_i(L)] =\sum\limits_{\color{red}\Box} \mathrm{E}[XSLoss_{ {\color{red}\Box},i}(L)]$
 
@@ -217,7 +237,9 @@ See which one best predict the injury type ratios for the holdout sample results
 
 Injury type ratios for the holdout sample are calculated just like the raw sample
 
-###Sum of Squared Error Tests
+###Sum of Squared Error Tests  
+<span style="color:red;background-color:yellow">Memorize</span>
+<a name="SSE"></a>
 
 $\begin{array}{lll}
   \text{HG Method:} &SSE_h &= \sum({\color{red}\Box}_h - {\color{red}\Box}_{holdout})^2\\
@@ -233,20 +255,30 @@ Justification:
 * Estimators derived from the even year data are designed to fit that data
 * Class data by year is volatile
 
-###Quintiles Test <span style="color:red">Calculation</span>
+###Quintiles Test  
+ <span style="color:red;background-color:yellow">Know</span>  
+ <a name="quintiles"></a>
 
 Procedure (for each combination of injury type and HG):
 
-1. Sort the injury type relativities produced by the credibility proc for all classes in increasing order i.e. sort the $\hat{ {\color{blue}\boxdot}}_i$
-2. Use the above to classify classes into quintiles
-3. Group classes into 5 quintiles
-    * Each quintile should have about the same number of TT claims
+1. **Sort** the **injury type relativities** produced by the credibility proc for **all classes** in **increasing** order (i.e. sort the $\hat{ {\color{blue}\boxdot}}_i$)
+
+2. Use results from 1. to classify classes into quintiles
+
+3. Group classes into **5 quintiles**
+    
+    * Each quintile should have **about the same number of TT claims**
+    
     * Same class can be in different quintiles for different injury types
+    
     * For a given injury type, the class will be in the same quintile in the holdout sample as it is from the modeled dataset <span style="color:red">Not sure what this means</span>
+    
 4. $\forall$ quintile, calculate $\dfrac{\overline{\text{injury type relativity}}_{class}}{\text{injury type relativity}_{HG}}$
-    * Do this for all 3 methods and the holdout sample
+    
+    * Do this for all 3 methods and the holdout sample with their respective relativities
+    
 5. Calculate the SSE:  
-<span style="color:red; background-color:yellow">Formula</span>  
+<span style="color:red; background-color:yellow">Memorize</span>  
 $\begin{array}{lll}
   \text{HG Method:} &SSE_h &= \sum\limits_{quintiles}(1 - \dfrac{ {\color{red}\Box}_{holdout, quintile}^*}{ {\color{red}\Box}_{holdout, h}})^2\\
   \text{Raw Sample Method:} &SSE_{raw} &= \sum\limits_{quintiles}(\dfrac{ {\color{red}\Box}_{i,quintile}^*}{ {\color{red}\Box}_{h}} - \dfrac{ {\color{red}\Box}_{holdout, quintile}^*}{ {\color{red}\Box}_{holdout, h}})^2\\
@@ -254,11 +286,73 @@ $\begin{array}{lll}
 \end{array}$
 
     * Note the \* represents the average of the injury type ratio in that quintile
+    * $i$ can be dropped since we're now looking a quintile level data
+    
 6. The method with the lowest SSE = best
-    * Use this method’s injury type ratio for that particular injury for that particular class
+    
+    * Use this method’s injury type ratio for that particular injury for that particular class <span style="color:red">Not sure what this means</span>
     
 This showed substantial reduction in the SSE
 
 * Just means that using quintile injury type ratios is more accurate than HG level ratios, but not necessarily that the procedure is appropriate for class-level estimation
 
 Note that if the classes in a HG are very homogeneous $\Rightarrow$ The injury type ratios won't vary much within that HG $\Rightarrow$ Cred Proc won't have much of an improvement
+
+
+## Cliff's Summary
+
+Understand the [key idea](#keyidea)
+
+3 main steps + test
+
+1. Calculate the frequencey [relativities](#rel) by HG and by class
+2. [Credibility](#credibility) weight the HG and class to get credibility weighted relativies
+3. Get the [expected XS loss](#xsloss)
+4. Test if it's any imporvement
+
+Know the [SSE](#SSE) test and [Quintiles](#quintiles) test
+
+* Holdout is calculated same as raw
+
+## Types of Exam Questions  
+<span style="color:green">Questions a bit thin</span>
+
+Quintiles Test
+
+* 2011 Q2
+    * How do you know they are the numbers from step 3?
+* 2012 Q5a
+* 2014 Q1 $\star$ (interpretation)
+* Practice 4
+    * Revisit the answer to make sure it ties to the notes
+
+Expected XS loss
+
+* 2012 Q5b $\star$
+    * Make sure you understand this
+    * See [TIA](http://www.theinfiniteactuary.com/mb/viewtopic.php?f=18024&t=12645)
+
+Ties to A4 shifting risk parameters
+
+* 2013 Q3d $\star$
+
+SSE
+
+* 2013 Q3c
+
+Holdout
+
+* 2013 Q3a,b
+
+Tie to A1 risk classification principles
+
+* 2014 Q4 $\star$
+
+1D vs multi-D credibility formula
+
+* Practice 2
+
+## Questions
+
+See the 2 red font, not sure what it means
+

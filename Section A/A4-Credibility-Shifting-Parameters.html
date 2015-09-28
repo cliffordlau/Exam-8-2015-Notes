@@ -67,6 +67,7 @@ img {
 
 <div id="TOC">
 <ul>
+<li><a href="#simplifications-in-dataset">Simplifications in dataset</a></li>
 <li><a href="#standard-credibility-formula">Standard Credibility Formula</a></li>
 <li><a href="#question-1-difference-between-risks">Question 1: Difference Between Risks?</a></li>
 <li><a href="#question-2-loss-over-timer-just-random-fluctuations">Question 2: Loss % over timer just random fluctuations?</a></li>
@@ -78,6 +79,14 @@ img {
 </ul>
 </div>
 
+<div id="simplifications-in-dataset" class="section level2">
+<h2>Simplifications in dataset</h2>
+<ul>
+<li>A constant set of risks</li>
+<li>The baseball loss data is readily available, accurate, and not subject to development</li>
+<li>Each team is of equal size; they each play roughly the same # of games each year</li>
+</ul>
+</div>
 <div id="standard-credibility-formula" class="section level2">
 <h2>Standard Credibility Formula</h2>
 <p><span class="math">\(\text{New Estimate} = \text{Data} \times \text{Credibility} + (1 - \text{Credibility}) \times \text{Prior Estimate}\)</span><br />Prior Estimate = Class Average <em>or</em> Previous Estimate for the <em>group</em></p>
@@ -110,7 +119,7 @@ img {
 <hr />
 <p><a name="corrtest"></a><strong><em>Text #3</em></strong><br /><span style="color:red;background-color:yellow">Memorize</span><br />Correlations between years:</p>
 <ol style="list-style-type: decimal">
-<li><p>Calculate the correlation for each team across time</p>
+<li><p>Calculate the correlation for each risk across time</p>
 <ul>
 <li><span class="math">\(\rho_{X,Y} = \dfrac{\mathrm{E[(X-\overline{X})(Y-\overline{Y})]}}{\sigma_X\sigma_Y}\)</span></li>
 </ul></li>
@@ -177,11 +186,33 @@ img {
 <li>Older years should get less credibility</li>
 <li>Delay in getting historical data significantly increase the error<sup>2</sup></li>
 </ul>
+<p>Know the other “constants” need for all this to work</p>
+<ul>
+<li>Constant number of exposures</li>
+<li>Uniform mix of business</li>
+<li>No other changes besides shift in risk parameters</li>
+<li></li>
+</ul>
 </div>
 <div id="types-of-exam-questions" class="section level2">
 <h2>Types of Exam Questions</h2>
+<p><span style="color:green">Questions a bit thin</span></p>
 <p>Credibility selection criteria</p>
-<p>Shifting parameters test</p>
+<ul>
+<li>2004 Q3 (apply the criterias to data set)</li>
+<li>Haven’t seen actual calc…</li>
+</ul>
+<p>Shifting parameters tests</p>
+<ul>
+<li>2007 Q6</li>
+<li>2012 Q3 (actual calc of chi sq)</li>
+<li>Haven’t seen actual calc of the correlation test</li>
+<li>Practice 2</li>
+</ul>
+<p>Different credibility weighting</p>
+<ul>
+<li>2005 Q2 (Exp smoothing) <span class="math">\(\star\)</span></li>
+</ul>
 </div>
 
 
