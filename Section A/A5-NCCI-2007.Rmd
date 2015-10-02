@@ -14,7 +14,9 @@ Excess Loss Factors from NCCI
 * To price XS policies and retro rated WC
 * Segmentation: **HG**, **State**, for each **limit**
 * Same ELFs $\forall$ **class** $\in$ given **HG** + **State** + **Limit**
-    * HGs are defined countrywide $\because$ injuries mix $\in$ class $\approx$
+    * HGs are defined countrywide
+    
+    $\because$ injuries mix $\in$ class $\approx$
 * New HG def^n^ in 2007; 7 HG (from 4)
 
 ## Prior HGs (1993)
