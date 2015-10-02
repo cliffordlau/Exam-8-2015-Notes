@@ -1,0 +1,130 @@
+---
+title: "Retro Summary"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
+---
+
+## Cliff's Summary
+
+### Lee 2
+
+Know how the entry ratio, charges and other relationships are represented as areas in the graph
+
+* [Tbl M Charges](#tblmfigure1)
+* [Tbl M Charges and savings](#tblmfigure4))
+* [Table LLM](#tblllmfigure1)
+* [Table L](#tbllfigure1)
+
+Different forms of the charge and properties
+
+### Gillam & Snader 2
+
+Using NCCI Table M
+
+* Need Adj Expected Loss to get ELG to get know the column of Tbl M
+
+Remember the basic premium formula only works if plan is balanced
+
+* $b = e - (C - 1)\mathrm{E}[A] + CI$
+
+Know how to build Table M
+
+Know how to plug and play with all the equations
+
+## Types of Exam Questions
+
+### Lee 2
+
+Interpret entry ratio plots
+
+* 2000 Q19 (Interpret)
+* 2001 Q30 (Explain its constructions)
+    * Understand that Table M is constructed horizontally
+    
+How charges are represented on graphs
+
+* 2002 Q17
+* 2003 Q8
+* 2003 Q29 (interpret charge difference)
+    * <span style="color:red;background-color:yellow">?Question?</span>
+* 2007 Q31 (both L and M)
+
+Draw graphs and calculate charges
+
+* 2005 Q33 (uniform)
+* 2006 Q29 $\star$
+* 2008 Q29 (uniform)
+* 2009 Q9 $\star$ (Calc expected retro premium)
+* 2010 Q25
+* 2012 Q21
+    * Convert $r$ to LR to do this?
+    
+Basic premium from formula
+
+* 2012 Q23 $\star$
+
+Impact of change on losses or size
+
+* 2012 Q21 b [TIA](http://www.theinfiniteactuary.com/mb/viewtopic.php?f=17266&t=13017)
+* 2013 Q15 b,c $\star$
+
+Other
+
+* 2002 Q14 (XS PP formula) 
+    * Why is the denominator 1?<span style="color:red;background-color:yellow">?Question?</span>
+
+### Gillam & Snader 2
+
+Using Table M
+
+* 2000 Q5 (ELG)
+
+Plug and play for $b$, $R$, $GCP$
+
+* 2000 Q6 (Know how to do premium discount)
+* 2000 Q9 ($GCP$ and $A$)
+* 2001 Q8 ($GCP$)
+* 
+
+Build Table M
+
+* 2000 Q48
+* 
+
+
+## Must Know Formulas
+
+### Table M
+
+Net Charge:
+
+* $I = \mathrm{E}[A][\phi(r_G) - \psi(r_H)]$
+
+Other Relationships:
+
+* $\dfrac{\mathrm{E}[L]}{\mathrm{E}[A]} = 1 + \psi(r_H) - \phi(r_G)$
+
+### Reading Table M
+
+Adjusted Expected Losses:
+
+* $= \mathrm{E}[A] \times \text{State HG Differential} \times \dfrac{1 + 0.8k}{1-k}$
+
+### Retro premium related
+
+GCP:
+
+* $\text{Guaranteed Cost Premium} = (e + \mathrm{E}[A])T = (1-D)P$
+
+Basic premium is balanced plan:
+
+* $b = e - (C - 1)\mathrm{E}[A] + CI$
+
+## Questions
+
+What is the x-axis for the Table LLM
+
+What is the state differential in finding the Adjusted Expected Loss

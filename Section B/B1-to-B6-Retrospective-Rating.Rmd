@@ -52,7 +52,7 @@ With both occurrence and agg limits, need to consider the overlap between the 2 
 
 NCCI retro premium formula for each individual policy
 
-$R = (b + C \times A + P \times C \times V) \times T$ <span style="color:red; background-color:yellow">Memorize</span>
+$R = (b + C A + PCV) T$ <span style="color:red; background-color:yellow">Memorize</span>
 
 * $R$: Retro premium @ t $\in [G, H]$
 
@@ -67,8 +67,11 @@ $R = (b + C \times A + P \times C \times V) \times T$ <span style="color:red; ba
     * If $A$ includes ALAE $\Rightarrow$ $= 1 + \dfrac{\mathrm{E}[ULAE]}{\mathrm{E}[Loss \& LAE]}$
 
 * $T$: Tax multiplier $=\dfrac{0.2 + PLR(1+\mu)}{0.2 + PLR} \left({\dfrac{1}{1-\tau}}\right)$ <span style="color:red; background-color:yellow">Memorize</span>
+
     * $PLR = \text{Permissible Loss Ratio} = \dfrac{\mathrm{E}[A]}{P}$ 
+    
     * $\mu = \text{Assessments}$
+    
     * $\tau = \text{Premium Based Tax}$
 
 * $V$: Retro development factor (Optional)
@@ -81,17 +84,23 @@ $R = (b + C \times A + P \times C \times V) \times T$ <span style="color:red; ba
     
     * Only used for the first 3 adjustments
     
+    * $V$ are fixed at inception but they change over time according to the plan from the outset
+    
 * $P$: Standard Premium
 
 ***
 
-For a balanced plan:
+**For a balanced plan:** 
 
-$\mathrm{E}[R] = \text{Premium for Prospectively Rated Policy} = b = e - (C - 1)\mathrm{E}[A] + C \times I$ <span style="color:red; background-color:yellow">Memorize</span>
+Expected retrospective premium = premium for a prospectively rated policy
+
+$b = e - (C - 1)\mathrm{E}[A] + CI$
 
 * $b$: Insurer expense + loss control + premium audit G&A + Adj for limiting ratio + profit contingencies
 * $e$: Total expense xTax and profit
 * $I$: Net insurance charge for the max/min premium
+* Since $e$ includes all expenses including LAE (except taxes), we subtract off the expected LAE, since we will instead use the LAE related to actual losses from the $CA$ in the retro premium equation
+* [Proof](#basicpremiumproof)
 
 <span style="color:green">2001 Q32</span>
 
@@ -129,7 +138,7 @@ $\begin{array}{ccc}
   &I = (&\phi(\dfrac{A_G}{\mathrm{E}[A]}) &- &\psi(\dfrac{A_H}{\mathrm{E}[A]})&) \times \mathrm{E}[A]\\
 \end{array}$
 
-###Table M
+###Table M Terminology
 
 Rows are **entry ratios** = $r = \dfrac{Loss_{Actual}}{Loss_{Expected}}$ <span style="color:red">Understand</span>
 
@@ -239,7 +248,9 @@ NCCI do full rates or loss costs depending on the state
     
     * XS Loss and Allocated Expense Pure Premium Factors
 
-## Constructing Table M
+## Table M
+
+### Constructing Table M
 
 **Aggregate dist^n^** across a large number of risks
 
@@ -271,7 +282,7 @@ NCCI do full rates or loss costs depending on the state
 * Ignore actual expected $\Rightarrow$ Use sample avg $\Rightarrow$ $\phi(0) = 1$
 * Divide *charge* and *entry ratio* columns by $\phi(0)$ to normalize
 
-## Constructing Table M Example
+### Constructing Table M Example
 
 ```{r echo=F, message=F}
 library(dplyr)
@@ -347,7 +358,7 @@ Table M Savings in **dollars** = Area under `r dollar(sp * maxlr)` line $A_G$ an
 
 Net Insurance Charge = Difference of the Table M Charge in dollars and Table M Savings in dollars
 
-## 3 Ways to Calculate the Areas
+### 3 Ways to Calculate the Areas
 
 1. Horizontal Slices (Table M Method)
     * Calculating the entry ratio first
@@ -355,7 +366,7 @@ Net Insurance Charge = Difference of the Table M Charge in dollars and Table M S
 3. Calculate area within limit and then subtract it from the expected loss
     * = Limiting losses at the max/min
     
-### Horizontal Slices (Table M Method)
+#### Horizontal Slices (Table M Method)
 
 Calculating the entry ratio first
 
@@ -430,7 +441,7 @@ $\phi(r_i) = \phi(r_{i+1}) + (r_{i+1} - r_i)(\text{ % risks above }r_i)$ <span s
 
 Savings $= \psi(r) = \phi(r) + r - 1$ <span style="color:red; background-color:yellow"> Memorize Formula </span>
 
-### Vertical Slices
+#### Vertical Slices
 
 Looking at groups of losses based on the size of loss
 
@@ -445,11 +456,14 @@ Probably start from the right but don't seem to matter
 * Easier to understand
 * Faster if just looking at 1 $r$
 
-## Understanding Table M <span style="color:red;background-color:yellow">Important Concepts</span>
+### Understanding Table M <span style="color:red;background-color:yellow">Important Concepts</span>
 
+<a name="tblmfigure1"></a>  
 ![alt text](figures/Exam 8 - 1.png)
 
 Note that the y axis is now the entry ratios and not losses like it was in the earlier example
+
+* This is like looking at a normal CDF but rotated along the x=y line
 
 **Def^n^:**
 
@@ -465,7 +479,9 @@ $\mathrm{E}[Y] = \dfrac{\mathrm{E}[A]}{\mathrm{E}[A]} = 1$
 
 **Table M Charge and Savings** <span style="color:red;background-color:yellow">Formulas</span>
 
-$\phi(r) = \int\limits_r^{\infty} (y - r) dF(y)$
+$\phi(r) = \int\limits_r^{\infty} (y - r) dF(y) = \int\limits_r^{\infty} (y - r) f(y)dy$
+
+*[TIA](http://www.theinfiniteactuary.com/mb/viewtopic.php?f=21737&t=12672)
 
 $\psi(r) = \int\limits_r^{\infty} (r - y) dF(y)$
 
@@ -473,7 +489,7 @@ $\psi(r) = \int\limits_r^{\infty} (r - y) dF(y)$
 
 $\phi(0) = 1, \: \phi(\infty) = 0$
 
-$\phi(r)'(f) = -G(r) \leq 0$
+$\phi'(r) = -G(r) \leq 0$
 
 * $G(r) = 1 - F(r)$
 
@@ -491,7 +507,7 @@ Note from figure above, the area under $r = \psi(r) + (1 - \phi(r)) \Rightarrow 
 
 $\phi$ is monotonically decreasing function of premium size
 
-## Table M Charges and Premium Size
+### Table M Charges and Premium Size
 
 *Large* sample and *large* risks $\Rightarrow$ $\downarrow$ variance in Loss Ratio and Entry Ratio than *large* sample but **small** risks
 
@@ -509,13 +525,15 @@ CDF of Entry Ratio vs Entry Ratio
 
 ![alt text](figures/Exam 8 - 2.png)
 
+From [TIA](http://www.theinfiniteactuary.com/mb/viewtopic.php?f=21737&t=24083): Think about how Table Ms are built: you get the loss ratios for a bunch of similar sized risks, calculate the average loss ratio from these risks, and then calculate entry ratios for each risk as actual loss ratio / average loss ratio. The variance in the entry ratios is really just the variance in the actual loss ratios of the risks used to built the Table M. If the variance of these loss ratios goes to 0, then that is equivalent to saying all risks have the same loss ratio (aka, same entry ratio, aka same dollar amount of aggregate losses given equal premium sizes). So that is why the curve will flatten.
+
 On the other hand, as $\lim\limits_{\text{Premium Size} \rightarrow 0} \phi(r) = 1$
 
 Graphs of Entry Ratios vs Table M Charge/Savings as premium size increase
 
 ![alt text](figures/Exam 8 - 3.png)
 
-## Net Insurance Charge - w/o Occurence Limit <span style="color:red;background-color:yellow">Important Concepts</span>
+### Net Insurance Charge - w/o Occurence Limit <span style="color:red;background-color:yellow">Important Concepts</span>
 
 $R = (b + C \times {\color{blue}L}) \times T \: \: \: \: {\color{blue}L} = \left\{
   \begin{array}
@@ -527,11 +545,15 @@ $R = (b + C \times {\color{blue}L}) \times T \: \: \: \: {\color{blue}L} = \left
   
 $A_H = r_H \mathrm{E}[A]$ and similarly for $A_G$
 
+<a name="tblmfigure4"><a/>  
 ![alt text](figures/Exam 8 - 4.png)
 
 Blue area = $\dfrac{\mathrm{E}[{\color{blue}L}]}{\mathrm{E}[A]}$
 
 * Recall that $\mathrm{E}[{\color{blue}L}]$ is the expected limited loss
+* = Expected Retro Premium? 2003 Q29
+
+<span style="color:red;background-color:yellow">Memorize Formula</span>
 
 $\begin{array}{ll}
   \dfrac{\mathrm{E}[L]}{\mathrm{E}[A]} &= 1 + \psi(r_H) - \phi(r_G) \\
@@ -550,6 +572,7 @@ $\begin{array}{lll}
   \mathrm{E}[R] &= (b + C(\mathrm{E}[A] - I))T & (1)\\
 \end{array}$
 
+<a name="basicpremiumproof"></a>  
 Recall if the plan is balance $\Rightarrow$ $\mathrm{E}[R] = \text{Guaranteed Cost Premium}$
 
 $\begin{array}{lll}
@@ -582,11 +605,11 @@ $b = (1 - D)\dfrac{P}{T} - C\mathrm{E}[A] + CI$
 
 Use this if we don't' have max/min premium
 
-## Table M Balance Equations
+### Table M Balance Equations
 
 Basic premium and max/min premium depends on each other $\Rightarrow$ Need trial and error to get the right Table M row
 
-### First balance equation
+#### First balance equation
 
 Value (change) difference
 
@@ -596,7 +619,7 @@ $H = (b + CA_H)T = (b + Cr_H\mathrm{E}[A])T$
 Start with the GCP formula and subtract $H$
 
 $\begin{array}{ll}
-  \text{GCP} - {color{blue}H} &\\
+  \text{GCP} - {\color{blue}H} &\\
   (e + \mathrm{E}[A])T - {\color{blue}H} &= (b + C(\mathrm{E}[A] - I))T - {\color{blue}{(b + Cr_H\mathrm{E}[A])T}}\\
   &= CT\{\mathrm{E}[A] - I - r_H\mathrm{E}[A]\}\\
   &= CT\{\mathrm{E}[A] - \mathrm{E}[A](\phi(r_G) - \psi(r_H)) - r_H \mathrm{E}[A]\}\\
@@ -607,7 +630,11 @@ Move everything to one side and we get: <span style="color:red;background-color:
 
 $\phi(r_H) - \phi(r_G) = \dfrac{(e + \mathrm{E}[A])T - H}{C\mathrm{E}[A]T} = \dfrac{(1-D)P-H}{C\mathrm{E}[A]T}$
 
-### Second balance equation
+* Interpretation: Charge difference = to the difference between the
+expected retro premium E[R] and the minimum premium H, except for the factor CE[A]T
+* 2003 Q29
+
+#### Second balance equation
 
 Entry difference, based $G - H$
 
@@ -617,7 +644,7 @@ $r_G - r_H = \dfrac{G - H}{C\mathrm{E}[A]T}$
 
 Can do all the above looking at them as a % of Standard Premium
 
-##Table M Search
+### Table M Search
 
 1. Use balance equations to get the difference and then look up the table
 2. Look for the Entry difference first then charge difference
@@ -627,7 +654,9 @@ Note:
 * Charge difference $\downarrow$ as you $\uparrow$ entry ratios
 * Entry ratio pair $\Delta$ the charge difference by about 0.01
 
-## Constructing a Limited Loss Table M
+## Limited Loss Table M
+
+### Constructing a Limited Loss Table M
 
 Same as Table M but with limited losses $A^*$ for each policy
 
@@ -635,10 +664,11 @@ Entry Ratio: $r^* = \dfrac{A^*}{\mathrm{E}[A^*]}$
 
 Note that the denominator of the Entry Ratio is the $\mathrm{E}[A^*]$, where as in Table L it's not limited $\mathrm{E}[A^*]$
 
-##Understanding a Limited Loss Table M
+### Understanding a Limited Loss Table M
 
 Note that the y axis is now limited entry ratios $y^*$
 
+<a name="tblllmfigure1"></a>  
 ![alt text](figures/Exam 8 - 5.png)
 
 Entry Ratio: $Y^* = \dfrac{A^*}{\mathrm{E}[A^*]}$
@@ -655,7 +685,7 @@ Integration and key properties all the same as Table M but with limited loss
 
 Same thing for what happens when $\lim\limits_{\text{Premium Size} \rightarrow \infty}$ and $\lim\limits_{\text{Premium Size} \rightarrow 0}$
 
-## Net Insurance Charge - LLM
+### Net Insurance Charge - LLM
 
 $R^* = (b^{LLM} + C{\color{blue}{L^*}}+PCF) T \: \: \: \: {\color{blue}{L^*}} = \left\{
   \begin{array}
@@ -678,7 +708,9 @@ $\phi^{LLM}(r_H^*) - \phi^{LLM}(r_G^*) = \dfrac{(e + \mathrm{E}[A])T - H}{C\math
 
 $r_G^* - r_H^* = \dfrac{G - H}{C\mathrm{E}[A^*]T}$
 
-## Constructing Table L
+## Table L
+
+### Constructing Table L
 
 Table L charge includes the charge for per occurrence limit
 
@@ -715,8 +747,9 @@ If Standard Premium $\neq$ $\forall$ risk $\Rightarrow$ Create Tbl L with P inst
 
 <span style="color:green">2008 Q32</span>
 
-## Understanding Table L
+### Understanding Table L
 
+<a name="tbllfigure1"></a>  
 ![alt text](figures/Exam 8 - 6.png)
 
 Note that the y axis is $Y = \dfrac{A^*}{\mathrm{E}[A]}$ and the CDF of interest is $F^*(Y)$. However, the x axis of the graph is of $F(Y)$
@@ -735,13 +768,13 @@ $\phi^L(r) = \int\limits_r^{\infty} (y-r)dF^*(y) + k$ <span style="background-co
 
 * Note the addition of k, charge for per occ limit, is in the table L charge
 
-$\psi^L(r) = \int\limits_0^{\r} (r-y)dF^*(y)$
+$\psi^L(r) = \int\limits_0^{r} (r-y)dF^*(y)$
 
 Key properties all the same except:
 
 $\phi^L(\infty) = k$
 
-## Net Insurance Charge - Table L
+### Net Insurance Charge - Table L
 
 $R^* = (b^L + C{\color{blue}{L^*}}) T \: \: \: \: {\color{blue}{L^*}} = \left\{
   \begin{array}
@@ -812,13 +845,13 @@ $\mathrm{E}[L]$ increase over time due to inflation. The ELG tables are updated 
 
 Estimate portion of risk moving from ELG X to Y: $\dfrac{\text{Portion of ELG X in new ELG Y}}{\text{Size of old ELG X}}$
 
-## Table M (Pt 4-C)
+### Table M (Pt 4-C)
 
 Each column is for different ELG
 
 For low entry ratios, Table M savings are shown as well
 
-## Expense Ratio Tables (Pt 4-D)
+### Expense Ratio Tables (Pt 4-D)
 
 <span style="color:red">Not tested since 2000</span>
 
@@ -828,7 +861,7 @@ Type A = Stock; Type B = non-Stock
 
 Shows ELR, premium discount ranges and tax multipliers
 
-## AK Special Rating Values
+### AK Special Rating Values
 
 2nd last page
 
