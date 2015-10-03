@@ -471,7 +471,8 @@ Probably start from the right but don't seem to matter
 ### Understanding Table M  
 <span style="color:red;background-color:yellow">Important Concepts</span>
 
-![alt text](figures/Exam 8 B1-7 - 1.png){#tblmfigure1}
+<a name="tblmfigure1"></a>  
+![alt text](figures/Exam 8 B1-7 - 1.png) 
 
 Note that the y axis is now the entry ratios and not losses like it was in the earlier example
 
@@ -560,7 +561,8 @@ $R = (b + C \times {\color{blue}L}) \times T \: \: \: \: {\color{blue}L} = \left
   
 $A_H = r_H \mathrm{E}[A]$ and similarly for $A_G$
 
-![alt text](figures/Exam 8 B1-7 - 4.png){#tblmfigure4}
+<a name="tblmfigure4"></a>  
+![alt text](figures/Exam 8 B1-7 - 4.png)
 
 Blue area = $\dfrac{\mathrm{E}[{\color{blue}L}]}{\mathrm{E}[A]}$
 
@@ -586,7 +588,7 @@ $\begin{array}{lll}
   \mathrm{E}[R] &= \big\{b + C(\mathrm{E}[A] - I)\big\}T & (1)\\
 \end{array}$
 
-Recall if the plan is balance $\Rightarrow$ $\mathrm{E}[R] = \text{Guaranteed Cost Premium}$ {#basicpremiumproof}
+Recall if the plan is balance $\Rightarrow$ $\mathrm{E}[R] = \text{Guaranteed Cost Premium}$ <a name="basicpremiumproof"></a>
 
 $\begin{array}{lll}
   \text{Guaranteed Cost Premium} &= (e + \mathrm{E}[A])T & (2)\\
@@ -679,7 +681,8 @@ Note that the denominator of the Entry Ratio is the $\mathrm{E}[A^*]$, where as 
 
 Note that the y axis is now limited entry ratios $y^*$
 
-![alt text](figures/Exam 8 B1-7 - 5.png){#tblllmfigure1}
+<a name="tblllmfigure1"></a>  
+![alt text](figures/Exam 8 B1-7 - 5.png)
 
 Entry Ratio: $Y^* = \dfrac{A^*}{\mathrm{E}[A^*]}$
 
@@ -760,7 +763,8 @@ If Standard Premium $\neq$ $\forall$ risk $\Rightarrow$ Create Tbl L with P inst
 
 ### Understanding Table L
 
-![alt text](figures/Exam 8 B1-7 - 6.png){#tbllfigure1}
+<a name="tbllfigure1"></a>  
+![alt text](figures/Exam 8 B1-7 - 6.png)}
 
 Note that the y axis is $Y = \dfrac{A^*}{\mathrm{E}[A]}$ and the CDF of interest is $F^*(Y)$. However, the x axis of the graph is of $F(Y)$
 
