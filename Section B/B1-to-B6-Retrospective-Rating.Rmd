@@ -7,7 +7,7 @@ output:
     toc_depth: 4
 ---
 
-##Recall: Prospective WC Rating
+## Recall: Prospective WC Rating
 
 <span style="color:green">2000 Q6</span>
 
@@ -31,8 +31,8 @@ $(1) \times (2) \times (3) \times (4)$ **Guaranteed Cost Premium**
 * Assume no expense fee
 * Reflects lower proportion of fixed expense for larger risk
     * Usually calculated by Standard Premium tiers
-    
-##Retrospective Rating: Intro
+
+## Retrospective Rating: Intro
 
 Uses insured's loss experience during the current policy term to determine their current policy premium
 
@@ -48,7 +48,13 @@ In addition to aggregate caps, can also limit losses per occurrence (Use limited
 
 With both occurrence and agg limits, need to consider the overlap between the 2 charges
 
-##Retrospective Rating: w/o Occurence Limit <span style="color:red;background-color:yellow">Important Formulas</span>
+The starting point for retro premium is the standard premium
+
+* GCP only uses expected losses to calculate the premium
+* Retro premiums use a combination of expected loss (i.e., the insurance charge and savings) and actual loss to calculate the premiums
+
+## Retrospective Rating: w/o Occurence Limit  
+<span style="color:red;background-color:yellow">Important Formulas</span>
 
 NCCI retro premium formula for each individual policy
 
@@ -73,6 +79,8 @@ $R = (b + C A + PCV) T$ <span style="color:red; background-color:yellow">Memoriz
     * $\mu = \text{Assessments}$
     
     * $\tau = \text{Premium Based Tax}$
+    
+    * For an interstate risk, use a weighted average of the individual state tax multipliers with the standard premium for each state as the weights
 
 * $V$: Retro development factor (Optional)
 
@@ -85,6 +93,8 @@ $R = (b + C A + PCV) T$ <span style="color:red; background-color:yellow">Memoriz
     * Only used for the first 3 adjustments
     
     * $V$ are fixed at inception but they change over time according to the plan from the outset
+    
+    * Since losses develop over time, without a retrospective development factor, usually losses will be lower at early adjustments, which will cause refunds to the insured. Once losses develop higher, the insured will have to pay the money back. Using a retrospective development factor will reduce the back-and-forth payments, reduce the credit risk of collecting future premiums, and allow the insurer to have more premium at early adjustments to use in earning additional investment income.
     
 * $P$: Standard Premium
 
@@ -138,7 +148,7 @@ $\begin{array}{ccc}
   &I = (&\phi(\dfrac{A_G}{\mathrm{E}[A]}) &- &\psi(\dfrac{A_H}{\mathrm{E}[A]})&) \times \mathrm{E}[A]\\
 \end{array}$
 
-###Table M Terminology
+### Table M Terminology
 
 Rows are **entry ratios** = $r = \dfrac{Loss_{Actual}}{Loss_{Expected}}$ <span style="color:red">Understand</span>
 
@@ -152,13 +162,14 @@ Entry ratio at maximum premium $= r_G = \dfrac{A_G}{\mathrm{E}[A]}$
 
 Entry ratio at minimum premium $= r_H = \dfrac{A_H}{\mathrm{E}[A]}$
 
-##Retrospective Rating: with Occurence Limit
+## Retrospective Rating: with Occurence Limit
 
 Per occurrence limit impact the likelihood of hitting the max/min premiums $\Rightarrow$ Table M not appropriate $\Rightarrow$ Need to recognize the potential overlap between the occurrence and aggregate limits
 
 3 options to handle this:
 
-### Option 1: Limited Loss Table M <span style="color:red;background-color:yellow">Important Formulas</span>
+### Option 1: Limited Loss Table M  
+<span style="color:red;background-color:yellow">Important Formulas</span>
 
 $R^* = (b^{LLM} + C \times A^* + P \times C \times F + P \times C \times V) \times T$<span style="color:red;background-color:yellow">Memorize</span>
 
@@ -456,7 +467,8 @@ Probably start from the right but don't seem to matter
 * Easier to understand
 * Faster if just looking at 1 $r$
 
-### Understanding Table M <span style="color:red;background-color:yellow">Important Concepts</span>
+### Understanding Table M  
+<span style="color:red;background-color:yellow">Important Concepts</span>
 
 <a name="tblmfigure1"></a>  
 ![alt text](figures/Exam 8 - 1.png)
@@ -481,7 +493,7 @@ $\mathrm{E}[Y] = \dfrac{\mathrm{E}[A]}{\mathrm{E}[A]} = 1$
 
 $\phi(r) = \int\limits_r^{\infty} (y - r) dF(y) = \int\limits_r^{\infty} (y - r) f(y)dy$
 
-*[TIA](http://www.theinfiniteactuary.com/mb/viewtopic.php?f=21737&t=12672)
+* [TIA](http://www.theinfiniteactuary.com/mb/viewtopic.php?f=21737&t=12672)
 
 $\psi(r) = \int\limits_r^{\infty} (r - y) dF(y)$
 
@@ -503,7 +515,7 @@ $\psi(r)'(f) = F(r) \geq 0$
 
 $\psi''(r) = f(r) = \phi''(r)$
 
-Note from figure above, the area under $r = \psi(r) + (1 - \phi(r)) \Rightarrow \psi(r) = \phi(r) + r -1$
+Note from figure above, the area under $r = \psi(r) + (1 - \phi(r)) \Rightarrow \psi(r) = \phi(r) + r -1$  style="color:red;background-color:yellow">Memorize</span>
 
 $\phi$ is monotonically decreasing function of premium size
 
@@ -531,9 +543,12 @@ On the other hand, as $\lim\limits_{\text{Premium Size} \rightarrow 0} \phi(r) =
 
 Graphs of Entry Ratios vs Table M Charge/Savings as premium size increase
 
+* Higher ELG (a different column) in Table M, which would have lower charges for a given entry ratio
+
 ![alt text](figures/Exam 8 - 3.png)
 
-### Net Insurance Charge - w/o Occurence Limit <span style="color:red;background-color:yellow">Important Concepts</span>
+### Net Insurance Charge - w/o Occurence Limit  
+<span style="color:red;background-color:yellow">Important Concepts</span>
 
 $R = (b + C \times {\color{blue}L}) \times T \: \: \: \: {\color{blue}L} = \left\{
   \begin{array}
@@ -569,7 +584,7 @@ $\begin{array}{ll}
 $\begin{array}{lll}
   R &= (b + CL)T\\
   \mathrm{E}[R] &= (b + C\mathrm{E}[L])T\\
-  \mathrm{E}[R] &= (b + C(\mathrm{E}[A] - I))T & (1)\\
+  \mathrm{E}[R] &= \big\{b + C(\mathrm{E}[A] - I)\big\}T & (1)\\
 \end{array}$
 
 <a name="basicpremiumproof"></a>  
@@ -586,7 +601,7 @@ $\begin{array}{lll}
 
 Combine $(1)$ and $(2)$
 
-$(b + C(\mathrm{E}[A] - I))T = (e + \mathrm{E}[A])T$ 
+$\big\{b + C(\mathrm{E}[A] - I)\big\}T = (e + \mathrm{E}[A])T$ 
 
 $b = e - (C - 1)\mathrm{E}[A] + CI$ <span style="color:red;background-color:yellow">Memorize Formula</span>
 
@@ -609,8 +624,7 @@ Use this if we don't' have max/min premium
 
 Basic premium and max/min premium depends on each other $\Rightarrow$ Need trial and error to get the right Table M row
 
-#### First balance equation
-
+#### First balance equation  
 Value (change) difference
 
 Retro premium formula with max loss:  
@@ -620,10 +634,10 @@ Start with the GCP formula and subtract $H$
 
 $\begin{array}{ll}
   \text{GCP} - {\color{blue}H} &\\
-  (e + \mathrm{E}[A])T - {\color{blue}H} &= (b + C(\mathrm{E}[A] - I))T - {\color{blue}{(b + Cr_H\mathrm{E}[A])T}}\\
-  &= CT\{\mathrm{E}[A] - I - r_H\mathrm{E}[A]\}\\
-  &= CT\{\mathrm{E}[A] - \mathrm{E}[A](\phi(r_G) - \psi(r_H)) - r_H \mathrm{E}[A]\}\\
-  &= C\mathrm{E}[A]T(\psi(r_H) - r_H + 1 - \phi(r_G))\\
+  (e + \mathrm{E}[A])T - {\color{blue}H} &= \big\{b + C(\mathrm{E}[A] - I)\big\}T - {\color{blue}{(b + Cr_H\mathrm{E}[A])T}}\\
+  &= CT\big\{\mathrm{E}[A] - I - r_H\mathrm{E}[A]\big\}\\
+  &= CT\Big\{\mathrm{E}[A] - \mathrm{E}[A]\big\{\phi(r_G) - \psi(r_H)\big\} - r_H \mathrm{E}[A]\Big\}\\
+  &= C \: T \: \mathrm{E}[A] \big[ \psi(r_H) - r_H + 1 - \phi(r_G)\big] \\
 \end{array}$
 
 Move everything to one side and we get: <span style="color:red;background-color:yellow">Important Memorize</span>
@@ -634,8 +648,7 @@ $\phi(r_H) - \phi(r_G) = \dfrac{(e + \mathrm{E}[A])T - H}{C\mathrm{E}[A]T} = \df
 expected retro premium E[R] and the minimum premium H, except for the factor CE[A]T
 * 2003 Q29
 
-#### Second balance equation
-
+#### Second balance equation  
 Entry difference, based $G - H$
 
 <span style="color:red;background-color:yellow">Important Memorize</span>
@@ -697,11 +710,12 @@ $R^* = (b^{LLM} + C{\color{blue}{L^*}}+PCF) T \: \: \: \: {\color{blue}{L^*}} = 
   
 $+ PCV$ if to stabilize
 
-Everything similar to Table M but now that the entry ratios $r^*$ are limited
+*Everything similar* to Table M but now that the **entry ratios $r^*$ are limited** and has some **limied loss** $\mathrm{E}[A^*]$
 
 $\mathrm{E}[L^*] = \mathrm{E}[A^*] - I^{LLM}$
 
 $b^{LLM} = e - (C - 1)\mathrm{E}[A] + CI^{LLM}$
+
 * $e - (C - 1)\mathrm{E}[A]$ is never capped
 
 $\phi^{LLM}(r_H^*) - \phi^{LLM}(r_G^*) = \dfrac{(e + \mathrm{E}[A])T - H}{C\mathrm{E}[A^*]T} = ? \dfrac{(1-D)P-H}{C\mathrm{E}[A^*]T}$

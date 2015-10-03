@@ -9,7 +9,7 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="date" content="2015-10-02" />
+<meta name="date" content="2015-10-03" />
 
 <title>Retro Summary</title>
 
@@ -62,7 +62,7 @@ img {
 
 <div id="header">
 <h1 class="title">Retro Summary</h1>
-<h4 class="date"><em>October 02, 2015</em></h4>
+<h4 class="date"><em>October 03, 2015</em></h4>
 </div>
 
 <div id="TOC">
@@ -107,6 +107,8 @@ img {
 <ul>
 <li><span class="math">\(b = e - (C - 1)\mathrm{E}[A] + CI\)</span></li>
 </ul>
+<p>Know how to build Table M</p>
+<p>Know how to plug and play with all the equations</p>
 </div>
 </div>
 <div id="types-of-exam-questions" class="section level2">
@@ -166,17 +168,65 @@ img {
 <ul>
 <li>2000 Q5 (ELG)</li>
 </ul>
-<p>Plug and play for <span class="math">\(b\)</span>, <span class="math">\(R\)</span>, <span class="math">\(GCP\)</span></p>
+<p>Plug and play for <span class="math">\(b\)</span>, <span class="math">\(R\)</span>, <span class="math">\(GCP\)</span>, etc</p>
 <ul>
 <li>2000 Q6 (Know how to do premium discount)</li>
 <li>2000 Q9 (<span class="math">\(GCP\)</span> and <span class="math">\(A\)</span>)</li>
 <li>2001 Q8 (<span class="math">\(GCP\)</span>)</li>
-<li></li>
+<li>2001 Q31 (<span class="math">\(b\)</span> formula and ELG)
+<ul>
+<li>Not sure about part b</li>
+<li><a href="http://www.theinfiniteactuary.com/mb/viewtopic.php?f=17679&amp;t=12649">TIA</a></li>
+</ul></li>
+<li>2001 Q33 (Retro @18mo) <span class="math">\(\star\)</span></li>
+<li>2002 Q15 (Charge difference)</li>
+<li>2002 Q16 (net converted charge)</li>
+<li>2002 Q40a (Retro @18mo)</li>
+<li>2003 Q7 (Tax multiplier)</li>
+<li>2003 Q10 (<span class="math">\(b\)</span>)</li>
+<li>2004 Q18 (Retro @18mo)</li>
+<li>2004 Q20 (Back out <span class="math">\(e\)</span> with GCP and retro)</li>
+<li>2005 Q30a (Tax multiplier)</li>
+<li>2005 Q30b (Tax multiplier w/ interstate risk)</li>
+<li>2005 Q32a (GCP and Retro Prem)</li>
+<li>2006 Q30 <span class="math">\(\star\)</span> (Retro, hit cap)</li>
+<li>2006 Q32 <span class="math">\(\star\)</span> (max prem factor, clever)</li>
+<li>2010 Q27 <span class="math">\(\star\)</span> (diff between limited and unlimited)</li>
+<li>2010 Q29 <span class="math">\(\star\)</span> (Multiple items)</li>
+<li>2011 Q20 <span class="math">\(\star\)</span> (GCP, expected loss is tricky)</li>
+<li>2011 Q25 <span class="math">\(\star\)</span> (max prem, need to 2 balance equation)</li>
+<li>2012 Q19 <span class="math">\(\star\)</span> (Retro @ 2nd adjustment)</li>
+<li>2013 Q14 <span class="math">\(\star\)</span> (expected retro, need that E[L]/E[A] formula)</li>
+<li>2014 Q18 <span class="math">\(\star\)</span><span class="math">\(\star\)</span> (very tricky)</li>
+</ul>
+<p>Formula Manipulation</p>
+<ul>
+<li>2001 Q32a <span class="math">\(\star\)</span></li>
 </ul>
 <p>Build Table M</p>
 <ul>
 <li>2000 Q48</li>
-<li></li>
+</ul>
+<p>Concepts</p>
+<ul>
+<li>2001 Q10 (relationship between max/min/b)
+<ul>
+<li>Do we need the assumed balance condition here?</li>
+</ul></li>
+<li>2001 Q32b (iterative tbl M lookup)</li>
+<li>2002 Q40b <span class="math">\(\star\)</span> (Improve insured cashflow)</li>
+<li>2003 Q33 <span class="math">\(\star\)</span> (<span class="math">\(\Delta\)</span> in exposure impacts)
+<ul>
+<li>Not sure about b</li>
+</ul></li>
+<li>2004 Q47 <span class="math">\(\star\)</span> (How to lower b)</li>
+<li>2005 Q32a (GCP and Retro Prem difference)</li>
+</ul>
+<p>Tricky</p>
+<ul>
+<li>2007 Q32 (defective)</li>
+<li>2007 Q35 (Balanced or not)</li>
+<li>2009 Q20 (defective)</li>
 </ul>
 </div>
 </div>
@@ -188,6 +238,10 @@ img {
 <ul>
 <li><span class="math">\(I = \mathrm{E}[A][\phi(r_G) - \psi(r_H)]\)</span></li>
 </ul>
+<p>Savings:</p>
+<ul>
+<li><span class="math">\(\psi(r) = \phi(r) + r -1\)</span></li>
+</ul>
 <p>Other Relationships:</p>
 <ul>
 <li><span class="math">\(\dfrac{\mathrm{E}[L]}{\mathrm{E}[A]} = 1 + \psi(r_H) - \phi(r_G)\)</span></li>
@@ -195,6 +249,11 @@ img {
 </div>
 <div id="reading-table-m" class="section level3">
 <h3>Reading Table M</h3>
+<p>Balance Equations:</p>
+<ul>
+<li><p><span class="math">\(\phi(r_H) - \phi(r_G) = \dfrac{(e + \mathrm{E}[A])T - H}{C\mathrm{E}[A]T}\)</span></p></li>
+<li><p><span class="math">\(r_G - r_H = \dfrac{G - H}{C\mathrm{E}[A]T}\)</span></p></li>
+</ul>
 <p>Adjusted Expected Losses:</p>
 <ul>
 <li><span class="math">\(= \mathrm{E}[A] \times \text{State HG Differential} \times \dfrac{1 + 0.8k}{1-k}\)</span></li>
@@ -204,11 +263,20 @@ img {
 <h3>Retro premium related</h3>
 <p>GCP:</p>
 <ul>
-<li><span class="math">\(= (e + \mathrm{E}[A])T = (1-D)P\)</span></li>
+<li><span class="math">\(\text{Guaranteed Cost Premium} = (e + \mathrm{E}[A])T = (1-D)P\)</span></li>
 </ul>
-<p>Basic premium is balanced plan:</p>
+<p>Basic premium if balanced plan:</p>
 <ul>
 <li><span class="math">\(b = e - (C - 1)\mathrm{E}[A] + CI\)</span></li>
+</ul>
+<p>Tax multiplier:</p>
+<ul>
+<li><p><span class="math">\(=\dfrac{0.2 + PLR(1+\mu)}{0.2 + PLR} \left({\dfrac{1}{1-\tau}}\right)\)</span></p>
+<ul>
+<li><p><span class="math">\(PLR = \text{Permissible Loss Ratio} = \dfrac{\mathrm{E}[A]}{P}\)</span></p></li>
+<li><p><span class="math">\(\mu = \text{Assessments}\)</span></p></li>
+<li><p><span class="math">\(\tau = \text{Premium Based Tax}\)</span></p></li>
+</ul></li>
 </ul>
 </div>
 </div>
@@ -216,6 +284,7 @@ img {
 <h2>Questions</h2>
 <p>What is the x-axis for the Table LLM</p>
 <p>What is the state differential in finding the Adjusted Expected Loss</p>
+<p>What is that E[L]/E[A] formula</p>
 </div>
 
 

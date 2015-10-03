@@ -82,18 +82,59 @@ Using Table M
 
 * 2000 Q5 (ELG)
 
-Plug and play for $b$, $R$, $GCP$
+Plug and play for $b$, $R$, $GCP$, etc
 
 * 2000 Q6 (Know how to do premium discount)
 * 2000 Q9 ($GCP$ and $A$)
 * 2001 Q8 ($GCP$)
-* 
+* 2001 Q31 ($b$ formula and ELG)
+    * Not sure about part b
+    * [TIA](http://www.theinfiniteactuary.com/mb/viewtopic.php?f=17679&t=12649)
+* 2001 Q33 (Retro @18mo) $\star$
+* 2002 Q15 (Charge difference)
+* 2002 Q16 (net converted charge)
+* 2002 Q40a (Retro @18mo)
+* 2003 Q7 (Tax multiplier)
+* 2003 Q10 ($b$)
+* 2004 Q18 (Retro @18mo)
+* 2004 Q20 (Back out $e$ with GCP and retro)
+* 2005 Q30a (Tax multiplier)
+* 2005 Q30b (Tax multiplier w/ interstate risk)
+* 2005 Q32a (GCP and Retro Prem)
+* 2006 Q30 $\star$ (Retro, hit cap)
+* 2006 Q32 $\star$ (max prem factor, clever)
+* 2010 Q27 $\star$ (diff between limited and unlimited)
+* 2010 Q29 $\star$ (Multiple items)
+* 2011 Q20 $\star$ (GCP, expected loss is tricky)
+* 2011 Q25 $\star$ (max prem, need to 2 balance equation)
+* 2012 Q19 $\star$ (Retro @ 2nd adjustment)
+* 2013 Q14 $\star$ (expected retro, need that E[L]/E[A] formula)
+* 2014 Q18 $\star$$\star$
+
+Formula Manipulation
+
+* 2001 Q32a $\star$
 
 Build Table M
 
 * 2000 Q48
-* 
 
+Concepts
+
+* 2001 Q10 (relationship between max/min/b)
+    * Do we need the assumed balance condition here?
+* 2001 Q32b (iterative tbl M lookup)
+* 2002 Q40b $\star$ (Improve insured cashflow)
+* 2003 Q33 $\star$ ($\Delta$ in exposure impacts)
+    * Not sure about b
+* 2004 Q47 $\star$ (How to lower b)
+* 2005 Q32a (GCP and Retro Prem difference)
+
+Tricky
+
+* 2007 Q32 (defective)
+* 2007 Q35 (Balanced or not)
+* 2009 Q20 (defective)
 
 ## Must Know Formulas
 
@@ -103,11 +144,21 @@ Net Charge:
 
 * $I = \mathrm{E}[A][\phi(r_G) - \psi(r_H)]$
 
+Savings:
+
+* $\psi(r) = \phi(r) + r -1$
+
 Other Relationships:
 
 * $\dfrac{\mathrm{E}[L]}{\mathrm{E}[A]} = 1 + \psi(r_H) - \phi(r_G)$
 
 ### Reading Table M
+
+Balance Equations:
+
+* $\phi(r_H) - \phi(r_G) = \dfrac{(e + \mathrm{E}[A])T - H}{C\mathrm{E}[A]T}$
+
+* $r_G - r_H = \dfrac{G - H}{C\mathrm{E}[A]T}$
 
 Adjusted Expected Losses:
 
@@ -119,12 +170,24 @@ GCP:
 
 * $\text{Guaranteed Cost Premium} = (e + \mathrm{E}[A])T = (1-D)P$
 
-Basic premium is balanced plan:
+Basic premium if balanced plan:
 
 * $b = e - (C - 1)\mathrm{E}[A] + CI$
+
+Tax multiplier:
+
+* $=\dfrac{0.2 + PLR(1+\mu)}{0.2 + PLR} \left({\dfrac{1}{1-\tau}}\right)$
+
+    * $PLR = \text{Permissible Loss Ratio} = \dfrac{\mathrm{E}[A]}{P}$ 
+    
+    * $\mu = \text{Assessments}$
+    
+    * $\tau = \text{Premium Based Tax}$
 
 ## Questions
 
 What is the x-axis for the Table LLM
 
 What is the state differential in finding the Adjusted Expected Loss
+
+What is that E[L]/E[A] formula
