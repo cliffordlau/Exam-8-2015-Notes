@@ -34,6 +34,28 @@ Know how to build Table M
 
 Know how to plug and play with all the equations
 
+### Brosius
+
+Vertical and horizontal calculations of the tables
+
+* Remember how to normalize
+
+Table construction
+
+### Skurnick
+
+Table L rationale pros cons
+
+ICRLL rationale pros cons
+
+Unbalanced retro calculation
+
+Insurance charge and savings for Table L
+
+### NCCI 2
+
+
+
 ## Types of Exam Questions
 
 ### Lee 2
@@ -136,7 +158,65 @@ Tricky
 * 2007 Q35 (Balanced or not)
 * 2009 Q20 (defective)
 
+### Brosius
+
+Insurance charge/savings
+
+* 2002 Q36 (vertical)
+* 2004 Q43 (vertical, tricky arithmetics)
+* 2005 Q8 (vertical, charge/savings relationship)
+* 2006 Q9 (table construction)
+* 2007 Q30 (vertical)
+* 2007 Q34 (table construction)
+* 2008 Q28b (table construction)
+* 2013 Q12 (table construction)
+* 2014 Q13 $\star$ (Backout numbers)
+* Practice $\star$ (table construction with normalize)
+
+Concepts
+
+* 2008 Q28a (vertical vs horizontal)
+
+### Skurnick
+
+Understandig Table L and ICRLL
+
+* 2000 Q45 $\star$ (Tbl L and ICRLL, Pros Cons)
+* 2002 Q38
+* 2006 Q34 $\star$ (per occ charge)
+* 2008 Q35 (same as 2000 Q45)
+* 2010 Q31 $\star$ (ICRLL proc)
+* 2011 Q22 bc
+* 2013 Q13 $\star$ (Relationship with prem size and properties)
+* 2014 Q12 a $\star$ (build table from graph)
+* 2014 Q12 b $\star$ (Explain savings)
+
+Unbalanced retro calc
+
+* 2001 Q34 $\star$ (Unbalance and then rebalance)
+    * Good questions to understand
+
+Table Construction
+
+* 2003 Q30 (L and M)
+* 2009 Q32 (L and M)
+* 2011 Q22a (L)
+* 2012 Q18 $\star$
+
+Calculate insurance charge/savings
+
+* 2004 Q44 (Vertical, L and M)
+* 2006 Q7 (Vertical, L)
+    * Why is the per-occ charge not always just the LER?<span style="color:red;background-color:yellow">?Question?</span>
+* 2008 Q32 $\star\star$ (Table L with different SP risk)
+    * Use dollar amount or Tbl L with premium (instead of risk)
+    * Should understand this
+    
 ## Must Know Formulas
+
+### NCCI 2
+
+
 
 ### Table M
 
@@ -150,7 +230,14 @@ Savings:
 
 Other Relationships:
 
-* $\dfrac{\mathrm{E}[L]}{\mathrm{E}[A]} = 1 + \psi(r_H) - \phi(r_G)$
+* $\begin{array}{ll}
+    \mathrm{E}[L] &= \mathrm{E}[A] \left\{1 + \psi(r_H) - \phi(r_G)\right\} \\
+    &= \mathrm{E}[A] - I \\
+  \end{array}$
+
+Table construction:
+
+* $\phi(r_i) = \phi(r_{i+1}) + (r_{i+1} - r_i)(\text{ % risks above }r_i)$
 
 ### Reading Table M
 
