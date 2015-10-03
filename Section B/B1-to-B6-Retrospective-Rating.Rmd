@@ -413,7 +413,8 @@ kable(tbl_m, align = 'l')
 ```
 
 ***3. Calculate Entry Ratio $r$***
-    * $\dfrac{Loss_Actual}{Loss_Expected}
+
+* $\dfrac{Loss_{Actual}}{Loss_{Expected}}$
 
 ```{r}
 tbl_m <-
@@ -470,8 +471,7 @@ Probably start from the right but don't seem to matter
 ### Understanding Table M  
 <span style="color:red;background-color:yellow">Important Concepts</span>
 
-<a name="tblmfigure1"></a>  
-![alt text](figures/Exam 8 - 1.png)
+![alt text](figures/Exam 8 B1-7 - 1.png){#tblmfigure1}
 
 Note that the y axis is now the entry ratios and not losses like it was in the earlier example
 
@@ -535,7 +535,7 @@ $\phi(r) =
 
 CDF of Entry Ratio vs Entry Ratio
 
-![alt text](figures/Exam 8 - 2.png)
+![alt text](figures/Exam 8 B1-7 - 2.png)
 
 From [TIA](http://www.theinfiniteactuary.com/mb/viewtopic.php?f=21737&t=24083): Think about how Table Ms are built: you get the loss ratios for a bunch of similar sized risks, calculate the average loss ratio from these risks, and then calculate entry ratios for each risk as actual loss ratio / average loss ratio. The variance in the entry ratios is really just the variance in the actual loss ratios of the risks used to built the Table M. If the variance of these loss ratios goes to 0, then that is equivalent to saying all risks have the same loss ratio (aka, same entry ratio, aka same dollar amount of aggregate losses given equal premium sizes). So that is why the curve will flatten.
 
@@ -545,7 +545,7 @@ Graphs of Entry Ratios vs Table M Charge/Savings as premium size increase
 
 * Higher ELG (a different column) in Table M, which would have lower charges for a given entry ratio
 
-![alt text](figures/Exam 8 - 3.png)
+![alt text](figures/Exam 8 B1-7 - 3.png)
 
 ### Net Insurance Charge - w/o Occurence Limit  
 <span style="color:red;background-color:yellow">Important Concepts</span>
@@ -560,8 +560,7 @@ $R = (b + C \times {\color{blue}L}) \times T \: \: \: \: {\color{blue}L} = \left
   
 $A_H = r_H \mathrm{E}[A]$ and similarly for $A_G$
 
-<a name="tblmfigure4"><a/>  
-![alt text](figures/Exam 8 - 4.png)
+![alt text](figures/Exam 8 B1-7 - 4.png){#tblmfigure4}
 
 Blue area = $\dfrac{\mathrm{E}[{\color{blue}L}]}{\mathrm{E}[A]}$
 
@@ -587,8 +586,7 @@ $\begin{array}{lll}
   \mathrm{E}[R] &= \big\{b + C(\mathrm{E}[A] - I)\big\}T & (1)\\
 \end{array}$
 
-<a name="basicpremiumproof"></a>  
-Recall if the plan is balance $\Rightarrow$ $\mathrm{E}[R] = \text{Guaranteed Cost Premium}$
+Recall if the plan is balance $\Rightarrow$ $\mathrm{E}[R] = \text{Guaranteed Cost Premium}$ {#basicpremiumproof}
 
 $\begin{array}{lll}
   \text{Guaranteed Cost Premium} &= (e + \mathrm{E}[A])T & (2)\\
@@ -681,8 +679,7 @@ Note that the denominator of the Entry Ratio is the $\mathrm{E}[A^*]$, where as 
 
 Note that the y axis is now limited entry ratios $y^*$
 
-<a name="tblllmfigure1"></a>  
-![alt text](figures/Exam 8 - 5.png)
+![alt text](figures/Exam 8 B1-7 - 5.png){#tblllmfigure1}
 
 Entry Ratio: $Y^* = \dfrac{A^*}{\mathrm{E}[A^*]}$
 
@@ -763,8 +760,7 @@ If Standard Premium $\neq$ $\forall$ risk $\Rightarrow$ Create Tbl L with P inst
 
 ### Understanding Table L
 
-<a name="tbllfigure1"></a>  
-![alt text](figures/Exam 8 - 6.png)
+![alt text](figures/Exam 8 B1-7 - 6.png){#tbllfigure1}
 
 Note that the y axis is $Y = \dfrac{A^*}{\mathrm{E}[A]}$ and the CDF of interest is $F^*(Y)$. However, the x axis of the graph is of $F(Y)$
 
@@ -890,4 +886,3 @@ Last page
 * Retrospective PP Dev Factor
     * By occ limit and adjustments
     * Can convert into retrospective development factor $V$
-
