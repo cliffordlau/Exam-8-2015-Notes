@@ -54,7 +54,11 @@ Insurance charge and savings for Table L
 
 ### NCCI 2
 
+How to use the NCCI pages
 
+* ELG, balance equations
+* Use the table for the right year
+* Look for entry difference first then charge
 
 ## Types of Exam Questions
 
@@ -216,11 +220,34 @@ Calculate insurance charge/savings
 
 ### NCCI 2
 
+Plug and play
 
+* 2001 Q9 (LLM charge difference)
+* 2002 Q35 $\star$
+    a. expense and contingency in $b$ = w/o the $CI$
+    b. $CI$ (Get ELG with LER + balance equation $\rightarrow$ tbl M search)
+    c. Total
+* 2003 Q31 (ELG and balance equations and D)
+* 2004 Q45 (similar to 2002 Q35)
+* 2005 Q32 (Just charge)
+* 2006 Q35 $\star$ (backout ELF)
+* 2008 Q36 (similar to 2002 Q35)
+* 2009 Q30 (similar to 2002 Q35)
+* 2011 Q21 $\star$ (Alaska ELG)
+    * Lookup HG differential and ELAEPPF
+* 2014 Q15 $\star$ (inflation impact)
+* 2014 Q17 $\star$
+    a. GCP (Tax is applied to final P)
+    b. $b^{LLM}$
+    c. Impact of higher per occ limit
+
+Concepts
+
+* 2003 Q32 (Why varies by ELG)
 
 ### Table M
 
-Net Charge:
+Net Charge (For LLM use $\mathrm{E}[A^*]$ and LLM charges):
 
 * $I = \mathrm{E}[A][\phi(r_G) - \psi(r_H)]$
 
@@ -241,7 +268,7 @@ Table construction:
 
 ### Reading Table M
 
-Balance Equations:
+Balance Equations (Use $\mathrm{E}[A^*]$ for the denominator if there's occ limit):
 
 * $\phi(r_H) - \phi(r_G) = \dfrac{(e + \mathrm{E}[A])T - H}{C\mathrm{E}[A]T}$
 
