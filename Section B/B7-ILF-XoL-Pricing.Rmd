@@ -20,7 +20,7 @@ Loss size $x_i$ occurs $n_i$ times
 
 Loss size $x$ with $n$ total claims
 
-![alt text](figures/Exam 8 - 7.png)
+![alt text](figures/Exam 8 B1-7 - 7.png)
 
 ### Restating the x-axis
 
@@ -42,7 +42,7 @@ $F(x) = Pr(X \leq x)$
 * [Stieltjes integral](http://math.stackexchange.com/questions/22887/definition-of-mean-as-an-integral-over-the-cdf)
 * [Riemann-Stieltjes integral](https://en.wikipedia.org/wiki/Riemann–Stieltjes_integral)
 
-![alt text](figures/Exam 8 - 8.png)
+![alt text](figures/Exam 8 B1-7 - 8.png)
 
 ### Horizontal Slices
 
@@ -58,7 +58,7 @@ $\mathrm{E}[L] = \int_0^{\infty} x dF(x) = \int_0^{\infty} G(x) dx$
 
 $\int_a^b G(x) dx = \int_a^b x dF(x) + bG(b) - aG(a)$
 
-![alt text](figures/Exam 8 - 9.png)
+![alt text](figures/Exam 8 B1-7 - 9.png)
 
 ## Coverage Functions
 
@@ -81,7 +81,7 @@ $\begin{array}{cll}
   \text{OR} &= \int_0^k G(x) dx &= \int_0^k x dF(x) + kG(k)\\
 \end{array}$
 
-![alt text](figures/Exam 8 - 10.png)
+![alt text](figures/Exam 8 B1-7 - 10.png)
 
 ### Limit $L$ and Deductible $R$
 
@@ -102,7 +102,7 @@ $\begin{array}{cl}
   \text{OR} &= \mathrm{E}[h(X;S)] - \mathrm{E}[h(X;R)]\\
 \end{array}$
 
-![alt text](figures/Exam 8 - 11.png)
+![alt text](figures/Exam 8 B1-7 - 11.png)
 
 ## Increased Limit Factors (ILF)
 
@@ -134,7 +134,7 @@ $\begin{array}{lll}
   &= \dfrac{\int_0^k G(x) dx}{\mathrm{E}[h(X;b)]}\\
 \end{array}$
 
-![alt text](figures/Exam 8 - 12.png)
+![alt text](figures/Exam 8 B1-7 - 12.png)
 
 $ILF = \dfrac{Yellow + Green}{Green}$
 
@@ -205,7 +205,7 @@ $\mathrm{E}[h(X_1;b)] = a\mathrm{E}[h(X;\frac{b}{a})]$<span style="color:red;bac
 
 Graphical representation below:
 
-![alt text](figures/Exam 8 - 13.png)
+![alt text](figures/Exam 8 B1-7 - 13.png)
 
 $I_1(k) = ILF$ for limit $k$ after inflation
 
@@ -335,4 +335,4 @@ Fix the occurrence limits:
 
 $I(A_2,O_2) - I(A_2,O_1) \geq I(A_1,O_2) - I(A_1,O_1)$ 
 
-![alt text](figures/Exam 8 - 15.png)
+![alt text](figures/Exam 8 B1-7 - 15.png)
