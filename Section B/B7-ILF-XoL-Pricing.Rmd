@@ -1,6 +1,7 @@
 ---
 title: "On the Theory of Increased Limits and Excess of Loss Pricing"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
+layout: default
 output: 
   html_document:
     toc: true
@@ -76,9 +77,9 @@ $h(X;k) =
     k & X > k\\
   \end{cases}$
   
-$\begin{array}{cll}
-  \mathrm{E}[h(X;k)] &= \int_0^k x f(x) dx + k[1-F(k)] &= \int_0^k x f(x) dx + kG(k)\\
-  \text{OR} &= \int_0^k G(x) dx &= \int_0^k x dF(x) + kG(k)\\
+$\begin{array}{clcl}
+  \mathrm{E}[h(X;k)] &= &\int_0^k x \: f(x) \: dx + k[1-F(k)] &= \int_0^k x \: f(x) \: dx + k \: G(k)\\
+  \text{OR} &= &\int_0^k G(x) \: dx &= \int_0^k x \: dF(x) + k \: G(k)\\
 \end{array}$
 
 ![alt text](figures/Exam 8 B1-7 - 10.png)
@@ -97,8 +98,8 @@ $h(X;R,L) =
 Where $S = R + L$ is the max ground up loss
 
 $\begin{array}{cl}
-  \mathrm{E}[h(X;R,L)] &= \int_R^S x dF(x) + SG(S) - RG(R)\\
-  \text{OR} &= \int_R^S G(x)dx\\
+  \mathrm{E}[h(X;R,L)] &= \int_R^S x \: dF(x) + SG(S) - RG(R)\\
+  \text{OR} &= \int_R^S G(x) \: dx\\
   \text{OR} &= \mathrm{E}[h(X;S)] - \mathrm{E}[h(X;R)]\\
 \end{array}$
 
@@ -107,20 +108,35 @@ $\begin{array}{cl}
 ## Increased Limit Factors (ILF)
 
 **Def^n^**
+<a name="vanilla-ilf"></a>
 
-$ILF$ = Relativity for the rate @ limit k to the rate @ basic limit b
+$ILF(k) = \dfrac{\mathrm{E}[h(X;k)]}{\mathrm{E}[h(X;b)]}$
+
+* Relativity for the rate @ limit k to the rate @ basic limit b
+
+* $\mathrm{E}[h(X;b)] =$ Average Basic Limits Severity (ABLS)
 
 $\text{Rate @ Limit k} = ILF(k) \times \text{Rate @ Basic Limit b}$
 
-$\mathrm{E}[h(X;b)] =$ Average Basic Limits Severity (ABLS)
+For ILF in layer $L$ XS $R$:
 
+* $\dfrac{\mathrm{E}[h(X;S)] - \mathrm{E}[h(X;R)]}{\mathrm{E}[h(X;b)]}$
+
+* $ILF(S) - ILF(R)$
+
+***
+
+<a name="ILF-assumptions"></a>  
 **Key Assumptions** <span style="color:red;background-color:yellow">Important Concept</span>
 
 1. All u/w expenses & profit are variable and don't vary by limit
     * IRL not true, $\uparrow$ limits $\Rightarrow$ Volatility $\uparrow$ $\Rightarrow$ $\rightarrow$ profit load
+    * This is loosen with the risk adjusted ILFs
 2. Frequency $\perp\!\!\!\perp$ Severity
 3. $Freq_i = Freq_j \forall \: \text{limits} \: i, \: j$
     * IRL not true due to adverse/favorable selection; GLM or LR method will reflect the differences
+
+***
 
 **Derivation:**
     
@@ -134,56 +150,77 @@ $\begin{array}{lll}
   &= \dfrac{\int_0^k G(x) dx}{\mathrm{E}[h(X;b)]}\\
 \end{array}$
 
+***
+
 ![alt text](figures/Exam 8 B1-7 - 12.png)
 
 $ILF = \dfrac{Yellow + Green}{Green}$
+
+<a name="ilf-prop"></a>
+**Properties of ILF** <span style="color:red;background-color:yellow">Know</span>
 
 $ILF$ increase at a decreasing rate
 
 * $ILF'(k) = \dfrac{G(k)}{\mathrm{E}[h(X;b)]} \geq 0$
 * $ILF''(k) = \dfrac{-f(k)}{\mathrm{E}[h(X;b)]} \leq 0$
-* $\Rightarrow$ $ILF(k)$ will approach a constant value $\Rightarrow$ $\exists$ a limit $c$ which there will be no additional charge for limit $k$ where $k > c$ since $Pr(Loss > c) = 0$
+
+$\Rightarrow$ $ILF(k)$ will approach a constant value $\Rightarrow$ $\exists$ a limit $c$ which there will be no additional charge for limit $k$ where $k > c$ since $Pr(Loss > c) = 0$
 
 ## 1-D Consistency Test for ILFs
+<a name="1-DTest"></a>
 
-Marginal premium / 1K coverage $\downarrow$ as coverage limit $\uparrow$
+Marginal premium per 1K coverage $\downarrow$ as coverage limit $\uparrow$
 
 * $Pr(Loss > k_1) < Pr(Loss > k_2) \: \text{given } k_1 > k_2$ $\Rightarrow$ Insurance should cost less for each additional $1K of coverage
 * $\dfrac{\Delta ILF}{\Delta k} = ILF'(k)$ should $\downarrow$ for $\uparrow$ $k$
+* Works with deductible as well, the marginal rate should still $\downarrow$ for $\uparrow$ deductible (the deductible factor $\downarrow$ as deductible $\uparrow$ though)
+* The practical interpretation is that as the limit increases, there are less losses expected at higher
+layers, so rates should not increase more for higher limits than for lower limits.
+* So long as partial losses are possible, expected losses will not increase as much as the increase in limits
+* If the test fails, then it means an insured would pay more for an incremental amount of coverage above a lower coverage amount, implying negative probabilities
+    * This would be impossible if we are assuming that frequency and severity are independent and frequency is the same for all limits, since the increase would have to entirely be due to severity, which would be capped by the coverage amount
+
+| Per Occ Limit $k$ | $ILF(k)$ | $\dfrac{\Delta ILF}{\Delta k}$ |
+| ----------------- | -------- | ------------------------------ |
+| $k_0$               | $ILF(k_0)$ |                                |
+| $k_1$             | $ILF(k_1)$ | $\dfrac{ILF(k_1) - ILF(k_0)}{k_1-k_0}$ |
+| $\uparrow$ | $\uparrow$ | $\downarrow$ |
 
 ### Reasons for Inconsistency: Anti-Selection
 
-<span style="color:green">2011 Q10b</span>
+<span style="color:green">Good Questions 2011 Q10b</span>
 
-Adverse Selection:
+**Adverse Selection:**
 
 * Higher limits $\Rightarrow$ Adverse experience
     * $\because$ Insureds that expect higher loss potential buys higher limits
     * $\because$ Lawsuits and settlements influenced by size of limit
 
-Favorable Selection:
+**Favorable Selection:**
 
 * Higher limits $\Rightarrow$ Better experience
     * $\because$ Financially secured risk has more assets to protect $\therefore$ Buys higher limits
     * High limits are only underwritten for better risks
     
-Solution to anti-selection:
+**Solution to anti-selection:**
 
-Fit separate severity curve for each policy limit
-
-* Only use polices with $limits_k$ to determine $ILF(k)$
-* If there are no anti-selection you can use the combined data for all $limits_i$ to determine the $ILF$
+* Fit separate severity curve for each policy limit
+    * Only use polices with $limits_k$ to determine $ILF(k)$
+    * If there are no anti-selection you can use the combined data for all $limits_i$ to determine the $ILF$
 
 ## Impact of Trend
 
-<span style="color:green">2000 Q31</span>
-
-Trend on $Sev_k$ > $Sev_{total}$ or $Sev_b$ for $k > b$ when trend > 0
+<a name="layertrend"></a>
+Trend on $Sev_k$ > $\left(Sev_{total} \textbf{ or } Sev_b\right)$ for $k > b$ when trend > 0
 
 * $\because$ for losses > $b$, trend in entirely in the XS layer
 * Losses just < $b$ are pushed into the XS layer by the trend $\Rightarrow$ New losses for the XS layer
 
 Similarly for trend < 0 it'll be more negative for XS layer
+
+See <span style="color:green">2000 Q37</span> for graphical explanation
+
+***
 
 **Def^n^:**
 
@@ -195,7 +232,7 @@ If $\alpha$ is monotonic then $F_1(x_1) = F(x)$
 
 ***
 
-###For constant inflation $x_1 = \alpha(x) = ax$
+### For constant inflation $x_1 = \alpha(x) = ax$
 
 $\mathrm{E}[h(X_1;b)] = a\mathrm{E}[h(X;\frac{b}{a})]$<span style="color:red;background-color:yellow">Important Memorize</span>
 
@@ -207,23 +244,27 @@ Graphical representation below:
 
 ![alt text](figures/Exam 8 B1-7 - 13.png)
 
-$I_1(k) = ILF$ for limit $k$ after inflation
+### ILF after constant inflation/trend
+<a name="inflate-ilf"></a>
+$ILF_1(k) = ILF$ for limit $k$ after inflation
 
-$I_1(k) = \dfrac{I(\frac{k}{a})}{I(\frac{b}{a})}$<span style="color:red;background-color:yellow">Important Memorize</span>
+$ILF_1(k) = \dfrac{I(\frac{k}{a})}{I(\frac{b}{a})}$<span style="color:red;background-color:yellow">Important Memorize</span>
 
 * $\cdots = \dfrac{\mathrm{E}[h(X_1;k)]}{\mathrm{E}[h(X_1;b)]} = \dfrac{a\mathrm{E}[h(X;\frac{k}{a})]}{a\mathrm{E}[h(X;\frac{b}{a})]} = \dfrac{\mathrm{E}[h(X;\frac{k}{a})]}{\mathrm{E}[h(X;\frac{b}{a})]} \times \dfrac{\mathrm{E}[h(X;b)]}{\mathrm{E}[h(X;b)]} = \cdots$
 
-$I'_1(k) = \dfrac{G(\frac{k}{a})}{a\mathrm{E}[h(X;\frac{b}{a})]}$
+$ILF'_1(k) = \dfrac{G(\frac{k}{a})}{a\mathrm{E}[h(X;\frac{b}{a})]}$
 
 Average increase in severity after trend in layer $R$ to $S = R + L$<span style="color:red;background-color:yellow">Important Memorize</span>
 
-* % $\Delta$ in layer loss given trend $a$
+### Change in layer loss after constant inflation/trend
 
 $\dfrac{\mathrm{E}[h(X_1;R,L)]}{\mathrm{E}[h(X;R,L)]} = 
 \begin{cases}
-  \dfrac{a I(\frac{L}{a})}{I(L)} & \text{if } R = 0\\
+  \dfrac{a ILF(\frac{L}{a})}{ILF(L)} & \text{if } R = 0\\
+  & \\
   \dfrac{a \left( \mathrm{E}[X] - \mathrm{E}\left[ h(X;\frac{R}{a}) \right] \right)}{\mathrm{E}[X] - \mathrm{E}[h(X;R)]} & \text{if } L = \infty\\
-  \dfrac{a \left[ I(\frac{S}{a}) - I(\frac{R}{a}) \right]}{I(S) - I(R)} & \text{else}\\
+  & \\
+  \dfrac{a \left[ ILF(\frac{S}{a}) - ILF(\frac{R}{a}) \right]}{ILF(S) - ILF(R)} & \text{else}\\
 \end{cases}$
 
 <span style="color:green">2008 Q26</span>
@@ -242,11 +283,12 @@ Pricing risk $\Rightarrow$ Degree of uncertainty in pure premium
     * E.g. Event difficult to predict; Unknown inflation; $\Delta$ business mix; Sampling Error
     
 ### Risk Adjusted ILF for limit $k$
-
-$I_r(k) = \dfrac{\mathrm{E}[h(X;k)] + \lambda \mathrm{E}[h(X;k)^2]}{\mathrm{E}[h(X;b)] + \lambda \mathrm{E}[h(X;b)^2]}$<span style="color:red;background-color:yellow">Important Memorize</span>
+<a name="risk-adj-ilf"></a>
+$ILF_r(k) = \dfrac{\mathrm{E}[h(X;k)] + \lambda \mathrm{E}[h(X;k)^2]}{\mathrm{E}[h(X;b)] + \lambda \mathrm{E}[h(X;b)^2]}$<span style="color:red;background-color:yellow">Important Memorize</span>
 
 * $n \: \sim Poi(\theta)$
 * Risk charge $\propto$ Variance of loss based on factor $\lambda$
+* Loosen [assumption 1](#ILF-assumptions) of the ILFs by incorporating process risk
 
 $\mathrm{E}[h(X;k)] = \int_0^k G(x)dx$
 
@@ -265,9 +307,12 @@ $\begin{array}{ll}
 
 ***
 
+<span style="color:red;background-color:yellow">Many questions on this</span>
+
 Premium $= \mathrm{E}[Y] + \lambda \: Var(Y)$
 
 * Risk charge $\propto$ Variance of loss
+* Works with limited losses as well
 
 $\mathrm{E}[Y] = \mathrm{E}[n]\mathrm{E}[h(X)]$
 
@@ -281,7 +326,7 @@ $\begin{array}{lll}
 Premium $=\mathrm{E}[n]\left\{ \mathrm{E}[h(X)] + \lambda \mathrm{E}[h(x)^2] \right\}$
 
 ## Problems in Creating a Severity Distribution from Empirical Data
-<span style="color:red;background-color:yellow">Memorize Concept</span>
+<a name="problem-emp"></a><span style="color:red;background-color:yellow">Memorize Concept</span>
 
 1. Future development on claims
 2. Loss data from policies with different limits would bias the dist^n^
@@ -292,30 +337,28 @@ Solution:
 Fit a theoretical dist^n^
 <span style="color:red">B9 Mahler 3??</span>
 
-## Coninsurance Pricing for Property Insurance
+## 1-D Consistency Test for Property Coinsurance
+<a name="1-DCoin"></a>
 
-$\text{Premium} = \text{Coinsurance Req %} \times \dfrac{\text{Cov @ 100% Value}}{\text{Exposure Base}} \times \text{Coinsurance factor} \times \text{Rate / Exposure}$
+$\text{Premium} = \text{Coinsurance Req %} \times \dfrac{\text{Cov @ 100% Value}}{\text{Exposure Base}} \times \text{Coinsurance Factor} \times \text{Rate / Exposure}$
 
-### 1-D Consistency Test for Coinsurance
+***
 
-Can test either:
+**Test:**
 
-* Premium; or
-* $\text{Coinsurance Req %} \times \text{Coinsurance Factor}$
-
-$\dfrac{\Delta \text{Premium}}{\Delta \text{Coinsurance Req %}}$
+$\dfrac{\Delta \text{Premium}}{\Delta \text{Coinsurance Req %}}$ or $\dfrac{\Delta \left(\text{Coinsurance Req %} \times \text{Coinsurance Factor}\right)}{\Delta \text{Coinsurance Req %}}$
 
 * Should $\uparrow$ as Coinsurance Req % $\downarrow$
 
 ## 2-D Consistency Test for ILF
-
+<a name="2-DTest"></a>
 Use when there are 2 types of limits
 
 Apply separately for row and columns while holding one type constant
 
-Marginal rate /$1K coverage $\downarrow$ as limit $\uparrow$
+Marginal rate $1K coverage $\downarrow$ as limit $\uparrow$
 
-##Rosenberg's 2-D Consistency Test
+## Rosenberg's 2-D Consistency Test
 
 <span style="color:green">2013 Q5</span>
 
@@ -326,7 +369,7 @@ Occ limits: $O_1 < O_2$
 Agg limits: $A_1 < A_2$
 
 **Test**
-
+<a name="Rosenberg"></a>
 Fix the aggregate limits:
 
 $I(A_2,O_2) - I(A_1,O_2) \geq I(A_2,O_1) - I(A_1,O_1)$ 
@@ -336,3 +379,121 @@ Fix the occurrence limits:
 $I(A_2,O_2) - I(A_2,O_1) \geq I(A_1,O_2) - I(A_1,O_1)$ 
 
 ![alt text](figures/Exam 8 B1-7 - 15.png)
+
+## Cliff's Summary
+
+Severity Curves integration formula
+
+* Limit k:  
+$\mathrm{E}[h(X;k)] = \int_0^k G(x) \: dx = \int_0^k x \: dF(x) + k \: G(k)$
+* Limit L and deductible R:  
+$\mathrm{E}[h(X;R,L)] = \int_R^S x \: dF(x) + SG(S) - RG(R)$
+
+***
+
+Know all the ILF formulas
+
+* [Vanilla](#vanilla-ilf)
+
+* In layer
+
+* [Constant inflation](#inflate-ilf) ($x_1 = \alpha(x) = ax$):
+
+    * $\mathrm{E}[h(X_1;b)] = a\mathrm{E}[h(X;\frac{b}{a})]$
+
+    * $I_1(k) = \dfrac{I(\frac{k}{a})}{I(\frac{b}{a})}$
+    
+    
+* [Risk Adjusted](#risk-adj-ilf) for limit $k$
+
+    * $I_r(k) = \dfrac{\mathrm{E}[h(X;k)] + \lambda \mathrm{E}[h(X;k)^2]}{\mathrm{E}[h(X;b)] + \lambda \mathrm{E}[h(X;b)^2]}$
+    
+    * Loosen the assumption of same profit load for all limits
+
+Know the 3 [assumptions](#ILF-assumptions) for ILF
+
+Know the [properties](#ilf-prop) of ILF
+
+***
+
+Consistency Tests:
+
+* [1-D ILF](#1-DTest)
+* [2-D ILF](#2-DTest)
+* [1-D Coinsurance](#1-DCoin)
+* [2-D Rosenberg](#rosenberg)
+
+***
+
+[Reason](#layertrend) why trend in high layer is higher
+
+% Change in layer loss with trend $a$
+
+* $\dfrac{\mathrm{E}[h(X_1;R,L)]}{\mathrm{E}[h(X;R,L)]} = 
+\begin{cases}
+  \dfrac{a ILF(\frac{L}{a})}{ILF(L)} & \text{if } R = 0\\
+  & \\
+  \dfrac{a \left( \mathrm{E}[X] - \mathrm{E}\left[ h(X;\frac{R}{a}) \right] \right)}{\mathrm{E}[X] - \mathrm{E}[h(X;R)]} & \text{if } L = \infty\\
+  & \\
+  \dfrac{a \left[ ILF(\frac{S}{a}) - ILF(\frac{R}{a}) \right]}{ILF(S) - ILF(R)} & \text{else}\\
+\end{cases}$
+
+***
+
+
+Problems with [empirical severity](#problem-emp) dist^n^
+
+## Types of Exam Questions
+
+Consistency Test:
+
+* 2001 Q11 (1-D ILF)
+* 2002 Q41 (1-D Deductible)
+* 2003 Q13 (1-D ILF)
+* 2004 Q26 c (1-D ILF)
+* 2006 Q6 (1-D ILF)
+* 2007 Q10a (1-D ILF)
+* 2008 Q27ab (1-D ILF)
+* 2010 Q17 (1-D ILF + range of okay)
+* 2011 Q10a (1-D range of okay)
+* 2013 Q5 (2-D and Rosenberg)
+* 2014 Q7 $\star$ (1-D, more open ended, + explain if the premiums are sound)
+
+Policy @ different limits with ILFs
+
+* 2002 Q42 (vanilla ILF from XS Ratio)
+* 2003 Q37 (some arithmetic)
+* 2004 Q26 ab
+
+Risk Adjusted Calculations
+
+* 2001 Q37 $\star$ (Proof on those compound equations)
+* 2003 Q43 $\star$ (Need premium @ different limits)
+* 2005 Q23 
+* 2009 Q18
+* 2013 Q6 $\star$ (Same as 2003 Q43, ILF with premium, not compound poison)
+
+Concepts:
+
+* 2000 Q37 $\star$ (higher trend in XS layer)
+* 2002 Q43 $\star$ (Inflation impact graphically)
+* 2003 Q36 (Adverse selection)
+* 2007 Q10bc $\star$ (Consistency test implications)
+* 2008 Q27c (Why test fails)
+* 2009 Q24 (ILF with plot)
+* 2010 Q16 $\star$ (anti selection)
+* 2011 Q10b (Meaning of consistency test)
+* 2012 Q15b (Loss distribution tail impact on XS layer inflation)
+
+Inflation/trends:
+
+* 2004 Q5 (Inflation at XS layer give loss by claim and base inflation)
+* 2005 Q6 $\star$ (don't forget to inflate the base PP severity!)
+* 2005 Q10 $\star$ (impact of trend calc)
+* 2006 Q8 $\star$ (creative with trend and exposure growth)
+* 2007 Q7 $\star$ (ILFs with trends)
+* 2008 Q26 $\star$ (Inflation PP in layer)
+* 2009 Q17 a (Trended ILF, % increase in loss after trend)
+* 2011 Q11 $\star$ (Non constant trend)
+* 2012 Q15a (% increase after trend)
+* 2014 Q6 $\star$ (Plot and calculate inflation trend in layer with area)
