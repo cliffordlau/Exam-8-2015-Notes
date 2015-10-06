@@ -7,6 +7,8 @@ output:
     toc_depth: 4
 ---
 
+## Overview
+
 **Goal:**  
 Improve calculation of XS ratios
 
@@ -40,7 +42,7 @@ Develop $\Rightarrow$ Trend $\Rightarrow$ Benefits Level Adjustments $\Rightarro
 
 **Def^n^:**
 
-Mean Residual Life = $e(x) = \dfrac{\text{ \$ XS of }x}{\text{# of Accidents XS of }x}$ = XS severity function
+Mean Residual Life = $e(x) = \dfrac{\text{ Dollar XS of }x}{\text{# of Accidents XS of }x}$ = XS severity function
 
 ***
 
@@ -56,11 +58,12 @@ Step 5 - 7 adjustments:
 
 5. Combine data for 3rd to 5th reports
 6. Truncate and shift data @ $100K
-7. Normalize output from 2. for each HG to have mean = 1
+7. Normalize output from 6. for each HG to have mean = 1
     * Converts the data to entry ratios
 
 ## Step 6: Truncate and shift
 
+<a name="truncateconsiderations"></a>
 Selection of truncation point for using adjusted actual data vs curve fit:
 
 * Use as much actual data as possible where it is credible while,
@@ -113,10 +116,11 @@ $f_y(y) =
 
 Graphically:
 
-![alt text](figures/Exam 8 B8 - 9 - 4.png)
+![alt text](figures/Exam 8 B8 - 15 - 4.png)
 
 ## Step 8: Fitting Curve
 
+<a name="fitting"></a>
 Mixed dist^n^ $p$ for Pareto and $1-p$ for Exponential
 
 * Fit a single curve for all HG data combined
@@ -127,16 +131,18 @@ Reasons for fitting mixed Pareto & Exponential:
 1. Exponential fits well with limits 100K to 500K
 2. Pareto fits well for the tail > 500K
 
-Features and advantages of using mixed dist^n^:
+**Features and advantages of using mixed dist^n^:**
 
 * Relies on actual data for low limits
     * Avoid fitting to small accidents
     * Large amount of credible data
+* Curve fitted ratios are used for higher layers, where actual experience may not be credible
 * Group claims in the accidents
     * Fit combined data regardless of the injury
 * Avoids arbitrary division of claims between injury type
 * Pareto-Exp assigns most weight to short tailed exponential
 * Long tailed Pareto models the extreme tail
+* The mixed pareto-exponential curve is structured so that it smoothly joins the experience curves at the cutoff point, yielding a result that is consistent
 
 ***
 
@@ -144,7 +150,7 @@ XS Ratio from $j$ dist^n^:
 
 $R(L) = \dfrac{\sum_j p_j \mathrm{E}_j[X] R_j(L)}{\sum_j p_j \mathrm{E}_j[X]}$<span style="color:red;background-color:yellow">Know Memorize</span>
 
-* Weighted average of $R_j(L)$ with weight $R(L) = \dfrac{p_j \mathrm{E}_j[X]}{ \sum_j p_j \mathrm{E}_j[X]}$
+* Weighted average of $R_j(L)$ with weight $\dfrac{p_j \mathrm{E}_j[X]}{ \sum_j p_j \mathrm{E}_j[X]}$
 * Very similar to the XS Ratio by segment formula in B8, except this has $p_j$
 
 ***
@@ -152,3 +158,53 @@ $R(L) = \dfrac{\sum_j p_j \mathrm{E}_j[X] R_j(L)}{\sum_j p_j \mathrm{E}_j[X]}$<s
 Recall Step 7 converts data to entry ratios by normalizing to mean = 1
 
 * $r_{HG}(L) = \dfrac{L - \$100,000}{\text{Average size of loss truncated and shifted to \$100,000 for HG}}$
+
+## Cliff's Summary
+
+Overall procedure:
+
+1. Initial data adjustments
+2. Mean residual life exploratory analysis
+3. Pre fit adjustments
+
+Truncate and shift data
+
+* $R(L) = R_Y(L-T) \times R(T)$
+* $Y = X - T$
+* $T$ is the truncate point that's less than $L$
+* [Considerations](#truncateconsiderations) when truncate
+
+Curve fitting between pareto and exponential
+
+* [Reasons, features and advantages](#fitting)
+* 1 curve for all HGs
+* Fit to normalized data (entry ratios), pretty much always the case
+
+XS Ratio from $j$ dist^n^:
+
+* $R(L) = \dfrac{\sum_j p_j \mathrm{E}_j[X] R_j(L)}{\sum_j p_j \mathrm{E}_j[X]}$
+
+Fitted distribution you always plug in the entry ratio below:
+
+* $r_{HG}(L) = \dfrac{L - \$100,000}{\text{Average size of loss truncated and shifted to \$100,000 for HG}}$
+
+## Types of Exam Questions  
+<span style="color:green">Questions a bit thin but seems to cover all</span>
+
+Truncate and shift and fit to curve
+
+* 2008 Q34 $\star$ (with curve fit, basically everything)
+* 2009 Q33a (same as above)
+* 2010 Q30a $\star$ (XS ratio from discrete distribution)
+* 2012 Q17a (same as 08 and 09)
+* 2014 Q14 $\star\star$ (Price XS policy with the XS Ratio)
+
+Concepts
+
+* 2009 Q33b (considerations when truncate)
+* 2010 Q30b (initial data adjustments)
+* 2011 Q24 (overall approach)
+* 2012 Q17bc (3 advantages, why same curve for all HGs)
+* 2013 Q17 (truncate point selection; Alternative curves)
+    * Just heavier tail, which would result in overstating the XS for limits just above the truncation point
+    * Less heavy tail, the XS ratios would be lower for the largest limits compared to the mixed Exponential-Pareto
