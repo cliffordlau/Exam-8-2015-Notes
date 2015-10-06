@@ -9,22 +9,24 @@ output:
 
 Purpose of the paper is to examine the impact of dispersion of LDFs on XS ratios
 
-##2 Development Concerns that Impact XS Ratios
+## 2 Development Concerns that Impact XS Ratios
 
+<a name="development"></a>
 1. Different size of claims may have different development pattern
 2. **Dispersion Effect**: Losses of the same size might develop differently
 
 ## XS Ratio Formula
-
+<a name="vanillaxsratio"></a>
 $\text{XS Ratio at limit } L = R(L) = \dfrac{\int_L^{\infty} (x - L) \: f(x)dx}{\int_0^{\infty} x \: f(x) dx} = \dfrac{\int_L^{\infty}G(x)dx}{\mathrm{E}[X]} = \dfrac{\mathrm{E}[X] - \mathrm{E}[X;L]}{\mathrm{E}[L]}$ <span style="color:red;background-color:yellow">Know</span>
 
 Graphical representation of the XS ratio:
 
-![alt text](figures/Exam 8 B8 - 1.png)
+![alt text](figures/Exam 8 B8 - 15 - 1.png)
 
 ## XS Ratio in Segments
 
 You can break the above formula into segments and $R(L)$ can be written as weighted average of XS ratio $R_i(L)$ with weights $\dfrac{\mathrm{E}_i[X]}{\mathrm{E}[X]}$:
+<a name="segmentxsratio"></a>
 
 $R(L) = \dfrac{\sum\limits_i R_i(L) \mathrm{E}_i[X]}{\sum\limits_i\mathrm{E}_i[X]} = \sum\limits_i R_i(L) \dfrac{\mathrm{E}_i[X]}{\mathrm{E}[X]}$ <span style="color:red;background-color:yellow">Know Formula</span>
 
@@ -34,7 +36,7 @@ $R(L) = \dfrac{\sum\limits_i R_i(L) \mathrm{E}_i[X]}{\sum\limits_i\mathrm{E}_i[X
 
 Graphical representation of the XS ratio in segments:
 
-![alt text](figures/Exam 8 B8 - 2.png)
+![alt text](figures/Exam 8 B8 - 15 - 2.png)
 
 Breaking it down into segments is beneficial in terms of visualizing it as well as when the severity curve have different distributions in different part of the curve
 
@@ -51,7 +53,7 @@ $R(20) = \dfrac{R_1(20) \times \mathrm{E}_1[20] + R_2(20) \times \mathrm{E}_2[20
 
 Where $\text{Segment 1} \in (0, 15)$, $\text{Segment 2} \in (15, 20)$, $\text{Segment 3} \in (20, 35)$
 
-![alt text](figures/Exam 8 B8 - 3.png)
+![alt text](figures/Exam 8 B8 - 15 - 3.png)
 
 $R(20) = \dfrac{0 \times \mathrm{E}_1[20] + 0 \times \mathrm{E}_2[20] +R_3(20) \times \mathrm{E}_3[20]}{\sum_{i=1}^3\mathrm{E}_i[20]}$
 
@@ -59,6 +61,7 @@ Since the first 2 segments doesn't have area > 20
 
 ## Simple (Discrete) Dispresion
 
+<a name="dispersionassumptions"></a>
 **Assumptions/Definitions:**
 
 1. Finite number of possible LDFs
@@ -86,6 +89,7 @@ $\widehat{R}(L) = \dfrac{\sum\limits_i p_i r_i R(\frac{L}{r_i})}{\sum\limits_i p
 
 <span style="color:red">Hard to test actual calculation</span>
 
+<a name="gendispersionassumptions"></a>
 **Assumptions/Definitions:**
 
 1. $F(X \leq x) = D(x)$
@@ -97,11 +101,73 @@ $F(y) = \int_0^{\infty} D \left( \frac{y}{r} \right) \: h(r)dr$
 
 If $X \sim Exp(\theta)$ and $\frac{1}{r} \sim Gamma(\alpha, \beta)$ $\Rightarrow$ $X_1 \sim Pareto(\alpha, x_m)$
 
-Can use piece-wise linear dist^n^ ($interval_i \sim \mathcal{U}(a,b) \forall i$) to estimate a dist^b^ in pieces, then weight those pieces together to produce XS ratios
+Can use piece-wise linear dist^n^ ($interval_i \sim \mathcal{U}(a,b) \: \forall i$) to estimate a dist^b^ in pieces, then weight those pieces together to produce XS ratios
 
 Dispersion $\uparrow$ when:
 
 * $\frac{1}{r}$ dist^n^ has heavy tail (True for $r$ as well)
 * c.v. of $\frac{1}{r}$ $\uparrow$ (True for $r$ as well)
 
+As the shape parameter of the undeveloped loss distribution gets larger, the undeveloped loss distribution will have a smaller tail and less variance. That means the excess ratios based on th eundeveloped loss distribution will be smaller. As a result, dispersion will have a larger percentage impact on the excess ratios
+
 $\uparrow$ dispersion $\Rightarrow$ $\uparrow$ XS ratios
+
+## Cliff's Summary
+
+Know the XS Ratio formula
+
+* [Vanilla](#vanillaxsratio)
+
+* In [segments](#segmentxsratio)
+
+    * $R(L) = \dfrac{\sum\limits_i R_i(L) \mathrm{E}_i[X]}{\sum\limits_i\mathrm{E}_i[X]} = \sum\limits_i R_i(L) \dfrac{\mathrm{E}_i[X]}{\mathrm{E}[X]}$
+    
+* Lots of time need to calculate for uniform distribution
+
+***
+
+Simple dispersion [assumptions](#dispersionassumptions)
+
+Reasons [development assumption](#development) may be too simplistic
+
+XS Ratio of developed losses with dispersion:
+
+* $\widehat{R}(L) = \dfrac{\sum\limits_i p_i r_i R(\frac{L}{r_i})}{\sum\limits_i p_i r_i}$
+
+* Maybe know the proof of this
+
+***
+
+General dispersion
+
+* [assumptions](#gendispersionassumptions)
+* When does dispersion $\uparrow$
+
+Impact of shape parameters
+
+## Types of Exam Questions  
+<span style="color:green">Questions a bit thin</span>
+
+XS Ratio w/o dispersion
+
+* 2008 Q20 a
+* 2009 Q19 a (Same as prior)
+* 2012 Q12 a (undeveloped = w/o dispersion)
+* 2013 Q7 a
+
+XS Ratio with simple dispersion
+
+* 2008 Q20 b
+* 2009 Q19 b (Same as prior)
+* 2012 Q12 b
+* 2012 Q12 c $\star$ (unif development factors -> look at cv)
+* 2013 Q7 b
+
+Concepts
+
+* 2008 Q20 cd (Dispersion impact on XS ratio; longer tail distribution)
+* 2009 Q19 cd (Same as prior)
+* 2010 Q18 a (development concerns)
+* 2010 Q18 b $\star$ (shape parameter)
+* 2010 Q18 c (cv impact)
+* 2013 Q7 c (impact of dispersion on XS ratios)
