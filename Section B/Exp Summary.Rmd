@@ -17,7 +17,7 @@ Experience rating [goals](#expratinggoal)
 
 [Plan parameters](#plan-para)
 
-Know the 3 tests:
+Know the 3 tests + 1 criteria:
 
 * [Dorweiler](#Dorweiler)
     * Sort $\rightarrow$ group $\rightarrow$ subdivision
@@ -26,6 +26,27 @@ Know the 3 tests:
     * Sort $\rightarrow$ group $\rightarrow$ 5 quintiles
 * [Efficiency](#Efficiency)
     * No sort no group
+* [Dorweiler's Criterion](#Dorcriteria)
+* Quintiles and efficiency can only be used when comparing 2 or more plans
+
+### Venter
+
+Rationales for split plans and various NCCI modifications
+
+Mostly Dorweiler test
+
+All different iterations of the NCCI plans
+
+* All the changes and purpose
+* Assumptions on the $B$ and $K$
+
+Purpose of experience rating
+
+### Gillam & Snader 1
+
+General [credibility properties](#credibilityprop)
+
+General credibility formula explanation
 
 ## Types of Exam Questions
 
@@ -51,7 +72,9 @@ Off-balance
 * 2010 Q22
 * 2011 Q13 $\star$ (Don't forget the non experience rated class)
 * 2013 Q10 $\star$ (Detailed explainations)
-* 2013 Q11 $\star$ 
+* 2013 Q11 $\star$
+* 2005 Q26c (grouped under Gilliam)
+* 2012 Q16
 
 Tests:
 
@@ -67,6 +90,45 @@ Concepts:
 * 2001 Q5 (purpose, ELR Dratios, )
 * 2009 Q20 (purpose of Exp rating, VHM and credibility)
 * 2011 Q16 a (Dorweiler's condition)
+
+### Venter
+
+Dorweiler's Test
+
+* 2000 Q1
+* 2004 Q16 (explain idea scenario)
+* 2004 Q39 (look at trend or s.d. of LR)
+* 2005 Q26 $\star$ (identify, trend)
+* 2007 Q26
+* 2012 Q16 $\star$ (Calculate from scratch)
+* 2013 Q9 $\star\star$ (Calculate mod then test; how to improve)
+
+Concepts
+
+* 2000 Q3 (1991 Change, split plan advantage)
+* 2001 Q6 (goals of exp rating)
+* 2001 Q26 $\star$ (All historical and current NCCI plans)
+* 2002 Q31 $\star\star$ (How to test one of the NCCI plan changes)
+* 2004 Q40 $\star$ (Problem with no split)
+* 2005 Q29 (Problem with no split)
+* 2006 Q27 $\star$ (Goal of exp reating and judge)
+* 2010 Q19 $\star$ (NCCI split plan, full cred conflict with goal)
+* 2012 Q11 $\star$ (Talk about rating principle! Use goal to defend)
+* 2012 Q16 $\star$ (Mod stigma)
+* 2014 Q11 $\star$ ($B \: K$ related)
+
+### Gillam & Snader 1
+
+Plug and play
+
+* 2000 Q4 (standard single split formula)
+
+Concepts:
+
+* 2000 Q40 $\star$ (Considtion for credility and then test if satisfy)
+* 2000 Q43 (Change from multi split to single split from 61 to 91)
+* 2003 Q28 $\star$ (Explain credibility formula in words; Z limits)
+* 2011 Q15 $\star$ (Explain single split plan)
 
 ## Must Know Formulas
 

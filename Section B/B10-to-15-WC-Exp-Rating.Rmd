@@ -28,6 +28,8 @@ Credibility of actual loss experience depends on:
 * $\sigma$ between the loss experience of risks within a classification
     * Experience rating is more useful when the class plan doesn't sufficiently explain $\sigma$ in loss experience between risks
     
+***
+
 Experience modification is a prospective measure only
 
 <span style="color:green">2003 Q6</span> Experience rating will attempt to equalize standard loss ratios across all risks, which will implicitly attempt to equalize standard loss ratios across classes. However, since it isn’t looking segmenting by classes directly, it will only be a partial correction
@@ -48,9 +50,13 @@ Increase availability of insurance since experience rating helps guarantee an eq
 
 **Balance between 1. and 2.** since 2. will charge for all losses while 1. will only charge for non-random prior losses that are predictive of future loss potential
 
+***
+
+<span style="color:green">2012 Q11</span> The main goal of experience rating is individual risk equity. Experience rating recognizes that each risk has a different loss potential, so by modifying rates appropriately, the expected profit potential for each risk can be made equal. This ensures that equity is achieved and rates are not unfairly discriminatory. Otherwise, risks with lower loss potential within the class would subsidize other higher loss potential risks
+
 ## Types of Experience Rating Plans
 
-Maximize predictive accuracy $\Rightarrow$ Minimize between predicted and actual losses
+Maximize predictive accuracy $\Rightarrow$ Minimize error between predicted and actual losses
 
 Use $\mathrm{E}[error^2]$ since it's solvable and penalizes large errors
 
@@ -64,11 +70,19 @@ No subdivision of losses
 
 $\begin{array}{llll}
   Mod &= \dfrac{\text{Modified Expected Losses}}{\text{Expected Losses}} &= \dfrac{ZA + (1-Z)E}{E} & \cdots (1) \\
-  & &= 1 + Z \left( \dfrac{A - E}{E} \right) \\
+  & &= 1 + Z \left( \dfrac{A - E}{E} \right) & \cdots (2)\\
   & &= \dfrac{A + K_E}{E + K_E} \\
 \end{array}$
 
 * **Credibility**: $Z = \dfrac{E}{E + K_E}$
+
+* For formula $(2)$
+    
+    * 1 represents the manual rate
+    
+    * $(A-E)$ is the charge/credit for experience
+    
+    * $\frac{Z}{E}$ moderates the effect of any single large claims
 
 ***
 
@@ -94,13 +108,19 @@ $K_E$ could be:
 * $f(E)$; or
 * Manually picked for desired responsiveness (NCCI)
 
-Condition for $K_E$
+Condition for $K_E$ (By relation for $Z$)
+
+<a name="credibilityprop"></a>
 
 1. $0 \leq Z \leq 1$
+    
+    * The credibility should be between zero and one
 
 2. $\frac{d}{dE}(Z) \geq 0$
 
     * Size of risk $\uparrow$ $\Rightarrow$ $Z$ can't go down
+    
+    * The credibility should be increasing as a function of size
 
 3. $\frac{d}{dE}\left(\frac{Z}{E}\right) < 0$
 
@@ -109,6 +129,10 @@ Condition for $K_E$
     * $Z$ can't $\uparrow$ faster than the size $\uparrow$
     
     * $\neq$ $Z$ increase at a decreasing rate
+    
+    * As the size of risk increases, the percentage charge for a loss of a given size decreases
+
+$E$ represents the size of risk
 
 ![alt text](figures/Exam 8 B8 - 15 - 5.png)
 
@@ -146,6 +170,8 @@ Subdivision losses into *primary* and *XS* components and $\mathrm{E}[error^2]$ 
 **XS:**
 
 * Reflects claim severity
+* Losses are typcially capped to prevent large losses that are not predictive of future losses from having too big of an impact on the insured’s premium
+    * e.g. the SAL in the NCCI plan
 
 ***
 
@@ -272,15 +298,13 @@ $A_p =
   
 $A_e = \hat{A} - A_p$
 
-Reason for change:  
+**Reason for change:**  
 Too much credibility given to large risk and not enough for small risk $\Rightarrow$ <10K and >100K became preferred business
 
-Theoretically:
-
+**Theoretically:**  
 $B$, $K$ being constant assume that larger insureds are more stable than smaller insureds, and thus the variance of standard loss ratios should be inversely $\propto$ to risk size
 
-Reality:
-
+**Reality:**  
 Variance did not decrease that quickly
 
 **Impact:**<span style="color:red;background-color:yellow">Important Memorize</span>
@@ -296,6 +320,12 @@ Variance did not decrease that quickly
 For large risk, $\because$ $Z_e \: \downarrow \: > Z_p \: \downarrow \: \Rightarrow$ Effectively gave primary losses more weight for large risks
 
 New plan performed better for small and large risks, and performed equally well for medium sized risks based on quintiles test
+
+***
+
+<span style="color:green">2005 Q25</span> B and K being constant would assume that larger insureds are more stable than smaller insureds, and thus the variance of the standard loss ratio should be inversely proportional to risk size. Empirical studies have shown that variance does not decrease this quickly. As such, if B and K were constant, too much credibility would be given to large risks and not enough credibility would be given to small risks.
+
+<span style="color:green">2010 Q19d</span> Giving full credibility to loss experience conflicts with the goal of individual risk equity, which is to charge insureds for their true loss potential. Giving full credibility to an insured’s loss experience would penalize the insured for having random losses that do not reflect their true expected loss
 
 ### 1998 Change
 <span style="color:red">Not in 2015 syllabus Concepts</span>
@@ -314,7 +344,9 @@ Main challenge: Determining the proper $Z$ to give to prior losses
 
 Correct $Z$ $\Rightarrow$ maximizing predictive accuracy of plan
 
-**Dorweiler's 2 conditions for correct credibility:**<span style="color:red;background-color:yellow">Know</span>
+### Dorweiler's 2 conditions for correct credibility
+<a name="Dorcriteria"></a>
+<span style="color:red;background-color:yellow">Know</span>
 
 1. Necessary: $PLR_i = PLR_j \forall \: i,j$ credit and debit risks in prospective period (each random subgroup as well)
 2. Sufficient: $\nexists \: \subset$ risks with $PLR_i \neq PLR_j$ in prospective period
@@ -323,9 +355,6 @@ Correct $Z$ $\Rightarrow$ maximizing predictive accuracy of plan
 
 ### Test 1: Dorweiler's Test
 
-<a name="Dorweiler"></a>
-<span style="color:green">2006 Q23, 2013 Q8</span>
-
 **Setup:**
 
 1. **Sort** risks by **mods** in **increasing** order
@@ -333,14 +362,14 @@ Correct $Z$ $\Rightarrow$ maximizing predictive accuracy of plan
 3. For each subdivisions: calculate **manual** and **standard** LR using weighted averages by respective premium (w/ actual loss) <span style="color:red;background-color:yellow">Not super sure what to weight</span> 
     * If no premium: Manual LR $\Rightarrow$ Use $\dfrac{Loss_{Actual}}{Loss_{Expected}}$; Standard LR $\Rightarrow$ Use $\dfrac{Loss_{Actual}}{Loss_{Modified Expected}}$
 
-**For plan performing ideally:**
+**For plan performing ideally:**<span style="color:red;background-color:yellow">Know Concepts</span> 
 
 * **Max dispersion** in manual LRs (**Identifies**)
     * Plan is good at identifying risk difference
 * **Equal** standard LRs (**Corrects**)
     * Shows plan corrects for risk difference
 * Same as Venter's convergence test
-* If there's increasing trend in Standard LR $\Rightarrow$ Too little credibility is applied; Vice versa
+* If there's $\uparrow$ trend in Standard LR (as mod $\uparrow$) $\Rightarrow$ Too little credibility (not responsive enough) is applied; Vice versa
 
 ### Test 2: Gillam's Quintiles Test
 
@@ -683,6 +712,8 @@ $ELR_i = (\text{Manual Rate}_i) \times (\text{ELR level factor}_i) \times (\text
 ***Step 3. Check the ELRs for reasonability***
 
 Not in syllabus
+
+<span style="color=red;background-color=yellow">?Question?</span> Use the value of E in the NCCI tables to find the values for W and B. (from 2011 Q15)
 
 #### $D_i$ D-ratios by Class  
 <span style="color:red">Calculation not in syllabus</span>
