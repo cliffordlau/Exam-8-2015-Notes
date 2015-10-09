@@ -1103,7 +1103,7 @@ Calculate insurance charge/savings
 * 2008 Q32 $\star\star$ (Table L with different SP risk)
     * Use dollar amount or Tbl L with premium (instead of risk)
     * Should understand this
-    
+
 ## Must Know Formulas
 
 ### NCCI 2

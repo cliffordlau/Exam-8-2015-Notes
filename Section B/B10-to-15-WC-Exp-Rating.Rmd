@@ -28,11 +28,17 @@ Credibility of actual loss experience depends on:
 * $\sigma$ between the loss experience of risks within a classification
     * Experience rating is more useful when the class plan doesn't sufficiently explain $\sigma$ in loss experience between risks
     
+Experience modification is a prospective measure only
+
+<span style="color:green">2003 Q6</span> Experience rating will attempt to equalize standard loss ratios across all risks, which will implicitly attempt to equalize standard loss ratios across classes. However, since it isn’t looking segmenting by classes directly, it will only be a partial correction
+
 ## Goals of Experience Ratings
 <span style="color:red;background-color:yellow">Important Concepts</span>
+<a name="expratinggoal"></a>
 
 1. **Predictive accuracy** $\Rightarrow$ Individual risk equity  
 Degree of charge based on past experience should be the degree to which it is predictive of future losses $\Rightarrow$ Insureds charged more closely relates to their loss potential $\Rightarrow$ Ensures equity, rates not unfairly discriminatory
+    * Individual rate equity means charging risks a rate that is commensurate with their loss exposure
 
 2. **Safety incentive**  
 Give insured financial incentive for loss control
@@ -80,7 +86,7 @@ $Mod = (1 - Z) + Z \dfrac{P}{E} \times \dfrac{A}{P}$
 
 ***
 
-####$K_E$: Credibility Constant
+#### $K_E$: Credibility Constant
 
 $K_E$ could be:
 
@@ -308,7 +314,7 @@ Main challenge: Determining the proper $Z$ to give to prior losses
 
 Correct $Z$ $\Rightarrow$ maximizing predictive accuracy of plan
 
-Dorweiler's 2 conditions for correct credibility:
+**Dorweiler's 2 conditions for correct credibility:**<span style="color:red;background-color:yellow">Know</span>
 
 1. Necessary: $PLR_i = PLR_j \forall \: i,j$ credit and debit risks in prospective period (each random subgroup as well)
 2. Sufficient: $\nexists \: \subset$ risks with $PLR_i \neq PLR_j$ in prospective period
@@ -317,34 +323,37 @@ Dorweiler's 2 conditions for correct credibility:
 
 ### Test 1: Dorweiler's Test
 
+<a name="Dorweiler"></a>
 <span style="color:green">2006 Q23, 2013 Q8</span>
 
 **Setup:**
 
-1. *Sort* risks by *mods* in *increasing* order
-2. *Group* into subdivisions
-3. For each subdivisions: calculate *manual* and *standard* LR using weighted averages by respective premium (w/ actual loss) <span style="color:red;background-color:yellow">Not super sure what to weight</span> 
+1. **Sort** risks by **mods** in **increasing** order
+2. **Group** into subdivisions
+3. For each subdivisions: calculate **manual** and **standard** LR using weighted averages by respective premium (w/ actual loss) <span style="color:red;background-color:yellow">Not super sure what to weight</span> 
     * If no premium: Manual LR $\Rightarrow$ Use $\dfrac{Loss_{Actual}}{Loss_{Expected}}$; Standard LR $\Rightarrow$ Use $\dfrac{Loss_{Actual}}{Loss_{Modified Expected}}$
 
 **For plan performing ideally:**
 
-* Max dispersion in manual LRs (Identifies)
+* **Max dispersion** in manual LRs (**Identifies**)
     * Plan is good at identifying risk difference
-* Equal standard LRs (Corrects)
+* **Equal** standard LRs (**Corrects**)
     * Shows plan corrects for risk difference
 * Same as Venter's convergence test
 * If there's increasing trend in Standard LR $\Rightarrow$ Too little credibility is applied; Vice versa
 
 ### Test 2: Gillam's Quintiles Test
 
+<a name="Quintiles"></a>
 Only for comparing 2 or more plans
 
 **Setup:**
 
-1. *Sort* risks by *mod* in *increasin* order
-2. *Group* into **5 quintiles**
+1. **Sort** risks by **mod** in **increasin** order
+2. **Group** into **5 quintiles**
 3. For each quintiles: calculate *manual* and *standard* LR using weighted averages by manual premium
 4. *Quintiles test statistics:* $\dfrac{\sigma^2(Standard \:  LR)}{\sigma^2(Manual \: LR)}$
+    * Uses $n$ in the denominator for the variance?
 
 **For plan performing ideally:**
 
@@ -352,6 +361,7 @@ Low test statistics
 
 ### Test 3: Efficiency Test
 
+<a name="Efficiency"></a>
 Only for comparing 2 or more plans
 
 **Setup:**
@@ -540,6 +550,7 @@ Expected primary % of expected loss $\dfrac{\mathrm{E}[L_{Primary}]}{\mathrm{E}[
 Note: Might not need to know how to calculate ELR and D-ratios. But know all the adjustments made to get the ELRs from the class rate (PLR Adj, time frames, limiting loss)
 
 ### Plan Parameters
+<a name="plan-para"></a>
 
 ![alt text](figures/Exam 8 B8 - 15 - 6.png)
 
@@ -625,7 +636,9 @@ $E_p = \sum\limits_{i \in class} D_i \times E_i$
 
 $E_e = E - E_p$
 
-####$ELR_i$ Expected Loss Ratio by Class: 
+ELRs and D-Ratios are calculated at the same time and using the same data as the filed rates
+
+#### $ELR_i$ Expected Loss Ratio by Class: 
 
 ***Step 0. Starting Point***
 
@@ -671,7 +684,7 @@ $ELR_i = (\text{Manual Rate}_i) \times (\text{ELR level factor}_i) \times (\text
 
 Not in syllabus
 
-####$D_i$ D-ratios by Class  
+#### $D_i$ D-ratios by Class  
 <span style="color:red">Calculation not in syllabus</span>
 
 Portion of loss that will be primary
@@ -697,6 +710,7 @@ Rate level vs premium level:
 * Premium level: includes all the above
     * Premium level can $\Delta$ due to $\Delta$ in any one of the above factors without rate level $\Delta$
 
+<a name="off-balance"></a>
 $\begin{array}
   \text{Off-Balance} &= \dfrac{\text{Standard Premium}}{\text{Manual Premium}} \\
   &= \text{weighted average experience mod across all risks} \\
@@ -711,6 +725,8 @@ If ELRs and D-ratios adequate:
 Off-balance is not used to change the overall premium adequacy
 
 * Varies by state, usually within $\pm$ 1-2 points of 1.00
+
+If the off-balance isn't changing, it has no impact on the needed premium level change
 
 **Off-balance mismatch:**  
 <span style="color:green">2013</span>
@@ -729,7 +745,14 @@ Off-balance is not used to change the overall premium adequacy
     4. ELR used to get the $\mathrm{E}[L]$ in the Exp rating formula is based on manual rates $\Rightarrow$ $\mathrm{E}[L]$ in the mod formula $\uparrow$
     5. Mod formulas now compare actual losses vs higher $\mathrm{E}[L] $\Rightarrow$ Mod for individual risk start coming down $\Rightarrow$ Average mod $\downarrow$ (off-balance)
     6. Mods $\downarrow$ %\Rightarrow$ Premium collected $\downarrow$ $\Rightarrow$ Premium inadequate
-  
+
+From [TIA](http://www.theinfiniteactuary.com/mb/viewtopic.php?f=17592&t=23387&sid=1cf6ce84b3b9097eb43584801adb56de)
+
+* Indicated rate change factor = Actual Loss Ratio / Target Loss Ratio
+* Where Actual Loss Ratio = Actual Losses / Final Premium and the Final Premium includes experience mods (i.e., the off-balance), among other things
+* So as long as final premium doesn't change, the rate indication doesn't change (all else being equal). However, when the off-balance changes, the final premium will change, and thus the indication will change
+* Looking at this from the opposite direction, after a rate change, the off-balance changes (since the expected losses in the experience mod formula are based on current rates). The changing off-balance causes the final premium to change yet again, which alters the rate indication.
+
 ## Using the NCCI Experience Rating Plan Manual  
 <span style="color:green">2002 Q33, 2009 Q25</span>
 
