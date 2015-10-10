@@ -64,6 +64,8 @@ Linearity constraint: E-mod has to be a linear function of losses
 
 * Simplify math and make them more understandable
 
+<span style="color:green">2014 Q9</span> NCCI uses loss only (no ALAE)
+
 ### No-split Plans
 
 No subdivision of losses
@@ -184,6 +186,15 @@ $\begin{array}{llccc}
 \end{array}$
 
 * $Z_p = \dfrac{E}{E + K_p}; Z_e = \dfrac{E}{E + K_e}$
+
+***
+
+**Loss free mod formula:**
+
+$\begin{array}{lccc}
+  Mod &= &\frac{1}{E}[Z_p A_p + Z_e A_e] &+ &\frac{1}{E}[ (1-Z_p)E_p + (1-Z_e)E_e] \\
+  Mod &= &\frac{1}{E}[Z_p A_p + Z_e A_e] &+ &\text{loss-free mod} \\
+\end{array}$
 
 ***
 
@@ -333,6 +344,7 @@ New plan performed better for small and large risks, and performed equally well 
 1. $\downarrow$ $Z$ on Med-only by about 70%
     * Disincentivize not reporting med-only claims
     * Lowered ELRs and D-ratios to maintain balance
+    * In practice it's split into primary and excess first then only use 30% <span style="color:green">2002 Q33</span>
 2. $\uparrow$ $Z_e$ as premium $\uparrow$
     * Promote safety incentive
 3. Inflation sensitive split point
@@ -581,7 +593,13 @@ Note: Might not need to know how to calculate ELR and D-ratios. But know all the
 ### Plan Parameters
 <a name="plan-para"></a>
 
+#### Calculation Based Process Map
+
 ![alt text](figures/Exam 8 B8 - 15 - 6.png)
+
+#### Lookup Based Process Map
+
+![alt text](figures/Exam 8 B8 - 15 - 8.png)
 
 #### Trended State Average Cost per Claim SACC
 
@@ -814,6 +832,12 @@ Rules for different loss limits to apply to actual losses
 
 Per claim accident limitation = $SAL$
 
+Application is different depending whether it exceed the multi and single limit
+
+* There are single and multiple claims limit
+
+* The dollar amounts limit is under ther weighting values table
+
 ### Rule 2.D.1.  
 <span style="color:red;background-color:yellow">Important</span>
 
@@ -855,7 +879,7 @@ Rating effective dates for multiple policy risks with different effective dates
 **Rule 3.**  
 <span style="color:green">2001 Q25</span>
 
-Ownership changes and combination of entities
+Ownership changes and combination of entities when they share common majority ownership
 
 **Rule 4.B.1-3**
 
@@ -864,3 +888,210 @@ Corrections for payroll, losses of classifications can result in revised mods
 **Rule 4.C.**
 
 Definitions for preliminary, final, and contingent mod
+
+## Cliff's Summary
+
+### Gillam
+
+[Off-balance](#off-balance)
+
+Experience rating [goals](#expratinggoal)
+
+[Plan parameters](#plan-para)
+
+Know the 3 tests + 1 criteria:
+
+* [Dorweiler](#Dorweiler)
+    * Sort $\rightarrow$ group $\rightarrow$ subdivision
+    * Know the reasonings and meaning of trendings
+* [Quintiles](#Quintiles)
+    * Sort $\rightarrow$ group $\rightarrow$ 5 quintiles
+* [Efficiency](#Efficiency)
+    * No sort no group
+* [Dorweiler's Criterion](#Dorcriteria)
+* Quintiles and efficiency can only be used when comparing 2 or more plans
+
+### Venter
+
+Rationales for split plans and various NCCI modifications
+
+Mostly Dorweiler test
+
+All different iterations of the NCCI plans
+
+* All the changes and purpose
+* Assumptions on the $B$ and $K$
+
+Purpose of experience rating
+
+### Gillam & Snader 1
+
+General [credibility properties](#credibilityprop)
+
+General credibility formula explanation
+
+### NCCI 1
+
+Using the NCCI table and everything related
+
+* Get $A_p$ and $A_e$, know what dates are covered
+* Look up per claim, multiple claim
+    * Also have a disease loss but limit is for PY
+* Make sure we use the 2011 table (there's a 2010)
+* Know the process of geting each [parameters](#plan-para)
+* Qualification of Exp Mod (2.A.2.)
+
+Experience vs Schedule
+
+How the formula stabilize the exp rating
+
+* Various limits
+* More weight for larger risk
+
+## Types of Exam Questions
+
+### Gillam
+
+Plan Parameters
+
+* 2002 Q32 $\star$ (SRP, G)
+* 2006 Q25 $\star$ (SRP and definition)
+
+Off-balance
+
+* 2000 Q41
+* 2001 Q28 
+* 2002 Q10 (reasons off-balance < 1)
+* 2003 Q6
+* 2004 Q15
+* 2004 Q42 (Explainations of off balance)
+* 2006 Q26 $\star$ (calculate, explain)
+* 2007 Q29 $\star$ (c is talking about steady state)
+* 2008 Q22
+* 2009 Q25
+* 2010 Q22
+* 2011 Q13 $\star$ (Don't forget the non experience rated class)
+* 2013 Q10 $\star$ (Detailed explainations)
+* 2013 Q11 $\star$
+* 2005 Q26c (grouped under Gilliam)
+* 2012 Q16
+
+Tests:
+
+* 2003 Q26 $\star$ (Efficiency, but can do any)
+* 2006 Q23 $\star$ (Purpose of Dorweiler's tests)
+* 2008 Q23 $\star$ (Quintile test)
+* 2009 Q23 $\star$ (Dorweiler and interpretation)
+* 2010 Q23 $\star$ (Dorwiler and mod calculations)
+* 2011 Q16 $\star$ (Quintiles, no premium)
+
+Concepts:
+
+* 2001 Q5 (purpose, ELR Dratios, )
+* 2009 Q20 (purpose of Exp rating, VHM and credibility)
+* 2011 Q16 a (Dorweiler's condition)
+
+### Venter
+
+Dorweiler's Test
+
+* 2000 Q1
+* 2004 Q16 (explain idea scenario)
+* 2004 Q39 (look at trend or s.d. of LR)
+* 2005 Q26 $\star$ (identify, trend)
+* 2007 Q26
+* 2012 Q16 $\star$ (Calculate from scratch)
+* 2013 Q9 $\star\star$ (Calculate mod then test; how to improve)
+
+Concepts
+
+* 2000 Q3 (1991 Change, split plan advantage)
+* 2001 Q6 (goals of exp rating)
+* 2001 Q26 $\star$ (All historical and current NCCI plans)
+* 2002 Q31 $\star\star$ (How to test one of the NCCI plan changes)
+* 2004 Q40 $\star$ (Problem with no split)
+* 2005 Q29 (Problem with no split)
+* 2006 Q27 $\star$ (Goal of exp reating and judge)
+* 2010 Q19 $\star$ (NCCI split plan, full cred conflict with goal)
+* 2012 Q11 $\star$ (Talk about rating principle! Use goal to defend)
+* 2012 Q16 $\star$ (Mod stigma)
+* 2014 Q11 $\star$ ($B \: K$ related)
+
+### Gillam & Snader 1
+
+Plug and play
+
+* 2000 Q4 (standard single split formula)
+
+Concepts:
+
+* 2000 Q40 $\star$ (Considtion for credility and then test if satisfy)
+* 2000 Q43 (Change from multi split to single split from 61 to 91)
+* 2003 Q28 $\star$ (Explain credibility formula in words; Z limits)
+* 2011 Q15 $\star$ (Explain single split plan)
+
+### NCCI 1
+
+Calculations
+
+* 2000 Q42 $\star$ (Premium with NCCI singple split from claims)
+    * $A_p$, $A_e$: SAL, 30% med (not on syllabus anymore), cut off point
+* 2002 Q33 $\star\star$
+    * Lookup multi claim limit and the split between primary and XS
+    * Lookup ELR and D-ratio with class code
+    * Use E from $ELR \times Payroll$ to lookup W and B
+    * Check maximum mod
+    * Make sure we use the 2011 table
+* 2003 Q27
+    * Know what dates are covered
+* 2005 Q27 a
+* 2006 Q24
+* 2007 Q25 a
+* 2007 Q28
+* 2008 Q25 $\star$ (full blown)
+* 2009 Q21
+* 2010 Q20
+* 2014 Q9 $\star$ (loss free mod)
+
+Concepts
+
+* 2001 Q25 (Grouping entities)
+* 2002 Q34 (Schedule vs exp)
+* 2005 Q27 b (Schedule)
+* 2007 Q25 b (inflation split point)
+* 2012 Q13 $\star$ s(experience rating stability, talk about terrorism insurance)
+
+## Must Know Formulas
+
+Plan Parameters
+
+* $\text{Trended SACC} = \left( \dfrac{\sum\limits_{y=1}^3 \text{Inc'd Loss}_y}{\sum_{y=1}^3 \text{Claim Count}_y} \right) \times e^{rt}$
+    * undeveloped uncapped (except 100K cap for employers liability)
+* $SRP = 250 \times \text{Trended SACC}$
+    * Rounded to 5,000
+* $SAL = 10\% \times SRP$
+* $G = \dfrac{SRP}{250{,}000}$
+
+Single split credibility formula
+
+$Mod = \dfrac{A_p + W A_e + (1 - W)E_e + B}{E_{total} + B}$
+
+* $B = (1 - W)K > 0$
+
+* $Z_p = \dfrac{E}{E + B}$
+
+* $Z_e = W Z_p$
+
+* Weight: $W = \dfrac{E + K_p}{E + K_e}$
+    * $0 < W < 1$
+    * $W$ never $\uparrow$ given $\downarrow$ $E$
+
+* $B = K_p$
+
+* $E_{total} = E_p + W E_e + (1-W)E_e$
+
+## Questions
+
+Why is that formula a loss free mod?
+
+When do we ever do all those calculation with SACC SRP SAL?

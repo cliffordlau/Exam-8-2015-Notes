@@ -48,6 +48,24 @@ General [credibility properties](#credibilityprop)
 
 General credibility formula explanation
 
+### NCCI 1
+
+Using the NCCI table and everything related
+
+* Get $A_p$ and $A_e$, know what dates are covered
+* Look up per claim, multiple claim
+    * Also have a disease loss but limit is for PY
+* Make sure we use the 2011 table (there's a 2010)
+* Know the process of geting each [parameters](#plan-para)
+* Qualification of Exp Mod (2.A.2.)
+
+Experience vs Schedule
+
+How the formula stabilize the exp rating
+
+* Various limits
+* More weight for larger risk
+
 ## Types of Exam Questions
 
 ### Gillam
@@ -130,6 +148,37 @@ Concepts:
 * 2003 Q28 $\star$ (Explain credibility formula in words; Z limits)
 * 2011 Q15 $\star$ (Explain single split plan)
 
+### NCCI 1
+
+Calculations
+
+* 2000 Q42 $\star$ (Premium with NCCI singple split from claims)
+    * $A_p$, $A_e$: SAL, 30% med (not on syllabus anymore), cut off point
+* 2002 Q33 $\star\star$
+    * Lookup multi claim limit and the split between primary and XS
+    * Lookup ELR and D-ratio with class code
+    * Use E from $ELR \times Payroll$ to lookup W and B
+    * Check maximum mod
+    * Make sure we use the 2011 table
+* 2003 Q27
+    * Know what dates are covered
+* 2005 Q27 a
+* 2006 Q24
+* 2007 Q25 a
+* 2007 Q28
+* 2008 Q25 $\star$ (full blown)
+* 2009 Q21
+* 2010 Q20
+* 2014 Q9 $\star$ (loss free mod)
+
+Concepts
+
+* 2001 Q25 (Grouping entities)
+* 2002 Q34 (Schedule vs exp)
+* 2005 Q27 b (Schedule)
+* 2007 Q25 b (inflation split point)
+* 2012 Q13 $\star$ s(experience rating stability, talk about terrorism insurance)
+
 ## Must Know Formulas
 
 Plan Parameters
@@ -140,3 +189,27 @@ Plan Parameters
     * Rounded to 5,000
 * $SAL = 10\% \times SRP$
 * $G = \dfrac{SRP}{250{,}000}$
+
+Single split credibility formula
+
+$Mod = \dfrac{A_p + W A_e + (1 - W)E_e + B}{E_{total} + B}$
+
+* $B = (1 - W)K > 0$
+
+* $Z_p = \dfrac{E}{E + B}$
+
+* $Z_e = W Z_p$
+
+* Weight: $W = \dfrac{E + K_p}{E + K_e}$
+    * $0 < W < 1$
+    * $W$ never $\uparrow$ given $\downarrow$ $E$
+
+* $B = K_p$
+
+* $E_{total} = E_p + W E_e + (1-W)E_e$
+
+## Questions
+
+Why is that formula a loss free mod?
+
+When do we ever do all those calculation with SACC SRP SAL?
