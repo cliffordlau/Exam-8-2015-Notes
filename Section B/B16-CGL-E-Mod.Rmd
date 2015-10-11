@@ -6,7 +6,6 @@ output:
     toc: true
     toc_depth: 4
 ---
-<span style="color:green">2004 Q11, 2006 Q28, 2008 Q24</span>
 
 ## ISO Experience Mod Formula  
 <span style="color:red;background-color:yellow">Important Formulas</span>
@@ -43,8 +42,35 @@ The ISO plan responds primarily to **frequency** and less to severity
 * Only uses losses @ **basic** policy limits
 * Ignores XS losses above basic limit
 * Additional cap, Maximum Single Loss, on top of the basic limits
+* <span style="color:green">2005 Q53</span> The limits prevent any large individual claims from overly influencing the experience mod. They also make the plan more responsive to the frequency of losses rather than the severity.
 
-Uses 3 years of actual experience $sim$ NCCI
+Uses 3 years of actual experience $\sim$ NCCI
+
+***
+
+### ISO Experience Mod Process
+<a name="process"></a>
+
+**Step 1. Calculate CSLC**
+
+* 3 Methods:
+    * Standard
+    * Present averages company rate
+    * Historical exposures @ present company rate
+
+**Step 2. Lookup with CSLC**
+
+* EER
+* MSL
+* Z
+
+**Step 3. Calculate AER**
+
+* Actual: basic limits on loss and MSL for loss and ALAE
+* Unreported: $CSLC \times EER \times LDF$ for experience period 
+
+* Apply basic limit from **Rule 5A** then MSL with ALAE
+* Get expected development
 
 ## Calculation of CSLC
 
@@ -58,6 +84,7 @@ Company Subject Loss Cost = $\mathrm{E}[L]$ + Basic Policy Limits + $Adj_{Trend}
 
 ### Standard Method
 
+<a name="standardCSLC"></a>
 Data Requirement:  
 **Annual premium** for each **subline** for the **prospective** period @**Basic Limit** prior to any individual risk mod
 
@@ -82,22 +109,22 @@ $(1)$ $BLEL$ by subline
 
 $(2)$ Convert to occurrence level (only when policy rated is CM)
 
-* Based on prospective period policy type
+* Based on **prospective** period policy type
 * Based on the year in CM program (1-4, mature) for the prospective policy period
 
 $(3)$ Convert to level matching historical actual
 
-* Based on experience period policy type
+* Based on **experience** period policy type
 * Based on the year in CM program (1-4, mature) for the historical policy period
 
 $(4)$ Detrend to same level as historical
 
 * Account for both pure premium and exposure trend
 * By subline and year of experience
-* Use the column in Table 14 related to Rule 5B
+* Use the column in Table 14 related to **Rule 5B**
 
-### Present Average Company Rate Method  
-<span style="color:green">2007 Q27</span>
+### Present Average Company Rate Method
+<a name="presentavg"></a>
 
 Additional Requirements:  
 Special u/w exposure base
@@ -107,8 +134,8 @@ Special u/w exposure base
 $CSLC = \sum\limits_{y=1}^3 \sum\limits_{sl} CSLC_{y,sl}$
 
 $\begin{array}{llll}
-  CSLC_{y,sl} &= AvgPrem_{sl} &\times &\cdots (1) \\
-  &= SpecialExposures_y &\times &\cdots (2) \\
+  CSLC_{y,sl} &= AvgPremPerExposure_{sl} &\times &\cdots (1) \\
+  &= SpecialExposure_y &\times &\cdots (2) \\
   &= ELR &\times &\cdots (3) \\
   &= [\text{Table 13 B }PAF]_{sl} &\times &\cdots (4) \\
   &= [\text{Table 13 C }PAF]_{y, sl} &\times &\cdots (5) \\
@@ -125,10 +152,11 @@ $(3), (4), (5)$ Same as Standard Method
 
 $(6)$ Only adjust for PP trend
 
-* Use the column in Table 14 related to Rule 5C
+* Use the column in Table 14 related to **Rule 5C**
 * Since using $(1)$ we don't need to trend exposure
 
 ### Historical Exposures @ Present Company Rates Method
+<a name="historicalexp"></a>
 
 Additional Requirements:  
 Actual exposures by **class** + **location** + **year** + **subline** of the experience period
@@ -139,8 +167,9 @@ $CSLC = \sum\limits_{y=1}^3 \sum\limits_{sl} CSLC_{y,sl}$
 
 $CSLC_{y,sl} = Premium_{y,sl} \times ELR \times Detrend_{y,sl}$
 
-$Premium_{y,sl} = \sum\limits_{class, location} \left\{Exposure_{actual} \times [\text{Current Basic Limit Company Rates}] \times ILF_{\text{basic per occ limits and actual policy annual agg limits}}\right\}$
+$Premium_{y,sl} = \sum\limits_{class, location} \left\{Exposure_{actual} \times [\text{Current Basic Limit Company Rates}] \times ILF\right\}$
 
+* $ILF$ @ **basic per occ limits** and **actual policy annual agg limits**
 * Use the column in Table 14 related to Rule 5C
 * Using current rates for the policy type in each year of the experience $\Rightarrow$ No need for Table 13B and 13C PAFs
 
@@ -153,6 +182,7 @@ If $Z \geq 0.03 \: \Rightarrow$ Schedule Rating
 If $Z \geq 0.07 \: \Rightarrow$ Experience Rating
 
 ### AER
+<a name="AER"></a>
 
 Numerator is BF estimate of ult @ basic limits L&ALAE limited by the MSL
 
@@ -166,7 +196,7 @@ $\begin{array}{ll}
 Data Requirements:  
 Historical L&ALAE data for the experience period with claims level details split into loss and ALAE
 
-1. **Basic limit loss**: Basic per occ limit (from Rule 5A) for **loss** only
+1. **Basic limit loss**: Basic per occ limit (from **Rule 5A**) for **loss** only
 2. **MSL**: $\min \left( \text{Basic Limit Loss + ALAE}, MSL \right)$ 
 
 Annual agg limits in Rule 5A are NOT applied according to Rule 5D part 1 <span style="color:red">What?</span>
@@ -182,20 +212,23 @@ $LDF$
 * Really just % unreported
 * Age: Starting of historical policy term to data evaluation date
 * Company *or* ISO in Table 15 *or* Table 11B
-* If historical policies is CM always $LDF = 0$
+* If historical policies is CM always $LDF = 0$ <span style="color:red">remember!</span>
 
-## Comparison with NCCI Experience Rating  
+<span style="color:green">2003 Q4</span> Basic limits losses subject to experience modification is the numerator of the AER
+
+## Comparison with NCCI Experience Rating
+<a name="comparison"></a>
 <span style="color:red;background-color:yellow">Important Concepts</span>
 
 | Component          | ISO                   | NCCI                      |
 | -------------------| --------------------- | ------------------------- |
-| Experience period  | 3 years lag 1         | Same                      |
+| Experience period  | 3 years lag 1         | <span style="color:blue">Same</span>                      |
 | Experience mod     | Add 1 to be factor    | Factor form               |
 | Credibility        | Up to 100 %           | < 100 %                   |
 | Plan type          | No-split              | Single-split              |
 | ALAE               | Included in Mod       | Not included              |
-| Other expenses     | Excluded              | Same                      |
-| Trending of losses | Only detrend expected | Same                      |
+| Other expenses     | Excluded              | <span style="color:blue">Same</span>                      |
+| Trending of losses | Only detrend expected | <span style="color:blue">Same</span>                      |
 | Benefit level      | N/A                   | Adj expected              |
 | PAFs               | For CM                | No CM so no PAFs          |
 | Loss development   | Compare Ult           | Compare undeveloped       |
@@ -227,7 +260,7 @@ Credit or debit is given in each category if the risk is either above average or
 
 <span style="color:red">All in manual</span>
 
-Rule 9
+**Rule 9**
 
 | Category | Description and Max/Min |
 | -------- | ----------------------- |
@@ -245,3 +278,57 @@ Total cap @ $\pm 25%$
 Need to avoid reflecting any risk characteristics that are already fully reflected in experience rating
 
 Schedule mod is applied after the experience mod
+
+## Cliff's summary
+
+[Overall process](#process) of ISO Exp Mod
+
+CSLC Methods:
+
+* [Standard](#standardCSLC)
+* [Present avg company rate](#presentavg)
+* [Historial exposure @ present company rate](#historicalexp)
+
+$Z \geq 0.03 \: \Rightarrow$ Schedule Rating; $Z \geq 0.07 \: \Rightarrow$ Experience Rating
+
+Calculating [AER](#AER)
+
+[Comparison](#comparison) with NCCI
+
+## Types of Exam Questions
+
+Calcations
+
+* 2001 Q27 $\star$ (Mod, CM)
+* 2002 Q12 (limited actual)
+* 2003 Q4 (easy plug and play for mod)
+* 2003 Q5 (limited actual)
+* 2004 Q43 $\star$ (Mod, occ)
+* 2004 Q41 $\star$ (Include losses, CM mix)
+    * Use basic limited loss
+* 2005 Q54 $\star$ (Short but has sch and exp)
+* 2005 Q28 (CSLC for 4th year CM mix)
+* 2006 Q49 (plug and play mod)
+* 2006 Q28 $\star$ (Mod, no change in exposure, CM mix)
+* 2007 Q52 (plug and play mod simple)
+* 2007 Q27 $\star$ (ratable loss, Present Average)
+* 2008 Q24 $\star$ (typical mod long form)
+* 2010 Q21 (typical mod long form)
+* 2012 Q14 $\star$ (Mod, need to get LDFs, back out numbers)
+* 2013 Q8 $\star$
+* 2014 Q8 $\star$ (back out unreported aka adjustment to reflect ultimate)
+* Practice 1 $\star$ (historical expsoure method)
+    * 
+
+Concepts
+
+* 2000 Q17 (NCCI vs ISO)
+* 2002 Q11 (NCCI vs ISO)
+* 2003 Q3 (Sch and Exp)
+* 2004 Q14 (Sch and Exp)
+* 2005 Q53 $\star$ (Why limit)
+* 2007 Q51 $\star$ (Compare sch rating with retro rating, loss control and stability)
+* 2009 Q43
+* 2009 Q22 $\star$ (Sch rating characteristics appropriatness, don't forget max)
+* 2010 Q34 $\star$ (Sch rating)
+* 2011 Q14 (Sch rating)
