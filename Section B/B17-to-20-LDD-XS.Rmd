@@ -6,7 +6,6 @@ output:
     toc: true
     toc_depth: 4
 ---
-<span style="color:green">2002 Q39, 2003 Q35</span>
 
 ## Intro to LDD and XS Policies
 
@@ -26,7 +25,7 @@ Insurer's POV:
 * Positive cash flow since XS claims don't paid out for years
 * Lower residual market assessments if those assessments are based on written premium
 
-###Large Dollar Deductible Overview
+### Large Dollar Deductible Overview
 
 Employer:
 
@@ -309,7 +308,7 @@ Need to calculate the discount in 2 steps:
 1. Determine the loss elimination ratio for the per-occurrence retention.
 2. Make expense assumptions, and determine the discount corresponding to the LER.
 
-###Implicit Assumptions  
+### Implicit Assumptions  
 <span style="color:red;background-color:yellow">Important Concepts</span>
 
 **1. Safety factor**
