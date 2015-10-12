@@ -9,10 +9,124 @@ output:
 
 ## Cliff's Summary
 
+### Gillam & Snader 3
 
+Know the [4 assumptions](#discountass) for discount method
+
+Know [assumptions](#xmedass) behind the x-med formula
+
+Know how to setup formula based on what's given
+
+* Take out ALAE from loss if needed
+
+Know the deductible formulas
+
+### Teng
+
+Know the by component calculations of premium
+
+* Apply $\phi^{LLM}(r)$ to the right basis (limited or unlimited loss)
+    * Charge from a Table LLM would naturally be expressed as a percent of expected limited losses
+* $EEL$ is usually $EL$ times XS factor
+* As % of standard premium vs final premium
+
+Know the difference between XS and LDD
+
+* For [Loss](#XSvLDD-Loss), [LAE](#XSvLDD-LAE), [G&A](#XSvLDD-GA), [Acq](#XSvLDD-acq), [risk load](#XSvLDD-risk), [tax](#XSvLDD-tax), [profit & contingencies](#XSvLDD-profit)
 
 ## Types of Exam Questions
 
+### Gillam & Snader 3
 
+Calculation
+
+* 2001 Q36 $\star$ (LDD discount)
+    * Note to take out ALAE in formula
+    * And only medical is part of the deal
+* 2004 Q19 $\star$ (Disappearing deductible)
+* 2005 Q35 $\star$ (Back solve disappearing deductible)
+* 2009 Q26 (both deductible)
+* 2010 Q26 $\star$ (back out disapperating deductible with trial and error)
+* 2011 Q17 $\star$ (arithmetic with deductibles)
+* 2012 Q22 ab$\star$ (deductible and trend)
+
+Concepts
+
+* 2000 Q20 (Discount methdod assumptions)
+* 2001 Q13 (Discount methdod assumptions)
+* 2002 Q2 (x-med discount assumptions)
+* 2012 Q22 c$\star$ (XS layer trend higher, B7)
+
+### Teng
+
+LDD Prem
+
+* 2000 Q38 ab $\star$ (full blown LDD)
+    * LBA is an expense
+* 2002 Q1 (plug and play)
+
+Concepts
+
+* 2000 Q38 c $\star$ (LDD vs XS)
+* 2001 Q12 (LDD considerations)
+* 2002 Q44 $\star$ (LDD vs XS)
+    * d: higher uncertainty of loss for XS so higher ELF
 
 ## Must Know Formulas
+
+LDD by components
+
+* $\text{LDD Prem} = \dfrac{ (EEL + \phi^{LLM}(r_G) \times EPL) + EL \: (ULAE + LBA) + SP \: (GO + CR)}{1 - A - T - p}$
+
+XS by components
+
+* $\text{XS Prem} = \dfrac{(EEL + \phi^{LLM}(r_G) \times EPL) \times (1 + ULAE) + SP \: (GO)}{1 - A - T - p}$
+
+***
+
+Straight Deductible
+
+* $PLER = \dfrac{L_r + (N-n)r}{L}$
+
+Disappearing Deductible
+
+* $PLER = \dfrac{L_r + L_R - (L_R - rN_R)\frac{R}{R-r}}{L}$
+
+$\begin{array}{ll}
+  L_r &=  \text{Total losses from claims with loss size }\leq r \\
+  N &= \text{Total # of claims} \\
+  n &= \text{Total # of claims with loss size }\leq r \\
+  r &= \text{Deductible amount} \\
+  L &= \text{Total losses} \\
+  & \\
+  &\text{For Disappearing only} \\
+  & \\
+  L_R &=  \text{Total losses from claims with loss size } r < \lambda < R \\
+  N_R &=  \text{Total # of claims with loss size } r < \lambda < R \\
+\end{array}$
+
+***
+
+LDD by discount
+
+* $D = \dfrac{(ELR)(PLER)(f)}{1-A-T-p}$
+
+XS by discount varies with Net Premium
+
+* $D = \dfrac{(ELR)(PLER)(f)}{1 - A - T - p - u - i - gh}$
+
+XS by discount varies with XS L&ALAE
+
+* $D = \dfrac{(ELR)(PLER)(f)(1+u_E+i_E+g_E h_E)}{1 - A - T - p}$
+
+ULAE$(u)$, Inspection Expense$(i)$, and Portion$(g)$ of Home Office Expense$(h)$
+
+***
+
+X-med policies by discount
+
+* $P = \dfrac{E - kE_M+ eP}{1-A-T}$
+
+Adj under retro rating x-med
+
+* $C' = 1 + (C - 1)\dfrac{1-A-T-e}{(1-D)(1-A-T)-e}$

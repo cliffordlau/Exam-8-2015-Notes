@@ -71,19 +71,21 @@ Mostly retrospectively rated since the retro premium can vary with actual costs 
 2 way to price:
 
 * Summing up the cost components
-    * More justifiable and more appealing to customers
+    * More justifiable and more appealing to customers due to additional transparency
 * Discount from full coverage
     * Assumes full coverage premium is adequate (or apply factor for rate adequacy)
-    
+
 ## LDD and XS Policies Cost Components  
 
 Loss + ALAE + ULAE + Overhead + Acquisition + Risk Load + Taxes & Assessments + Profit & Contingencies
 
-### Loss  
-<span style="color:green">2013 Q18</span>
+### Loss
+<a name="XSvLDD-Loss"></a>
 
-Mostly similar between LDD and XS with 1 exception:  
-Insurer’s exposure is dependent on the prudence of the TPA’s claim handling $\Rightarrow$ Additional uncertainty will be priced in
+Mostly *similar* between LDD and XS with **1 exception**:  
+For XS, insurer’s exposure is dependent on the prudence of the TPA’s claim handling $\Rightarrow$ Additional uncertainty will be priced in $\Rightarrow$ Use higher ELFs or like risk adjusted ILFs (B7)
+
+***
 
 $\begin{array}{lc}
   \text{XS Loss Cost} = &\text{Losses }>\text{ per occ deductible} \\
@@ -97,7 +99,7 @@ $\begin{array}{lc}
 2. Tbl M with ICRLL for agg charge + ELPPF for per occ charge
 3. Tbl L for both
 
-Losses may or may not be rated with ALAE, deal with it appropriately. E.g. Use ELAEPPF for Tbl LLM and M
+Losses **may or may not be rated with ALAE**, deal with it appropriately. E.g. Use ELAEPPF for Tbl LLM and M
 
 #### Considerations when Using ELPPFs
 
@@ -127,6 +129,7 @@ Estimate of expected losses below the deductible is too low:
 ![alt text](figures/Exam 8 B8 - 15 - 7.png)
 
 ### LAE
+<a name="XSvLDD-LAE"></a>
 
 LDD LAE $\gg$ XS LAE since insurer handles all claims
 
@@ -141,6 +144,7 @@ XS
 * ULAE rated with XS loss
 
 ### General Overhead Expenses
+<a name="XSvLDD-GA"></a>
 
 E.g. home office admin, policy production, underwriting, actuarial, IT costs, and statistical reporting
 
@@ -159,6 +163,7 @@ G&A as % of **Standard Premium**
 * In full coverage this is handled by the premium discount
 
 ### Acquisition Expense
+<a name="XSvLDD-acq"></a>
 
 E.g. Sales commissions and sales office expenses
 
@@ -166,8 +171,8 @@ Structure varies by company so should be priced accordingly
 
 Acq Expense as % of **Net Premium**
 
-### Risk Load  
-<span style="color:green">2003 Q34</span>
+### Risk Load
+<a name="XSvLDD-risk"></a>
 
 LDD and XS are riskier than full coverage:
 
@@ -184,6 +189,7 @@ Might need cat reinsurance, so the cost of that
 Rest are part of profit & contingencies
 
 ### Taxes and Assessments
+<a name="XSvLDD-tax"></a>
 
 Based on net premium or net loss (Sometimes group-up loss and full coverage premium)
 
@@ -193,6 +199,7 @@ XS plan are treated more like XS GL than WC
 * Lower premium tax rate
 
 ### Profit & Contingencies
+<a name="XSvLDD-profit"></a>
 
 LDD
 
@@ -277,7 +284,7 @@ $\phi^{LLM}(r)$
 * Is the charge that should cover losses in XS of $r$ times expected primary losses
 * Make sure you know if this is expressed as % of either ground-up or primary and apply to the appropriate loss amount
 
-Full coverage the loss portion is just $CR$ and without $CR$
+Full coverage the loss portion is just $EL$ and without $CR$
 
 LDD LR $\ll$ Full Coverage LR, usually <50%
 LDD Expense $\gg$ Full Coverage LR, usually >50%
@@ -310,6 +317,7 @@ Need to calculate the discount in 2 steps:
 
 ### Implicit Assumptions  
 <span style="color:red;background-color:yellow">Important Concepts</span>
+<a name="discountass"></a>
 
 **1. Safety factor**
 
@@ -359,8 +367,8 @@ $\begin{array}{ll}
 
 $\begin{array}{ll}
   PLER &= \dfrac{L_r + L_R - (L_R - rN_R)\frac{R}{R-r}}{L} \\
-  L_r &=  \text{Total losses from claims with loss size } r < \lambda < R \\
-  N_r &=  \text{Total # of claims with loss size } r < \lambda < R \\
+  L_R &=  \text{Total losses from claims with loss size } r < \lambda < R \\
+  N_R &=  \text{Total # of claims with loss size } r < \lambda < R \\
 \end{array}$
 
 ***
@@ -411,6 +419,7 @@ $D = \dfrac{(ELR)(PLER)(f)(1+u_E+i_E+g_E h_E)}{1 - A - T - p}$
 
 **Assumptions:**  
 <span style="color:red;background-color:yellow">Important</span>
+<a name="xmedass"></a>
 
 1. X-Med Pure Premium = Full Coverage PP - **Portion** of Medical PP
     * Selection of X-Med will likely be adverse to the insurer
