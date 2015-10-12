@@ -100,6 +100,18 @@ img {
 <li><a href="#pricing-x-med-policies-discount">Pricing X-Med Policies: Discount</a><ul>
 <li><a href="#adjustments-under-retro-rating-for-x-med">Adjustments Under Retro Rating for X-Med</a></li>
 </ul></li>
+<li><a href="#cliffs-summary">Cliff’s Summary</a><ul>
+<li><a href="#gillam-snader-3">Gillam &amp; Snader 3</a></li>
+<li><a href="#teng">Teng</a></li>
+<li><a href="#fisher">Fisher</a></li>
+</ul></li>
+<li><a href="#types-of-exam-questions">Types of Exam Questions</a><ul>
+<li><a href="#gillam-snader-3-1">Gillam &amp; Snader 3</a></li>
+<li><a href="#teng-1">Teng</a></li>
+<li><a href="#fisher-1">Fisher</a></li>
+</ul></li>
+<li><a href="#must-know-formulas">Must Know Formulas</a></li>
+<li><a href="#questions">Questions</a></li>
 </ul>
 </div>
 
@@ -170,7 +182,7 @@ img {
 <ul>
 <li>Summing up the cost components
 <ul>
-<li>More justifiable and more appealing to customers</li>
+<li>More justifiable and more appealing to customers due to additional transparency</li>
 </ul></li>
 <li>Discount from full coverage
 <ul>
@@ -184,7 +196,8 @@ img {
 <p>Loss + ALAE + ULAE + Overhead + Acquisition + Risk Load + Taxes &amp; Assessments + Profit &amp; Contingencies</p>
 <div id="loss" class="section level3">
 <h3>Loss</h3>
-<p>Mostly <em>similar</em> between LDD and XS with <strong>1 exception</strong>:<br />Insurer’s exposure is dependent on the prudence of the TPA’s claim handling <span class="math">\(\Rightarrow\)</span> Additional uncertainty will be priced in</p>
+<p><a name="XSvLDD-Loss"></a></p>
+<p>Mostly <em>similar</em> between LDD and XS with <strong>1 exception</strong>:<br />For XS, insurer’s exposure is dependent on the prudence of the TPA’s claim handling <span class="math">\(\Rightarrow\)</span> Additional uncertainty will be priced in <span class="math">\(\Rightarrow\)</span> Use higher ELFs or like risk adjusted ILFs (B7)</p>
 <hr />
 <p><span class="math">\(\begin{array}{lc}  \text{XS Loss Cost} = &amp;\text{Losses }&gt;\text{ per occ deductible} \\  &amp;+ \\  &amp;\text{Agg primary losses }&gt; \text{ agg deductible}\\ \end{array}\)</span></p>
 <p>3 methods to price similar to retro rated policies</p>
@@ -223,6 +236,7 @@ img {
 </div>
 <div id="lae" class="section level3">
 <h3>LAE</h3>
+<p><a name="XSvLDD-LAE"></a></p>
 <p>LDD LAE <span class="math">\(\gg\)</span> XS LAE since insurer handles all claims</p>
 <p>LDD</p>
 <ul>
@@ -237,6 +251,7 @@ img {
 </div>
 <div id="general-overhead-expenses" class="section level3">
 <h3>General Overhead Expenses</h3>
+<p><a name="XSvLDD-GA"></a></p>
 <p>E.g. home office admin, policy production, underwriting, actuarial, IT costs, and statistical reporting</p>
 <p>LDD G&amp;A &gt; XS G&amp;A since services are only provided for claims above the deductible</p>
 <p>LDD G&amp;A can be &gt; full coverage:</p>
@@ -254,31 +269,33 @@ img {
 </div>
 <div id="acquisition-expense" class="section level3">
 <h3>Acquisition Expense</h3>
+<p><a name="XSvLDD-acq"></a></p>
 <p>E.g. Sales commissions and sales office expenses</p>
 <p>Structure varies by company so should be priced accordingly</p>
 <p>Acq Expense as % of <strong>Net Premium</strong></p>
 </div>
 <div id="risk-load" class="section level3">
 <h3>Risk Load</h3>
-<p><span style="color:green">2003 Q34</span></p>
+<p><a name="XSvLDD-risk"></a></p>
 <p>LDD and XS are riskier than full coverage:</p>
-<ul>
+<ol style="list-style-type: decimal">
 <li>XS loss harder to estimate</li>
 <li>Higher interest rate risk <span class="math">\(\because\)</span> Longer payout period
 <ul>
 <li>4-5 years duration for LDD; 10+ years for XS</li>
+<li><span style="color:green">2003 Q34</span> LDD policies have additional expenses compared to Excess policies because LDD policies require handling of all claims below the deductible, while Excess policies only handle claims that exceed the retention. Since the expenses on claims below the deductible are paid out much more quickly than excess losses and the expenses for excess claims, the combined expense and loss payout period for LDD policies is significantly shorter than for Excess policies</li>
 </ul></li>
-<li>Credit risk for LDD only
+<li>Credit risk (for LDD only)
 <ul>
 <li>Vary based on insured and collateral</li>
 </ul></li>
-</ul>
-<p>Might need cat reinsurance, so the cost of that</p>
-<p><em>Credit risk</em> as % of <strong>Standard Premium</strong></p>
-<p>Rest are part of profit &amp; contingencies</p>
+</ol>
+<p>Might need cat reinsurance, so the include the cost of that</p>
+<p><em>Credit risk</em> as % of <strong>Standard Premium</strong>; The rest are typically part of profit &amp; contingencies</p>
 </div>
 <div id="taxes-and-assessments" class="section level3">
 <h3>Taxes and Assessments</h3>
+<p><a name="XSvLDD-tax"></a></p>
 <p>Based on net premium or net loss (Sometimes group-up loss and full coverage premium)</p>
 <p>XS plan are treated more like XS GL than WC</p>
 <ul>
@@ -288,6 +305,7 @@ img {
 </div>
 <div id="profit-contingencies" class="section level3">
 <h3>Profit &amp; Contingencies</h3>
+<p><a name="XSvLDD-profit"></a></p>
 <p>LDD</p>
 <ul>
 <li>Compete on services and price</li>
@@ -341,7 +359,7 @@ img {
 <li>Is the charge that should cover losses in XS of <span class="math">\(r\)</span> times expected primary losses</li>
 <li>Make sure you know if this is expressed as % of either ground-up or primary and apply to the appropriate loss amount</li>
 </ul>
-<p>Full coverage the loss portion is just <span class="math">\(CR\)</span> and without <span class="math">\(CR\)</span></p>
+<p>Full coverage the loss portion is just <span class="math">\(EL\)</span> and without <span class="math">\(CR\)</span></p>
 <p>LDD LR <span class="math">\(\ll\)</span> Full Coverage LR, usually &lt;50% LDD Expense <span class="math">\(\gg\)</span> Full Coverage LR, usually &gt;50%</p>
 </div>
 <div id="pricing-xs-policies-by-components" class="section level2">
@@ -470,6 +488,218 @@ img {
 <p>Keep the same LAE dollars:</p>
 <p><span class="math">\(\begin{array}{lll}  (C' - 1)L_{XM} &amp;= (C-1)L \\  C' &amp;= 1 + (C - 1)\frac{L}{L_{XM}} \\  &amp;= 1 + (C - 1)\frac{E}{E_{XM}} &amp;\text{Convert losses to PP by dividing by exposures} \\  &amp;= 1 + (C - 1)\frac{E}{E - kE_{M}} \\  &amp;= \vdots \\  C' &amp;= 1 + (C - 1)\dfrac{1-A-T-e}{(1-D)(1-A-T)-e}\\ \end{array}\)</span></p>
 </div>
+</div>
+<div id="cliffs-summary" class="section level2">
+<h2>Cliff’s Summary</h2>
+<div id="gillam-snader-3" class="section level3">
+<h3>Gillam &amp; Snader 3</h3>
+<p>Know the <a href="#discountass">4 assumptions</a> for discount method</p>
+<p>Know <a href="#xmedass">assumptions</a> behind the x-med formula</p>
+<p>Know how to setup formula based on what’s given</p>
+<ul>
+<li>Take out ALAE from loss if needed</li>
+</ul>
+<p>Know the deductible formulas</p>
+</div>
+<div id="teng" class="section level3">
+<h3>Teng</h3>
+<p>Know the by component calculations of premium</p>
+<ul>
+<li>Apply <span class="math">\(\phi^{LLM}(r)\)</span> to the right basis (limited or unlimited loss)
+<ul>
+<li>Charge from a Table LLM would naturally be expressed as a percent of expected limited losses</li>
+</ul></li>
+<li><span class="math">\(EEL\)</span> is usually <span class="math">\(EL\)</span> times XS factor (know if it includes ALAE)</li>
+<li>Expensee as % of standard premium vs final premium</li>
+<li>Check if deductible limits loss &amp; alae or alae is ground-up</li>
+</ul>
+<p>Know the difference between XS and LDD and full plan</p>
+<ul>
+<li>For <a href="#XSvLDD-Loss">Loss</a>, <a href="#XSvLDD-LAE">LAE</a>, <a href="#XSvLDD-GA">G&amp;A</a>, <a href="#XSvLDD-acq">Acq</a>, <a href="#XSvLDD-risk">risk load</a>, <a href="#XSvLDD-tax">tax</a>, <a href="#XSvLDD-profit">profit &amp; contingencies</a></li>
+</ul>
+</div>
+<div id="fisher" class="section level3">
+<h3>Fisher</h3>
+<p>Mostly related to the loss components of LDD with the insurance charges and XS loss</p>
+<p>Make sure when you looking up table M ICRLL, use entry ratios with the limited loss</p>
+<p>Note the difference between Excess Loss Pure Premium Factor and an Excess Loss Factor. Remember that the ELPPF is excess losses over total losses, and the ELF is excess losses over standard premium.</p>
+<p>Know fisher’s comment</p>
+</div>
+</div>
+<div id="types-of-exam-questions" class="section level2">
+<h2>Types of Exam Questions</h2>
+<div id="gillam-snader-3-1" class="section level3">
+<h3>Gillam &amp; Snader 3</h3>
+<p>Calculation using discount method</p>
+<ul>
+<li>2001 Q36 <span class="math">\(\star\)</span> (LDD discount)
+<ul>
+<li>Note to take out ALAE in formula</li>
+<li>And only medical is part of the deal</li>
+</ul></li>
+<li>2004 Q19 <span class="math">\(\star\)</span> (Disappearing deductible)</li>
+<li>2005 Q35 <span class="math">\(\star\)</span> (Back solve disappearing deductible)</li>
+<li>2009 Q26 (both deductible)</li>
+<li>2010 Q26 <span class="math">\(\star\)</span> (back out disapperating deductible with trial and error)</li>
+<li>2011 Q17 <span class="math">\(\star\)</span> (arithmetic with deductibles)</li>
+<li>2012 Q22 ab<span class="math">\(\star\)</span> (deductible and trend)</li>
+</ul>
+<p>Concepts</p>
+<ul>
+<li>2000 Q20 (Discount methdod assumptions)</li>
+<li>2001 Q13 (Discount methdod assumptions)</li>
+<li>2002 Q2 (x-med discount assumptions)</li>
+<li>2012 Q22 c<span class="math">\(\star\)</span> (XS layer trend higher, B7)</li>
+</ul>
+</div>
+<div id="teng-1" class="section level3">
+<h3>Teng</h3>
+<p>LDD Prem</p>
+<ul>
+<li>2000 Q38 ab <span class="math">\(\star\)</span> (full blown LDD calc)
+<ul>
+<li>LBA is an expense</li>
+</ul></li>
+<li>2002 Q1 (plug and play)</li>
+<li>2004 Q39 (get LER then plug and play)</li>
+<li>2004 Q48 (plug and play)
+<ul>
+<li>ALAE treatment: ground-up</li>
+</ul></li>
+<li>2005 Q48 (plug and play)</li>
+<li>2006 Q33 (plug and play)</li>
+<li>2007 Q45</li>
+<li>2007 Q36 a (plug and play)</li>
+<li>2008 Q31 a (plug and play)</li>
+<li>2009 Q35 (fullblown)
+<ul>
+<li>Watch out for what the % are givens as of</li>
+</ul></li>
+<li>2011 Q18 (plug and play)</li>
+<li>2013 Q13 (plug and play)</li>
+<li>2013 Q18 <span class="math">\(\star\star\)</span> (fullblown + B9 truncate shift!!!)</li>
+<li>2014 Q19 a <span class="math">\(\star\)</span> (Use entry ratio with limited denominator when looking up table)</li>
+</ul>
+<p>XS</p>
+<ul>
+<li>2008 Q31 b</li>
+<li>2014 Q19 c</li>
+</ul>
+<p>Concepts</p>
+<ul>
+<li>2000 Q38 c <span class="math">\(\star\)</span> (LDD vs XS)</li>
+<li>2001 Q12 (LDD considerations)</li>
+<li>2002 Q44 <span class="math">\(\star\)</span> (LDD vs XS)
+<ul>
+<li>d: higher uncertainty of loss for XS so higher ELF</li>
+</ul></li>
+<li>2003 Q34 <span class="math">\(\star\)</span> (LDD vs XS, payment pattern)</li>
+<li>2005 Q34 <span class="math">\(\star\)</span> (LDD vs full)</li>
+<li>2006 Q31 <span class="math">\(\star\)</span> (LDD vs XS)</li>
+<li>2007 Q36 bc (LDD vs full)</li>
+<li>2008 Q31 c (LDD vs XS)</li>
+<li>2009 Q29 (LDD vs XS)</li>
+<li>2011 Q18 (LDD vs XS)</li>
+<li>2013 Q16 <span class="math">\(\star\)</span> (More related to Retro section with LLM charges)</li>
+<li>2014 Q19 b <span class="math">\(\star\)</span> (LDD advantages)</li>
+<li>2014 Q19 a <span class="math">\(\star\)</span> (LDD vs XS in profit and tax)</li>
+<li>Practice 1 (Describe 2 ways to price)</li>
+</ul>
+</div>
+<div id="fisher-1" class="section level3">
+<h3>Fisher</h3>
+<p>Calculate charges and expected loss</p>
+<ul>
+<li>2002 Q39 <span class="math">\(\star\star\)</span> (charges calculations)
+<ul>
+<li>Tricky wording with the retention vs limits for retro</li>
+</ul></li>
+<li>2003 Q35 <span class="math">\(\star\)</span> (lookup tables with ICRLL)</li>
+<li>2004 Q46 (expected loss with charge)</li>
+<li>2005 Q36 (expected loss with charge)</li>
+<li>2006 Q36 (expected loss with charge)</li>
+<li>2007 Q33 <span class="math">\(\star\)</span> (expected loss with charge, LLM and ICRLL)</li>
+<li>2008 Q30 (expected loss with charge)</li>
+<li>2009 Q27 <span class="math">\(\star\)</span> (% error)</li>
+<li>2010 Q24 (% error)
+<ul>
+<li>Make assumption on ELF and assuming looking at % error</li>
+</ul></li>
+<li>2010 Q28 <span class="math">\(\star\)</span> (Tbl M constuction then get LDD prem)
+<ul>
+<li>Make assumption about table being unlimited</li>
+</ul></li>
+<li>2011 Q19 (expected loss with charge, with charget interpolation)</li>
+<li>2011 Q23 ($ Error)</li>
+<li>2012 Q20 <span class="math">\(\star\)</span> (expected loss with charge on AK policies table lookup)</li>
+<li>2013 Q19 a (expected loss with charge)</li>
+<li>2014 Q16 a <span class="math">\(\star\)</span> (backsolve occ limit)</li>
+<li>2014 Q16 b <span class="math">\(\star\)</span> (Lee diagram)</li>
+<li>2014 Q16 c <span class="math">\(\star\)</span> (Compare to retro)</li>
+</ul>
+<p>Concepts</p>
+<ul>
+<li>2003 Q12 (charges)</li>
+<li>2008 Q33 <span class="math">\(\star\)</span> (error impact, fisher comments)
+<ul>
+<li><a href="http://www.theinfiniteactuary.com/mb/viewtopic.php?f=17866&amp;t=15045">TIA</a></li>
+</ul></li>
+<li>2013 Q19 b <span class="math">\(\star\)</span> (ICRLL)
+<ul>
+<li>The presence of a per occurrence limit (in addition to an aggregate limit) reduces the variance in entry ratios for a group of risks of a given size that are used to construct a (Limited Loss) Table M. As such, the (Limited Loss) Table M curve will be flatter than without the per occurrence limit, and the insurance charges for a given entry ratio will be smaller. Using a regular Table M without adjustment would result in an overlap with the charge for the per occurrence limit. This reduction in the variance of entry ratios is also what happens for groups of larger risk sizes, since the law of large numbers gives their loss ratios more stability. As such, the ICRLL procedure uses the Table M curve for a group of larger risks to approximate the use of a Limited Loss Table M curve</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="must-know-formulas" class="section level2">
+<h2>Must Know Formulas</h2>
+<p>LDD by components</p>
+<ul>
+<li><span class="math">\(\text{LDD Prem} = \dfrac{ (EEL + \phi^{LLM}(r_G) \times EPL) + EL \: (ULAE + LBA) + SP \: (GO + CR)}{1 - A - T - p}\)</span></li>
+</ul>
+<p>XS by components</p>
+<ul>
+<li><span class="math">\(\text{XS Prem} = \dfrac{(EEL + \phi^{LLM}(r_G) \times EPL) \times (1 + ULAE) + SP \: (GO)}{1 - A - T - p}\)</span></li>
+</ul>
+<hr />
+<p>Straight Deductible</p>
+<ul>
+<li><span class="math">\(PLER = \dfrac{L_r + (N-n)r}{L}\)</span></li>
+</ul>
+<p>Disappearing Deductible</p>
+<ul>
+<li><span class="math">\(PLER = \dfrac{L_r + L_R - (L_R - rN_R)\frac{R}{R-r}}{L}\)</span></li>
+</ul>
+<p><span class="math">\(\begin{array}{ll}  L_r &amp;= \text{Total losses from claims with loss size }\leq r \\  N &amp;= \text{Total # of claims} \\  n &amp;= \text{Total # of claims with loss size }\leq r \\  r &amp;= \text{Deductible amount} \\  L &amp;= \text{Total losses} \\  &amp; \\  &amp;\text{For Disappearing only} \\  &amp; \\  L_R &amp;= \text{Total losses from claims with loss size } r &lt; \lambda &lt; R \\  N_R &amp;= \text{Total # of claims with loss size } r &lt; \lambda &lt; R \\ \end{array}\)</span></p>
+<hr />
+<p>LDD by discount</p>
+<ul>
+<li><span class="math">\(D = \dfrac{(ELR)(PLER)(f)}{1-A-T-p}\)</span></li>
+</ul>
+<p>XS by discount varies with Net Premium</p>
+<ul>
+<li><span class="math">\(D = \dfrac{(ELR)(PLER)(f)}{1 - A - T - p - u - i - gh}\)</span></li>
+</ul>
+<p>XS by discount varies with XS L&amp;ALAE</p>
+<ul>
+<li><span class="math">\(D = \dfrac{(ELR)(PLER)(f)(1+u_E+i_E+g_E h_E)}{1 - A - T - p}\)</span></li>
+</ul>
+<p>ULAE<span class="math">\((u)\)</span>, Inspection Expense<span class="math">\((i)\)</span>, and Portion<span class="math">\((g)\)</span> of Home Office Expense<span class="math">\((h)\)</span></p>
+<hr />
+<p>X-med policies by discount</p>
+<ul>
+<li><span class="math">\(P = \dfrac{E - kE_M+ eP}{1-A-T}\)</span></li>
+</ul>
+<p>Adj under retro rating x-med</p>
+<ul>
+<li><span class="math">\(C' = 1 + (C - 1)\dfrac{1-A-T-e}{(1-D)(1-A-T)-e}\)</span></li>
+</ul>
+</div>
+<div id="questions" class="section level2">
+<h2>Questions</h2>
+<ul>
+<li>Why is G&amp;A as % of SP?</li>
+</ul>
 </div>
 
 
