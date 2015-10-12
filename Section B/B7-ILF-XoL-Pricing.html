@@ -9,7 +9,7 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="date" content="2015-10-04" />
+<meta name="date" content="2015-10-11" />
 
 <title>On the Theory of Increased Limits and Excess of Loss Pricing</title>
 
@@ -62,7 +62,7 @@ img {
 
 <div id="header">
 <h1 class="title">On the Theory of Increased Limits and Excess of Loss Pricing</h1>
-<h4 class="date"><em>October 04, 2015</em></h4>
+<h4 class="date"><em>October 11, 2015</em></h4>
 </div>
 
 <div id="TOC">
@@ -93,6 +93,7 @@ img {
 <li><a href="#rosenbergs-2-d-consistency-test">Rosenberg’s 2-D Consistency Test</a></li>
 <li><a href="#cliffs-summary">Cliff’s Summary</a></li>
 <li><a href="#types-of-exam-questions">Types of Exam Questions</a></li>
+<li><a href="#questions">Questions</a></li>
 </ul>
 </div>
 
@@ -181,6 +182,7 @@ img {
 <li>All u/w expenses &amp; profit are variable and don’t vary by limit
 <ul>
 <li>IRL not true, <span class="math">\(\uparrow\)</span> limits <span class="math">\(\Rightarrow\)</span> Volatility <span class="math">\(\uparrow\)</span> <span class="math">\(\Rightarrow\)</span> <span class="math">\(\rightarrow\)</span> profit load</li>
+<li>This is loosen with the risk adjusted ILFs</li>
 </ul></li>
 <li>Frequency <span class="math">\(\perp\!\!\!\perp\)</span> Severity</li>
 <li><span class="math">\(Freq_i = Freq_j \forall \: \text{limits} \: i, \: j\)</span>
@@ -280,7 +282,7 @@ img {
 <li>Losses just &lt; <span class="math">\(b\)</span> are pushed into the XS layer by the trend <span class="math">\(\Rightarrow\)</span> New losses for the XS layer</li>
 </ul>
 <p>Similarly for trend &lt; 0 it’ll be more negative for XS layer</p>
-<p>See <span style="color:green">2000 Q37</span> for graphical explaination</p>
+<p>See <span style="color:green">2000 Q37</span> for graphical explanation</p>
 <hr />
 <p><strong>Def<sup>n</sup>:</strong></p>
 <p><span class="math">\(x_1 = \alpha(x)\)</span> where <span class="math">\(\alpha\)</span> is the inflation function</p>
@@ -334,7 +336,7 @@ img {
 <ul>
 <li><span class="math">\(n \: \sim Poi(\theta)\)</span></li>
 <li>Risk charge <span class="math">\(\propto\)</span> Variance of loss based on factor <span class="math">\(\lambda\)</span></li>
-<li>Lossen <a href="#ILF-assumptions">assumption 1</a> of the ILFs by incorprating process risk</li>
+<li>Loosen <a href="#ILF-assumptions">assumption 1</a> of the ILFs by incorporating process risk</li>
 </ul>
 <p><span class="math">\(\mathrm{E}[h(X;k)] = \int_0^k G(x)dx\)</span></p>
 <p><span class="math">\(\mathrm{E}[h(X;k)^2] = 2\int_0^k xG(x)dx\)</span></p>
@@ -391,7 +393,7 @@ img {
 <p><strong>Def<sup>n</sup>:</strong></p>
 <p>Occ limits: <span class="math">\(O_1 &lt; O_2\)</span></p>
 <p>Agg limits: <span class="math">\(A_1 &lt; A_2\)</span></p>
-<p><strong>Test</strong> <a name="rosenberg"></a> Fix the aggregate limits:</p>
+<p><strong>Test</strong> <a name="Rosenberg"></a> Fix the aggregate limits:</p>
 <p><span class="math">\(I(A_2,O_2) - I(A_1,O_2) \geq I(A_2,O_1) - I(A_1,O_1)\)</span></p>
 <p>Fix the occurrence limits:</p>
 <p><span class="math">\(I(A_2,O_2) - I(A_2,O_1) \geq I(A_1,O_2) - I(A_1,O_1)\)</span></p>
@@ -402,7 +404,7 @@ img {
 <p>Severity Curves integration formula</p>
 <ul>
 <li>Limit k:<br /><span class="math">\(\mathrm{E}[h(X;k)] = \int_0^k G(x) \: dx = \int_0^k x \: dF(x) + k \: G(k)\)</span></li>
-<li>Limt L and deductible R:<br /><span class="math">\(\mathrm{E}[h(X;R,L)] = \int_R^S x \: dF(x) + SG(S) - RG(R)\)</span></li>
+<li>Limit L and deductible R:<br /><span class="math">\(\mathrm{E}[h(X;R,L)] = \int_R^S x \: dF(x) + SG(S) - RG(R)\)</span></li>
 </ul>
 <hr />
 <p>Know all the ILF formulas</p>
@@ -416,7 +418,8 @@ img {
 </ul></li>
 <li><p><a href="#risk-adj-ilf">Risk Adjusted</a> for limit <span class="math">\(k\)</span></p>
 <ul>
-<li><span class="math">\(I_r(k) = \dfrac{\mathrm{E}[h(X;k)] + \lambda \mathrm{E}[h(X;k)^2]}{\mathrm{E}[h(X;b)] + \lambda \mathrm{E}[h(X;b)^2]}\)</span></li>
+<li><p><span class="math">\(I_r(k) = \dfrac{\mathrm{E}[h(X;k)] + \lambda \mathrm{E}[h(X;k)^2]}{\mathrm{E}[h(X;b)] + \lambda \mathrm{E}[h(X;b)^2]}\)</span></p></li>
+<li><p>Loosen the assumption of same profit load for all limits</p></li>
 </ul></li>
 </ul>
 <p>Know the 3 <a href="#ILF-assumptions">assumptions</a> for ILF</p>
@@ -451,7 +454,7 @@ img {
 <li>2008 Q27ab (1-D ILF)</li>
 <li>2010 Q17 (1-D ILF + range of okay)</li>
 <li>2011 Q10a (1-D range of okay)</li>
-<li>2013 Q5 (2-D and rosenburg)</li>
+<li>2013 Q5 (2-D and Rosenberg)</li>
 <li>2014 Q7 <span class="math">\(\star\)</span> (1-D, more open ended, + explain if the premiums are sound)</li>
 </ul>
 <p>Policy @ different limits with ILFs</p>
@@ -480,7 +483,7 @@ img {
 <li>2011 Q10b (Meaning of consistency test)</li>
 <li>2012 Q15b (Loss distribution tail impact on XS layer inflation)</li>
 </ul>
-<p>Inflations/trends:</p>
+<p>Inflation/trends:</p>
 <ul>
 <li>2004 Q5 (Inflation at XS layer give loss by claim and base inflation)</li>
 <li>2005 Q6 <span class="math">\(\star\)</span> (don’t forget to inflate the base PP severity!)</li>
@@ -493,6 +496,10 @@ img {
 <li>2012 Q15a (% increase after trend)</li>
 <li>2014 Q6 <span class="math">\(\star\)</span> (Plot and calculate inflation trend in layer with area)</li>
 </ul>
+</div>
+<div id="questions" class="section level2">
+<h2>Questions</h2>
+<p>How do you typically convert ILFs to ELFs?</p>
 </div>
 
 
