@@ -1104,8 +1104,6 @@ Calculate insurance charge/savings
     * Use dollar amount or Tbl L with premium (instead of risk)
     * Should understand this
 
-## Must Know Formulas
-
 ### NCCI 2
 
 Plug and play
@@ -1132,6 +1130,8 @@ Plug and play
 Concepts
 
 * 2003 Q32 (Why varies by ELG)
+
+## Must Know Formulas
 
 ### Table M
 
