@@ -7,7 +7,7 @@ output:
     toc_depth: 4
 ---
 
-##Intro to Reinsurance
+## Intro to Reinsurance
 
 2 main methods reinsurance can be applied:
 
@@ -54,15 +54,15 @@ Covers **all claims that occur** during the reinsurance contract period
 
 Think of losses on an **AY** basis and relates to **EP**
 
-***Claims made***: Claims are covered based on claim reported date
-***Policies issued***: Like risks attaching but for new business only
+***Claims made***: Claims are covered based on claim reported date  
+***Policies issued***: Like risks attaching but for new business only  
 ***In-force***: Only covers unearned portion of in-force policies after treaty effective date
 
-##Reinsurance Pricing Method
+## Reinsurance Pricing Method
 
 Experience and exposure rating
 
-###Experience Rating (Burn Cost Model)
+### Experience Rating (Burn Cost Model)
 
 Primary approach for proportional reinsurance
 
@@ -84,7 +84,7 @@ Burning Cost:
 
 * $\text{Burning Cost} = \dfrac{\text{Unadjusted Past Ceded Losses}}{\text{Unadjusted Past Ceding Company Subject Premium}}$
 
-###Exposure Rating
+### Exposure Rating
 
 Use with experience rating to price non-proportional reinsurance
 
@@ -177,8 +177,7 @@ Not obvious how to reduce the variance of the aggregate loss dist^n^ when
 you combine the years
 Ignores that the contract might not renewed
 
-### Profit Commission  
-<span style="color:green">2007 Q23</span>
+### Profit Commission
 
 Returns some of the reinsurer's profit to the ceding company as additional commission
 
@@ -187,8 +186,7 @@ $\begin{array}{llcl}
   &= &1 - \text{Treaty LR}_{actual} - \text{Ceding Comm} - \text{Reinsurer Expense Margin} &\times \text{ % Returned} \\
 \end{array}$
 
-### Loss Corridors  
-<span style="color:green">2006 Q9m 2009 Q30</span>
+### Loss Corridors
 
 Allow ceding company to reassume some liability if LR > a threshold
 
@@ -324,7 +322,7 @@ $\text{Reinsurer's loss} = GNEPI \times ELR \times P(p)$
 
 The loss cost of the treaty is then the sumproduct of the above and ELR by layers
 
-##Per Occurrence XoL: Casualty
+## Per Occurrence XoL: Casualty
 
 Usually separated into 3 layers
 
@@ -335,10 +333,13 @@ Expected to be hit multiple times a year
 Higher but attached below some underlying policy limits
 
 **Clash covers**  
-Only hit due to multiple policies involving a single occurrence; or  
-Extra Contractual Obligations; or  
-Ruling awarding damages in XS of policy limits; or  
-ALAE included in the treaty
+Only hit when:
+
+* Due to multiple policies involving a single occurrence; or  
+* Extra Contractual Obligations; or  
+* Ruling awarding damages in XS of policy limits; or  
+* ALAE included in the treaty; or
+* Workers compensation losses above the attachment point <span style="color:green">2000 Q53</span>
 
 ### Pricing Per Occurrence XoL: Experience Rating
 
@@ -394,7 +395,7 @@ Exposure factor exclude risk loading
 
 ***WC***
 
-ELF: IPC, $aL^{-b}, estimate $a$ and $b$ from selected XS Factors
+ELF: IPC, $aL^{-b}$, estimate $a$ and $b$ from selected XS Factors
 
 * Can be a % of losses (vs standard premium)
 
@@ -443,12 +444,10 @@ Caveat: ignores new trended losses piercing the umbrella policy
 
 ***
 
-***Exposure Rating**
-
+***Exposure Rating***
+<a name="exp-rate-per-occ-xol"></a>
 Exposure factor for an umbrella policy *without* drop-down coverage:  
 <span style="color:red;background-color:yellow">Memorize Formula</span>  
-<span style="color:green">2000 Q71</span>
-
 
 $\dfrac{\mathrm{E}[x; \min(UL + PL, UL + PL +Lim)] - \mathrm{E}[x;\min(UL+PL,UL+AP)]}{\mathrm{E}[x;UL+PL]-\mathrm{E}[x;UL]}$
 
@@ -479,7 +478,6 @@ Net loss cost = Loss cost in layer gross of ADD $\times \: \phi_{AAD}$
 Can use experience rating as well but only for low deductibles
 
 ### Swing Plans  
-<span style="color:green">1999 Q37</span>
 
 Loss sensitive retrospective rating
 
@@ -492,9 +490,13 @@ Similar to retro rating there are max/min premium as well as a provisional rate 
 | $Range_i$ | $p_i$ | x% | (3) $\times$ expense load | Apply max/min to (4) |
 | Total | 100% | Wtd Avg of above | Wtd Avg of above | Wtd Avg of above |
 
-(3) $\div$ (5) = expected loss ratio
+$(3)$ $\div$ $(5)$ = expected loss ratio
+
+* ELR = expected loss $\div$ expected retro premium (weighted under difference scenarios) <span style="color:green">1999 Q37</span>
 
 If expected loss ratio $\neq$ ELR used in expense load $\Rightarrow$ plan not in balance
+
+* ELR used in expense load  = 1 $\div$ expense load
 
 Also note the timing of cash flow if the provisional rate is different from the expected
 
@@ -612,6 +614,12 @@ Risk attaching have potential for reinsurer to pay multiple times on the same ev
 
 e.g. polices in force for different period might be hit by the same event $\Rightarrow$ limit applied separately $\Rightarrow$ doubling up the limit
 
+$(1)$ will falls under $(3)$ and $(2)$ will fall under $(4)$
+
+And the loss will fall under the 2 ceding co policies which in terns fall under the 2 risk attaching CAT cover policies
+
+![alt text](figures/Exam 8 C - 4.png)
+
 ## Finite Risk Covers
 
 Similar to property CAT but with lower max losses
@@ -630,3 +638,69 @@ Complicating factors:
 * Carryforward provisions
 * $\Delta$ in premium and profit commissions by year of treaty
 * Cancellation provisions
+
+## Cliff's Summary
+
+### Key Concepts
+
+2 Methods
+
+Proportional
+
+* QS vs Surplus share
+
+Per risk XoL
+
+Per occ XoL
+
+* Swing plan: ELR = inverse of expense loading? Premium rate = provisional rate?
+* Clash coverage triggers
+* [Exposure rating](#exp-rate-per-occ-xol)
+
+Aggregate Dist^n^ Model
+
+Property Cat Covers
+
+* Risk attaching might pay twice
+
+Finite risk
+
+### Calculations
+
+Swing Plans
+
+* check if plan is balanced
+
+Surplus Share
+
+* $\text{Ceding %} = {\min \left(\dfrac{\text{Line Purchased}}{\text{IV}}, \dfrac{\text{IV}-\text{Line Retained}}{\text{IV}} \right)}^+$
+
+## Types of Exam Questions
+
+### Calculations
+
+Loss sensitive contracts
+
+* 1999 Q37 $\star$ (Swing plans)
+
+Surplus Share
+
+* 2000 Q50
+
+Pricing contracts
+
+* 2000 Q71 $\star\star$ (Price per occ XoL with drop down)
+
+### Concepts
+
+Basis of Reinsurance
+
+* 1997 Q31 $\star$ (2 basis; matching premium; paying twice)
+
+Per Occ XoL
+
+* 2000 Q53 (Clash coverage triggers)
+
+## Questions
+
+* The swing plans expense loading thing why is that the expecte loss is the inverse

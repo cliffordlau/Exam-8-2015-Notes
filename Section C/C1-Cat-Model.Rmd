@@ -51,6 +51,7 @@ Regular statistic tool not appropriate for catastrophe:
     * Direct loss like property damage or indirect losses like business interruption or cost of relocation
     
 ### Hazard Module
+<a name="hazard-mod"></a>
 
 Main parameters:
 
@@ -63,6 +64,7 @@ Main parameters:
 *Model run*: Simulate large number of possible events based on dist^n^ of event parameters $\Rightarrow$ For each iteration, estimate intensity a different locations
 
 ### Inventory Module
+<a name="inventory-mod"></a>
 
 Inventory can range from entire industry, to single insurer, or just individual risks
 
@@ -83,6 +85,7 @@ Data integrity:
 * Use site-specific analysis for important individual buildings
 
 ### Vulnerability Module
+<a name="vuln-mod"></a>
 
 Estimates the damage to properties from simulated events
 
@@ -113,22 +116,21 @@ Only for specific buildings, not appropriate for entire portfolio
 Modify the *building response analysis* to make it more appropriate
 for portfolio risk assessment
 
-Divide risk into classes based on building characteristics
-
-* Identification of a typical building in each class
-* Evaluation of building performance
-
-    * $\forall$ class, intensity of force $\Leftrightarrow$ $\mathrm{E}[Damage]$ of the typical building
-    
-    * $Dmg(buildings_{class}) \: \Rightarrow \: DmgRatio = \dfrac{\text{Repair cost}}{\text{Replacement cost}}$
+1. Divide risk into classes based on building characteristics
+2. Identification of a typical building in each class
+3. Evaluation of building performance
+    * Generate $Dmg(buildings_{class})$ for each class, based on relationship of intensity of force and $\mathrm{E}[Damage]$ to the typical building for each class
+    * Apply $Dmg(buildings_{class})$ to all buildings in each class $\Rightarrow \: DmgRatio = \dfrac{\text{Repair cost}}{\text{Replacement cost}}$
+    * Damage ratios and damage functions are created for eah coverage
     
 *Model run*: Lookup $DmgRatio$ $\forall$ buildings on class + intensity for each simulated event $\Rightarrow$ $\mathrm{E}[Damages]$
 
-## Loss Module
+### Loss Module
+<a name="loss-mod"></a>
 
 To determine monetary loss, 2 main approaches:
 
-1. Link event parameters $Rightarrow$ $\mathrm{E}[Loss]$
+1. Link event parameters $\Rightarrow$ $\mathrm{E}[Loss]$
     * Based on expert opinion
     * Hard to update
 2. Estimate the physical damage from event then use cost analysis to translate in to \$
@@ -179,11 +181,12 @@ This is an OEP from ground up, you can have it for different stakeholders and it
 
 **Conditional exceedance probability (CEP)**
 
-* $Pr(Loss_i > k | i occurs)
+* $Pr(Loss_i > k | i occurs)$
 * Useful for setting reserves after event
 
 ## Insurability of Catastrophe Risks
 
+<a name="insurability-condition"></a>
 **Conditions for insurability:**
 
 1. Ability to identify and quantify the frequency and severity
@@ -196,7 +199,7 @@ Rate needs to be *profitable* + *demand (affordable)*
 Cat specific considerations for setting rates:
 
 * High correlation losses
-* Need liquid asset $Rightarrow$ $\downarrow$ yield $\Rightarrow$ $uparrow$ profit margin for opportunity cost
+* Need liquid asset $\Rightarrow$ $\downarrow$ yield $\Rightarrow$ $\uparrow$ profit margin for opportunity cost
 * Low frequency $\Rightarrow$ $\uparrow$ uncertainty
 
 General considerations:
@@ -221,6 +224,7 @@ As $Premium \: \uparrow$ $\Rightarrow$ $n \: \downarrow$
 
 ## Simple Ratemaking Model
 
+<a name="simple-ratemaking"></a>
 $\begin{array}{lccccccc}
  \text{Premium} &= &\text{Average Annual Loss} &+ &\text{Risk Load} &+ &\text{Expense Load} \\
  &= &\sum\limits_i p_i L_i &+ &\sqrt{\sum\limits_i ({L_i}^2 p_i) - {AAL}^2} &+ &\text{Expense Load} & \text{Risk load based on } \sigma \text{ of OEP} \\
@@ -237,7 +241,7 @@ Cat model can determine an **equitable AAL for different risk** based on:
 2. **Location attributes**: Proximity and susceptibility to hazard of the building
     * e.g. fault lines, coast, soil type, etc
     
-##Regulation & Catastrophe Modeling
+## Regulation & Catastrophe Modeling
 
 Reasons for lack of regulatory supports:
 
@@ -265,28 +269,28 @@ Ratemaking constraints for CEA:
 Issues raised by consumer groups:  
 <span style="color:red;background-color:yellow">Try to tie it with different modules later</span>
 
-* *Frequency*  
+* **Frequency**  
 Model produce frequency twice the historical
 
-* Uncertainty in *time dependent*  
+* Uncertainty in **time dependent**  
 Assume $Poi(\lambda)$ but actual might not be memoriless
 
-* *Damage estimate*  
+* **Damage estimate**  
 Damage curve based on limited historical experience (Only Northbridge)
 
-* *Underinsured*  
+* **Underinsured**  
 Losses are based on % of IV $\Rightarrow$ understated losses if under insured
 
-* *Demand surge*  
+* **Demand surge**  
 Difficult to quantify the $\uparrow$ in cost
 
-* *Policy sublimits*  
+* **Policy sublimits**  
 Need to reduce model output based on sublimits but challenging due to the lack of details with claims data
 
-* *Rating plan deviation*  
+* **Rating plan deviation**  
 Cross subsidy within territory on rates $\Rightarrow$ not actuarially sound $\Rightarrow$ Adverse selection
 
-* *Retorfit discount*  
+* **Retorfit discount**  
 Retro fit discount only based on expert judgment not from data
 
 Note that the insurance commissioner ruled that the last 2 points are appropriate
@@ -311,6 +315,7 @@ Low, since usually results in rate increase
 
 ### Actuarial acceptance  
 <span style="color:red;background-color:yellow">Important Concepts</span>
+<a name="actuarial-accceptance"></a>
 
 Actuary needs to have basic understanding, know the components of the model (ASOP 38)
 
@@ -329,7 +334,7 @@ Often significant differences between the output of different models due to the 
 
 Complex multisource of uncertainty; different method for incorporating uncertainty
 
-##Uncertainty in Catastrophe Modeling
+## Uncertainty in Catastrophe Modeling
 
 Aleatory (process variance) vs Epistemic (VHM)
 
@@ -386,6 +391,7 @@ Assign probabilities to events then runif(0,1) to pick the outcome
 
 Important to assess cat risk at the portfolio level in addition to individual level
 
+<a name="cat-ptf-issues"></a>
 **Data quality**
 
 Important for key variables like construction type and age of building; Good data $\downarrow$ septicemic uncertainty
@@ -457,3 +463,92 @@ If the existing OEP is higher than target, need to reduce some of the loss amoun
 Diversification across portfolios can reduce the impact of individual events to the insurer
 
 Reduce risk by eliminating a portfolio that is most positively correlated
+
+## Cliff's Summary
+
+Components:
+
+* [Harzard](#hazard-mod)
+    * Location, freq, sev
+    * Simulates natural disasters based on probabilities of different event parameters (e.g., for earthquakes, this would include epicenter and Richter scale magnitude)
+* [Inventory](#inventory-mod)
+    * Group properties; data integrity is key
+    * Contains the properties at risk and their characteristics (e.g., insurer’s portfolio of insured homes, including construction type, insured amount, property location)
+* [Vulnerability](#vuln-mod)
+    * Maps hazard to damager
+    * Engineering judgement; building response analysis; Class based building response analysis
+    * Estimates the susceptibility to damage of each property given a specific simulated catastrophe and property information (e.g., brick construction is good against hurricanes, but poor against earthquakes)
+* [Loss](#loss-mod)
+    * Link event parameters to expected loss
+    * Estimate damage and translate to cost
+    * Quantifies the direct & indirect losses of the event on each property. Direct losses include physical damage, while indirect losses include things like business interruption or relocation costs
+    
+Exceedance Probability Curves (and 2 other types)
+
+* $OEP(L_i) = 1 - Pr(NoEvent) - \prod\limits_{j \: for \: L_j < L_i} (1-p_j)$
+* Watchout for the chance of no event when doing the calculations
+
+[Insurability conditions](#insurability-condition)
+
+Formula to provide coverage or not
+
+* $Pr(Loss > n \times Premium + Surplus) < Pr(Insolvency)$
+
+[Simple ratemaking model](#simple-ratemaking)
+
+Know the concerns with Cat models
+
+* Concerns with regulator
+* Tie the CEA issues with different modules
+
+Open issues with ratemaking with Cat Models
+
+* Mostly [actuarial](#actuarial-accceptance) issues
+
+Aleatory vs Epistemic uncertainty
+
+* Try to tie out the epistemic issues with the different modules
+
+Quantify uncertainy
+
+* Logic trees and simulation or hybrid
+
+Porfolio Management
+
+* [3 Special issues](#cat-ptf-issues): Data quality, uncertainty modeling, correlations
+* Composition
+* Managing AAL and chance of insolvent with EP curve and OEP
+* Multiple portfolios
+
+## Types of Exam Questions  
+<span style="color:green">Questions a bit thin</span>
+
+OEP
+
+* 2011 Q5 (calculate OEP and draw curve)
+* 2012 Q9 (1 in 25 years PML on EP curve)
+* 2013 Q24 a (PML on OEP curve)
+* 2013 Q24 b $\star$ (Losses in layers with inuring)
+* Practice 9 (AAL and OEP)
+
+Portfolio management
+
+* 2011 Q6 a (Minimize risk)
+    * Look at AAL then correlations
+    
+Other calculations
+
+* Practice 4 (How to run a simulation)
+* Practice 5 (maximum number of policies to write)
+
+Concepts
+
+* 2011 Q6 b (Problems with Cat model ratemaking)
+* 2012 Q9 ac (Explain EP curve and use)
+* 2013 Q24 a (PML def)
+* Practice 1 (4 Components)
+* Practice 2 (How Cat models work)
+* Practice 3 (Vulnerability module, class based analysis)
+* Practice 6 (Aleatory vs Epistemic and reasons for it)
+* Practice 7 (Regulatory challenges and responses)
+* Practice 8 (3 special issues insurers need to consider in managing portfolio)
