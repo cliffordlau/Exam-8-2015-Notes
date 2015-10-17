@@ -31,6 +31,9 @@ Fix % of premium and losses across all risk
 
 ***Non-proportional***: Reinsurer assumes losses in excess of the ceding company’s retention limits
 
+* <span style="color:green">2002 Q43</span> Can retain a larger portion of premium on small profitable risks
+* Helps stabilize underwriting results
+
 * **Per risk XoL**:  
 Protects against large individual claims
 
@@ -256,8 +259,6 @@ $\dfrac{\text{Exposure}}{IV}$ can be > 100%
   
 * E.g. If limits profile (IV) doesn't include additional living expense coverage or BI coverage
 
-
-
 Multiple locations policies:  
 Imperative that limits profile is based on data at the same level of granularity as what you are pricing (e.g. per risk or per location)  
 <span style="color:red">Not super sure what</span>
@@ -290,7 +291,7 @@ Use experience rating for the lower portion of the layer and exposure rating rel
 | Layer | Exposure Factors | Exp Rating Loss Cost |
 | ----- | ---------------- | -------------------- |
 | Exp rating layer | From 5. | From 2. |
-| Exposure rating layer | From 5. | $Exp Rating Loss Cost for lower layer \times \dfrac{P(CurrentLayer)}{P(LowerLayer)}$ |
+| Exposure rating layer | From 5. | $\text{Exp Rating Loss Cost for lower layer} \times \dfrac{P(CurrentLayer)}{P(LowerLayer)}$ |
 | Total exposed layer | Sum of above | Sum of above |
 
 ### Credibility for Experience Rating
@@ -300,11 +301,13 @@ $\mathrm{E}[\text{# of Claims}]$ or $\mathrm{E}[Loss]$
 * Historical
 * Use expected claims so we don't give too much credibility to worse than average years
 
-$\Var(\text{Historical Projected Loss Cost})$
+$Var(\text{Historical Projected Loss Cost})$
 
 * Stable LR gets more credibility
 
 ### Inuring Reinsurance
+
+$X$ treaty inures to the benefit of $Y$ treaty $\Rightarrow$ Apply $X$ first then $Y$
 
 For experience rating: restate historical experience to be net of inuring reinsurance
 
@@ -350,12 +353,12 @@ Only hit when:
 2. On-level and trend premiums and exposures
 3. Severity trend for individual L&ALAE
     * ALAE treatment: Pro-rata or included
-    * Treatment of limit with trend
+    * ***Treatment of limit with trend*** <a name="capped-per-occ-exp"></a>
         * Cap trended losses @ **historical** limits
             * Ignores that limits tend to $\uparrow$ over time
         * Don't cap trended losses
             * Assume limit $\uparrow$ at the same rate as loss trend
-            * Need to $\uparrow$ premiums to reflect higher limits; However difficult to quantify
+            * Need to $\uparrow$ subject premiums to reflect higher limits; However difficult to quantify
 4. $\sum$ trended loss by year and apply XS LDFs
     * Ideally uses cedent's data for LDFs
     * Or use RAA, caveat:
@@ -393,6 +396,8 @@ Apply exposure factor to ground-up $\mathrm{E}[Loss]$ net of inuring
 
 Exposure factor exclude risk loading
 
+<span style="color:green">2002 Q38</span> Only policies with limit that's at least the retention can contribution to the calculation of the exposure rate
+
 ***WC***
 
 ELF: IPC, $aL^{-b}$, estimate $a$ and $b$ from selected XS Factors
@@ -400,6 +405,8 @@ ELF: IPC, $aL^{-b}$, estimate $a$ and $b$ from selected XS Factors
 * Can be a % of losses (vs standard premium)
 
 $\text{Exposure Factor} = ELF_{AP} - ELF_{AP+Lim}$
+
+* Applies to Standard Premium $\times$ ELR
 
 Need standard premium, ELR to get expected treaty losses
 
@@ -656,6 +663,7 @@ Per occ XoL
 * Swing plan: ELR = inverse of expense loading? Premium rate = provisional rate?
 * Clash coverage triggers
 * [Exposure rating](#exp-rate-per-occ-xol)
+* Issues and remediations for [trended capped loss](#capped-per-occ-exp) in experience rating
 
 Aggregate Dist^n^ Model
 
@@ -667,13 +675,23 @@ Finite risk
 
 ### Calculations
 
-Swing Plans
+Loss sensitive contracts
 
-* check if plan is balanced
+* Swing Plans
+    * check if plan is balanced
+* Sliding Scale
+    * Technical ratio = loss ratio + commission ratio
+    * balance: expected sliding scale commission = the sliding scale commission @ ELR
 
 Surplus Share
 
 * $\text{Ceding %} = {\min \left(\dfrac{\text{Line Purchased}}{\text{IV}}, \dfrac{\text{IV}-\text{Line Retained}}{\text{IV}} \right)}^+$
+
+Exposure Rate
+
+* Per Occ XoL (Use ILFs and ELFs)
+* Per Risk XoL (Use curve)
+
 
 ## Types of Exam Questions
 
@@ -682,14 +700,51 @@ Surplus Share
 Loss sensitive contracts
 
 * 1999 Q37 $\star$ (Swing plans)
+* 2001 Q51 $\star$ (Sliding scale)
+* 2002 Q40 $\star$ (Loss corridor)
+* 2003 Q18 (Sliding scale)
+* 2003 Q19 (Loss corridor)
 
-Surplus Share
+Actual loss under treaties
 
-* 2000 Q50
+* 2000 Q50 (Surplus Share)
+* 2001 Q25 (QS, SS, XoL)
+* 2002 Q18 (XoL and CAT inuring)
+* 2002 Q19 (SS)
+* 2002 Q37 (QS with ceding comm)
+* 2003 Q39 (Different basis and XoL)
+* 2003 Q41 (ALAE treatments calc)
+* 2004 Q11 (Reinsurer LR)
+* 2004 Q14 (ALAE treatments calc)
+* 2004 Q16 (XoL w/ coinsurance)
+* 2004 Q17 (SS)
+* 2004 Q45 $\star$ (Split of XoL between parties; inuring; rate on line)
+* 2005 Q29 a (XoL multi layers)
+* 2005 Q32 (XoL)
 
 Pricing contracts
 
 * 2000 Q71 $\star\star$ (Price per occ XoL with drop down)
+
+Exposure Rate
+
+* 2001 Q48 (ILFs)
+* 2002 Q38 (ILFs)
+* 2002 Q39 $\star$ (ILFs)
+* 2003 Q40 (ILFs)
+* 2004 Q13 (Curve table)
+* 2004 Q15 (ELFs)
+* 2005 Q34 $\star$ (Curve with inurring)
+
+Experience Rate
+
+* 2005 Q26 (develop, trend and rate adj; free cover concept)
+
+Other
+
+* 2001 Q26 (Reinstatement premium)
+* 2003 Q42 (Reinstatement premium)
+* 2005 Q29 b (Reinstatement premium)  
 
 ### Concepts
 
@@ -700,7 +755,10 @@ Basis of Reinsurance
 Per Occ XoL
 
 * 2000 Q53 (Clash coverage triggers)
+* 2005 Q33 $\star$ (capped loss w/ experience rating)
 
 ## Questions
 
 * The swing plans expense loading thing why is that the expecte loss is the inverse
+* Not sure what the exposure factor are for some of those questions, how is the ILF used as the exposure curve
+    * I thought the exposure curve is limited loss $\div$ unlimited?
