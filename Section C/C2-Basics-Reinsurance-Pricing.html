@@ -190,7 +190,8 @@ img {
 <p>Assumes flat % of premium and pays the same % of L&amp;ALAE</p>
 <p>Reinsurer pays a ceding commission to the ceding co to reflect u/w expenses</p>
 <p><strong><em>Surplus Share</em></strong></p>
-<p>For ceding company to retain low risk policies and only cede high risk</p>
+<p>Pros: For ceding company to retain low risk policies and only cede high risk</p>
+<p>Cons: require keeping track of the percent ceded for each policy</p>
 <p><span class="math">\(\text{Ceding %} = {\min \left(\dfrac{\text{Line Purchased}}{\text{IV}}, \dfrac{\text{IV}-\text{Line Retained}}{\text{IV}} \right)}^+\)</span></p>
 <p>Surplus Share treaty is NOT the same thing as excess insurance. Once the surplus % is established for a risk, then the reinsurer is responsible for that % of loss</p>
 </div>
@@ -214,6 +215,11 @@ img {
 <li>Ideally LDFs from treaty
 <ul>
 <li>Else adjust for report lag</li>
+<li>Lag due to:
+<ul>
+<li>For XOL reinsurance, a primary company may not have expected a loss to penetrate the reinsurance layer, in which case the reinsurer only gets notified after the claim has had some development</li>
+<li>A claim could impact multiple reinsurance treaties, resulting in longer delays to reinsurers covering higher layers of loss</li>
+</ul></li>
 </ul></li>
 <li>On-level premiums for rate changes and average price change (e.g. sch credits)
 <ul>
@@ -339,7 +345,11 @@ img {
 <ul>
 <li>Not what you want</li>
 <li>Check with PP/Mid-point range of IV ??</li>
-<li>Also affect by deductible underlying: Sub premium <span class="math">\(\Delta\)</span> but no underlying XS ??</li>
+</ul>
+<p><span style="color:green">2005 Q34</span> Exposure rating can be distorted when deductible levels change</p>
+<ul>
+<li>When deductibles increase, the subject premium decreases, but the expected excess losses may not change significantly. So the old exposure rate would be inadequate. Vice versa for decreased deductibel</li>
+<li>When deductibles decrease, losses below the original deductible may be unknown, so information is missing about the loss distribution. This makes it challenging to derive a new exposure curve for the lower deductible</li>
 </ul>
 </div>
 <div id="free-cover" class="section level3">
@@ -724,9 +734,14 @@ img {
 <p>2 Methods</p>
 <p>Proportional</p>
 <ul>
-<li>QS vs Surplus share</li>
+<li>QS vs Surplus share; Know the pros and cons for SS</li>
 </ul>
 <p>Per risk XoL</p>
+<ul>
+<li>Underlying deductible impact on exposure rate</li>
+<li>Report lag considerations</li>
+<li>Considerations when using benchmark</li>
+</ul>
 <p>Per occ XoL</p>
 <ul>
 <li>Swing plan: ELR = inverse of expense loading? Premium rate = provisional rate?</li>
@@ -777,6 +792,8 @@ img {
 <li>2002 Q40 <span class="math">\(\star\)</span> (Loss corridor)</li>
 <li>2003 Q18 (Sliding scale)</li>
 <li>2003 Q19 (Loss corridor)</li>
+<li>2006 Q9 <span class="math">\(\star\)</span> (2 Loss corridor)</li>
+<li>2007 Q23 (Profit share)</li>
 </ul>
 <p>Actual loss under treaties</p>
 <ul>
@@ -786,14 +803,21 @@ img {
 <li>2002 Q19 (SS)</li>
 <li>2002 Q37 (QS with ceding comm)</li>
 <li>2003 Q39 (Different basis and XoL)</li>
-<li>2003 Q41 (ALAE treatments calc)</li>
+<li>2003 Q41 (ALAE treatments)</li>
 <li>2004 Q11 (Reinsurer LR)</li>
-<li>2004 Q14 (ALAE treatments calc)</li>
+<li>2004 Q14 (ALAE treatments)</li>
 <li>2004 Q16 (XoL w/ coinsurance)</li>
 <li>2004 Q17 (SS)</li>
 <li>2004 Q45 <span class="math">\(\star\)</span> (Split of XoL between parties; inuring; rate on line)</li>
 <li>2005 Q29 a (XoL multi layers)</li>
 <li>2005 Q32 (XoL)</li>
+<li>2005 Q35 (QS net amount due to reinsurer)</li>
+<li>2005 Q37 (XoL inure to CAT)</li>
+<li>2006 Q10 (ALAE treatments)</li>
+<li>2006 Q11 (Multi layer CAT)</li>
+<li>2006 Q44 (QS; SS)</li>
+<li>2007 Q24 ab (ALAE treatments)</li>
+<li>2007 Q27 ab (QS; SS)</li>
 </ul>
 <p>Pricing contracts</p>
 <ul>
@@ -808,6 +832,9 @@ img {
 <li>2004 Q13 (Curve table)</li>
 <li>2004 Q15 (ELFs)</li>
 <li>2005 Q34 <span class="math">\(\star\)</span> (Curve with inurring)</li>
+<li>2006 Q40 (ILFs)</li>
+<li>2006 Q42 (Curve for Per Occ)</li>
+<li>2007 Q2 (Curve)</li>
 </ul>
 <p>Experience Rate</p>
 <ul>

@@ -108,9 +108,13 @@ Assumes flat % of premium and pays the same % of L&ALAE
 
 Reinsurer pays a ceding commission to the ceding co to reflect u/w expenses
 
+Pros: Provides more ceding commission compare to SS and less costly to administer
+
 ***Surplus Share***
 
-For ceding company to retain low risk policies and only cede high risk
+Pros: For ceding company to retain low risk policies and only cede high risk
+
+Cons: require keeping track of the percent ceded for each policy
 
 $\text{Ceding %} = {\min \left(\dfrac{\text{Line Purchased}}{\text{IV}}, \dfrac{\text{IV}-\text{Line Retained}}{\text{IV}} \right)}^+$
 
@@ -127,6 +131,9 @@ Surplus Share treaty is NOT the same thing as excess insurance. Once the surplus
 3. **Develop & trend losses; on-level and trend premiums; or trend exposures**
     * Ideally LDFs from treaty
         * Else adjust for report lag
+        * Lag due to:
+            * For XOL reinsurance, a primary company may not have expected a loss to penetrate the reinsurance layer, in which case the reinsurer only gets notified after the claim has had some development
+            * A claim could impact multiple reinsurance treaties, resulting in longer delays to reinsurers covering higher layers of loss
     * On-level premiums for rate changes and average price change (e.g. sch credits)
         * Include planned change during the treaty period if possible
     * Trend exposures if inflation sensitive
@@ -232,7 +239,9 @@ Net refers to net of inuring reinsurance (reinsurance that applies before this t
 <span style="color:red;background-color:yellow">Not trend subject premium?</span>
 3. **Trend** *loss* for severity
     * Determine trended loss in layer $\Rightarrow$ Sum up losses by year
-4. Apply **XS LDFs** to develop XS losses
+    * Trend then cap the losses for layer
+    * Trend from accident date to mid point of the policy period <span style="color:green">2008 Q39</span>
+4. Apply **XS LDFs** to develop XS losses (at the accident level)
     * Ideally derive LDFs from cedent
     * Trend losses for frequency if needed
 5. $\text{Loss Cost} = \dfrac{\text{Trended & developed losses}}{\text{Adjusted Subject Premium}}$
@@ -261,7 +270,7 @@ $\dfrac{\text{Exposure}}{IV}$ can be > 100%
 
 Multiple locations policies:  
 Imperative that limits profile is based on data at the same level of granularity as what you are pricing (e.g. per risk or per location)  
-<span style="color:red">Not super sure what</span>
+<span style="color:red">Not super sure what, maybe look at the next chapter</span>
 
 $P(p)$ by size group
 
@@ -270,11 +279,17 @@ $\forall$ risk $\in \{\text{Size Group}\}$ assume homogeneous
 If you use same $P(p)$ for different risk size $\Rightarrow$ Implies scale independence $\Rightarrow$ Pr(10K Loss on 100K risk) = Pr(100K Loss on 1M risk)
 
 * Not what you want
-* Check with PP/Mid-point range of IV ??
-* Also affect by deductible underlying: Sub premium $\Delta$ but no underlying XS ??
+* Check with PP/Mid-point range of IV <span style="color:green">2012 Q10</span>
+
+<span style="color:green">2005 Q34</span> Exposure rating can be distorted when deductible levels change
+
+* When deductibles increase, the subject premium decreases, but the expected excess losses may not change significantly. So the old exposure rate would be inadequate. Vice versa for decreased deductibel
+* When deductibles decrease, losses below the original deductible may be unknown, so
+information is missing about the loss distribution. This makes it challenging to derive a new exposure curve for the lower deductible
 
 ### Free Cover  
 <span style="color:green">2011 Q7</span>
+<a name="free-cover"></a>
 
 **Free cover:** Using experience rating when no loss experience in the highest portion of a layer. It basically give away those XS coverage with no prior loss experience
 
@@ -541,7 +556,9 @@ Cons:
 * No allowance for loss free scenario
 * No easy way to reflect the impact of changing per occ limits on aggregate losses
 
-***Recursive calculations***
+***
+
+***Panjer’s Recursive calculations***
 
 A type of collective risk model
 
@@ -558,6 +575,10 @@ Cons:
 
 * Inconvenient for higher $\mathrm{E}[Freq]$ due to # of calculations
 * Only a single severity dist^n^ can be used
+
+More on [wiki](#https://en.wikipedia.org/wiki/Panjer_recursion)
+
+***
 
 ***Collective risk models***
 
@@ -583,7 +604,7 @@ Typically net of all inuring reinsurance such as QS, per risk XoL, fac, etc
 
 Allow cedent to refill the treaty limit a certain number of times during the policy period
 
-Pro rata to *amount*: annual premium $\times$ reinstatement provision $\times$ loss $\div $ limit
+Pro rata to *amount*: annual premium $\times$ reinstatement provision $\times$ loss $\div$ limit
 
 Pro rata to *time*: annual premium $\times$ reinstatement provision $\times$ time left on contract
 
@@ -650,13 +671,25 @@ Complicating factors:
 
 ### Key Concepts
 
-2 Methods
+Experience rate vs Exposure rate
+
+Loss sensitive
+
+* Carry forward
+* Mechanism to stabilize results for loss sensitive features over time <span style="color:green">2014 Q23</span>
+    * Also the difficulties in including in the determination of an aggregate loss distribution model
 
 Proportional
 
-* QS vs Surplus share
+* QS vs Surplus share; Know the pros and cons for SS
 
 Per risk XoL
+
+* Underlying deductible impact on exposure rate
+* Report lag considerations
+* Considerations when using benchmark
+* [Free cover](#free-cover)
+* Burn cost, RoL, Payback
 
 Per occ XoL
 
@@ -666,6 +699,9 @@ Per occ XoL
 * Issues and remediations for [trended capped loss](#capped-per-occ-exp) in experience rating
 
 Aggregate Dist^n^ Model
+
+* <span style="color:green">2013 Q25</span> Judging model selection
+* Caveat of collective risk
 
 Property Cat Covers
 
@@ -692,7 +728,6 @@ Exposure Rate
 * Per Occ XoL (Use ILFs and ELFs)
 * Per Risk XoL (Use curve)
 
-
 ## Types of Exam Questions
 
 ### Calculations
@@ -704,6 +739,13 @@ Loss sensitive contracts
 * 2002 Q40 $\star$ (Loss corridor)
 * 2003 Q18 (Sliding scale)
 * 2003 Q19 (Loss corridor)
+* 2006 Q9 $\star$ (2 Loss corridor)
+* 2007 Q23 (Profit share)
+* 2007 Q30 (Sliding scale technical ratio)
+* 2008 Q38 (Sliding scale)
+* 2009 Q30 (Loss corridor)
+* 2011 Q8 (Loss corridor)
+* 2012 Q7 a (Sliding scale)
 
 Actual loss under treaties
 
@@ -713,18 +755,40 @@ Actual loss under treaties
 * 2002 Q19 (SS)
 * 2002 Q37 (QS with ceding comm)
 * 2003 Q39 (Different basis and XoL)
-* 2003 Q41 (ALAE treatments calc)
+* 2003 Q41 (ALAE treatments)
 * 2004 Q11 (Reinsurer LR)
-* 2004 Q14 (ALAE treatments calc)
+* 2004 Q14 (ALAE treatments)
 * 2004 Q16 (XoL w/ coinsurance)
 * 2004 Q17 (SS)
 * 2004 Q45 $\star$ (Split of XoL between parties; inuring; rate on line)
 * 2005 Q29 a (XoL multi layers)
 * 2005 Q32 (XoL)
+* 2005 Q35 (QS net amount due to reinsurer)
+* 2005 Q37 (XoL inure to CAT)
+* 2006 Q10 (ALAE treatments)
+* 2006 Q11 (Multi layer CAT)
+* 2006 Q44 (QS; SS)
+* 2007 Q24 ab (ALAE treatments)
+* 2007 Q27 ab (QS; SS)
+* 2007 Q28 (QS CAT inuring)
+* 2008 Q28 (Per Occ inure to agg)
+* 2008 Q29 (ALAE treatments)
+* 2008 Q32 (QS and XoL)
+* 2008 Q33 (SS)
+* 2009 Q21 $\star$ (Need to interrept the coverage)
+* 2009 Q22 (Different basis and XoL)
+* 2009 Q25 (QS CAT inuring)
+* 2009 Q26 (ALAE treatments)
+* 2010 Q26 $\star$ (Umbrella XoL, with tricky double ALAE pro rata)
+* 2010 Q27 $\star$ (Inuring XoL)
+* 2010 Q28 (Clash and XoL inuring)
+* 2013 Q23 (QS XoL SS comparison)
+* 2014 Q22 ab (QS; SS)
+* 2014 Q24 c (QS inure to CAT)
 
 Pricing contracts
 
-* 2000 Q71 $\star\star$ (Price per occ XoL with drop down)
+* 2000 Q71 $\star\star$ (Price per occ XoL with umbrella drop down)
 
 Exposure Rate
 
@@ -735,16 +799,37 @@ Exposure Rate
 * 2004 Q13 (Curve table)
 * 2004 Q15 (ELFs)
 * 2005 Q34 $\star$ (Curve with inurring)
+* 2006 Q40 (ILFs)
+* 2006 Q42 (Curve for Per Occ)
+* 2007 Q2 (Curve)
+* 2009 Q27 (Curve)
+* 2010 Q20 $\star$ (Full blown XoL)
+* 2010 Q15 (Curve)
+* 2011 Q7 $\star\star$ (Mixed Expo and Exp!)
+* 2012Q10 $\star\star$ (Test appropriatness of exposure curve data)
+    * Test likelihood as % of PP
+    * Volatility of Ult LR and granularity of the exposure curve
+* 2014 Q25 $\star$ (Exposure curve with formula)
 
 Experience Rate
 
 * 2005 Q26 (develop, trend and rate adj; free cover concept)
+* 2007 Q31 $\star$ (Cap the trended loss first then develop for the AY)
+* 2008 Q31 $\star$ (Full blown QS combine ratio calc)
+* 2009 Q39 (XoL)
+* 2009 Q29 $\star$ (Full blown QS)
+* 2010 Q21 $\star$ (Rate on line, payback period, burn cost)
+* 2014 Q24 a (Payback period)
 
 Other
 
 * 2001 Q26 (Reinstatement premium)
 * 2003 Q42 (Reinstatement premium)
-* 2005 Q29 b (Reinstatement premium)  
+* 2005 Q29 b (Reinstatement premium)
+* 2010 Q22 $\star$ (Reinstatement premium)
+* 2013 Q21 $\star$ (Rein prem for multiple loss, ALAE treatment)
+* 2014 Q24 b (Reinstatement premium)
+* 2014 Q20 $\star$ (details on trending umbrella)
 
 ### Concepts
 
@@ -752,13 +837,35 @@ Basis of Reinsurance
 
 * 1997 Q31 $\star$ (2 basis; matching premium; paying twice)
 
-Per Occ XoL
+XoL 
 
-* 2000 Q53 (Clash coverage triggers)
-* 2005 Q33 $\star$ (capped loss w/ experience rating)
+* 2000 Q53 (Per Occ XoL Clash coverage triggers)
+* 2005 Q33 $\star$ (Per Occ XoL capped loss w/ experience rating)
+* 2009 Q28 $\star$ (Free cover)
+
+Loss sensitive
+
+* 2012 Q7 $\star$ bcd (carryforward)
+
+Compare of different types of reinsurance
+
+* 2007 Q29 $\star$ (Structure insurance to retain certain amount of policy limit)
+* 2014 Q23 $\star$ (Compare loss corridor and sliding scale; how to stabilize)
+
+Aggregate distribution model
+
+* 2013 Q25 $\star$ (Compare model based on data)
+
+Other
+
+* 2014 Q21 $\star\star$ (ALAE treatment impact on umbrella; Difficulties in estimating ALAE; importance of ALAE)
+* 2014 Q22 c (Resolving overlap policies)
 
 ## Questions
 
 * The swing plans expense loading thing why is that the expecte loss is the inverse
-* Not sure what the exposure factor are for some of those questions, how is the ILF used as the exposure curve
-    * I thought the exposure curve is limited loss $\div$ unlimited?
+* For exposure rating lots of the questions say "the LDFs apply to summed losses by year, which is equivalent to applying them at the accident level and NOT capping losses after applying the LDFs" What does that mean?
+* 2009 Q21 not super clear on what counts as "reduce the x limit"
+* Umbrella with and without drop down definition
+* Not sure about the 2012 Q10 test
+* What does 2013 Q25 falls under the section?
