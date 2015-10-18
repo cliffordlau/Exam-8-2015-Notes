@@ -401,6 +401,7 @@ Exposure rating with MBBEFD
 [Swiss Re](#swiss-re) curve
 
 ## Types of Exam Questions
+<span style="color=green">Questions a bit thin</span>
 
 Curve properties, $p$, derive curve, parameters
 
