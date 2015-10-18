@@ -9,10 +9,12 @@ output:
 
 ## Basics and recap from Clark on Exposure Curves
 
-Exposure curve:  
+Exposure curve:
 Dist^n^ of $\dfrac{\text{Expected limited losses @ various limits}}{\text{Expected unlimited losses}}$ on various limit
 
 Exposure curve @ given limit = 1 - XS ratio @ given limit
+
+This is same as the ratio of pure risk premium <span style="color:green">2013 Q22</span>
 
 Built on data outside of risk's own experience
 
@@ -27,7 +29,7 @@ Exposure curve are different by risk size
 
 Data behind the curves has to be at the same granularity as what you are pricing (e.g. per location or per policy)
 
-##Exposure Curves: Clark
+## Exposure Curves: Clark
 
 **Exposure Curve** Def^n^
 
@@ -93,7 +95,7 @@ $\begin{array}{ll}
     
     * $G(d)$ is increasing on [0,1]
 
-4. $G''(d) = \dfrac{-f(d)}{\mathrm{E}[y]}$
+4. $G''(d) = \dfrac{-f(d)}{\mathrm{E}[y]} \leq 0$
 
     * Since $f(d) \geq 0$
     
@@ -176,8 +178,8 @@ Sub in $a = \dfrac{(g-1)b}{1-gb}$ to $G(x)$
     
     * $G'(x) \geq 0$
  
- ### Different Cases of MBBEFD Parameters  
- <span style="color:red">Will be given</span>
+### Different Cases of MBBEFD Parameters  
+<span style="color:red">Will be given</span>
  
  $G_{b,g}(x) = 
   \begin{cases}
@@ -233,11 +235,11 @@ $0 \leq p \leq 1$
 
 Steps to divide the total premiums of each risk size group between the ceding company and the reinsurer
 
-1. Apply **ELR** to **gross premiums** to estimate overall risk premium ($mathrm{E}[Loss]$) into *retained* and *ceded* portions
+1. Apply **ELR** to **gross premiums** to estimate overall risk premium ($\mathrm{E}[Loss]$) into *retained* and *ceded* portions
 
-* For each risk size group
+    * For each risk size group
 
-2. Use **loss dist^n^ function** (exposure curve) to divide the risk premiums ($mathrm{E}[Loss]$) into *retained* and *ceded* portions
+2. Use **loss dist^n^ function** (exposure curve) to divide the risk premiums ($\mathrm{E}[Loss]$) into *retained* and *ceded* portions
 
 ### Exposure Rating with MBBEFD
 
@@ -250,8 +252,9 @@ Gross Premium $\times$ ELR $\times$ Exposure Factor in Ceded Layer
 Step 4 is pretty similar to what was in Clark's
 
 ### Curve Fitting
+<a name="MBBEFD-curve-fit"></a>
 
-Curve fitting with know values of parameters
+Curve fitting of MBBEFD with know values of parameters
 
 * $p$ and $\mu$; or
 * $\mu$ and $\sigma$
@@ -281,14 +284,15 @@ Procedure to get $g$ and $b$
 
 1. Initial estimate $p_0 = \mathrm{E}[y^2] = \mu^2 + \sigma^2$
 2. Use $p_0$ and $\mu$ to get $g_0$ and $b_0$
-3. Re calc $p_0 = \mathrm{E}_0[y^2]$
+3. Re calc $p_0 = \mathrm{E}_0[y^2]$ (Or just use the curve and do the $1-F(1^-)$ formula)
 4. Repeat 2 and 3 till $\mathrm{E}_0[y^2]$ is close enough to $\mathrm{E}[y^2]$
 
 ***
 
 Likely either be asking you to describe the procedure, or given formulas to use and a simple case of $\mu$
 
-##Swiss Re Curves
+## Swiss Re Curves
+<a name="swiss-re"></a>
 
 Use MBBEFD to $\approx$ Swiss Re exposure curves $Y_i$ where $i \in \{1,2,3,4\}$
 
@@ -305,4 +309,117 @@ $c = 5.0$ also coincides well with a Lloyd’s curve used for rating industrial 
 
 When $c = 0 \Rightarrow g(0) = 1$ $\therefore$ $p = \frac{1}{g} = 1$, so the curve corresponds to a dist^n^ of total losses
 
+## Cliff's Summary
 
+Exposure curve relation ships other factors
+
+* ILFs
+* XS Ratio $R(L)$
+
+Bernegger exposure curve
+
+* $G(d) = \dfrac{\mathrm{E}[X;dM]}{\mathrm{E}[X]} = \dfrac{\mathrm{E}[y;d]}{\mathrm{E}[y]}$
+* $G(0) = 0$
+* $G(1) = 1$
+* $G'(d) \geq 0$
+* $G''(d) \leq 0$
+* Know the conditions so you can check if a curve is valid
+
+From first principles
+
+* $G(d) = \dfrac{\int_0^{d} 1 - F(y) \: dy}{\int_0^{1}1-F(y)\:dy} = \dfrac{\int_0^{dM} 1 - F(x) \: dx}{\int_0^{\infty}x\:f(x)} \:dx$
+
+Mean, CDF, Pr(Total Loss)
+
+* $\mathrm{E}[y] = \mu = \dfrac{1}{G'(0)}$
+
+* $F(d) = 
+\begin{cases}
+  1 & d = 1 \\
+  1 - \dfrac{G'(d)}{G'(0)} & 0 \leq d < 1\\
+\end{cases}$
+
+    * Know how to back out $F(d)$ with $G(d)$
+
+* $p = 1 - F(1^-) = \dfrac{G'(1)}{G'(0)}$
+    * $0 \leq p \leq \mu \leq 1$
+    
+***
+
+MBBEFD
+
+* $G(x) = \dfrac{ln(a+b^x)-ln(a+1)}{ln(a+b) - ln(a+1)}$
+
+    * Know which one is a and b if they fille it with numbers
+
+* $F(x) =
+  \begin{cases}
+    1 & x = 1 \\
+    1 - \dfrac{(a+1)b^x}{a+b^x} & 0 \leq x < 1 \\
+  \end{cases}$
+
+* $p = 1 - F(1^-) = \dfrac{(a+1)b}{a+b}$
+
+Conditions
+
+* Sub in $a = \dfrac{(g-1)b}{1-gb}$ to $G(x)$
+    * $g \geq 1$
+    * $b \geq 0$
+
+Different cases of MBBEFD parameters
+
+* Probably don't have to memorize, just know some of the special cases
+* For the $bg=1$ case, $b=p$
+
+***
+
+Unlimited distributions and the conditions
+
+* $G(\infty) = 1$
+* $G'(\infty) = 0$
+    * No total losses
+
+$\mu$ is the same but doesn't have to be $\leq 1$
+
+$p$ not Pr(Total Loss) any more, just loss exceeding reference value
+
+$p = \dfrac{G'(1)}{G'(0)}$
+
+$0 \leq p \leq 1$
+
+***
+
+Exposure rating with MBBEFD
+
+* Gross Prem $\times$ ELR $\times$ Exposure factor for layer
+* Know how to get the $\mu$ and $p$ with different differential
+
+[Curve Fitting]($MBBEFD-curve-fit) of MBBEFD
+
+***
+
+[Swiss Re](#swiss-re) curve
+
+## Types of Exam Questions
+
+Curve properties, $p$, derive curve, parameters
+
+* 2011 Q9 a $\star$ (MBBEFD exposure factor with $G(d)$ $G'(d)$ given)
+* 2011 Q9 b $\star$ (MBBEFD $p$ with $G(d)$ $G'(d)$ given)
+* 2012 Q8 a $\star$ (Check conditions of $G(d)$ given)
+* 2012 Q8 c $\star$ (Meaning of $b$ for the special case)
+* 2013 Q20 $\star$ (Derive $G(d)$ from first principle)
+* 2013 Q22 $\star$ (Defective, but need back solve numbers)
+* Practice 2 $\star$ (Properties of a given curve)
+* Practice 3 $\star$ (Describe the process of fitting)
+* Practice 4 $\star$ (The thing about dividing between ceding and reinsurer)
+
+Plug and play with curve
+
+* 2012 Q8 b (Given MBBEFD speical case)
+* 2013 Q20 b
+* Practice 1
+
+## Questions
+
+* Not super sure about the thing about dividing between ceding and reinsurer
