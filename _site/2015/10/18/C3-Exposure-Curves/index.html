@@ -1,8 +1,82 @@
----
-layout: default
----
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exam 8 Notes</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.">
+    <meta name="description" content="CAS Exam 8 Notes">
 
-<!DOCTYPE html>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px;
+      }
+    </style>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  </head>
+  <style>
+    #forkongithub
+      a{background:#000;color:#fff;text-decoration:none;
+        font-family:arial,sans-serif;text-align:center;
+        font-weight:bold;padding:5px 40px;font-size:1rem;line-height:2rem;
+        position:relative;transition:0.5s;}
+    #forkongithub
+      a:hover{background:#c11;color:#fff;}
+    #forkongithub a::before,
+    #forkongithub
+      a::after{content:"";width:100%;display:block;position:absolute;top:1px;
+      left:0;height:1px;background:#fff;}
+    #forkongithub
+      a::after{bottom:1px;top:auto;}
+    @media screen and (min-width:800px)
+    {#forkongithub{position:fixed;display:block;top:0;right:0;width:200px;
+      overflow:hidden;height:200px;z-index:9999;}
+    #forkongithub a{width:200px;position:absolute;top:60px;
+      right:-60px;transform:rotate(45deg);-webkit-transform:rotate(45deg);
+      -ms-transform:rotate(45deg);
+      -moz-transform:rotate(45deg);-o-transform:rotate(45deg);
+      box-shadow:4px 4px 10px rgba(0,0,0,0.8);}}
+    </style>
+    <span id="forkongithub">
+      <a href="https://github.com/cliffordlau/Exam-8-2015-Notes">
+        Fork me on GitHub
+      </a>
+    </span>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Exam 8 Notes</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -13,7 +87,7 @@ layout: default
 <meta name="generator" content="pandoc" />
 
 
-<meta name="date" content="2015-09-19" />
+<meta name="date" content="2015-10-18" />
 
 <title>The Swiss Re Exposure Curves and the MBBEFD Distribution Class</title>
 
@@ -66,7 +140,7 @@ img {
 
 <div id="header">
 <h1 class="title">The Swiss Re Exposure Curves and the MBBEFD Distribution Class</h1>
-<h4 class="date"><em>September 19, 2015</em></h4>
+<h4 class="date"><em>October 18, 2015</em></h4>
 </div>
 
 <div id="TOC">
@@ -78,6 +152,7 @@ img {
 </ul></li>
 <li><a href="#mbbefd-exposure-curves">MBBEFD Exposure Curves</a><ul>
 <li><a href="#conditions-for-mbbefd-parameters">Conditions for MBBEFD Parameters</a></li>
+<li><a href="#different-cases-of-mbbefd-parameters">Different Cases of MBBEFD Parameters</a></li>
 <li><a href="#unlimited-distributions">Unlimited Distributions</a></li>
 </ul></li>
 <li><a href="#exposure-rating">Exposure Rating</a><ul>
@@ -85,12 +160,14 @@ img {
 <li><a href="#curve-fitting">Curve Fitting</a></li>
 </ul></li>
 <li><a href="#swiss-re-curves">Swiss Re Curves</a></li>
+<li><a href="#cliffs-summary">Cliff’s Summary</a></li>
+<li><a href="#types-of-exam-questions">Types of Exam Questions</a></li>
 </ul>
 </div>
 
 <div id="basics-and-recap-from-clark-on-exposure-curves" class="section level2">
 <h2>Basics and recap from Clark on Exposure Curves</h2>
-<p>Exposure curve:<br />Dist<sup>n</sup> of <span class="math">\(\dfrac{\text{Expected limited losses @ various limits}}{\text{Expected unlimited losses}}\)</span> on various limit</p>
+<p>Exposure curve: Dist<sup>n</sup> of <span class="math">\(\dfrac{\text{Expected limited losses @ various limits}}{\text{Expected unlimited losses}}\)</span> on various limit</p>
 <p>Exposure curve @ given limit = 1 - XS ratio @ given limit</p>
 <p>Built on data outside of risk’s own experience</p>
 <ul>
@@ -142,7 +219,7 @@ img {
 <li><p>Since <span class="math">\(F(d) \geq 0\)</span></p></li>
 <li><p><span class="math">\(G(d)\)</span> is increasing on [0,1]</p></li>
 </ul></li>
-<li><p><span class="math">\(G''(d) = \dfrac{-f(d)}{\mathrm{E}[y]}\)</span></p>
+<li><p><span class="math">\(G''(d) = \dfrac{-f(d)}{\mathrm{E}[y]} \leq 0\)</span></p>
 <ul>
 <li><p>Since <span class="math">\(f(d) \geq 0\)</span></p></li>
 <li><p><span class="math">\(G(d)\)</span> is concave on [0,1]</p></li>
@@ -201,7 +278,10 @@ img {
 <li><p><span class="math">\(G'(x) \geq 0\)</span></p></li>
 </ul></li>
 </ol>
-<p>### Different Cases of MBBEFD Parameters<br /> <span style="color:red">Will be given</span></p>
+</div>
+<div id="different-cases-of-mbbefd-parameters" class="section level3">
+<h3>Different Cases of MBBEFD Parameters</h3>
+<p><span style="color:red">Will be given</span></p>
 <p><span class="math">\(G_{b,g}(x) =  \begin{cases}  x &amp; g = 1 \text{ or } b = 0 \\  \dfrac{ln(1+(g-1)x)}{ln(g)} &amp; b = 1 \text{ and } g &gt; 1 \\  \dfrac{1-b^x}{1-b} &amp;bg = 1 \text{ and } g &gt; 1 \\  \dfrac{ln \left( \dfrac{(g-1)b + (1-gb)b^x}{1-b} \right)}{ln(gb)} &amp; b &gt; 0 \text{ and } b \neq 1 \text{ and } bg \neq 1 \text{ and } g &gt; 1\\  \end{cases}\)</span></p>
 </div>
 <div id="unlimited-distributions" class="section level3">
@@ -238,13 +318,11 @@ img {
 <h2>Exposure Rating</h2>
 <p>Steps to divide the total premiums of each risk size group between the ceding company and the reinsurer</p>
 <ol style="list-style-type: decimal">
-<li>Apply <strong>ELR</strong> to <strong>gross premiums</strong> to estimate overall risk premium (<span class="math">\(mathrm{E}[Loss]\)</span>) into <em>retained</em> and <em>ceded</em> portions</li>
-</ol>
+<li><p>Apply <strong>ELR</strong> to <strong>gross premiums</strong> to estimate overall risk premium (<span class="math">\(\mathrm{E}[Loss]\)</span>) into <em>retained</em> and <em>ceded</em> portions</p>
 <ul>
 <li>For each risk size group</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li>Use <strong>loss dist<sup>n</sup> function</strong> (exposure curve) to divide the risk premiums (<span class="math">\(mathrm{E}[Loss]\)</span>) into <em>retained</em> and <em>ceded</em> portions</li>
+</ul></li>
+<li><p>Use <strong>loss dist<sup>n</sup> function</strong> (exposure curve) to divide the risk premiums (<span class="math">\(\mathrm{E}[Loss]\)</span>) into <em>retained</em> and <em>ceded</em> portions</p></li>
 </ol>
 <div id="exposure-rating-with-mbbefd" class="section level3">
 <h3>Exposure Rating with MBBEFD</h3>
@@ -258,7 +336,8 @@ img {
 </div>
 <div id="curve-fitting" class="section level3">
 <h3>Curve Fitting</h3>
-<p>Curve fitting with know values of parameters</p>
+<p><a name="MBBEFD-curve-fit"></a></p>
+<p>Curve fitting of MBBEFD with know values of parameters</p>
 <ul>
 <li><span class="math">\(p\)</span> and <span class="math">\(\mu\)</span>; or</li>
 <li><span class="math">\(\mu\)</span> and <span class="math">\(\sigma\)</span></li>
@@ -291,6 +370,7 @@ img {
 </div>
 <div id="swiss-re-curves" class="section level2">
 <h2>Swiss Re Curves</h2>
+<p><a name="swiss-re"></a></p>
 <p>Use MBBEFD to <span class="math">\(\approx\)</span> Swiss Re exposure curves <span class="math">\(Y_i\)</span> where <span class="math">\(i \in \{1,2,3,4\}\)</span></p>
 <ol style="list-style-type: decimal">
 <li><span class="math">\(\forall \: i\)</span> estimate <span class="math">\(b_i\)</span> and <span class="math">\(g_i\)</span></li>
@@ -305,6 +385,94 @@ img {
 <p><span class="math">\(c \in \{1.5, 2.0, 3.0, 4.0\}\)</span> matches <span class="math">\(\{Y_1,Y_2,Y_3,Y_4\}\)</span></p>
 <p><span class="math">\(c = 5.0\)</span> also coincides well with a Lloyd’s curve used for rating industrial risks</p>
 <p>When <span class="math">\(c = 0 \Rightarrow g(0) = 1\)</span> <span class="math">\(\therefore\)</span> <span class="math">\(p = \frac{1}{g} = 1\)</span>, so the curve corresponds to a dist<sup>n</sup> of total losses</p>
+</div>
+<div id="cliffs-summary" class="section level2">
+<h2>Cliff’s Summary</h2>
+<p>Exposure curve relation ships other factors</p>
+<ul>
+<li>ILFs</li>
+<li>XS Ratio <span class="math">\(R(L)\)</span></li>
+</ul>
+<p>Bernegger exposure curve</p>
+<ul>
+<li><span class="math">\(G(d) = \dfrac{\mathrm{E}[X;dM]}{\mathrm{E}[X]} = \dfrac{\mathrm{E}[y;d]}{\mathrm{E}[y]}\)</span></li>
+<li><span class="math">\(G(0) = 0\)</span></li>
+<li><span class="math">\(G(1) = 1\)</span></li>
+<li><span class="math">\(G'(d) \geq 0\)</span></li>
+<li><span class="math">\(G''(d) \leq 0\)</span></li>
+<li>Know the conditions so you can check if a curve is valid</li>
+</ul>
+<p>From first principles</p>
+<ul>
+<li><span class="math">\(G(d) = \dfrac{\int_0^{d} 1 - F(y) \: dy}{\int_0^{1}1-F(y)\:dy} = \dfrac{\int_0^{dM} 1 - F(x) \: dx}{\int_0^{\infty}x\:f(x)} \:dx\)</span></li>
+</ul>
+<p>Mean, CDF, Pr(Total Loss)</p>
+<ul>
+<li><p><span class="math">\(\mathrm{E}[y] = \mu = \dfrac{1}{G'(0)}\)</span></p></li>
+<li><p><span class="math">\(F(d) = \begin{cases}  1 &amp; d = 1 \\  1 - \dfrac{G'(d)}{G'(0)} &amp; 0 \leq d &lt; 1\\ \end{cases}\)</span></p></li>
+<li><span class="math">\(p = 1 - F(1^-) = \dfrac{G'(1)}{G'(0)}\)</span>
+<ul>
+<li><span class="math">\(0 \leq p \leq \mu \leq 1\)</span></li>
+</ul></li>
+</ul>
+<hr />
+<p>MBBEFD</p>
+<ul>
+<li><p><span class="math">\(G(x) = \dfrac{ln(a+b^x)-ln(a+1)}{ln(a+b) - ln(a+1)}\)</span></p>
+<ul>
+<li>Know which one is a and b if they fille it with numbers</li>
+</ul></li>
+<li><p><span class="math">\(F(x) =  \begin{cases} 1 &amp; x = 1 \\ 1 - \dfrac{(a+1)b^x}{a+b^x} &amp; 0 \leq x &lt; 1 \\  \end{cases}\)</span></p></li>
+<li><p><span class="math">\(p = 1 - F(1^-) = \dfrac{(a+1)b}{a+b}\)</span></p></li>
+</ul>
+<p>Conditions</p>
+<ul>
+<li>Sub in <span class="math">\(a = \dfrac{(g-1)b}{1-gb}\)</span> to <span class="math">\(G(x)\)</span>
+<ul>
+<li><span class="math">\(g \geq 1\)</span></li>
+<li><span class="math">\(b \geq 0\)</span></li>
+</ul></li>
+</ul>
+<p>Different cases of MBBEFD parameters</p>
+<ul>
+<li>Probably don’t have to memorize, just know some of the special cases</li>
+<li>For the <span class="math">\(bg=1\)</span> case, <span class="math">\(b=p\)</span></li>
+</ul>
+<hr />
+<p>Unlimited distributions and the conditions</p>
+<ul>
+<li><span class="math">\(G(\infty) = 1\)</span></li>
+<li><span class="math">\(G'(\infty) = 0\)</span>
+<ul>
+<li>No total losses</li>
+</ul></li>
+</ul>
+<p><span class="math">\(\mu\)</span> is the same but doesn’t have to be <span class="math">\(\leq 1\)</span></p>
+<p><span class="math">\(p\)</span> not Pr(Total Loss) any more, just loss exceeding reference value</p>
+<p><span class="math">\(p = \dfrac{G'(1)}{G'(0)}\)</span></p>
+<p><span class="math">\(0 \leq p \leq 1\)</span></p>
+<hr />
+<p>Exposure rating with MBBEFD</p>
+<ul>
+<li>Gross Prem <span class="math">\(\times\)</span> ELR <span class="math">\(\times\)</span> Exposure factor for layer</li>
+<li>Know how to get the <span class="math">\(\mu\)</span> and <span class="math">\(p\)</span> with different differential</li>
+</ul>
+<p><a href="$MBBEFD-curve-fit">Curve Fitting</a> of MBBEFD</p>
+<hr />
+<p><a href="#swiss-re">Swiss Re</a> curve</p>
+</div>
+<div id="types-of-exam-questions" class="section level2">
+<h2>Types of Exam Questions</h2>
+<ul>
+<li>2011 Q9 a <span class="math">\(\star\)</span> (MBBEFD exposure factor with <span class="math">\(G(d)\)</span> <span class="math">\(G'(d)\)</span> given)</li>
+<li><p>2011 Q9 b <span class="math">\(\star\)</span> (MBBEFD <span class="math">\(p\)</span> with <span class="math">\(G(d)\)</span> <span class="math">\(G'(d)\)</span> given)</p></li>
+<li>2012 Q8 a <span class="math">\(\star\)</span> (Check conditions of <span class="math">\(G(d)\)</span> given)</li>
+<li><p>2012 Q8 c <span class="math">\(\star\)</span> (Meaning of <span class="math">\(b\)</span> for the special case)</p></li>
+</ul>
+<p>Plug and play with curve</p>
+<ul>
+<li>2012 Q8 b (Given MBBEFD speical case)</li>
+</ul>
 </div>
 
 
@@ -331,3 +499,33 @@ $(document).ready(function () {
 
 </body>
 </html>
+
+        </div>
+        <div class="col-md-4">
+            <h4>About This</h4>
+
+<p>Just a bunch of notes for Exam 8</p>
+
+<h4>Recent Post<h4>
+  <ul>
+  
+    <li><a href="/2015/10/18/C3-Exposure-Curves/">C3 Exposure Curves</a></li>
+  
+    <li><a href="/2015/10/18/C2-Basics-Reinsurance-Pricing/">C2 Basics Reinsurance Pricing</a></li>
+  
+    <li><a href="/2015/10/18/C1-Cat-Model/">C1 Cat Model</a></li>
+  
+    <li><a href="/2015/10/11/B9-XS-Ratios-Alt-Method/">B9 Xs Ratios Alt Method</a></li>
+  
+    <li><a href="/2015/10/11/B8-1997-ELF/">B8 1997 Elf</a></li>
+  
+  </ul>
+
+        </div>
+    </div>
+    </div>
+       </div>
+
+ </body>
+</html>
+

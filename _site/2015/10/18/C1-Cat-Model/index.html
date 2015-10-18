@@ -1,8 +1,82 @@
----
-layout: default
----
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exam 8 Notes</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.">
+    <meta name="description" content="CAS Exam 8 Notes">
 
-<!DOCTYPE html>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px;
+      }
+    </style>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  </head>
+  <style>
+    #forkongithub
+      a{background:#000;color:#fff;text-decoration:none;
+        font-family:arial,sans-serif;text-align:center;
+        font-weight:bold;padding:5px 40px;font-size:1rem;line-height:2rem;
+        position:relative;transition:0.5s;}
+    #forkongithub
+      a:hover{background:#c11;color:#fff;}
+    #forkongithub a::before,
+    #forkongithub
+      a::after{content:"";width:100%;display:block;position:absolute;top:1px;
+      left:0;height:1px;background:#fff;}
+    #forkongithub
+      a::after{bottom:1px;top:auto;}
+    @media screen and (min-width:800px)
+    {#forkongithub{position:fixed;display:block;top:0;right:0;width:200px;
+      overflow:hidden;height:200px;z-index:9999;}
+    #forkongithub a{width:200px;position:absolute;top:60px;
+      right:-60px;transform:rotate(45deg);-webkit-transform:rotate(45deg);
+      -ms-transform:rotate(45deg);
+      -moz-transform:rotate(45deg);-o-transform:rotate(45deg);
+      box-shadow:4px 4px 10px rgba(0,0,0,0.8);}}
+    </style>
+    <span id="forkongithub">
+      <a href="https://github.com/cliffordlau/Exam-8-2015-Notes">
+        Fork me on GitHub
+      </a>
+    </span>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Exam 8 Notes</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -13,7 +87,7 @@ layout: default
 <meta name="generator" content="pandoc" />
 
 
-<meta name="date" content="2015-09-13" />
+<meta name="date" content="2015-10-14" />
 
 <title>Catastrophe Modeling: A New Approach to Managing Risk</title>
 
@@ -66,7 +140,7 @@ img {
 
 <div id="header">
 <h1 class="title">Catastrophe Modeling: A New Approach to Managing Risk</h1>
-<h4 class="date"><em>September 13, 2015</em></h4>
+<h4 class="date"><em>October 14, 2015</em></h4>
 </div>
 
 <div id="TOC">
@@ -76,8 +150,8 @@ img {
 <li><a href="#hazard-module">Hazard Module</a></li>
 <li><a href="#inventory-module">Inventory Module</a></li>
 <li><a href="#vulnerability-module">Vulnerability Module</a></li>
-</ul></li>
 <li><a href="#loss-module">Loss Module</a></li>
+</ul></li>
 <li><a href="#exceedance-probability-curves">Exceedance Probability Curves</a></li>
 <li><a href="#insurability-of-catastrophe-risks">Insurability of Catastrophe Risks</a></li>
 <li><a href="#determining-whether-to-provide-coverage">Determining whether to Provide Coverage</a></li>
@@ -106,6 +180,8 @@ img {
 <li><a href="#portfolio-management">Portfolio Management</a></li>
 <li><a href="#multiple-portfolios">Multiple Portfolios</a></li>
 </ul></li>
+<li><a href="#cliffs-summary">Cliff’s Summary</a></li>
+<li><a href="#types-of-exam-questions">Types of Exam Questions</a></li>
 </ul>
 </div>
 
@@ -129,16 +205,16 @@ img {
 <td align="left">Assess risk of their clients to send to reinsurers</td>
 </tr>
 <tr class="odd">
-<td align="left">Captial market</td>
+<td align="left">Capital market</td>
 <td align="left">Price cat bond</td>
 </tr>
 <tr class="even">
 <td align="left">Regulators</td>
-<td align="left">Assess insuer’s work</td>
+<td align="left">Assess insurer’s work</td>
 </tr>
 <tr class="odd">
-<td align="left">Emergeny Management Agencies</td>
-<td align="left">Determin impact of an actual event post occurence</td>
+<td align="left">Emergency Management Agencies</td>
+<td align="left">Determine impact of an actual event post occurrence</td>
 </tr>
 </tbody>
 </table>
@@ -161,7 +237,7 @@ img {
 <li><strong>Hazard Module:</strong>
 <ul>
 <li>Simulates natural disasters</li>
-<li>Based on probabilities of different event parameters<br />e.g. epicenter, richter scale, etc</li>
+<li>Based on probabilities of different event parameters<br />e.g. epicenter, Richter scale, etc</li>
 </ul></li>
 <li><strong>Inventory Module:</strong>
 <ul>
@@ -180,6 +256,7 @@ img {
 </ol>
 <div id="hazard-module" class="section level3">
 <h3>Hazard Module</h3>
+<p><a name="hazard-mod"></a></p>
 <p>Main parameters:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Location:</strong> Certain areas are more prone to certain catastrophe</li>
@@ -191,6 +268,7 @@ img {
 </div>
 <div id="inventory-module" class="section level3">
 <h3>Inventory Module</h3>
+<p><a name="inventory-mod"></a></p>
 <p>Inventory can range from entire industry, to single insurer, or just individual risks</p>
 <p>Properties and their value grouped by:</p>
 <ul>
@@ -210,6 +288,7 @@ img {
 </div>
 <div id="vulnerability-module" class="section level3">
 <h3>Vulnerability Module</h3>
+<p><a name="vuln-mod"></a></p>
 <p>Estimates the damage to properties from simulated events</p>
 <p>Maps hazard <span class="math">\(\rightarrow\)</span> damage:</p>
 <p><strong><em>Engineering Judgement</em></strong></p>
@@ -226,23 +305,24 @@ img {
 </ul>
 <p><strong><em>Class based building response analysis</em></strong></p>
 <p>Modify the <em>building response analysis</em> to make it more appropriate for portfolio risk assessment</p>
-<p>Divide risk into classes based on building characteristics</p>
-<ul>
+<ol style="list-style-type: decimal">
+<li>Divide risk into classes based on building characteristics</li>
 <li>Identification of a typical building in each class</li>
-<li><p>Evaluation of building performance</p>
+<li>Evaluation of building performance
 <ul>
-<li><p><span class="math">\(\forall\)</span> class, intensity of force <span class="math">\(\Leftrightarrow\)</span> <span class="math">\(\mathrm{E}[Damage]\)</span> of the typical building</p></li>
-<li><p><span class="math">\(Dmg(buildings_{class}) \: \Rightarrow \: DmgRatio = \dfrac{\text{Repair cost}}{\text{Replacement cost}}\)</span></p></li>
+<li>Generate <span class="math">\(Dmg(buildings_{class})\)</span> for each class, based on relationship of intensity of force and <span class="math">\(\mathrm{E}[Damage]\)</span> to the typical building for each class</li>
+<li>Apply <span class="math">\(Dmg(buildings_{class})\)</span> to all buildings in each class <span class="math">\(\Rightarrow \: DmgRatio = \dfrac{\text{Repair cost}}{\text{Replacement cost}}\)</span></li>
+<li>Damage ratios and damage functions are created for eah coverage</li>
 </ul></li>
-</ul>
+</ol>
 <p><em>Model run</em>: Lookup <span class="math">\(DmgRatio\)</span> <span class="math">\(\forall\)</span> buildings on class + intensity for each simulated event <span class="math">\(\Rightarrow\)</span> <span class="math">\(\mathrm{E}[Damages]\)</span></p>
 </div>
-</div>
-<div id="loss-module" class="section level2">
-<h2>Loss Module</h2>
-<p>To determin monetary loss, 2 main approaches:</p>
+<div id="loss-module" class="section level3">
+<h3>Loss Module</h3>
+<p><a name="loss-mod"></a></p>
+<p>To determine monetary loss, 2 main approaches:</p>
 <ol style="list-style-type: decimal">
-<li>Link event parameters <span class="math">\(Rightarrow\)</span> <span class="math">\(\mathrm{E}[Loss]\)</span>
+<li>Link event parameters <span class="math">\(\Rightarrow\)</span> <span class="math">\(\mathrm{E}[Loss]\)</span>
 <ul>
 <li>Based on expert opinion</li>
 <li>Hard to update</li>
@@ -253,6 +333,7 @@ img {
 <ul>
 <li>Coverage limits, sub limits, deductibles by coverage, coinsurance, risk specific reinsurance</li>
 </ul>
+</div>
 </div>
 <div id="exceedance-probability-curves" class="section level2">
 <h2>Exceedance Probability Curves</h2>
@@ -284,23 +365,23 @@ img {
 </ul>
 <p><strong>Conditional exceedance probability (CEP)</strong></p>
 <ul>
-<li>$Pr(Loss_i &gt; k | i occurs)</li>
+<li><span class="math">\(Pr(Loss_i &gt; k | i occurs)\)</span></li>
 <li>Useful for setting reserves after event</li>
 </ul>
 </div>
 <div id="insurability-of-catastrophe-risks" class="section level2">
 <h2>Insurability of Catastrophe Risks</h2>
-<p><strong>Conditions for insurability:</strong></p>
+<p><a name="insurability-condition"></a> <strong>Conditions for insurability:</strong></p>
 <ol style="list-style-type: decimal">
 <li>Ability to identify and quantify the frequency and severity</li>
 <li>Ability to set premiums for <em>each</em> customers</li>
 </ol>
 <p>Insurable <span class="math">\(\neq\)</span> profitable</p>
 <p>Rate needs to be <em>profitable</em> + <em>demand (affordable)</em></p>
-<p>Cat specific considerationss for setting rates:</p>
+<p>Cat specific considerations for setting rates:</p>
 <ul>
 <li>High correlation losses</li>
-<li>Need liquid asset <span class="math">\(Rightarrow\)</span> <span class="math">\(\downarrow\)</span> yield <span class="math">\(\Rightarrow\)</span> <span class="math">\(uparrow\)</span> profit margin for opportunity cost</li>
+<li>Need liquid asset <span class="math">\(\Rightarrow\)</span> <span class="math">\(\downarrow\)</span> yield <span class="math">\(\Rightarrow\)</span> <span class="math">\(\uparrow\)</span> profit margin for opportunity cost</li>
 <li>Low frequency <span class="math">\(\Rightarrow\)</span> <span class="math">\(\uparrow\)</span> uncertainty</li>
 </ul>
 <p>General considerations:</p>
@@ -315,7 +396,7 @@ img {
 <li>Estimate of <strong>expected value of future cost</strong></li>
 <li>Provides for <strong>all cost</strong> associated with the transfer of risk</li>
 <li>Provides for the cost associated with an <strong>individual</strong> risk transfer</li>
-<li><strong>Reasonable</strong> and <strong>not excessive, inadequate, or unfairly discriminatory</strong> if it is an actuarially sound estimate of the expected value of all future costs associated with an individiual risk transfer</li>
+<li><strong>Reasonable</strong> and <strong>not excessive, inadequate, or unfairly discriminatory</strong> if it is an actuarially sound estimate of the expected value of all future costs associated with an individual risk transfer</li>
 </ol>
 </div>
 <div id="determining-whether-to-provide-coverage" class="section level2">
@@ -325,18 +406,18 @@ img {
 </div>
 <div id="simple-ratemaking-model" class="section level2">
 <h2>Simple Ratemaking Model</h2>
-<p><span class="math">\(\begin{array}{lccccccc}  \text{Premium} &amp;= &amp;\text{Average Annual Loss} &amp;+ &amp;\text{Risk Load} &amp;+ &amp;\text{Expense Load} \\  &amp;= &amp;\sum\limits_i p_i L_i &amp;+ &amp;\sqrt{\sum\limits_i ({L_i}^2 p_i) - {AAL}^2} &amp;+ &amp;\text{Expense Load} &amp; \text{Risk load based on } \sigma \text{ of OEP} \\ \end{array}\)</span></p>
+<p><a name="simple-ratemaking"></a> <span class="math">\(\begin{array}{lccccccc}  \text{Premium} &amp;= &amp;\text{Average Annual Loss} &amp;+ &amp;\text{Risk Load} &amp;+ &amp;\text{Expense Load} \\  &amp;= &amp;\sum\limits_i p_i L_i &amp;+ &amp;\sqrt{\sum\limits_i ({L_i}^2 p_i) - {AAL}^2} &amp;+ &amp;\text{Expense Load} &amp; \text{Risk load based on } \sigma \text{ of OEP} \\ \end{array}\)</span></p>
 <ul>
 <li>Doable in exam if given band of discrete events</li>
 </ul>
 <p>Cat model can outputs AAL and risk load</p>
-<p>Cat model can determin an <strong>equitable AAL for different risk</strong> based on:</p>
+<p>Cat model can determine an <strong>equitable AAL for different risk</strong> based on:</p>
 <ol style="list-style-type: decimal">
-<li><strong>Structure attributes</strong>: Physcial performance of the building during a cat
+<li><strong>Structure attributes</strong>: Physical performance of the building during a cat
 <ul>
 <li>e.g. construction type, occupancy type, etc</li>
 </ul></li>
-<li><strong>Location attributes</strong>: Proximity and susceptibility to harzard of the building
+<li><strong>Location attributes</strong>: Proximity and susceptibility to hazard of the building
 <ul>
 <li>e.g. fault lines, coast, soil type, etc</li>
 </ul></li>
@@ -347,7 +428,7 @@ img {
 <p>Reasons for lack of regulatory supports:</p>
 <ul>
 <li><p><strong>Difficult to evaluate</strong>:<br />Require subject matter experts<br />Can use benchmark models to evaluate</p></li>
-<li><p><strong>Proprietary</strong>:<br />Some states require goverment documents to be publicly available</p></li>
+<li><p><strong>Proprietary</strong>:<br />Some states require government documents to be publicly available</p></li>
 </ul>
 <p>Conflict for regulators:</p>
 <ul>
@@ -357,22 +438,22 @@ img {
 </div>
 <div id="california-earthquake-authority" class="section level2">
 <h2>California Earthquake Authority</h2>
-<p>Publically managed insurer formed due to insurers threatening to leave CA market from earthquake losses after 1994 Northbridge earthquake</p>
+<p>Publicly managed insurer formed due to insurers threatening to leave CA market from earthquake losses after 1994 Northbridge earthquake</p>
 <p>Ratemaking constraints for CEA:</p>
 <ul>
 <li>Actuarially sound</li>
 <li>Scientific information consistent with geophysical data and current scientific knowledge</li>
 </ul>
-<p>Issues rasied by consumer groups:<br /><span style="color:red;background-color:yellow">Try to tie it with different modules later</span></p>
+<p>Issues raised by consumer groups:<br /><span style="color:red;background-color:yellow">Try to tie it with different modules later</span></p>
 <ul>
-<li><p><em>Frequency</em><br />Model produce frequency twice the historical</p></li>
-<li><p>Uncertainty in <em>time dependent</em><br />Assume <span class="math">\(Poi(\lambda)\)</span> but actual might not be memoriless</p></li>
-<li><p><em>Damage estimate</em><br />Damage curve based on limited historical experienec (Only Northbridge)</p></li>
-<li><p><em>Underinsured</em><br />Losses are based on % of IV <span class="math">\(\Rightarrow\)</span> understated losses if underinsured</p></li>
-<li><p><em>Demand surge</em><br />Difficult to quantify the <span class="math">\(\uparrow\)</span> in cost</p></li>
-<li><p><em>Policy sublimits</em><br />Need to reduce model output based on sublimits but challenging due to the lack of details with claims data</p></li>
-<li><p><em>Rating plan deviation</em><br />Cross subsidy within territory on rates <span class="math">\(\Rightarrow\)</span> not actuarially sound <span class="math">\(\Rightarrow\)</span> Adverse selection</p></li>
-<li><p><em>Retorfit discount</em><br />Retro fit discount only based on expert judgment not from data</p></li>
+<li><p><strong>Frequency</strong><br />Model produce frequency twice the historical</p></li>
+<li><p>Uncertainty in <strong>time dependent</strong><br />Assume <span class="math">\(Poi(\lambda)\)</span> but actual might not be memoriless</p></li>
+<li><p><strong>Damage estimate</strong><br />Damage curve based on limited historical experience (Only Northbridge)</p></li>
+<li><p><strong>Underinsured</strong><br />Losses are based on % of IV <span class="math">\(\Rightarrow\)</span> understated losses if under insured</p></li>
+<li><p><strong>Demand surge</strong><br />Difficult to quantify the <span class="math">\(\uparrow\)</span> in cost</p></li>
+<li><p><strong>Policy sublimits</strong><br />Need to reduce model output based on sublimits but challenging due to the lack of details with claims data</p></li>
+<li><p><strong>Rating plan deviation</strong><br />Cross subsidy within territory on rates <span class="math">\(\Rightarrow\)</span> not actuarially sound <span class="math">\(\Rightarrow\)</span> Adverse selection</p></li>
+<li><p><strong>Retorfit discount</strong><br />Retro fit discount only based on expert judgment not from data</p></li>
 </ul>
 <p>Note that the insurance commissioner ruled that the last 2 points are appropriate</p>
 </div>
@@ -392,8 +473,8 @@ img {
 </div>
 <div id="actuarial-acceptance" class="section level3">
 <h3>Actuarial acceptance</h3>
-<p><span style="color:red;background-color:yellow">Important Concepts</span></p>
-<p>Acturary needs to have basic understanding, know the components of the model (ASOP 38)</p>
+<p><span style="color:red;background-color:yellow">Important Concepts</span> <a name="actuarial-accceptance"></a></p>
+<p>Actuary needs to have basic understanding, know the components of the model (ASOP 38)</p>
 <p>Actuary needs to determine:</p>
 <ul>
 <li>Appropriate reliance of experts</li>
@@ -425,7 +506,7 @@ img {
 <li>Limited scientific knowledge</li>
 <li>Limited data</li>
 <li>Cross-disciplinary <span class="math">\(\Rightarrow\)</span> Each has their own assumptions</li>
-<li>Lack of data for geographci information system</li>
+<li>Lack of data for geographic information system</li>
 <li>Lack of accurate data on true market value on buildings</li>
 <li>Understanding of how some material perform due to limited lab testing of structural material</li>
 </ul>
@@ -460,8 +541,8 @@ img {
 <div id="insurnace-portfolio-management" class="section level2">
 <h2>Insurnace Portfolio Management</h2>
 <p>Important to assess cat risk at the portfolio level in addition to individual level</p>
-<p><strong>Data quality</strong></p>
-<p>Important for key variables like construction type and age of building; Good data <span class="math">\(\downarrow\)</span> epistemic uncertainty</p>
+<p><a name="cat-ptf-issues"></a> <strong>Data quality</strong></p>
+<p>Important for key variables like construction type and age of building; Good data <span class="math">\(\downarrow\)</span> septicemic uncertainty</p>
 <p><strong>Uncertainty Modeling</strong></p>
 <p>Need to allocate losses to stakeholders based on probability dist<sup>n</sup></p>
 <p><strong>Correlations</strong></p>
@@ -479,7 +560,7 @@ img {
 <li>Correlation with existing portfolio</li>
 <li>Highest price risk willing to pay</li>
 </ul>
-<p>Cat models help make the decision more objective by quantifyng the risk posed</p>
+<p>Cat models help make the decision more objective by quantifying the risk posed</p>
 </div>
 <div id="portfolio-modeling-bottom-up" class="section level3">
 <h3>Portfolio Modeling: Bottom-up</h3>
@@ -514,6 +595,105 @@ img {
 <p>Reduce risk by eliminating a portfolio that is most positively correlated</p>
 </div>
 </div>
+<div id="cliffs-summary" class="section level2">
+<h2>Cliff’s Summary</h2>
+<p>Components:</p>
+<ul>
+<li><a href="#hazard-mod">Harzard</a>
+<ul>
+<li>Location, freq, sev</li>
+<li>Simulates natural disasters based on probabilities of different event parameters (e.g., for earthquakes, this would include epicenter and Richter scale magnitude)</li>
+</ul></li>
+<li><a href="#inventory-mod">Inventory</a>
+<ul>
+<li>Group properties; data integrity is key</li>
+<li>Contains the properties at risk and their characteristics (e.g., insurer’s portfolio of insured homes, including construction type, insured amount, property location)</li>
+</ul></li>
+<li><a href="#vuln-mod">Vulnerability</a>
+<ul>
+<li>Maps hazard to damager</li>
+<li>Engineering judgement; building response analysis; Class based building response analysis</li>
+<li>Estimates the susceptibility to damage of each property given a specific simulated catastrophe and property information (e.g., brick construction is good against hurricanes, but poor against earthquakes)</li>
+</ul></li>
+<li><a href="#loss-mod">Loss</a>
+<ul>
+<li>Link event parameters to expected loss</li>
+<li>Estimate damage and translate to cost</li>
+<li>Quantifies the direct &amp; indirect losses of the event on each property. Direct losses include physical damage, while indirect losses include things like business interruption or relocation costs</li>
+</ul></li>
+</ul>
+<p>Exceedance Probability Curves (and 2 other types)</p>
+<ul>
+<li><span class="math">\(OEP(L_i) = 1 - Pr(NoEvent) - \prod\limits_{j \: for \: L_j &lt; L_i} (1-p_j)\)</span></li>
+<li>Watchout for the chance of no event when doing the calculations</li>
+</ul>
+<p><a href="#insurability-condition">Insurability conditions</a></p>
+<p>Formula to provide coverage or not</p>
+<ul>
+<li><span class="math">\(Pr(Loss &gt; n \times Premium + Surplus) &lt; Pr(Insolvency)\)</span></li>
+</ul>
+<p><a href="#simple-ratemaking">Simple ratemaking model</a></p>
+<p>Know the concerns with Cat models</p>
+<ul>
+<li>Concerns with regulator</li>
+<li>Tie the CEA issues with different modules</li>
+</ul>
+<p>Open issues with ratemaking with Cat Models</p>
+<ul>
+<li>Mostly <a href="#actuarial-accceptance">actuarial</a> issues</li>
+</ul>
+<p>Aleatory vs Epistemic uncertainty</p>
+<ul>
+<li>Try to tie out the epistemic issues with the different modules</li>
+</ul>
+<p>Quantify uncertainy</p>
+<ul>
+<li>Logic trees and simulation or hybrid</li>
+</ul>
+<p>Porfolio Management</p>
+<ul>
+<li><a href="#cat-ptf-issues">3 Special issues</a>: Data quality, uncertainty modeling, correlations</li>
+<li>Composition</li>
+<li>Managing AAL and chance of insolvent with EP curve and OEP</li>
+<li>Multiple portfolios</li>
+</ul>
+</div>
+<div id="types-of-exam-questions" class="section level2">
+<h2>Types of Exam Questions</h2>
+<p><span style="color:green">Questions a bit thin</span></p>
+<p>OEP</p>
+<ul>
+<li>2011 Q5 (calculate OEP and draw curve)</li>
+<li>2012 Q9 (1 in 25 years PML on EP curve)</li>
+<li>2013 Q24 a (PML on OEP curve)</li>
+<li>2013 Q24 b <span class="math">\(\star\)</span> (Losses in layers with inuring)</li>
+<li>Practice 9 (AAL and OEP)</li>
+</ul>
+<p>Portfolio management</p>
+<ul>
+<li>2011 Q6 a (Minimize risk)
+<ul>
+<li>Look at AAL then correlations</li>
+</ul></li>
+</ul>
+<p>Other calculations</p>
+<ul>
+<li>Practice 4 (How to run a simulation)</li>
+<li>Practice 5 (maximum number of policies to write)</li>
+</ul>
+<p>Concepts</p>
+<ul>
+<li>2011 Q6 b (Problems with Cat model ratemaking)</li>
+<li>2012 Q9 ac (Explain EP curve and use)</li>
+<li>2013 Q24 a (PML def)</li>
+<li>Practice 1 (4 Components)</li>
+<li>Practice 2 (How Cat models work)</li>
+<li>Practice 3 (Vulnerability module, class based analysis)</li>
+<li>Practice 6 (Aleatory vs Epistemic and reasons for it)</li>
+<li>Practice 7 (Regulatory challenges and responses)</li>
+<li>Practice 8 (3 special issues insurers need to consider in managing portfolio)</li>
+</ul>
+</div>
 
 
 </div>
@@ -539,3 +719,33 @@ $(document).ready(function () {
 
 </body>
 </html>
+
+        </div>
+        <div class="col-md-4">
+            <h4>About This</h4>
+
+<p>Just a bunch of notes for Exam 8</p>
+
+<h4>Recent Post<h4>
+  <ul>
+  
+    <li><a href="/2015/10/18/C3-Exposure-Curves/">C3 Exposure Curves</a></li>
+  
+    <li><a href="/2015/10/18/C2-Basics-Reinsurance-Pricing/">C2 Basics Reinsurance Pricing</a></li>
+  
+    <li><a href="/2015/10/18/C1-Cat-Model/">C1 Cat Model</a></li>
+  
+    <li><a href="/2015/10/11/B9-XS-Ratios-Alt-Method/">B9 Xs Ratios Alt Method</a></li>
+  
+    <li><a href="/2015/10/11/B8-1997-ELF/">B8 1997 Elf</a></li>
+  
+  </ul>
+
+        </div>
+    </div>
+    </div>
+       </div>
+
+ </body>
+</html>
+
