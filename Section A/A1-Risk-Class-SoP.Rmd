@@ -7,14 +7,65 @@ output:
     toc_depth: 4
 ---
 
-## Concepts of Risk classification
+## Cliff's Summary
 
-  * Grouping of risk with similar risk characteristics ($\mathrm{E}[Cost]) for the purpose of setting prices
+Short but lots of concepts to memorize and digest
+
+What is [risk classification](#risk-class-concept) $\Rightarrow$ 3 [Purpose](#risk-class-purpose) $\Rightarrow$ 5 [Principles](#risk-class-prin) $\Rightarrow$ 9 Considerations in design
+
+3 of the key design criteria: [Ops](#ops-consideration), [Social](#social-consideration), [Statistic](#stat-consideration)
+
+![alt text](figures/Exam 8 A - 1.png)
+
+## Types of Exam Questions
+
+List out criteria and principles
+
+* Just memorize
+
+If a given plan satisfy some of the criteria
+
+* 1998 Q43 $\star$
+* 2004 Q40
+* 2004 Q23 
+* 2004 Q24 (Compare 2 plans)
+* 2006 Q38 (Miles driven; stat and op criteria)
+* 2008 Q28 (Color of car; op and social)
+* 2008 Q2 $\star$ (stat and op with data)
+* 2009 Q34 (free for all pick 2)
+* 2012 Q4 b (In conjunction with part a from GLM)
+* 2013 Q1 $\star$ (Does it follow the 3 principles)
+* 2014 Q6 $\star$ (4 of any criteria)
+
+Impacts on inadequate risk classification
+
+* 2006 Q20
+
+Other good questions
+
+* 2004 Q29
+* 2009 Q1 (When is risk class important)
+
+Relate this to Section A5 with the HG mappings
+
+* 2012 Q1 $\star$
+
+    * Credibility: assigning a credibility of $Z = min(\frac{n}{n+k}\times 1.5, 1)$ gives larger classes more weight to permit the calculation of more accurate predictors of XS ratios
+
+    * Homogeneity: clustering analysis using k-means algorithm is used to assign each class into a HG. K-means has the property to minimize within variance and maximize between variance so new HG are homogeneous
+
+    * Predictive Stability: since current HG were used as the complement of credibility, this provided stability in the class XS, while still recognizing any changes that were credible
+
+## Concepts of Risk classification
+<a name="risk-class-concept"></a>
+
+  * Grouping of risk with similar risk characteristics ($\mathrm{E}[Cost]$) for the purpose of setting prices
   * Challenge is to identify the appropriate risk characteristics to classify the risk
   * Especially useful when there are no retro/exp rating
   
 ## 3 Primary Purpose  
 <span style="color:red; background-color:yellow">Key Concepts</span>
+<a name="risk-class-purpose"></a>
 
 1. **Protect insurance system's financial soundness**
     * Guard against adverse selection
@@ -31,7 +82,7 @@ output:
     
 ## 5 Principles to achieve the 3 Primary Purposes  
 <span style="color:red; background-color:yellow">Key Concepts</span>
-
+<a name="risk-class-prin"></a>
 Risk classification system should:
 
 1. Reflect **$\mathrm{E[costs]}$ differences**
@@ -68,6 +119,7 @@ The program design differs based on some of the considerations below:
       
 ### 4. Statistical Criteria  
 <span style="color:red">Memorize</span>
+<a name="stat-consideration"></a>
 
 * **Homogeneity**: $\mathrm{E[Costs]} \in$ a class should be $\approx$ with no clear sub classes with different loss potential
 
@@ -81,6 +133,7 @@ Homogeneity and credibility are in conflict since making a class more homogeneou
 
 ### 5. Operational Criteria
 <span style="color:red">Memorize</span>
+<a name="ops-consideration"></a>
 
 * **Expense**: Cost of obtaining/maintaining the data
 
@@ -98,25 +151,26 @@ Homogeneity and credibility are in conflict since making a class more homogeneou
 
 ### 6. Harzard Reduction Incentives
 
-***
+E.g. Giving a sprinkler system discount encourages insureds to install sprinklers $\Rightarrow$ Reduce hazard of fire
 
 ### 7. Public Acceptability (Social Criteria)  
 <span style="color:green">Good Question: 98 Q43</span>  
 <span style="color:red">Memorize</span>
+<a name="social-consideration"></a>
 
 * ***Not*** **differentiate unfairly** among risks
 * Based on clearly **relevant data**
-* Respect personal **privacy**
+* Respect personal $(1)$ **privacy**
 * Risks tend identify naturally with their classification
-* **Affordability**, especially when there is a negative correlation between incomes and insurance rates
+* $(2)$ **Affordability**, especially when there is a negative correlation between incomes and insurance rates
 
-### 8. Casuality (Social Criteria)
+### 8. $(3)$ Casuality (Social Criteria)
 
 Pros: Clear cause & effect will increase public acceptability
 
 Nice to have but not a criteria
 
-### 9. Controllability (Social Criteria)
+### 9. $(4)$ Controllability (Social Criteria)
 
 Pros: Encourages risk mitigation
 
@@ -127,52 +181,3 @@ Nice to have but not a criteria
 ## Evaluating a rating variable
 
 Likely exam question will be to evaluate a new rating variable against the considerations above
-
-## Cliff's Summary
-
-Short but lots of concepts to memorize and digest
-
-What is risk classification $\Rightarrow$ 3 Purpose $\Rightarrow$ 5 Principles $\Rightarrow$ 9 Considerations in design
-
-3 of the key design criteria: Ops, Social, Stat
-
-![alt text](figures/Exam 8 A - 1.png)
-
-## Types of Exam Questions
-
-List out criteria and principles
-
-* Just memorize
-
-If a given plan satisfy some of the criteria
-
-* 1998 Q43
-* 2004 Q40
-* 2004 Q23 
-* 2004 Q24 (Compare 2 plans)
-* 2006 Q38 (Miles driven; stat and op criteria)
-* 2008 Q28 (Color of car; op and social)
-* 2008 Q2 (stat and op with data) $\star$
-* 2009 Q34 (free for all pick 2)
-* 2012 Q4b (In conjunction with part a from GLM)
-* 2013 Q1 (Principles achieve?) $\star$
-* 2014 Q6 $\star$
-
-Impacts on inadequate risk classification
-
-* 2006 Q20
-
-Other good questions
-
-* 2004 Q29
-* 2009 Q1 (When is risk class important)
-
-Relate this to Section A5 with the HG mappings
-
-* 2012 Q1 $\star$
-
-    * Credibility: assigning a credibility of $Z = min(\frac{n}{n+k}\times 1.5, 1)$ gives larger classes more weight to permit the calculation of more accurate predictors of XS ratios
-
-    * Homogeneity: clustering analysis using k-means algorithm is used to assign each class into a HG. K-means has the property to minimize within variance and maximize between variance so new HG are homogeneous
-
-    * Predictive Stability: since current HG were used as the complement of credibility, this provided stability in the class XS, while still recognizing any changes that were credible
