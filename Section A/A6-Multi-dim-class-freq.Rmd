@@ -1,11 +1,95 @@
 ---
 title: Multi-Dimensional Credibility to Estimate Class Frequency Vectors in WC
+author: "Couret & Venter"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
     toc: true
     toc_depth: 4
 ---
+
+## Cliff's Summary
+
+Understand the [key idea](#keyidea)
+
+3 main steps + test
+
+1. Calculate the frequencey [relativities](#rel) by HG and by class
+2. [Credibility](#credibility) weight the HG and class to get credibility weighted relativies
+    
+    * $\hat{ {\color{blue}\boxdot}}_i = {\color{red}\Box}_h + b_{ {\color{blue}\boxdot}, i}(V_i - V_h) + c_{ {\color{blue}\boxdot}, i}(W_i - W_h) + d_{ {\color{blue}\boxdot}, i}(X_i - X_h) + e_{ {\color{blue}\boxdot}, i}(Y_i - Y-h)$
+    
+3. Get the [expected XS loss](#xsloss)
+4. Test if it's any imporvement
+
+Know the [SSE](#SSE) test and [Quintiles](#quintiles) test
+
+* Holdout is calculated same as raw
+
+## Types of Exam Questions  
+<span style="color:green">Questions a bit thin</span>
+
+Quintiles Test
+
+* 2011 Q2
+    * How do you know they are the numbers from step 3?
+* 2012 Q5a
+* 2014 Q1 $\star$ (interpretation)
+* Practice 4
+    * Revisit the answer to make sure it ties to the notes
+
+Expected XS loss
+
+* 2012 Q5b $\star\star$
+    * Make sure you understand this
+    * See [TIA](http://www.theinfiniteactuary.com/mb/viewtopic.php?f=18024&t=12645)
+
+Ties to A4 shifting risk parameters
+
+* 2013 Q3d $\star$
+
+SSE
+
+* 2013 Q3c
+
+Holdout
+
+* 2013 Q3a,b
+
+Tie to A1 risk classification principles
+
+* 2014 Q4 $\star$
+
+1D vs multi-D credibility formula
+
+* Practice 2
+
+CREDIBILITY WEIGHTED ESTIMATE
+
+* With the credibility factors given
+* Get the class level relativity
+* Get the HG level (for all the class pretty much) relativity
+* $\hat{ {\color{blue}\boxdot}}_i = {\color{red}\Box}_h + b_{ {\color{blue}\boxdot}, i}(V_i - V_h) + c_{ {\color{blue}\boxdot}, i}(W_i - W_h) + d_{ {\color{blue}\boxdot}, i}(X_i - X_h) + e_{ {\color{blue}\boxdot}, i}(Y_i - Y-h)$
+
+COEFFICIENT MATRIX SETUP
+
+* Skipped
+
+CRED ESTIMATE QUINTILES TEST
+
+1. Sort rel for all classes increasing order and cut into 5 quintiles
+2. For training set: For each quintile, get:
+    a. observed rel to TT
+    b. credibility weighted rel to TT
+    c. get ratio of (a) with HG rel
+    d. get ratio of (c) with HG rel
+3. For testing set: For each quintile, get:
+    e. observed rel to TT
+    f. get ratio of (e) with HG rel
+4. Get statistics for each test summing across the 5 quintile
+    * Hold vs HG: $\sum_{quintiles} [(f) - 1]^2$
+    * Hold vs observed: $\sum_{quintiles} [(f) - (a)]^2$
+    * Hold vs cred: $\sum_{quintiles} [(f) - (d)]^2$
 
 ## Intro
 
@@ -122,7 +206,7 @@ Find credibility factors $b_{ {\color{blue}\boxdot},i}, c_{ {\color{blue}\boxdot
 
 ***
 
-###Credibility weighted relativities  
+### Credibility weighted relativities  
 <a name="credibility"></a>
 
 $\hat{ {\color{blue}\boxdot}}_i = {\color{red}\Box}_h + b_{ {\color{blue}\boxdot}, i}(V_i - V_h) + c_{ {\color{blue}\boxdot}, i}(W_i - W_h) + d_{ {\color{blue}\boxdot}, i}(X_i - X_h) + e_{ {\color{blue}\boxdot}, i}(Y_i - Y-h)$
@@ -131,7 +215,7 @@ $\hat{ {\color{blue}\boxdot}}_i = {\color{red}\Box}_h + b_{ {\color{blue}\boxdot
 
 ***
 
-###Credibility factors
+### Credibility factors
 
 To solve for $b_{ {\color{blue}\boxdot},i}, c_{ {\color{blue}\boxdot},i}, d_{ {\color{blue}\boxdot},i}, e_{ {\color{blue}\boxdot},i}$ for a **given Injury Type** ${\color{blue}\boxdot}$, solve the matrix below:
 
@@ -191,7 +275,7 @@ $\begin{align}
   &+ e_{\color{blue}\boxdot}(Y_i - \mathrm{E}[Y])
 \end{align}$
 
-##Calculating Expected Excess Losses  
+## Calculating Expected Excess Losses  
 <a name="xsloss"></a>
 
 ***Expected XS losses at limit $L$ for class $i$ for injury type (${\color{green}\boxtimes}$)***
@@ -237,7 +321,7 @@ See which one best predict the injury type ratios for the holdout sample results
 
 Injury type ratios for the holdout sample are calculated just like the raw sample
 
-###Sum of Squared Error Tests  
+### Sum of Squared Error Tests  
 <span style="color:red;background-color:yellow">Memorize</span>
 <a name="SSE"></a>
 
@@ -255,7 +339,7 @@ Justification:
 * Estimators derived from the even year data are designed to fit that data
 * Class data by year is volatile
 
-###Quintiles Test  
+### Quintiles Test  
  <span style="color:red;background-color:yellow">Know</span>  
  <a name="quintiles"></a>
 
@@ -297,62 +381,3 @@ This showed substantial reduction in the SSE
 * Just means that using quintile injury type ratios is more accurate than HG level ratios, but not necessarily that the procedure is appropriate for class-level estimation
 
 Note that if the classes in a HG are very homogeneous $\Rightarrow$ The injury type ratios won't vary much within that HG $\Rightarrow$ Cred Proc won't have much of an improvement
-
-
-## Cliff's Summary
-
-Understand the [key idea](#keyidea)
-
-3 main steps + test
-
-1. Calculate the frequencey [relativities](#rel) by HG and by class
-2. [Credibility](#credibility) weight the HG and class to get credibility weighted relativies
-3. Get the [expected XS loss](#xsloss)
-4. Test if it's any imporvement
-
-Know the [SSE](#SSE) test and [Quintiles](#quintiles) test
-
-* Holdout is calculated same as raw
-
-## Types of Exam Questions  
-<span style="color:green">Questions a bit thin</span>
-
-Quintiles Test
-
-* 2011 Q2
-    * How do you know they are the numbers from step 3?
-* 2012 Q5a
-* 2014 Q1 $\star$ (interpretation)
-* Practice 4
-    * Revisit the answer to make sure it ties to the notes
-
-Expected XS loss
-
-* 2012 Q5b $\star$
-    * Make sure you understand this
-    * See [TIA](http://www.theinfiniteactuary.com/mb/viewtopic.php?f=18024&t=12645)
-
-Ties to A4 shifting risk parameters
-
-* 2013 Q3d $\star$
-
-SSE
-
-* 2013 Q3c
-
-Holdout
-
-* 2013 Q3a,b
-
-Tie to A1 risk classification principles
-
-* 2014 Q4 $\star$
-
-1D vs multi-D credibility formula
-
-* Practice 2
-
-## Questions
-
-See the 2 red font, not sure what it means
-

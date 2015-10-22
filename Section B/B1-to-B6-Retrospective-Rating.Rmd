@@ -1,11 +1,311 @@
 ---
 title: "Retrospective Rating"
+author: "Lee 2, Gillam & Snader 2, Brosius, Skurnick, NCCI2"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
     toc: true
     toc_depth: 4
 ---
+
+## Cliff's Summary
+
+### Lee 2
+
+Know how the entry ratio, charges and other relationships are represented as areas in the graph
+
+* [Tbl M Charges](#tblmfigure1)
+* [Tbl M Charges and savings](#tblmfigure4))
+* [Table LLM](#tblllmfigure1)
+* [Table L](#tbllfigure1)
+
+Different forms of the charge and properties
+
+### Gillam & Snader 2
+
+Using NCCI Table M
+
+* Need Adj Expected Loss to get ELG to get know the column of Tbl M
+
+Remember the basic premium formula only works if plan is balanced
+
+* $b = e - (C - 1)\mathrm{E}[A] + CI$
+
+Know how to build Table M
+
+Know how to plug and play with all the equations
+
+### Brosius
+
+Vertical and horizontal calculations of the tables
+
+* Remember how to normalize
+
+Table construction
+
+### Skurnick
+
+Table L rationale pros cons
+
+ICRLL rationale pros cons
+
+Unbalanced retro calculation
+
+Insurance charge and savings for Table L
+
+### NCCI 2
+
+How to use the NCCI pages
+
+* ELG, balance equations
+* Use the table for the right year
+* Look for entry difference first then charge
+
+## Types of Exam Questions
+
+### Lee 2
+
+Interpret entry ratio plots
+
+* 2000 Q19 (Interpret)
+* 2001 Q30 (Explain its constructions)
+    * Understand that Table M is constructed horizontally
+    
+How charges are represented on graphs
+
+* 2002 Q17
+* 2003 Q8
+* 2003 Q29 (interpret charge difference)
+    * <span style="color:red;background-color:yellow">?Question?</span>
+* 2007 Q31 (both L and M)
+
+Draw graphs and calculate charges
+
+* 2005 Q33 (uniform)
+* 2006 Q29 $\star$
+* 2008 Q29 (uniform)
+* 2009 Q9 $\star$ (Calc expected retro premium)
+* 2010 Q25
+* 2012 Q21
+    * Convert $r$ to LR to do this?
+    
+Basic premium from formula
+
+* 2012 Q23 $\star$
+
+Impact of change on losses or size
+
+* 2012 Q21 b [TIA](http://www.theinfiniteactuary.com/mb/viewtopic.php?f=17266&t=13017)
+* 2013 Q15 b,c $\star$
+
+Other
+
+* 2002 Q14 (XS PP formula) 
+    * Why is the denominator 1?<span style="color:red;background-color:yellow">?Question?</span>
+
+### Gillam & Snader 2
+
+Using Table M
+
+* 2000 Q5 (ELG)
+
+Plug and play for $b$, $R$, $GCP$, etc
+
+* 2000 Q6 (Know how to do premium discount)
+* 2000 Q9 ($GCP$ and $A$)
+* 2001 Q8 ($GCP$)
+* 2001 Q31 ($b$ formula and ELG)
+    * Not sure about part b
+    * [TIA](http://www.theinfiniteactuary.com/mb/viewtopic.php?f=17679&t=12649)
+* 2001 Q33 (Retro @18mo) $\star$
+* 2002 Q15 (Charge difference)
+* 2002 Q16 (net converted charge)
+* 2002 Q40a (Retro @18mo)
+* 2003 Q7 (Tax multiplier)
+* 2003 Q10 ($b$)
+* 2004 Q18 (Retro @18mo)
+* 2004 Q20 (Back out $e$ with GCP and retro)
+* 2005 Q30a (Tax multiplier)
+* 2005 Q30b (Tax multiplier w/ interstate risk)
+* 2005 Q32a (GCP and Retro Prem)
+* 2006 Q30 $\star$ (Retro, hit cap)
+* 2006 Q32 $\star$ (max prem factor, clever)
+* 2010 Q27 $\star$ (diff between limited and unlimited)
+* 2010 Q29 $\star$ (Multiple items)
+* 2011 Q20 $\star$ (GCP, expected loss is tricky)
+* 2011 Q25 $\star$ (max prem, need to 2 balance equation)
+* 2012 Q19 $\star$ (Retro @ 2nd adjustment)
+* 2013 Q14 $\star$ (expected retro, need that E[L]/E[A] formula)
+* 2014 Q18 $\star$$\star$
+
+Formula Manipulation
+
+* 2001 Q32a $\star$
+
+Build Table M
+
+* 2000 Q48
+
+Concepts
+
+* 2001 Q10 (relationship between max/min/b)
+    * Do we need the assumed balance condition here?
+* 2001 Q32b (iterative tbl M lookup)
+* 2002 Q40b $\star$ (Improve insured cashflow)
+* 2003 Q33 $\star$ ($\Delta$ in exposure impacts)
+    * Not sure about b
+* 2004 Q47 $\star$ (How to lower b)
+* 2005 Q32a (GCP and Retro Prem difference)
+
+Tricky
+
+* 2007 Q32 (defective)
+* 2007 Q35 (Balanced or not)
+* 2009 Q20 (defective)
+
+### Brosius
+
+Insurance charge/savings
+
+* 2002 Q36 (vertical)
+* 2004 Q43 (vertical, tricky arithmetics)
+* 2005 Q8 (vertical, charge/savings relationship)
+* 2006 Q9 (table construction)
+* 2007 Q30 (vertical)
+* 2007 Q34 (table construction)
+* 2008 Q28b (table construction)
+* 2013 Q12 (table construction)
+* 2014 Q13 $\star$ (Backout numbers)
+* Practice $\star$ (table construction with normalize)
+
+Concepts
+
+* 2008 Q28a (vertical vs horizontal)
+
+### Skurnick
+
+Understandig Table L and ICRLL
+
+* 2000 Q45 $\star$ (Tbl L and ICRLL, Pros Cons)
+* 2002 Q38
+* 2006 Q34 $\star$ (per occ charge)
+* 2008 Q35 (same as 2000 Q45)
+* 2010 Q31 $\star$ (ICRLL proc)
+* 2011 Q22 bc
+* 2013 Q13 $\star$ (Relationship with prem size and properties)
+* 2014 Q12 a $\star$ (build table from graph)
+* 2014 Q12 b $\star$ (Explain savings)
+
+Unbalanced retro calc
+
+* 2001 Q34 $\star$ (Unbalance and then rebalance)
+    * Good questions to understand
+
+Table Construction
+
+* 2003 Q30 (L and M)
+* 2009 Q32 (L and M)
+* 2011 Q22a (L)
+* 2012 Q18 $\star$
+
+Calculate insurance charge/savings
+
+* 2004 Q44 (Vertical, L and M)
+* 2006 Q7 (Vertical, L)
+    * Why is the per-occ charge not always just the LER?<span style="color:red;background-color:yellow">?Question?</span>
+* 2008 Q32 $\star\star$ (Table L with different SP risk)
+    * Use dollar amount or Tbl L with premium (instead of risk)
+    * Should understand this
+
+### NCCI 2
+
+Plug and play
+
+* 2001 Q9 (LLM charge difference)
+* 2002 Q35 $\star$
+    a. expense and contingency in $b$ = w/o the $CI$
+    b. $CI$ (Get ELG with LER + balance equation $\rightarrow$ tbl M search)
+    c. Total
+* 2003 Q31 (ELG and balance equations and D)
+* 2004 Q45 (similar to 2002 Q35)
+* 2005 Q32 (Just charge)
+* 2006 Q35 $\star$ (backout ELF)
+* 2008 Q36 (similar to 2002 Q35)
+* 2009 Q30 (similar to 2002 Q35)
+* 2011 Q21 $\star$ (Alaska ELG)
+    * Lookup HG differential and ELAEPPF
+* 2014 Q15 $\star$ (inflation impact)
+* 2014 Q17 $\star$
+    a. GCP (Tax is applied to final P)
+    b. $b^{LLM}$
+    c. Impact of higher per occ limit
+
+Concepts
+
+* 2003 Q32 (Why varies by ELG)
+
+## Must Know Formulas
+
+### Table M
+
+Net Charge (For LLM use $\mathrm{E}[A^*]$ and LLM charges):
+
+* $I = \mathrm{E}[A][\phi(r_G) - \psi(r_H)]$
+
+Savings:
+
+* $\psi(r) = \phi(r) + r -1$
+
+Other Relationships:
+
+* $\begin{array}{ll}
+    \mathrm{E}[L] &= \mathrm{E}[A] \left\{1 + \psi(r_H) - \phi(r_G)\right\} \\
+    &= \mathrm{E}[A] - I \\
+  \end{array}$
+
+Table construction:
+
+* $\phi(r_i) = \phi(r_{i+1}) + (r_{i+1} - r_i)(\text{ % risks above }r_i)$
+
+### Reading Table M
+
+Balance Equations (Use $\mathrm{E}[A^*]$ for the denominator if there's occ limit):
+
+* $\phi(r_H) - \phi(r_G) = \dfrac{(e + \mathrm{E}[A])T - H}{C\mathrm{E}[A]T}$
+
+* $r_G - r_H = \dfrac{G - H}{C\mathrm{E}[A]T}$
+
+Adjusted Expected Losses:
+
+* $= \mathrm{E}[A] \times \text{State HG Differential} \times \dfrac{1 + 0.8k}{1-k}$
+
+### Retro premium related
+
+GCP:
+
+* $\text{Guaranteed Cost Premium} = (e + \mathrm{E}[A])T = (1-D)P$
+
+Basic premium if balanced plan:
+
+* $b = e - (C - 1)\mathrm{E}[A] + CI$
+
+Tax multiplier:
+
+* $=\dfrac{0.2 + PLR(1+\mu)}{0.2 + PLR} \left({\dfrac{1}{1-\tau}}\right)$
+
+    * $PLR = \text{Permissible Loss Ratio} = \dfrac{\mathrm{E}[A]}{P}$ 
+    
+    * $\mu = \text{Assessments}$
+    
+    * $\tau = \text{Premium Based Tax}$
+
+## Questions
+
+What is the x-axis for the Table LLM
+
+What is the state differential in finding the Adjusted Expected Loss
+
+What is that E[L]/E[A] formula
 
 ## Recall: Prospective WC Rating
 
@@ -766,7 +1066,7 @@ If Standard Premium $\neq$ $\forall$ risk $\Rightarrow$ Create Tbl L with P inst
 ### Understanding Table L
 
 <a name="tbllfigure1"></a>  
-![alt text](figures/Exam 8 B1-7 - 6.png)}
+![alt text](figures/Exam 8 B1-7 - 6.png)
 
 Note that the y axis is $Y = \dfrac{A^*}{\mathrm{E}[A]}$ and the CDF of interest is $F^*(Y)$. However, the x axis of the graph is of $F(Y)$
 
@@ -894,302 +1194,3 @@ Last page
 * Retrospective PP Dev Factor
     * By occ limit and adjustments
     * Can convert into retrospective development factor $V$
-    
-## Cliff's Summary
-
-### Lee 2
-
-Know how the entry ratio, charges and other relationships are represented as areas in the graph
-
-* [Tbl M Charges](#tblmfigure1)
-* [Tbl M Charges and savings](#tblmfigure4))
-* [Table LLM](#tblllmfigure1)
-* [Table L](#tbllfigure1)
-
-Different forms of the charge and properties
-
-### Gillam & Snader 2
-
-Using NCCI Table M
-
-* Need Adj Expected Loss to get ELG to get know the column of Tbl M
-
-Remember the basic premium formula only works if plan is balanced
-
-* $b = e - (C - 1)\mathrm{E}[A] + CI$
-
-Know how to build Table M
-
-Know how to plug and play with all the equations
-
-### Brosius
-
-Vertical and horizontal calculations of the tables
-
-* Remember how to normalize
-
-Table construction
-
-### Skurnick
-
-Table L rationale pros cons
-
-ICRLL rationale pros cons
-
-Unbalanced retro calculation
-
-Insurance charge and savings for Table L
-
-### NCCI 2
-
-How to use the NCCI pages
-
-* ELG, balance equations
-* Use the table for the right year
-* Look for entry difference first then charge
-
-## Types of Exam Questions
-
-### Lee 2
-
-Interpret entry ratio plots
-
-* 2000 Q19 (Interpret)
-* 2001 Q30 (Explain its constructions)
-    * Understand that Table M is constructed horizontally
-    
-How charges are represented on graphs
-
-* 2002 Q17
-* 2003 Q8
-* 2003 Q29 (interpret charge difference)
-    * <span style="color:red;background-color:yellow">?Question?</span>
-* 2007 Q31 (both L and M)
-
-Draw graphs and calculate charges
-
-* 2005 Q33 (uniform)
-* 2006 Q29 $\star$
-* 2008 Q29 (uniform)
-* 2009 Q9 $\star$ (Calc expected retro premium)
-* 2010 Q25
-* 2012 Q21
-    * Convert $r$ to LR to do this?
-    
-Basic premium from formula
-
-* 2012 Q23 $\star$
-
-Impact of change on losses or size
-
-* 2012 Q21 b [TIA](http://www.theinfiniteactuary.com/mb/viewtopic.php?f=17266&t=13017)
-* 2013 Q15 b,c $\star$
-
-Other
-
-* 2002 Q14 (XS PP formula) 
-    * Why is the denominator 1?<span style="color:red;background-color:yellow">?Question?</span>
-
-### Gillam & Snader 2
-
-Using Table M
-
-* 2000 Q5 (ELG)
-
-Plug and play for $b$, $R$, $GCP$, etc
-
-* 2000 Q6 (Know how to do premium discount)
-* 2000 Q9 ($GCP$ and $A$)
-* 2001 Q8 ($GCP$)
-* 2001 Q31 ($b$ formula and ELG)
-    * Not sure about part b
-    * [TIA](http://www.theinfiniteactuary.com/mb/viewtopic.php?f=17679&t=12649)
-* 2001 Q33 (Retro @18mo) $\star$
-* 2002 Q15 (Charge difference)
-* 2002 Q16 (net converted charge)
-* 2002 Q40a (Retro @18mo)
-* 2003 Q7 (Tax multiplier)
-* 2003 Q10 ($b$)
-* 2004 Q18 (Retro @18mo)
-* 2004 Q20 (Back out $e$ with GCP and retro)
-* 2005 Q30a (Tax multiplier)
-* 2005 Q30b (Tax multiplier w/ interstate risk)
-* 2005 Q32a (GCP and Retro Prem)
-* 2006 Q30 $\star$ (Retro, hit cap)
-* 2006 Q32 $\star$ (max prem factor, clever)
-* 2010 Q27 $\star$ (diff between limited and unlimited)
-* 2010 Q29 $\star$ (Multiple items)
-* 2011 Q20 $\star$ (GCP, expected loss is tricky)
-* 2011 Q25 $\star$ (max prem, need to 2 balance equation)
-* 2012 Q19 $\star$ (Retro @ 2nd adjustment)
-* 2013 Q14 $\star$ (expected retro, need that E[L]/E[A] formula)
-* 2014 Q18 $\star$$\star$
-
-Formula Manipulation
-
-* 2001 Q32a $\star$
-
-Build Table M
-
-* 2000 Q48
-
-Concepts
-
-* 2001 Q10 (relationship between max/min/b)
-    * Do we need the assumed balance condition here?
-* 2001 Q32b (iterative tbl M lookup)
-* 2002 Q40b $\star$ (Improve insured cashflow)
-* 2003 Q33 $\star$ ($\Delta$ in exposure impacts)
-    * Not sure about b
-* 2004 Q47 $\star$ (How to lower b)
-* 2005 Q32a (GCP and Retro Prem difference)
-
-Tricky
-
-* 2007 Q32 (defective)
-* 2007 Q35 (Balanced or not)
-* 2009 Q20 (defective)
-
-### Brosius
-
-Insurance charge/savings
-
-* 2002 Q36 (vertical)
-* 2004 Q43 (vertical, tricky arithmetics)
-* 2005 Q8 (vertical, charge/savings relationship)
-* 2006 Q9 (table construction)
-* 2007 Q30 (vertical)
-* 2007 Q34 (table construction)
-* 2008 Q28b (table construction)
-* 2013 Q12 (table construction)
-* 2014 Q13 $\star$ (Backout numbers)
-* Practice $\star$ (table construction with normalize)
-
-Concepts
-
-* 2008 Q28a (vertical vs horizontal)
-
-### Skurnick
-
-Understandig Table L and ICRLL
-
-* 2000 Q45 $\star$ (Tbl L and ICRLL, Pros Cons)
-* 2002 Q38
-* 2006 Q34 $\star$ (per occ charge)
-* 2008 Q35 (same as 2000 Q45)
-* 2010 Q31 $\star$ (ICRLL proc)
-* 2011 Q22 bc
-* 2013 Q13 $\star$ (Relationship with prem size and properties)
-* 2014 Q12 a $\star$ (build table from graph)
-* 2014 Q12 b $\star$ (Explain savings)
-
-Unbalanced retro calc
-
-* 2001 Q34 $\star$ (Unbalance and then rebalance)
-    * Good questions to understand
-
-Table Construction
-
-* 2003 Q30 (L and M)
-* 2009 Q32 (L and M)
-* 2011 Q22a (L)
-* 2012 Q18 $\star$
-
-Calculate insurance charge/savings
-
-* 2004 Q44 (Vertical, L and M)
-* 2006 Q7 (Vertical, L)
-    * Why is the per-occ charge not always just the LER?<span style="color:red;background-color:yellow">?Question?</span>
-* 2008 Q32 $\star\star$ (Table L with different SP risk)
-    * Use dollar amount or Tbl L with premium (instead of risk)
-    * Should understand this
-
-### NCCI 2
-
-Plug and play
-
-* 2001 Q9 (LLM charge difference)
-* 2002 Q35 $\star$
-    a. expense and contingency in $b$ = w/o the $CI$
-    b. $CI$ (Get ELG with LER + balance equation $\rightarrow$ tbl M search)
-    c. Total
-* 2003 Q31 (ELG and balance equations and D)
-* 2004 Q45 (similar to 2002 Q35)
-* 2005 Q32 (Just charge)
-* 2006 Q35 $\star$ (backout ELF)
-* 2008 Q36 (similar to 2002 Q35)
-* 2009 Q30 (similar to 2002 Q35)
-* 2011 Q21 $\star$ (Alaska ELG)
-    * Lookup HG differential and ELAEPPF
-* 2014 Q15 $\star$ (inflation impact)
-* 2014 Q17 $\star$
-    a. GCP (Tax is applied to final P)
-    b. $b^{LLM}$
-    c. Impact of higher per occ limit
-
-Concepts
-
-* 2003 Q32 (Why varies by ELG)
-
-## Must Know Formulas
-
-### Table M
-
-Net Charge (For LLM use $\mathrm{E}[A^*]$ and LLM charges):
-
-* $I = \mathrm{E}[A][\phi(r_G) - \psi(r_H)]$
-
-Savings:
-
-* $\psi(r) = \phi(r) + r -1$
-
-Other Relationships:
-
-* $\begin{array}{ll}
-    \mathrm{E}[L] &= \mathrm{E}[A] \left\{1 + \psi(r_H) - \phi(r_G)\right\} \\
-    &= \mathrm{E}[A] - I \\
-  \end{array}$
-
-Table construction:
-
-* $\phi(r_i) = \phi(r_{i+1}) + (r_{i+1} - r_i)(\text{ % risks above }r_i)$
-
-### Reading Table M
-
-Balance Equations (Use $\mathrm{E}[A^*]$ for the denominator if there's occ limit):
-
-* $\phi(r_H) - \phi(r_G) = \dfrac{(e + \mathrm{E}[A])T - H}{C\mathrm{E}[A]T}$
-
-* $r_G - r_H = \dfrac{G - H}{C\mathrm{E}[A]T}$
-
-Adjusted Expected Losses:
-
-* $= \mathrm{E}[A] \times \text{State HG Differential} \times \dfrac{1 + 0.8k}{1-k}$
-
-### Retro premium related
-
-GCP:
-
-* $\text{Guaranteed Cost Premium} = (e + \mathrm{E}[A])T = (1-D)P$
-
-Basic premium if balanced plan:
-
-* $b = e - (C - 1)\mathrm{E}[A] + CI$
-
-Tax multiplier:
-
-* $=\dfrac{0.2 + PLR(1+\mu)}{0.2 + PLR} \left({\dfrac{1}{1-\tau}}\right)$
-
-    * $PLR = \text{Permissible Loss Ratio} = \dfrac{\mathrm{E}[A]}{P}$ 
-    
-    * $\mu = \text{Assessments}$
-    
-    * $\tau = \text{Premium Based Tax}$
-
-## Questions
-
-What is the x-axis for the Table LLM
-
-What is the state differential in finding the Adjusted Expected Loss
-
-What is that E[L]/E[A] formula

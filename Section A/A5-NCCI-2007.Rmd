@@ -1,11 +1,63 @@
 ---
 title: "A5 NCCI 2007 HG Mapping"
+author: "Robertson"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
     toc: true
     toc_depth: 4
 ---
+
+## Cliff's Summary
+
+Know the 5 steps to [k-means](#kmeans)
+
+Know the [goal](#kmeangoal) of k-mean
+
+Know how this fits in with the AAA's risk classification principles
+
+Know the 2 test for picking number of clusters
+
+* [Calinski](#calinski): Measures the between varaince of the clusters $\div$ within variance of the clusters
+* [CCC](#ccc): Compares the variance explained by a given set of clusters to that expected when clusters are formed at random based on the multi-dimensional uniform distribution
+
+## Types of Exam Questions  
+<span style="color:green">Questions a bit thin</span>  
+<span style="color:green">Questions a bit creative in the past</span>
+
+Describe K-means clustering and its goal
+
+* 2011 Q4
+
+Use the overall structure of this paper for something else
+
+* 2013 Q4
+
+Credibility weighted class XS ratio [considerations](#credconsider)
+
+* 2014 Q2
+
+Do the k-means cluster proc
+
+* Practice 1
+
+Relate this to principles of risk class from A1 $\star$
+
+* 2012 Q1 $\star$
+
+    * Credibility: assigning a credibility of $Z = min(\frac{n}{n+k}\times 1.5, 1)$ gives larger classes more weight to permit the calculation of more accurate predictors of XS ratios
+
+    * Homogeneity: clustering analysis using k-means algorithm is used to assign each class into a HG. K-means has the property to minimize within variance and maximize between variance so new HG are homogeneous
+
+    * Predictive Stability: since current HG were used as the complement of credibility, this provided stability in the class XS, while still recognizing any changes that were credible
+    
+CLASS ELF CALCULATION
+
+$\vec{R}^{final}_c = Z\vec{R}_c + (1-Z)\vec{R}_j$
+
+* $Z = min(\frac{n}{n+k}\times 1.5, 1)$
+    * n = \# of claims in the class (unrelated to the n used for the # of limits)
+    * k = average \# of claims/class
 
 ## Intro
 
@@ -372,46 +424,3 @@ NCCI mapped the new HG back into 4 groups for transition based on:
 * Computing XS ratios by class
 * Sorting classes based on XS ratios
 * Cluster analysis
-
-## Cliff's Summary
-
-Know the 5 steps to [k-means](#kmeans)
-
-Know the [goal](#kmeangoal) of k-mean
-
-Know how this fits in with the AAA's risk classification principles
-
-Know the 2 test for picking number of clusters
-
-* [Calinski](#calinski): Measures the between varaince of the clusters $\div$ within variance of the clusters
-* [CCC](#ccc): Compares the variance explained by a given set of clusters to that expected when clusters are formed at random based on the multi-dimensional uniform distribution
-
-## Types of Exam Questions  
-<span style="color:green">Questions a bit thin</span>  
-<span style="color:green">Questions a bit creative in the past</span>
-
-Describe K-means clustering and its goal
-
-* 2011 Q4
-
-Use the overall structure of this paper for something else
-
-* 2013 Q4
-
-Credibility weighted class XS ratio [considerations](#credconsider)
-
-* 2014 Q2
-
-Do the k-means cluster proc
-
-* Practice 1
-
-Relate this to principles of risk class from A1 $\star$
-
-* 2012 Q1 $\star$
-
-    * Credibility: assigning a credibility of $Z = min(\frac{n}{n+k}\times 1.5, 1)$ gives larger classes more weight to permit the calculation of more accurate predictors of XS ratios
-
-    * Homogeneity: clustering analysis using k-means algorithm is used to assign each class into a HG. K-means has the property to minimize within variance and maximize between variance so new HG are homogeneous
-
-    * Predictive Stability: since current HG were used as the complement of credibility, this provided stability in the class XS, while still recognizing any changes that were credible

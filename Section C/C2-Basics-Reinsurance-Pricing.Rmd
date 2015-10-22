@@ -431,7 +431,7 @@ Need standard premium, ELR to get expected treaty losses
 
 ***Included with loss***
 
-$\text{Exposure Factor} = \dfrac{\mathrm{E}[x;\min(PL, \frac{AP + Lim}{1+e})] - \mathrm{E}[x;\min(PL,AP)]}{\mathrm{E}[x;PL]}$
+$\text{Exposure Factor} = \dfrac{\mathrm{E}[x;\min(PL, \frac{AP + Lim}{1+e})] - \mathrm{E}[x;\min(PL,\frac{AP}{1+e})]}{\mathrm{E}[x;PL]}$
 
 * $PL$: Underlying limit for loss only
 * $AP$: Treaty attachment point applying to L&ALAE capped at $PL$

@@ -1,11 +1,93 @@
 ---
 title: "A2 A Practitioner’s Guide to GLM"
+author: "Anderson"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
     toc: true
     toc_depth: 4
 ---
+
+## Cliff's Summary
+
+Know the [advantages](#memorize1) of GLM over other methods (Especially one-way and CLM)
+
+Be able to set up a the GLM matrices
+
+Know the [3 components](#memorize2) of GLM (sys, response, link)
+
+Know how to interpret the results
+
+[Aliasing](#aliasing)
+
+* Intrinsie = by definition
+* Extrinsic = by nature of the data (correlated dependent variables)
+
+Memorize:
+
+* [Variance functions](#var-fun)
+* [Link functions](#link-fun)
+* [Common model](#com-model) forms
+
+Calculations:
+
+* Scale
+* Deviance
+* Type III test
+
+## Types of Exam Questions
+
+Shortcomings of methods compare to GLM
+
+* 2003 Q25
+* [2011 Q3b](#2011q3b)
+
+Describe GLM and CLM assumptions and compare
+
+* 2006 Q5 (GLM vs CLM)
+* 2007 Q4
+* 2009 Q3a
+
+Aliasing
+
+* 2008 Q3
+
+Setting up equations, process
+
+* [2009 Q3b](#2009q3b) (CLM)
+* [2010 Q3c](#2010q3c) $\star$ (GLM)
+* 2012 Q2 $\star$ (GLM)
+* 2013 Q2 $\star$ (Solve GLM with identity link and normal variance)
+    * Don't forget to weight them
+
+Calculate results given parameters
+
+* 2012 Q4a
+
+Def of GLM parameters
+
+* 2014 Q3a
+
+Common Modeling form  
+
+* 2014 Q3b
+    * Not sure about why each of the dist^n^ are appropriate
+    * The explaining weight part i'm not super sure as well
+
+CLASSICAL LINEAR MODEL FITTING
+
+* Setup $\Rightarrow$ Minimize SSE $\Rightarrow$ Minimize each $\beta$ by differentiate and set to 0
+
+GENERALIZED LINEAR MODEL FITTING
+
+* Setting a base means us it as the intercept
+
+* $Y = g^{-1}(\beta_1 x_1 + \cdots + \beta_p x_p) + \epsilon$
+
+* Solve by MLE with log likelihood
+
+## Intro to GLM
+
 **GLM**
 
 Measure the relationship that a function of a linear combination of 1 or more explanatory variables has on a single dependent variable that is assumes to come from the exponential family of dist^n^
@@ -134,7 +216,8 @@ Must be **differentiable** and **monotonic**
 $E[Y] = \mu = g^{-1}(\eta)$
 
 ## Common exponential family distributions and their variance functions  
-<span style="color:red;background-color:yellow">Memorize</span>  
+<span style="color:red;background-color:yellow">Memorize</span>
+<a name="var-fun"></a>
 
 | Error Distribution | Variance Function |
 | ------------------ | ----------------- |
@@ -185,7 +268,8 @@ The scale parameters allow the model to have a more flexible variance
 * e.g. so your response doesn't have to actually have the mean = variance structure of a Poisson
 
 ## Common Link Functions  
-<span style="color:red;background-color:yellow">Memorize</span>  
+<span style="color:red;background-color:yellow">Memorize</span>
+<a name="link-fun"></a>
 
 | Link Function | $g(\eta)$   | $g^{-1}(\eta)$ |
 | ------------- | ----------- | -------------- |
@@ -217,6 +301,7 @@ Other source [explanation](http://stats.stackexchange.com/questions/11182/when-t
 
 ## Common Model Forms  
 <span style="color:red;background-color:yellow">Memorize</span>
+<a name="com-model"></a>
 
 **Claim frequencies/ counts**
 
@@ -255,6 +340,7 @@ if $Y = \text{Pure Premium} \Rightarrow e^{\beta_0} = \text{base rate}$; $e^{\be
 
 ## Aliasing and near-aliasing  
 <span style="color:red;background-color:yellow">Understand Concepts</span>
+<a name="aliasing"></a>
 
 Aliasing = linear dependency among covariates; model not uniquely defined
 
@@ -303,66 +389,3 @@ If test statistic is larger $\rightarrow$ additional parameters is statistically
 If the model with additional parameter(s) has much lower SSE $\Rightarrow$ The parameters are significant
 
 * We're judging how much lower the SSE needs to be with the test statistics that either follows a $\chi^2$ or *F* dist^n^
-
-## Cliff's Summary
-
-Know the [advantages](#memorize1) of GLM over other methods (Especially one-way and CLM)
-
-Be able to set up a the GLM matrices
-
-Know the [3 components](#memorize2) of GLM (sys, response, link)
-
-Know how to interpret the results
-
-Aliasing
-
-Memorize:
-
-* Variance functions
-* Link functions
-* Common model forms
-
-Calculations:
-
-* Scale
-* Deviance
-* Type III test
-
-## Types of Exam Questions
-
-Shortcomings of methods compare to GLM
-
-* 2003 Q25
-* [2011 Q3b](#2011q3b)
-
-Describe GLM and CLM assumptions and compare
-
-* 2006 Q5 (GLM vs CLM)
-* 2007 Q4
-* 2009 Q3a
-
-Aliasing
-
-* 2008 Q3
-
-Setting up equations, process
-
-* [2009 Q3b](#2009q3b) (CLM)
-* [2010 Q3c](#2010q3c) (GLM) $\star$
-* 2012 Q2 (GLM) $\star$
-* 2013 Q2 (Solve CLM) $\star$
-    * Don't forget to weight them
-
-Calculate results given parameters
-
-* 2012 Q4a
-
-Def of GLM parameters
-
-* 2014 Q3a
-
-Common Modeling form  
-
-* 2014 Q3b
-    * Not sure about why each of the dist^n^ are appropriate
-    * The explaining weight part i'm not super sure as well

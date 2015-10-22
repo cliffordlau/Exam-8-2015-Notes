@@ -208,3 +208,7 @@ Concepts
 * 2013 Q17 (truncate point selection; Alternative curves)
     * Just heavier tail, which would result in overstating the XS for limits just above the truncation point
     * Less heavy tail, the XS ratios would be lower for the largest limits compared to the mixed Exponential-Pareto
+
+## Questions
+
+2009 Exam 9 Q33 - Not Normalize to 1

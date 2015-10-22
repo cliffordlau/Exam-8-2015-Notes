@@ -1,11 +1,64 @@
 ---
 title: "A4 Credibility and Shifting Risk Parameters"
+author: "Mahler 1"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
     toc: true
     toc_depth: 4
 ---
+
+## Cliff's Summary
+
+Know the 3 test
+
+* [Binomial](#bintest) test for if risk are different
+* [$\chi^2$](#chisqtest) test for changing risk parameters
+* [Correlation](#corrtest) test for changing risk parameters
+
+Know the [credibility weighting](#credwt) options
+
+3 selection criteria related to select [best estimates](#errors)
+
+* Lowest mean square error
+* Limited fluctuation
+* Meyers Dorweiler (No correlation in errors)
+
+With shifting risk parameters:
+
+* Older years should get less credibility
+* Delay in getting historical data significantly increase the error^2^
+
+Know the other "constants" need for all this to work
+
+* Constant number of exposures
+* Uniform mix of business
+* No other changes besides shift in risk parameters
+
+## Types of Exam Questions  
+<span style="color:green">Questions a bit thin</span>
+
+Credibility selection criteria
+
+* 2004 Q3 (apply the criterias to data set)
+* Haven't seen actual calc...
+
+Shifting parameters tests
+
+* 2007 Q6
+* 2012 Q3 (actual calc of chi sq)
+* Haven't seen actual calc of the correlation test
+* Practice 2
+
+Different credibility weighting
+
+* 2005 Q2 (Exp smoothing) $\star$
+
+BINOMIAL, $\chi^2$, CORRELATION TESTS
+
+a. Binomial to test if parameters are different
+b. $\chi^2$ to test changing para
+c. Correlation
 
 ## Simplifications in dataset
 
@@ -59,7 +112,7 @@ Correlations between years:
 
     * $\rho_{X,Y} = \dfrac{\mathrm{E[(X-\overline{X})(Y-\overline{Y})]}}{\sigma_X\sigma_Y}$
 
-2. Take average of the correlation across all risk for each time separation t
+2. Take the average of the correlation across all risk for each time separation t
 
 If $\rho$ greater for smaller time separations $\Rightarrow$ Shifting risk parameters $\Rightarrow$ Recent years can help predict the future
 
@@ -130,50 +183,3 @@ The third one is to make sure you don't have correlation in your errors, pattern
 When there are shifting risk parameters, older years will be less relevant $\Rightarrow$ Assign less credibility
 
 Having a delay in getting historical data significantly increase the square error
-
-## Cliff's Summary
-
-Know the 3 test
-
-* [Binomial](#bintest) test for if risk are different
-* [$\chi^2$](#chisqtest) test for changing risk parameters
-* [Correlation](#corrtest) test for changing risk parameters
-
-Know the [credibility weighting](#credwt) options
-
-3 selection criteria related to select [best estimates](#errors)
-
-* Lowest mean square error
-* Limited fluctuation
-* Meyers Dorweiler (No correlation in errors)
-
-With shifting risk parameters:
-
-* Older years should get less credibility
-* Delay in getting historical data significantly increase the error^2^
-
-Know the other "constants" need for all this to work
-
-* Constant number of exposures
-* Uniform mix of business
-* No other changes besides shift in risk parameters
-* 
-
-## Types of Exam Questions  
-<span style="color:green">Questions a bit thin</span>
-
-Credibility selection criteria
-
-* 2004 Q3 (apply the criterias to data set)
-* Haven't seen actual calc...
-
-Shifting parameters tests
-
-* 2007 Q6
-* 2012 Q3 (actual calc of chi sq)
-* Haven't seen actual calc of the correlation test
-* Practice 2
-
-Different credibility weighting
-
-* 2005 Q2 (Exp smoothing) $\star$

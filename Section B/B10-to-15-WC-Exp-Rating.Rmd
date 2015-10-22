@@ -312,6 +312,8 @@ $A_e = \hat{A} - A_p$
 **Reason for change:**  
 Too much credibility given to large risk and not enough for small risk $\Rightarrow$ <10K and >100K became preferred business
 
+* Small risk with credit mod doesn't get enough premium <span style="color:green">2014 Q11</span>
+
 **Theoretically:**  
 $B$, $K$ being constant assume that larger insureds are more stable than smaller insureds, and thus the variance of standard loss ratios should be inversely $\propto$ to risk size
 

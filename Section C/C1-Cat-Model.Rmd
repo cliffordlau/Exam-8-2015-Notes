@@ -59,7 +59,7 @@ Main parameters:
 2. **Frequency:** Biggest uncertainty
 3. **Severity:** Includes characteristics that drives the severity and also what's physically possible
 
-*To model hazard module*: Use historical data for $pdf_0$ $\Rightarrow$ Refine with scientific knowledge
+*To model hazard module*: Use historical data for ${pdf}_0$ $\Rightarrow$ Refine with scientific knowledge
 
 *Model run*: Simulate large number of possible events based on dist^n^ of event parameters $\Rightarrow$ For each iteration, estimate intensity a different locations
 
@@ -552,3 +552,7 @@ Concepts
 * Practice 6 (Aleatory vs Epistemic and reasons for it)
 * Practice 7 (Regulatory challenges and responses)
 * Practice 8 (3 special issues insurers need to consider in managing portfolio)
+
+## Qeustions
+
+AAL Formula

@@ -1,5 +1,6 @@
 ---
 title: "A3 Credibility of Experience of a Single Private Passenger Car"
+author: "Bailey & Simon"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
@@ -7,7 +8,86 @@ output:
     toc_depth: 4
 ---
 
-##Goal of paper
+## Cliff's Summary
+
+Memorize the [definitions](#definition) of the bucketing
+
+Know how to calculate [E-Mod](#calcmod) and [R](#calcr)
+
+* E-Mod is based on **current** data
+* R is based on **prior** data
+* Make sure premium is on-level
+* Should pretty much always calculate 3+, 2+, 1+ years (and not just 3, 2, 1)
+* $Z = 1 - Mod$ for A, X, Y
+
+* $Z = \dfrac{Mod - 1}{R - 1}$ for B
+
+* Can assume count follows poisson $\Rightarrow$ $R = (1-e^{-\lambda})^{-1}$
+
+Know when to use [premium](#usepremium) for mod
+
+Know the paper's 4 [conclusions](#conclusions)
+
+* Key: If an insured’s chances for an accident remains constant from year to year and no risks are entering or leaving, then credibility should vary in proportion to the number of years.
+
+Know the [Bühlmaan](#buhlmaan) stuff
+
+## Types of Exam Questions
+
+Calculate Z
+
+* 2000 Q32a
+* 2001 Q22a
+* 2002 Q47a
+* 2003 Q22
+* 2004 Q2
+* 2006 Q2
+* 2007 Q2
+* 2008 Q5 (Use PP instead of Frequency since data not available)
+* 2009 Q4 $\star$ (Backing out numbers with Poisson)
+    * Questions about the interpretation of these numbers
+* 2010 Q5
+* 2011 Q1
+* 2014 Q5 $\star\star$
+    * See alt method with premium
+    * No maldistribution since there's only one rating variable
+
+Proof the Poisson formula
+
+* 2005 Q3 $\star$
+
+Why and when use premium instead of car years
+
+* 2012 Q6 $\star$
+
+Related to paper's conclusion
+
+* 2000 Q32b,c
+* 2007 Q2
+* 2011 Q1
+
+n-YEAR ACCIDENT FREE CREDIBILITY
+
+1. Covert all to 1+ 2+ 3+ years first
+2. Get rel freq for loss free groups to get the mod
+3. Get the R as well for B groups using the poisson formula
+4. Look at the ratio of the $Z$ for each groups
+
+STABILITY – ACROSS TIME, WITHIN CLASSES
+
+a. For stability across time check the years ratio like above
+b. Fro stability wihtin class (less variation in freq), check Cred $\div$ Total Freq
+    * <span style="color:red">not sure why</span>
+    
+CREDIBILITY BETWEEN CLASSES
+
+1. Start from time 0 and project out freq and exposure based on poisson
+    * Make sure I understand the freq rel concepts
+
+## Questions
+Why is the premium at the current rate of the no-risk free group?
+
+## Goal of paper
 
 Show that a single car's experience for a single year has significant and measurable credibility for experience rating
 
@@ -30,7 +110,7 @@ Based on # of full years since most recent accident
 
 Similar to experience rating, each rating has a factor associate with them (Base is $B$)
 
-##Implied Credibility from Merit Rating
+## Implied Credibility from Merit Rating
 
 Determine the implied credibility of experience from a single car for 1 year
 
@@ -55,15 +135,15 @@ $\text{E-mod} = ZR + (1 - Z)$
 Example:
 
 $\begin{array}{cllcl}
-  \text{Cred-Wtd Individual Risk LR} &= &Z \times &\text{Individual Risk LR} &+ (1-Z) \times &\text{Class LR} & \cdots (1)\\
-  \text{E-mod} &= &Z \times &\dfrac{\text{Individual Risk LR}}{\text{Class LR}} &+ (1-Z)  & & \cdots (2) = (1) \div \text{Class LR}\\
+  \text{Cred-Wtd Individual Risk LR} &= &Z \times &\text{Individual Risk LR} &+ \: (1-Z) \times &\text{Class LR} & \cdots (1)\\
+  \text{E-mod} &= &Z \times &\dfrac{\text{Individual Risk LR}}{\text{Class LR}} &+ \: (1-Z)  & & \cdots (2) = (1) \div \text{Class LR}\\
 \end{array}$
 
 ***
 
 ***In Baily & Simon we want Z***
 
-1. Use current policy term data $\Rightarrow$ Figure out ideal $\text{E-mod} would have been
+1. Use current policy term data $\Rightarrow$ Figure out ideal $\text{E-mod}$ would have been
 2. Estimate the $R$ they would have used in **prior** policy term
     * Only use 1 year experience (what they're trying to prove); IRL it'll be more
 3. Solve for $Z$ with $\text{E-mod}$ and $R$
@@ -182,11 +262,13 @@ $Z = \dfrac{Mod - 1}{R - 1}$
 2. Individual risk experience is more credible when there is more variance in loss experience within a risk class (less refined risk classification system)
     * Class 2-5 are more narrowly defined than class 1, so less credible in classes 2-5
 
-3 Credibility for varying years of experience should increase in proportion to the # of years of experience (This test the point above)
+3. Credibility for varying years of experience should increase in proportion to the # of years of experience (This test the point above)
+    
     * Stability across time
     * Only for low credibility
 
-4 The closer the credibility for 2 and 3 years of experience are to 2 and 3 times the 1 year credibility $\Rightarrow$
+4. The closer the credibility for 2 and 3 years of experience are to 2 and 3 times the 1 year credibility $\Rightarrow$
+    
     * Less variation in the insured's $\mathrm{Pr(Accident)}$;
     * Less risk entering/ exiting the portfolio; 
     * Risk characteristics not changing much over time
@@ -207,56 +289,3 @@ If $X \sim Poi(\lambda), \space \lambda \sim N(\mu, \sigma^2) \Rightarrow k = \d
 $k$ is constant for different sample of $n$ sizes taken from the $X$ variable
 
 Paper backs into $k$ by assuming $n=100$ $\Rightarrow$ $Z=0.046$ then recalc $Z$ for other values of $n$
-
-## Cliff's Summary
-
-Memorize the [definitions](#definition) of the bucketing
-
-Know how to calculate [E-Mod](#calcmod) and [R](#calcr)
-
-* E-Mod is based on **current** data
-* R is based on **prior** data
-* Make sure premium is on-level
-* Should pretty much always calculate 3+, 2+, 1+ years (and not just 3, 2, 1)
-
-Know when to use [premium](#usepremium) for mod
-
-Know the paper's 3 [conclusions](#conclusions)
-
-Know the [Bühlmaan](#buhlmaan) stuff
-
-## Types of Exam Questions
-
-Calculate Z
-
-* 2000 Q32a
-* 2001 Q22a
-* 2002 Q47a
-* 2003 Q22
-* 2004 Q2
-* 2006 Q2
-* 2007 Q2
-* 2008 Q5 (Use PP instead of Frequency since data not available)
-* 2009 Q4 $\star$ (Backing out numbers with Poisson)
-    * Questions about the interpretation of these numbers
-* 2010 Q5
-* 2011 Q1
-* 2014 Q5 $\star$
-    * See alt method with premium
-
-Proof the Poisson formula
-
-* 2005 Q3 $\star$
-
-Why and when use premium instead of car years
-
-* 2012 Q6 $\star$
-
-Related to paper's conclusion
-
-* 2000 Q32b,c
-* 2007 Q2
-* 2011 Q1
-
-## Questions
-Why is the premium at the current rate of the no-risk free group?
