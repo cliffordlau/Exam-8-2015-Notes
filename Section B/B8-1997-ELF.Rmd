@@ -1,11 +1,86 @@
 ---
 title: "1997 Excess Loss Factors"
+author: "Mahler 2"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
     toc: true
     toc_depth: 4
 ---
+
+## Cliff's Summary
+
+Know the XS Ratio formula
+
+* [Vanilla](#vanillaxsratio)
+
+* In [segments](#segmentxsratio)
+
+    * $R(L) = \dfrac{\sum\limits_i R_i(L) \mathrm{E}_i[X]}{\sum\limits_i\mathrm{E}_i[X]} = \sum\limits_i R_i(L) \dfrac{\mathrm{E}_i[X]}{\mathrm{E}[X]}$
+    
+* Lots of time need to calculate for uniform distribution
+
+***
+
+Simple dispersion [assumptions](#dispersionassumptions)
+
+Reasons [development assumption](#development) may be too simplistic
+
+XS Ratio of developed losses with dispersion:
+
+* $\widehat{R}(L) = \dfrac{\sum\limits_i p_i r_i R(\frac{L}{r_i})}{\sum\limits_i p_i r_i}$
+
+* Maybe know the proof of this
+
+***
+
+General dispersion
+
+* [assumptions](#gendispersionassumptions)
+* When does dispersion $\uparrow$
+
+Impact of shape parameters
+
+## Types of Exam Questions  
+<span style="color:green">Questions a bit thin</span>
+
+XS Ratio w/o dispersion
+
+* 2008 Q20 a
+* 2009 Q19 a (Same as prior)
+* 2012 Q12 a (undeveloped = w/o dispersion)
+* 2013 Q7 a
+
+XS Ratio with simple dispersion
+
+* 2008 Q20 b
+* 2009 Q19 b (Same as prior)
+* 2012 Q12 b
+* 2012 Q12 c $\star$ (unif development factors -> look at cv)
+* 2013 Q7 b
+
+Concepts
+
+* 2008 Q20 cd (Dispersion impact on XS ratio; longer tail distribution)
+* 2009 Q19 cd (Same as prior)
+* 2010 Q18 a (development concerns)
+* 2010 Q18 b $\star$ (shape parameter)
+* 2010 Q18 c (cv impact)
+* 2013 Q7 c (impact of dispersion on XS ratios)
+
+XS LOSS RATIO LINEAR LOSS, NO DISPERSION
+
+* Can do it by area or actual integration like in Fox
+
+XS LOSS RATIO LINEAR LOSS, SIMPLE DISPERSION
+
+* Write out the dispersion formula then get the bits with the equivalent R
+
+XS LOSS RATIO CONTINUOUS DISPERSION
+
+* Skipped
+
+## Overview
 
 Purpose of the paper is to examine the impact of dispersion of LDFs on XS ratios
 
@@ -111,63 +186,3 @@ Dispersion $\uparrow$ when:
 As the shape parameter of the undeveloped loss distribution gets larger, the undeveloped loss distribution will have a smaller tail and less variance. That means the excess ratios based on th eundeveloped loss distribution will be smaller. As a result, dispersion will have a larger percentage impact on the excess ratios
 
 $\uparrow$ dispersion $\Rightarrow$ $\uparrow$ XS ratios
-
-## Cliff's Summary
-
-Know the XS Ratio formula
-
-* [Vanilla](#vanillaxsratio)
-
-* In [segments](#segmentxsratio)
-
-    * $R(L) = \dfrac{\sum\limits_i R_i(L) \mathrm{E}_i[X]}{\sum\limits_i\mathrm{E}_i[X]} = \sum\limits_i R_i(L) \dfrac{\mathrm{E}_i[X]}{\mathrm{E}[X]}$
-    
-* Lots of time need to calculate for uniform distribution
-
-***
-
-Simple dispersion [assumptions](#dispersionassumptions)
-
-Reasons [development assumption](#development) may be too simplistic
-
-XS Ratio of developed losses with dispersion:
-
-* $\widehat{R}(L) = \dfrac{\sum\limits_i p_i r_i R(\frac{L}{r_i})}{\sum\limits_i p_i r_i}$
-
-* Maybe know the proof of this
-
-***
-
-General dispersion
-
-* [assumptions](#gendispersionassumptions)
-* When does dispersion $\uparrow$
-
-Impact of shape parameters
-
-## Types of Exam Questions  
-<span style="color:green">Questions a bit thin</span>
-
-XS Ratio w/o dispersion
-
-* 2008 Q20 a
-* 2009 Q19 a (Same as prior)
-* 2012 Q12 a (undeveloped = w/o dispersion)
-* 2013 Q7 a
-
-XS Ratio with simple dispersion
-
-* 2008 Q20 b
-* 2009 Q19 b (Same as prior)
-* 2012 Q12 b
-* 2012 Q12 c $\star$ (unif development factors -> look at cv)
-* 2013 Q7 b
-
-Concepts
-
-* 2008 Q20 cd (Dispersion impact on XS ratio; longer tail distribution)
-* 2009 Q19 cd (Same as prior)
-* 2010 Q18 a (development concerns)
-* 2010 Q18 b $\star$ (shape parameter)
-* 2010 Q18 c (cv impact)
-* 2013 Q7 c (impact of dispersion on XS ratios)

@@ -1,11 +1,91 @@
 ---
 title: 'Workers Compensation Excess Ratios: An Alternative Method of Estimation'
+author: 'Mahler 3'
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
     toc: true
     toc_depth: 4
 ---
+
+## Cliff's Summary
+
+Overall procedure:
+
+1. Initial data adjustments
+2. Mean residual life exploratory analysis
+    *
+3. Pre fit adjustments
+
+Truncate and shift data
+
+* $R(L) = R_Y(L-T) \times R(T)$
+* $Y = X - T$
+* $T$ is the truncate point that's less than $L$
+* [Considerations](#truncateconsiderations) when truncate
+
+Curve fitting between pareto and exponential
+
+* [Reasons, features and advantages](#fitting)
+* 1 curve for all HGs
+* Fit to normalized data (entry ratios), pretty much always the case
+
+XS Ratio from $j$ dist^n^:
+
+* $R(L) = \dfrac{\sum_j p_j \mathrm{E}_j[X] R_j(L)}{\sum_j p_j \mathrm{E}_j[X]}$
+
+Fitted distribution you always plug in the entry ratio below:
+
+* $r_{HG}(L) = \dfrac{L - \$100,000}{\text{Average size of loss truncated and shifted to \$100,000 for HG}}$
+
+## Types of Exam Questions  
+<span style="color:green">Questions a bit thin but seems to cover all</span>
+
+Truncate and shift and fit to curve
+
+* 2008 Q34 $\star$ (with curve fit, basically everything)
+* 2009 Q33a (same as above)
+    * Not Normalize to 1 does it work?
+* 2010 Q30a $\star$ (XS ratio from discrete distribution)
+* 2012 Q17a (same as 08 and 09)
+* 2014 Q14 $\star\star$ (Price XS policy with the XS Ratio)
+
+Concepts
+
+* 2009 Q33b (considerations when truncate)
+* 2010 Q30b (initial data adjustments)
+* 2011 Q24 (overall approach)
+* 2012 Q17bc (3 advantages, why same curve for all HGs)
+* 2013 Q17 (truncate point selection; Alternative curves)
+    * Just heavier tail, which would result in overstating the XS for limits just above the truncation point
+    * Less heavy tail, the XS ratios would be lower for the largest limits compared to the mixed Exponential-Pareto
+    
+MEAN RESIDUAL LIFE - GROUND-UP LOSSES
+
+* Need occurence level
+* $e(x) = \dfrac{\text{ Dollar XS of }x}{\text{# of Accidents XS of }x}$ = XS severity function
+
+ADJUSTMENTS TO LOSSES FOR CURVE FITTING
+
+1. Split by HG
+2. Trend, develop, benefit level
+3. Group by occurence
+4. Truncate
+5. Shift by normalizing by HG average
+6. Use above to estimate $\theta$ for the exponential
+7. Use formula to get XS ratio
+
+EXCESS LOSS RATIO FROM TABLES
+
+* Just plug and play
+
+EXCESS LOSS RATIO FROM MIXED DIST. FORMULAS
+
+* Plug and play with formulas
+
+MOMENTS OF A MIXED DIST
+
+* Just weight the moments
 
 ## Overview
 
@@ -35,7 +115,7 @@ Standard ratemaking adjustments for step 1 - 4:
 
 Develop $\Rightarrow$ Trend $\Rightarrow$ Benefits Level Adjustments $\Rightarrow$ Group claims into accidents
 
-* Group into accidents since limits are per occurrence
+* **Group into accidents** since limits are per occurrence
 * Caveat is that we can't look at injury type
 
 ## Mean Residual Life: Exploratory analysis between Step 4 & 5
@@ -158,57 +238,3 @@ $R(L) = \dfrac{\sum_j p_j \mathrm{E}_j[X] R_j(L)}{\sum_j p_j \mathrm{E}_j[X]}$<s
 Recall Step 7 converts data to entry ratios by normalizing to mean = 1
 
 * $r_{HG}(L) = \dfrac{L - \$100,000}{\text{Average size of loss truncated and shifted to \$100,000 for HG}}$
-
-## Cliff's Summary
-
-Overall procedure:
-
-1. Initial data adjustments
-2. Mean residual life exploratory analysis
-3. Pre fit adjustments
-
-Truncate and shift data
-
-* $R(L) = R_Y(L-T) \times R(T)$
-* $Y = X - T$
-* $T$ is the truncate point that's less than $L$
-* [Considerations](#truncateconsiderations) when truncate
-
-Curve fitting between pareto and exponential
-
-* [Reasons, features and advantages](#fitting)
-* 1 curve for all HGs
-* Fit to normalized data (entry ratios), pretty much always the case
-
-XS Ratio from $j$ dist^n^:
-
-* $R(L) = \dfrac{\sum_j p_j \mathrm{E}_j[X] R_j(L)}{\sum_j p_j \mathrm{E}_j[X]}$
-
-Fitted distribution you always plug in the entry ratio below:
-
-* $r_{HG}(L) = \dfrac{L - \$100,000}{\text{Average size of loss truncated and shifted to \$100,000 for HG}}$
-
-## Types of Exam Questions  
-<span style="color:green">Questions a bit thin but seems to cover all</span>
-
-Truncate and shift and fit to curve
-
-* 2008 Q34 $\star$ (with curve fit, basically everything)
-* 2009 Q33a (same as above)
-* 2010 Q30a $\star$ (XS ratio from discrete distribution)
-* 2012 Q17a (same as 08 and 09)
-* 2014 Q14 $\star\star$ (Price XS policy with the XS Ratio)
-
-Concepts
-
-* 2009 Q33b (considerations when truncate)
-* 2010 Q30b (initial data adjustments)
-* 2011 Q24 (overall approach)
-* 2012 Q17bc (3 advantages, why same curve for all HGs)
-* 2013 Q17 (truncate point selection; Alternative curves)
-    * Just heavier tail, which would result in overstating the XS for limits just above the truncation point
-    * Less heavy tail, the XS ratios would be lower for the largest limits compared to the mixed Exponential-Pareto
-
-## Questions
-
-2009 Exam 9 Q33 - Not Normalize to 1

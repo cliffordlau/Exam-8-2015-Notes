@@ -1,5 +1,6 @@
 ---
 title: "On the Theory of Increased Limits and Excess of Loss Pricing"
+author: "Miccolis, Rosenberg, Lee 1"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 layout: default
 output: 
@@ -7,6 +8,165 @@ output:
     toc: true
     toc_depth: 4
 ---
+
+## Cliff's Summary
+
+Severity Curves integration formula
+
+* Limit k:  
+$\mathrm{E}[h(X;k)] = \int_0^k G(x) \: dx = \int_0^k x \: dF(x) + k \: G(k)$
+* Limit L and deductible R:  
+$\mathrm{E}[h(X;R,L)] = \int_R^S x \: dF(x) + SG(S) - RG(R)$
+
+***
+
+Know all the ILF formulas
+
+* [Vanilla](#vanilla-ilf)
+
+* In layer
+
+* [Constant inflation](#inflate-ilf) ($x_1 = \alpha(x) = ax$):
+
+    * $\mathrm{E}[h(X_1;b)] = a\mathrm{E}[h(X;\frac{b}{a})]$
+
+    * $I_1(k) = \dfrac{I(\frac{k}{a})}{I(\frac{b}{a})}$
+    
+    
+* [Risk Adjusted](#risk-adj-ilf) for limit $k$
+
+    * $I_r(k) = \dfrac{\mathrm{E}[h(X;k)] + \lambda \mathrm{E}[h(X;k)^2]}{\mathrm{E}[h(X;b)] + \lambda \mathrm{E}[h(X;b)^2]}$
+    
+    * Loosen the assumption of same profit load for all limits
+
+Know the 3 [assumptions](#ILF-assumptions) for ILF
+
+Know the [properties](#ilf-prop) of ILF
+
+***
+
+Consistency Tests:
+
+* [1-D ILF](#1-DTest)
+* [2-D ILF](#2-DTest)
+* [1-D Coinsurance](#1-DCoin)
+* [2-D Rosenberg](#rosenberg)
+
+***
+
+[Reason](#layertrend) why trend in high layer is higher
+
+% Change in layer loss with trend $a$
+
+* $\dfrac{\mathrm{E}[h(X_1;R,L)]}{\mathrm{E}[h(X;R,L)]} = 
+\begin{cases}
+  \dfrac{a ILF(\frac{L}{a})}{ILF(L)} & \text{if } R = 0\\
+  & \\
+  \dfrac{a \left( \mathrm{E}[X] - \mathrm{E}\left[ h(X;\frac{R}{a}) \right] \right)}{\mathrm{E}[X] - \mathrm{E}[h(X;R)]} & \text{if } L = \infty\\
+  & \\
+  \dfrac{a \left[ ILF(\frac{S}{a}) - ILF(\frac{R}{a}) \right]}{ILF(S) - ILF(R)} & \text{else}\\
+\end{cases}$
+
+***
+
+Problems with [empirical severity](#problem-emp) dist^n^
+
+## Types of Exam Questions
+
+Consistency Test:
+
+* 2001 Q11 (1-D ILF)
+* 2002 Q41 (1-D Deductible)
+* 2003 Q13 (1-D ILF)
+* 2004 Q26 c (1-D ILF)
+* 2006 Q6 (1-D ILF)
+* 2007 Q10a (1-D ILF)
+* 2008 Q27ab (1-D ILF)
+* 2010 Q17 (1-D ILF + range of okay)
+* 2011 Q10a (1-D range of okay)
+* 2013 Q5 (2-D and Rosenberg)
+* 2014 Q7 $\star$ (1-D, more open ended, + explain if the premiums are sound)
+
+Policy @ different limits with ILFs
+
+* 2002 Q42 (vanilla ILF from XS Ratio)
+* 2003 Q37 (some arithmetic)
+* 2004 Q26 ab
+
+Risk Adjusted Calculations
+
+* 2001 Q37 $\star$ (Proof on those compound equations)
+* 2003 Q43 $\star$ (Need premium @ different limits)
+* 2005 Q23 
+* 2009 Q18
+* 2013 Q6 $\star$ (Same as 2003 Q43, ILF with premium, not compound poison)
+
+Concepts:
+
+* 2000 Q37 $\star$ (higher trend in XS layer)
+* 2002 Q43 $\star$ (Inflation impact graphically)
+* 2003 Q36 (Adverse selection)
+* 2007 Q10bc $\star$ (Consistency test implications)
+* 2008 Q27c (Why test fails)
+* 2009 Q24 (ILF with plot)
+* 2010 Q16 $\star$ (anti selection)
+* 2011 Q10b (Meaning of consistency test)
+* 2012 Q15b (Loss distribution tail impact on XS layer inflation)
+
+Inflation/trends:
+
+* 2004 Q5 (Inflation at XS layer give loss by claim and base inflation)
+* 2005 Q6 $\star$ (don't forget to inflate the base PP severity!)
+* 2005 Q10 $\star$ (impact of trend calc)
+* 2006 Q8 $\star$ (creative with trend and exposure growth)
+* 2007 Q7 $\star$ (ILFs with trends)
+* 2008 Q26 $\star$ (Inflation PP in layer)
+* 2009 Q17 a (Trended ILF, % increase in loss after trend)
+* 2011 Q11 $\star$ (Non constant trend)
+* 2012 Q15a (% increase after trend)
+* 2014 Q6 $\star$ (Plot and calculate inflation trend in layer with area)
+
+GRAPHS - I(L), I’(L), CONSISTENCY TEST
+
+a. [Graphical representation of $ILF_k$](#graph-ilf)
+b. Graphical representation of $ILF'_k$
+c. Graphical rep of the consistency test
+    * Show that expected payment in any layer is less than in a preceding (lower) layer $\Rightarrow$ ILF must increase at a decreasing rate as the limit increases
+    
+ILFS VIA INTEGRATION
+
+* Use layer method
+* $\mathrm{E}[h(X;R,L)] = \int_R^S G(x) \: dx$
+* Size method requires differentiate across x which is harder here
+
+MARGINAL RATE, 1-WAY CONSISTENCY TEST
+
+1. ILF $\uparrow$ when k $\uparrow$
+2. Decreasing marginal ILF
+3. $\ILF''(k) < 0$
+
+4-WAY CONSISTENCY TEST
+
+* 2 Way + Rosenberg
+
+CO-INSURANCE CONSISTENCY TEST
+
+* Straight forward
+
+EXCESS LAYER LOSSES, ILF - WITH TREND
+
+a. Increase in XS layer after trend. Use change in layer loss formula
+b. Trended ILF
+c. Trended PP for Layer
+    * Don't forget to trend the expected loss
+
+RISK LOAD & RISK ADJUSTED ILF TABLE
+
+* Also just formula
+
+RISK LOAD & RISK ADJUSTED ILF
+
+* Same but non poisson
 
 ## Graphing the Severity Curve
 
@@ -151,7 +311,7 @@ $\begin{array}{lll}
 \end{array}$
 
 ***
-
+<a name="graph-ilf"></a>
 ![alt text](figures/Exam 8 B1-7 - 12.png)
 
 $ILF = \dfrac{Yellow + Green}{Green}$
@@ -379,124 +539,3 @@ Fix the occurrence limits:
 $I(A_2,O_2) - I(A_2,O_1) \geq I(A_1,O_2) - I(A_1,O_1)$ 
 
 ![alt text](figures/Exam 8 B1-7 - 15.png)
-
-## Cliff's Summary
-
-Severity Curves integration formula
-
-* Limit k:  
-$\mathrm{E}[h(X;k)] = \int_0^k G(x) \: dx = \int_0^k x \: dF(x) + k \: G(k)$
-* Limit L and deductible R:  
-$\mathrm{E}[h(X;R,L)] = \int_R^S x \: dF(x) + SG(S) - RG(R)$
-
-***
-
-Know all the ILF formulas
-
-* [Vanilla](#vanilla-ilf)
-
-* In layer
-
-* [Constant inflation](#inflate-ilf) ($x_1 = \alpha(x) = ax$):
-
-    * $\mathrm{E}[h(X_1;b)] = a\mathrm{E}[h(X;\frac{b}{a})]$
-
-    * $I_1(k) = \dfrac{I(\frac{k}{a})}{I(\frac{b}{a})}$
-    
-    
-* [Risk Adjusted](#risk-adj-ilf) for limit $k$
-
-    * $I_r(k) = \dfrac{\mathrm{E}[h(X;k)] + \lambda \mathrm{E}[h(X;k)^2]}{\mathrm{E}[h(X;b)] + \lambda \mathrm{E}[h(X;b)^2]}$
-    
-    * Loosen the assumption of same profit load for all limits
-
-Know the 3 [assumptions](#ILF-assumptions) for ILF
-
-Know the [properties](#ilf-prop) of ILF
-
-***
-
-Consistency Tests:
-
-* [1-D ILF](#1-DTest)
-* [2-D ILF](#2-DTest)
-* [1-D Coinsurance](#1-DCoin)
-* [2-D Rosenberg](#rosenberg)
-
-***
-
-[Reason](#layertrend) why trend in high layer is higher
-
-% Change in layer loss with trend $a$
-
-* $\dfrac{\mathrm{E}[h(X_1;R,L)]}{\mathrm{E}[h(X;R,L)]} = 
-\begin{cases}
-  \dfrac{a ILF(\frac{L}{a})}{ILF(L)} & \text{if } R = 0\\
-  & \\
-  \dfrac{a \left( \mathrm{E}[X] - \mathrm{E}\left[ h(X;\frac{R}{a}) \right] \right)}{\mathrm{E}[X] - \mathrm{E}[h(X;R)]} & \text{if } L = \infty\\
-  & \\
-  \dfrac{a \left[ ILF(\frac{S}{a}) - ILF(\frac{R}{a}) \right]}{ILF(S) - ILF(R)} & \text{else}\\
-\end{cases}$
-
-***
-
-Problems with [empirical severity](#problem-emp) dist^n^
-
-## Types of Exam Questions
-
-Consistency Test:
-
-* 2001 Q11 (1-D ILF)
-* 2002 Q41 (1-D Deductible)
-* 2003 Q13 (1-D ILF)
-* 2004 Q26 c (1-D ILF)
-* 2006 Q6 (1-D ILF)
-* 2007 Q10a (1-D ILF)
-* 2008 Q27ab (1-D ILF)
-* 2010 Q17 (1-D ILF + range of okay)
-* 2011 Q10a (1-D range of okay)
-* 2013 Q5 (2-D and Rosenberg)
-* 2014 Q7 $\star$ (1-D, more open ended, + explain if the premiums are sound)
-
-Policy @ different limits with ILFs
-
-* 2002 Q42 (vanilla ILF from XS Ratio)
-* 2003 Q37 (some arithmetic)
-* 2004 Q26 ab
-
-Risk Adjusted Calculations
-
-* 2001 Q37 $\star$ (Proof on those compound equations)
-* 2003 Q43 $\star$ (Need premium @ different limits)
-* 2005 Q23 
-* 2009 Q18
-* 2013 Q6 $\star$ (Same as 2003 Q43, ILF with premium, not compound poison)
-
-Concepts:
-
-* 2000 Q37 $\star$ (higher trend in XS layer)
-* 2002 Q43 $\star$ (Inflation impact graphically)
-* 2003 Q36 (Adverse selection)
-* 2007 Q10bc $\star$ (Consistency test implications)
-* 2008 Q27c (Why test fails)
-* 2009 Q24 (ILF with plot)
-* 2010 Q16 $\star$ (anti selection)
-* 2011 Q10b (Meaning of consistency test)
-* 2012 Q15b (Loss distribution tail impact on XS layer inflation)
-
-Inflation/trends:
-
-* 2004 Q5 (Inflation at XS layer give loss by claim and base inflation)
-* 2005 Q6 $\star$ (don't forget to inflate the base PP severity!)
-* 2005 Q10 $\star$ (impact of trend calc)
-* 2006 Q8 $\star$ (creative with trend and exposure growth)
-* 2007 Q7 $\star$ (ILFs with trends)
-* 2008 Q26 $\star$ (Inflation PP in layer)
-* 2009 Q17 a (Trended ILF, % increase in loss after trend)
-* 2011 Q11 $\star$ (Non constant trend)
-* 2012 Q15a (% increase after trend)
-* 2014 Q6 $\star$ (Plot and calculate inflation trend in layer with area)
-
-## Questions
-
-How do you typically convert ILFs to ELFs?

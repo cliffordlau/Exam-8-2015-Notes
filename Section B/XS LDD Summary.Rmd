@@ -1,5 +1,6 @@
 ---
 title: "XS LDD Summary"
+author: ""
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
