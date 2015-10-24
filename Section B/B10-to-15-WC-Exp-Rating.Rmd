@@ -166,6 +166,12 @@ Concepts:
 
 1961 PROGRAM: $M,\: A_P,\: W,\: Z$
 
+* The formula for $W$ is a bit different
+
+1991 PROGRAM: $M,\: AP,\: W$
+
+* Standard Perryman's
+
 ### NCCI 1
 
 Calculations
@@ -197,6 +203,20 @@ Concepts
 * 2007 Q25 b (inflation split point)
 * 2012 Q13 $\star$ s(experience rating stability, talk about terrorism insurance)
 
+STANDARD PREMIUM & MOD FACTOR,EXPERIENCE PERIOD, CAPPED LOSSES
+
+* Just lookups
+
+MULTI STATE MOD
+
+* Note that you get the state B and W by the total E and then weight by state E
+
+INTRA STATE MOD SINGLE STATE ALL OTHER STATES
+
+* Intrastate you have to adjust for the fact that the total $\neq$ sum of all of it's parts
+* $\dfrac{Mod_{all} \times E_{all}}{Mod_{St} \times E_{St} + Mod_{AllxSt} \times E_{AllxSt}}$
+* Get the state mod and times the factor
+
 ## Must Know Formulas
 
 Plan Parameters
@@ -218,7 +238,8 @@ $Mod = \dfrac{A_p + W A_e + (1 - W)E_e + B}{E_{total} + B}$
 
 * $Z_e = W Z_p$
 
-* Weight: $W = \dfrac{E + K_p}{E + K_e}$
+* Weight: $W = \dfrac{E + K_p}{E + K_e}
+
     * $0 < W < 1$
     * $W$ never $\uparrow$ given $\downarrow$ $E$
 
@@ -430,6 +451,7 @@ $Mod = \dfrac{A_p + W A_e + (1 - W)E_e + B}{E_{total} + B}$ <span style="color:r
 * Weight: $W = \dfrac{E + K_p}{E + K_e}$
     * $0 < W < 1$
     * $W$ never $\uparrow$ given $\downarrow$ $E$
+    * For the 1961 NCCI it's $W = \dfrac{\text{Expected Loss} - \text{Excess Cred. Threshold}}{\text{Full Cred. Threshold} - \text{Excess Cred. Threshold}}$
 
 * $B = K_p$
 

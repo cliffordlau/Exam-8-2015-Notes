@@ -7,6 +7,79 @@ output:
     toc_depth: 4
 ---
 
+## Cliff's summary
+
+[Overall process](#process) of ISO Exp Mod
+
+CSLC Methods:
+
+* [Standard](#standardCSLC)
+* [Present avg company rate](#presentavg)
+* [Historial exposure @ present company rate](#historicalexp)
+
+$Z \geq 0.03 \: \Rightarrow$ Schedule Rating; $Z \geq 0.07 \: \Rightarrow$ Experience Rating
+
+Calculating [AER](#AER)
+
+[Comparison](#comparison) with NCCI
+
+## Types of Exam Questions
+
+Calcations
+
+* 2001 Q27 $\star$ (Mod, CM)
+* 2002 Q12 (limited actual)
+* 2003 Q4 (easy plug and play for mod)
+* 2003 Q5 (limited actual)
+* 2004 Q43 $\star$ (Mod, occ)
+* 2004 Q41 $\star$ (Include losses, CM mix)
+    * Use basic limited loss
+* 2005 Q54 $\star$ (Short but has sch and exp)
+* 2005 Q28 (CSLC for 4th year CM mix)
+* 2006 Q49 (plug and play mod)
+* 2006 Q28 $\star$ (Mod, no change in exposure, CM mix)
+* 2007 Q52 (plug and play mod simple)
+* 2007 Q27 $\star$ (ratable loss, Present Average)
+* 2008 Q24 $\star$ (typical mod long form)
+* 2010 Q21 (typical mod long form)
+* 2012 Q14 $\star$ (Mod, need to get LDFs, back out numbers)
+* 2013 Q8 $\star$
+* 2014 Q8 $\star$ (back out unreported aka adjustment to reflect ultimate)
+* Practice 1 $\star$ (historical expsoure method)
+
+Concepts
+
+* 2000 Q17 (NCCI vs ISO)
+* 2002 Q11 (NCCI vs ISO)
+* 2003 Q3 (Sch and Exp)
+* 2004 Q14 (Sch and Exp)
+* 2005 Q53 $\star$ (Why limit)
+* 2007 Q51 $\star$ (Compare sch rating with retro rating, loss control and stability)
+* 2009 Q43
+* 2009 Q22 $\star$ (Sch rating characteristics appropriatness, don't forget max)
+* 2010 Q34 $\star$ (Sch rating)
+* 2011 Q14 (Sch rating)
+
+SLC, AER, MOD, ARULL OCCURRENCE POLICY
+
+* Know how to get the basic premium and it's for prospective period
+
+LOSSES TO INCLUDE
+
+* Adjust historical losses with deductible if now policy has; doesn't affect MSL
+
+CLAIMS MADE POLICY MOD
+
+* Make sure no developement on CM
+
+AVERAGE COMPANY METHOD EXPERIENCE MOD
+
+* Exposure adj and make sure we use the different trending method
+
+PROCEDURE WHEN BASIC LIMITS PREMIUMS NOT AVAILABLE
+
+* Skipped, never tested
+
 ## ISO Experience Mod Formula  
 <span style="color:red;background-color:yellow">Important Formulas</span>
 
@@ -106,6 +179,8 @@ $\begin{array}{llll}
 $(1)$ $BLEL$ by subline
 
 * $\text{Basic Limits Expected Losses}_{sl} = \text{Company }ELR \times \text{Annual Basic Limits Company Premium}_{sl}$
+* $\text{Annual Basic Limits Company Premium}_{sl} = \text{BL Prem x mods} \times \text{Comp Deviation} \times \text{Pkg Mod}$
+
 
 $(2)$ Convert to occurrence level (only when policy rated is CM)
 
@@ -278,56 +353,3 @@ Total cap @ $\pm 25%$
 Need to avoid reflecting any risk characteristics that are already fully reflected in experience rating
 
 Schedule mod is applied after the experience mod
-
-## Cliff's summary
-
-[Overall process](#process) of ISO Exp Mod
-
-CSLC Methods:
-
-* [Standard](#standardCSLC)
-* [Present avg company rate](#presentavg)
-* [Historial exposure @ present company rate](#historicalexp)
-
-$Z \geq 0.03 \: \Rightarrow$ Schedule Rating; $Z \geq 0.07 \: \Rightarrow$ Experience Rating
-
-Calculating [AER](#AER)
-
-[Comparison](#comparison) with NCCI
-
-## Types of Exam Questions
-
-Calcations
-
-* 2001 Q27 $\star$ (Mod, CM)
-* 2002 Q12 (limited actual)
-* 2003 Q4 (easy plug and play for mod)
-* 2003 Q5 (limited actual)
-* 2004 Q43 $\star$ (Mod, occ)
-* 2004 Q41 $\star$ (Include losses, CM mix)
-    * Use basic limited loss
-* 2005 Q54 $\star$ (Short but has sch and exp)
-* 2005 Q28 (CSLC for 4th year CM mix)
-* 2006 Q49 (plug and play mod)
-* 2006 Q28 $\star$ (Mod, no change in exposure, CM mix)
-* 2007 Q52 (plug and play mod simple)
-* 2007 Q27 $\star$ (ratable loss, Present Average)
-* 2008 Q24 $\star$ (typical mod long form)
-* 2010 Q21 (typical mod long form)
-* 2012 Q14 $\star$ (Mod, need to get LDFs, back out numbers)
-* 2013 Q8 $\star$
-* 2014 Q8 $\star$ (back out unreported aka adjustment to reflect ultimate)
-* Practice 1 $\star$ (historical expsoure method)
-
-Concepts
-
-* 2000 Q17 (NCCI vs ISO)
-* 2002 Q11 (NCCI vs ISO)
-* 2003 Q3 (Sch and Exp)
-* 2004 Q14 (Sch and Exp)
-* 2005 Q53 $\star$ (Why limit)
-* 2007 Q51 $\star$ (Compare sch rating with retro rating, loss control and stability)
-* 2009 Q43
-* 2009 Q22 $\star$ (Sch rating characteristics appropriatness, don't forget max)
-* 2010 Q34 $\star$ (Sch rating)
-* 2011 Q14 (Sch rating)
