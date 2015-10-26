@@ -15,7 +15,7 @@ output:
 Know how the entry ratio, charges and other relationships are represented as areas in the graph
 
 * [Tbl M Charges](#tblmfigure1)
-* [Tbl M Charges and savings](#tblmfigure4))
+* [Tbl M Charges and savings](#tblmfigure4)
 * [Table LLM](#tblllmfigure1)
 * [Table L](#tbllfigure1)
 
@@ -60,6 +60,14 @@ How to use the NCCI pages
 * ELG, balance equations
 * Use the table for the right year
 * Look for entry difference first then charge
+* Know what can be looked up
+    * $e$
+    * ELR
+    * Tax
+* For AK what can be looked up
+    * ELPPF or ELAEPPF
+    * Retro dev (need to multiply by the E to use)
+* Know the tables
 
 ## Types of Exam Questions
 
@@ -102,6 +110,18 @@ Other
 
 * 2002 Q14 (XS PP formula) 
     * Why is the denominator 1?<span style="color:red;background-color:yellow">?Question?</span>
+    
+GRAPHICAL REPRESENTATIONS: $\phi$, $\psi$. $I$ TABLE M & TABLE L
+
+* As stated in title
+
+GRAPHICAL REPRESENTATIONS: H, K , $\mathrm{E}[R^*]$, $\psi(r_G)$
+
+* Part c on the representation of $\dfrac{\mathrm{E}[L^*]}{E}$ is interesting
+
+GRAPHICAL REPRESENTATIONS: BALANCE EQUATIONS
+
+* Meanings of different cut
 
 ### Gillam & Snader 2
 
@@ -163,6 +183,26 @@ Tricky
 * 2007 Q35 (Balanced or not)
 * 2009 Q20 (defective)
 
+RETRO PREM: INSURANCE CHARGE, BASIC PREMIUM, EXPENSE FACTOR
+
+* Standard calc of R with max and min no occ charge
+
+GUARANTEED COST PREMIUM: DISCOUNT TABLE, RETRO RATING
+
+a. Straight calcu with discount tiers
+b. Use GCP formula and the $b$ formula
+
+BALANCE EQUATIONS
+
+* Know the formula
+* For each charge difference that's too low by 0.01, increase entry ratios by 0.01
+
+INS. CHARGE REFLECTING LOSS LIMITATIONS
+
+* Remember the entry ratio is based on limited expected loss
+* lookup ELG
+* know the tax formula and the ALG
+
 ### Brosius
 
 Insurance charge/savings
@@ -181,6 +221,19 @@ Insurance charge/savings
 Concepts
 
 * 2008 Q28a (vertical vs horizontal)
+
+TABLE M CONSTRUCTION, $X_G$, $S_G$ GRAPHICAL METHOD
+
+* Building table and graph
+* horizontal
+
+TABLE M CONSTRUCTION, $X_G$, $S_G$ DOUBLE SUM METHOD
+
+* Basically just skip the recursive bit a little
+
+TABLE M CONSTRUCTION, $X_G$, $S_G$ DIRECT CALCULATION METHOD
+
+* Vertical
 
 ### Skurnick
 
@@ -217,6 +270,25 @@ Calculate insurance charge/savings
     * Use dollar amount or Tbl L with premium (instead of risk)
     * Should understand this
 
+TABLE L CONSTRUCTION
+
+* Limited loss over unlimted
+* Don't forget to add the k
+
+TABLE L : B, R, ENTRY RATIO DIFF, INS CHG DIFF
+
+a. Remember the base is unlimited for Table L
+b. Get the actual premium
+
+CHANGE IN RETRO PREMIUM FROM TABLE M UPDATE
+
+* Skipped, seems like you just lookup twice
+
+LEMMA 1: RETRO PLANS THAT DON’T BALANCE TO GCP
+
+* Good one
+* Use given formula and get the $\mathrm{E}[L]$
+
 ### NCCI 2
 
 Plug and play
@@ -243,6 +315,17 @@ Plug and play
 Concepts
 
 * 2003 Q32 (Why varies by ELG)
+
+USING NCCI TABLES: BASIC PREM, ELG, BALANCE EQUATIONS
+
+* Full blown beginning to end question on AK
+* Get the ELPPF from table
+* Look up size group with ICRLL
+* Balance formula for charges
+
+RETRO PREMIUM CALC WITH ELECTIVE ELEMENTS
+
+* Retro at 2nd adjustments
 
 ## Must Know Formulas
 
@@ -570,16 +653,14 @@ NCCI do full rates or loss costs depending on the state
 
 **Table M Charge**
 
-<span style="color:red; background-color:yellow">Revisit! This seems wrong...</span>
-
 * $\begin{align}
-    \text{Table M Charge} &= \dfrac{\sum_{r_i > r} Loss_i}{\sum_i Loss_i}\\
-    &= \dfrac{\text{Total Losses }\forall \text{ Policies w/ Losses > Entry Ratio r}}{\text{Total Losses }\forall \text{ Policies}}
+    \text{Table M Charge} &= \dfrac{\sum_{r_i > r} (Loss_i - Loss_r)}{\sum_i Loss_i}\\
+    &= \dfrac{\text{XS Losses }\forall \text{ Policies w/ Losses > Entry Ratio r}}{\text{Total Losses }\forall \text{ Policies}}
   \end{align}$
 
 * $\begin{align}
-    \text{Table M Savings} &= \dfrac{\sum_{r_i < r} Loss_i}{\sum_i Loss_i}\\
-    &= \dfrac{\text{Total Losses }\forall \text{ Policies w/ Losses < Entry Ratio r}}{\text{Total Losses }\forall \text{ Policies}}
+    \text{Table M Savings} &= \dfrac{\sum_{r_i < r} (Loss_r - Loss_i)}{\sum_i Loss_i}\\
+    &= \dfrac{\text{Losses Shortfall Compare to Loss @ r }\forall \text{ Policies w/ Losses < Entry Ratio r}}{\text{Total Losses }\forall \text{ Policies}}
   \end{align}$
   
 **2 Components to build Table M**
@@ -907,7 +988,7 @@ $b = e - (C - 1)\mathrm{E}[A] + CI$ <span style="color:red;background-color:yell
 
 * $e - (C - 1)\mathrm{E}[A]$ is never capped
 * $CI$ is where the cap comes in
-* Recall:  <span style="color:red">Check</span>
+* Recall:  
 $e = \dfrac{1-D}{T} - PLR$  
 $T = \dfrac{0.2 + PLR(1+\mu)}{0.2 + PLR}\left(\dfrac{1}{1-\tau}\right)$
 
@@ -1016,11 +1097,13 @@ $+ PCV$ if to stabilize
 
 $\mathrm{E}[L^*] = \mathrm{E}[A^*] - I^{LLM}$
 
+* $I^{LLM} = \mathrm{E}[A^*][\phi^{LLM}(r^*_G) - \psi^{LLM}(r^*_H)]$
+
 $b^{LLM} = e - (C - 1)\mathrm{E}[A] + CI^{LLM}$
 
 * $e - (C - 1)\mathrm{E}[A]$ is never capped
 
-$\phi^{LLM}(r_H^*) - \phi^{LLM}(r_G^*) = \dfrac{(e + \mathrm{E}[A])T - H}{C\mathrm{E}[A^*]T} = ? \dfrac{(1-D)P-H}{C\mathrm{E}[A^*]T}$
+$\phi^{LLM}(r_H^*) - \phi^{LLM}(r_G^*) = \dfrac{(e + \mathrm{E}[A])T - H}{C\mathrm{E}[A^*]T} = \dfrac{(1-D)P-H}{C\mathrm{E}[A^*]T}$
 
 $r_G^* - r_H^* = \dfrac{G - H}{C\mathrm{E}[A^*]T}$
 
@@ -1104,10 +1187,13 @@ Everything same as Table M but now that we use $I^L$
 
 $\mathrm{E}[L^*] = \mathrm{E}[A^*] - I^{L}$
 
+* $I^{L} = \mathrm{E}[A][\phi^{L}(r_G) - \psi^{L}(r_H)]$
+
 $b^{L} = e - (C - 1)\mathrm{E}[A] + CI^{L}$
+
 * $e - (C - 1)\mathrm{E}[A]$ is never capped
 
-$\phi^{L}(r_H) - \phi^{L}(r_G) = \dfrac{(e + \mathrm{E}[A])T - H}{C\mathrm{E}[A]T} = ? \dfrac{(1-D)P-H}{C\mathrm{E}[A]T}$
+$\phi^{L}(r_H) - \phi^{L}(r_G) = \dfrac{(e + \mathrm{E}[A])T - H}{C\mathrm{E}[A]T} =  \dfrac{(1-D)P-H}{C\mathrm{E}[A]T}$
 
 $r_G - r_H = \dfrac{G - H}{C\mathrm{E}[A]T}$
 

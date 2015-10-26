@@ -7,6 +7,107 @@ output:
     toc_depth: 4
 ---
 
+## Cliff's Summary
+
+Components:
+
+* [Harzard](#hazard-mod)
+    * Location, freq, sev
+    * Simulates natural disasters based on probabilities of different event parameters (e.g., for earthquakes, this would include epicenter and Richter scale magnitude)
+* [Inventory](#inventory-mod)
+    * Group properties; data integrity is key
+    * Contains the properties at risk and their characteristics (e.g., insurer’s portfolio of insured homes, including construction type, insured amount, property location)
+* [Vulnerability](#vuln-mod)
+    * Maps hazard to damager
+    * Engineering judgement; building response analysis; Class based building response analysis
+    * Estimates the susceptibility to damage of each property given a specific simulated catastrophe and property information (e.g., brick construction is good against hurricanes, but poor against earthquakes)
+* [Loss](#loss-mod)
+    * Link event parameters to expected loss
+    * Estimate damage and translate to cost
+    * Quantifies the direct & indirect losses of the event on each property. Direct losses include physical damage, while indirect losses include things like business interruption or relocation costs
+    
+Exceedance Probability Curves (and 2 other types)
+
+* $OEP(L_i) = 1 - Pr(NoEvent) - \prod\limits_{j \: for \: L_j < L_i} (1-p_j)$
+* Watchout for the chance of no event when doing the calculations
+
+[Insurability conditions](#insurability-condition)
+
+Formula to provide coverage or not
+
+* $Pr(Loss > n \times Premium + Surplus) < Pr(Insolvency)$
+
+[Simple ratemaking model](#simple-ratemaking)
+
+Know the concerns with Cat models
+
+* Concerns with regulator
+* Tie the CEA issues with different modules
+
+Open issues with ratemaking with Cat Models
+
+* Mostly [actuarial](#actuarial-accceptance) issues
+
+Aleatory vs Epistemic uncertainty
+
+* Try to tie out the epistemic issues with the different modules
+
+Quantify uncertainy
+
+* Logic trees and simulation or hybrid
+
+Porfolio Management
+
+* [3 Special issues](#cat-ptf-issues): Data quality, uncertainty modeling, correlations
+* Composition
+* Managing AAL and chance of insolvent with EP curve and OEP
+* Multiple portfolios
+
+## Types of Exam Questions  
+<span style="color:green">Questions a bit thin</span>
+
+OEP
+
+* 2011 Q5 (calculate OEP and draw curve)
+* 2012 Q9 (1 in 25 years PML on EP curve)
+* 2013 Q24 a (PML on OEP curve)
+* 2013 Q24 b $\star$ (Losses in layers with inuring)
+* Practice 9 (AAL and OEP)
+
+Portfolio management
+
+* 2011 Q6 a (Minimize risk)
+    * Look at AAL then correlations
+    
+Other calculations
+
+* Practice 4 (How to run a simulation)
+* Practice 5 (maximum number of policies to write)
+
+Concepts
+
+* 2011 Q6 b (Problems with Cat model ratemaking)
+* 2012 Q9 ac (Explain EP curve and use)
+* 2013 Q24 a (PML def)
+* Practice 1 (4 Components)
+* Practice 2 (How Cat models work)
+* Practice 3 (Vulnerability module, class based analysis)
+* Practice 6 (Aleatory vs Epistemic and reasons for it)
+* Practice 7 (Regulatory challenges and responses)
+* Practice 8 (3 special issues insurers need to consider in managing portfolio)
+
+LOSS DIAGRAM WITH REINSURANCE
+
+* Just draw it
+
+OEP CURVES AND ALE AND PM
+
+* OEP Calc
+
+## Qeustions
+
+AAL Formula
+
 ## Intro to Catastrophe Models
 
 Multi-discipline: Physics, geology, engineering, actuarial science
@@ -463,96 +564,3 @@ If the existing OEP is higher than target, need to reduce some of the loss amoun
 Diversification across portfolios can reduce the impact of individual events to the insurer
 
 Reduce risk by eliminating a portfolio that is most positively correlated
-
-## Cliff's Summary
-
-Components:
-
-* [Harzard](#hazard-mod)
-    * Location, freq, sev
-    * Simulates natural disasters based on probabilities of different event parameters (e.g., for earthquakes, this would include epicenter and Richter scale magnitude)
-* [Inventory](#inventory-mod)
-    * Group properties; data integrity is key
-    * Contains the properties at risk and their characteristics (e.g., insurer’s portfolio of insured homes, including construction type, insured amount, property location)
-* [Vulnerability](#vuln-mod)
-    * Maps hazard to damager
-    * Engineering judgement; building response analysis; Class based building response analysis
-    * Estimates the susceptibility to damage of each property given a specific simulated catastrophe and property information (e.g., brick construction is good against hurricanes, but poor against earthquakes)
-* [Loss](#loss-mod)
-    * Link event parameters to expected loss
-    * Estimate damage and translate to cost
-    * Quantifies the direct & indirect losses of the event on each property. Direct losses include physical damage, while indirect losses include things like business interruption or relocation costs
-    
-Exceedance Probability Curves (and 2 other types)
-
-* $OEP(L_i) = 1 - Pr(NoEvent) - \prod\limits_{j \: for \: L_j < L_i} (1-p_j)$
-* Watchout for the chance of no event when doing the calculations
-
-[Insurability conditions](#insurability-condition)
-
-Formula to provide coverage or not
-
-* $Pr(Loss > n \times Premium + Surplus) < Pr(Insolvency)$
-
-[Simple ratemaking model](#simple-ratemaking)
-
-Know the concerns with Cat models
-
-* Concerns with regulator
-* Tie the CEA issues with different modules
-
-Open issues with ratemaking with Cat Models
-
-* Mostly [actuarial](#actuarial-accceptance) issues
-
-Aleatory vs Epistemic uncertainty
-
-* Try to tie out the epistemic issues with the different modules
-
-Quantify uncertainy
-
-* Logic trees and simulation or hybrid
-
-Porfolio Management
-
-* [3 Special issues](#cat-ptf-issues): Data quality, uncertainty modeling, correlations
-* Composition
-* Managing AAL and chance of insolvent with EP curve and OEP
-* Multiple portfolios
-
-## Types of Exam Questions  
-<span style="color:green">Questions a bit thin</span>
-
-OEP
-
-* 2011 Q5 (calculate OEP and draw curve)
-* 2012 Q9 (1 in 25 years PML on EP curve)
-* 2013 Q24 a (PML on OEP curve)
-* 2013 Q24 b $\star$ (Losses in layers with inuring)
-* Practice 9 (AAL and OEP)
-
-Portfolio management
-
-* 2011 Q6 a (Minimize risk)
-    * Look at AAL then correlations
-    
-Other calculations
-
-* Practice 4 (How to run a simulation)
-* Practice 5 (maximum number of policies to write)
-
-Concepts
-
-* 2011 Q6 b (Problems with Cat model ratemaking)
-* 2012 Q9 ac (Explain EP curve and use)
-* 2013 Q24 a (PML def)
-* Practice 1 (4 Components)
-* Practice 2 (How Cat models work)
-* Practice 3 (Vulnerability module, class based analysis)
-* Practice 6 (Aleatory vs Epistemic and reasons for it)
-* Practice 7 (Regulatory challenges and responses)
-* Practice 8 (3 special issues insurers need to consider in managing portfolio)
-
-## Qeustions
-
-AAL Formula

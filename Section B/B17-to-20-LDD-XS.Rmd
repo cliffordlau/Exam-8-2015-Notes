@@ -7,6 +7,241 @@ output:
     toc_depth: 4
 ---
 
+## Cliff's Summary
+
+### Gillam & Snader 3
+
+Know the [4 assumptions](#discountass) for discount method
+
+Know [assumptions](#xmedass) behind the x-med formula
+
+Know how to setup formula based on what's given
+
+* Take out ALAE from loss if needed
+
+Know the deductible formulas
+
+### Teng
+
+Know the by component calculations of premium
+
+* Apply $\phi^{LLM}(r)$ to the right basis (limited or unlimited loss)
+    * Charge from a Table LLM would naturally be expressed as a percent of expected limited losses
+* $EEL$ is usually $EL$ times XS factor (know if it includes ALAE)
+* Expensee as % of standard premium vs final premium
+* Check if deductible limits loss & alae or alae is ground-up
+
+Know the difference between XS and LDD and full plan
+
+* For [Loss](#XSvLDD-Loss), [LAE](#XSvLDD-LAE), [G&A](#XSvLDD-GA), [Acq](#XSvLDD-acq), [risk load](#XSvLDD-risk), [tax](#XSvLDD-tax), [profit & contingencies](#XSvLDD-profit)
+
+### Fisher
+
+Mostly related to the loss components of LDD with the insurance charges and XS loss
+
+Make sure when you looking up table M ICRLL, use entry ratios with the limited loss
+
+Note the difference between Excess Loss Pure Premium Factor and an Excess Loss Factor. Remember that the ELPPF is excess losses over total losses, and the ELF is excess losses over standard premium.
+
+Know fisher's comment
+
+## Types of Exam Questions
+
+### Gillam & Snader 3
+
+Calculation using discount method
+
+* 2001 Q36 $\star$ (LDD discount)
+    * Note to take out ALAE in formula
+    * And only medical is part of the deal
+* 2004 Q19 $\star$ (Disappearing deductible)
+* 2005 Q35 $\star$ (Back solve disappearing deductible)
+* 2009 Q26 (both deductible)
+* 2010 Q26 $\star$ (back out disapperating deductible with trial and error)
+* 2011 Q17 $\star$ (arithmetic with deductibles)
+* 2012 Q22 ab$\star$ (deductible and trend)
+
+Concepts
+
+* 2000 Q20 (Discount methdod assumptions)
+* 2001 Q13 (Discount methdod assumptions)
+* 2002 Q2 (x-med discount assumptions)
+* 2012 Q22 c$\star$ (XS layer trend higher, B7)
+
+STRAIGHT DEDUCTIBLE: LER & DISCOUNT
+
+* Remember that ALAE is not variable, so not part of the discount
+* ULAE is also not reduced
+* No inspection expense for LDD
+
+DISAPPEARING DEDUCTIBLE: LER & DISCOUNT
+
+* Know the formula
+* Else similar to just straight deductible
+
+EX-MEDICAL COVERAGE: DISCOUNT, ADJUSTED LCF
+
+* Bunch of formulas maybe memorize
+
+EXCESS COVERAGE: PREMIUM/LOSS SENSITIVE DISCOUNT
+
+* Know if expenses are sensitive to losses or premium
+
+### Teng
+
+LDD Prem
+
+* 2000 Q38 ab $\star$ (full blown LDD calc)
+    * LBA is an expense
+* 2002 Q1 (plug and play)
+* 2004 Q39 (get LER then plug and play)
+* 2004 Q48 (plug and play)
+    * ALAE treatment: ground-up
+* 2005 Q48 (plug and play)
+* 2006 Q33 (plug and play)
+* 2007 Q45
+* 2007 Q36 a (plug and play)
+* 2008 Q31 a (plug and play)
+* 2009 Q35 (fullblown)
+    * Watch out for what the % are givens as of
+* 2011 Q18 (plug and play)
+* 2013 Q13 (plug and play)
+* 2013 Q18 $\star\star$ (fullblown + B9 truncate shift!!!)
+* 2014 Q19 a $\star$ (Use entry ratio with limited denominator when looking up table)
+
+XS
+
+* 2008 Q31 b
+* 2014 Q19 c
+
+Concepts
+
+* 2000 Q38 c $\star$ (LDD vs XS)
+* 2001 Q12 (LDD considerations)
+* 2002 Q44 $\star$ (LDD vs XS)
+    * d: higher uncertainty of loss for XS so higher ELF
+* 2003 Q34 $\star$ (LDD vs XS, payment pattern)
+* 2005 Q34 $\star$ (LDD vs full)
+* 2006 Q31 $\star$ (LDD vs XS)
+* 2007 Q36 bc (LDD vs full)
+* 2008 Q31 c (LDD vs XS)
+* 2009 Q29 (LDD vs XS)
+* 2011 Q18 (LDD vs XS)
+* 2013 Q16 $\star$ (More related to Retro section with LLM charges)
+* 2014 Q19 b $\star$ (LDD advantages)
+* 2014 Q19 a $\star$ (LDD vs XS in profit and tax)
+* Practice 1 (Describe 2 ways to price)
+
+WC LARGE DEDUCTIBLE: NET PREMIUM & EXPENSE RATIO
+
+* Standard LDD calc, always watch out for what's the charge applies to
+* Know what is a % of what
+
+WC EXCESS COVERAGE: NET PREMIUM & EXPENSE RATIO
+
+* Need to know what are the relevant information
+
+### Fisher
+
+Calculate charges and expected loss
+
+* 2002 Q39 $\star\star$ (charges calculations)
+    * Tricky wording with the retention vs limits for retro
+* 2003 Q35 $\star$ (lookup tables with ICRLL)
+* 2004 Q46 (expected loss with charge)
+* 2005 Q36 (expected loss with charge)
+* 2006 Q36 (expected loss with charge)
+* 2007 Q33 $\star$ (expected loss with charge, LLM and ICRLL)
+* 2008 Q30 (expected loss with charge)
+* 2009 Q27 $\star$ (% error)
+* 2010 Q24 (% error)
+    * Make assumption on ELF and assuming looking at % error
+* 2010 Q28 $\star$ (Tbl M constuction then get LDD prem)
+    * Make assumption about table being unlimited
+* 2011 Q19 (expected loss with charge, with charget interpolation)
+* 2011 Q23 ($ Error)
+* 2012 Q20 $\star$ (expected loss with charge on AK policies table lookup)
+* 2013 Q19 a (expected loss with charge)
+* 2014 Q16 a $\star$ (backsolve occ limit)
+* 2014 Q16 b $\star$ (Lee diagram)
+* 2014 Q16 c $\star$ (Compare to retro)
+
+Concepts
+
+* 2003 Q12 (charges)
+* 2008 Q33 $\star$ (error impact, fisher comments)
+    * [TIA](http://www.theinfiniteactuary.com/mb/viewtopic.php?f=17866&t=15045)
+* 2013 Q19 b $\star$ (ICRLL)
+    * The presence of a per occurrence limit (in addition to an aggregate limit) reduces the variance in entry ratios for a group of risks of a given size that are used to construct a (Limited Loss) Table M. As such, the (Limited Loss) Table M curve will be flatter than without the per occurrence limit, and the insurance charges for a given entry ratio will be smaller. Using a regular Table M without adjustment would result in an overlap with the charge for the per occurrence limit.
+This reduction in the variance of entry ratios is also what happens for groups of larger risk sizes, since the law of large numbers gives their loss ratios more stability. As such, the ICRLL procedure uses the Table M curve for a group of larger risks to approximate the use of a Limited Loss Table M curve
+
+AGG DED LIMIT COST: TABLE M
+
+* Getting the cost from Table M
+
+AGG DED LIMIT COST: TABLE $M_D$
+
+* Have a very good graph for showing how each piece is represented
+    
+## Must Know Formulas
+
+LDD by components
+
+* $\text{LDD Prem} = \dfrac{ (EEL + \phi^{LLM}(r_G) \times EPL) + EL \: (ULAE + LBA) + SP \: (GO + CR)}{1 - A - T - p}$
+
+XS by components
+
+* $\text{XS Prem} = \dfrac{(EEL + \phi^{LLM}(r_G) \times EPL) \times (1 + ULAE) + SP \: (GO)}{1 - A - T - p}$
+
+***
+
+Straight Deductible
+
+* $PLER = \dfrac{L_r + (N-n)r}{L}$
+
+Disappearing Deductible
+
+* $PLER = \dfrac{L_r + L_R - (L_R - rN_R)\frac{R}{R-r}}{L}$
+
+$\begin{array}{ll}
+  L_r &=  \text{Total losses from claims with loss size }\leq r \\
+  N &= \text{Total # of claims} \\
+  n &= \text{Total # of claims with loss size }\leq r \\
+  r &= \text{Deductible amount} \\
+  L &= \text{Total losses} \\
+  & \\
+  &\text{For Disappearing only} \\
+  & \\
+  L_R &=  \text{Total losses from claims with loss size } r < \lambda < R \\
+  N_R &=  \text{Total # of claims with loss size } r < \lambda < R \\
+\end{array}$
+
+***
+
+LDD by discount
+
+* $D = \dfrac{(ELR)(PLER)(f)}{1-A-T-p}$
+
+XS by discount varies with Net Premium
+
+* $D = \dfrac{(ELR)(PLER)(f)}{1 - A - T - p - u - i - gh}$
+
+XS by discount varies with XS L&ALAE
+
+* $D = \dfrac{(ELR)(PLER)(f)(1+u_E+i_E+g_E h_E)}{1 - A - T - p}$
+
+ULAE$(u)$, Inspection Expense$(i)$, and Portion$(g)$ of Home Office Expense$(h)$
+
+***
+
+X-med policies by discount
+
+* $P = \dfrac{E - kE_M+ eP}{1-A-T}$
+
+Adj under retro rating x-med
+
+* $C' = 1 + (C - 1)\dfrac{1-A-T-e}{(1-D)(1-A-T)-e}$
+
 ## Intro to LDD and XS Policies
 
 Usually requires employers to be very large, especially for XS policies since they have to service those policies
@@ -481,206 +716,3 @@ $\begin{array}{lll}
   &= \vdots \\
   C' &= 1 + (C - 1)\dfrac{1-A-T-e}{(1-D)(1-A-T)-e}\\
 \end{array}$
-
-## Cliff's Summary
-
-### Gillam & Snader 3
-
-Know the [4 assumptions](#discountass) for discount method
-
-Know [assumptions](#xmedass) behind the x-med formula
-
-Know how to setup formula based on what's given
-
-* Take out ALAE from loss if needed
-
-Know the deductible formulas
-
-### Teng
-
-Know the by component calculations of premium
-
-* Apply $\phi^{LLM}(r)$ to the right basis (limited or unlimited loss)
-    * Charge from a Table LLM would naturally be expressed as a percent of expected limited losses
-* $EEL$ is usually $EL$ times XS factor (know if it includes ALAE)
-* Expensee as % of standard premium vs final premium
-* Check if deductible limits loss & alae or alae is ground-up
-
-Know the difference between XS and LDD and full plan
-
-* For [Loss](#XSvLDD-Loss), [LAE](#XSvLDD-LAE), [G&A](#XSvLDD-GA), [Acq](#XSvLDD-acq), [risk load](#XSvLDD-risk), [tax](#XSvLDD-tax), [profit & contingencies](#XSvLDD-profit)
-
-### Fisher
-
-Mostly related to the loss components of LDD with the insurance charges and XS loss
-
-Make sure when you looking up table M ICRLL, use entry ratios with the limited loss
-
-Note the difference between Excess Loss Pure Premium Factor and an Excess Loss Factor. Remember that the ELPPF is excess losses over total losses, and the ELF is excess losses over standard premium.
-
-Know fisher's comment
-
-## Types of Exam Questions
-
-### Gillam & Snader 3
-
-Calculation using discount method
-
-* 2001 Q36 $\star$ (LDD discount)
-    * Note to take out ALAE in formula
-    * And only medical is part of the deal
-* 2004 Q19 $\star$ (Disappearing deductible)
-* 2005 Q35 $\star$ (Back solve disappearing deductible)
-* 2009 Q26 (both deductible)
-* 2010 Q26 $\star$ (back out disapperating deductible with trial and error)
-* 2011 Q17 $\star$ (arithmetic with deductibles)
-* 2012 Q22 ab$\star$ (deductible and trend)
-
-Concepts
-
-* 2000 Q20 (Discount methdod assumptions)
-* 2001 Q13 (Discount methdod assumptions)
-* 2002 Q2 (x-med discount assumptions)
-* 2012 Q22 c$\star$ (XS layer trend higher, B7)
-
-### Teng
-
-LDD Prem
-
-* 2000 Q38 ab $\star$ (full blown LDD calc)
-    * LBA is an expense
-* 2002 Q1 (plug and play)
-* 2004 Q39 (get LER then plug and play)
-* 2004 Q48 (plug and play)
-    * ALAE treatment: ground-up
-* 2005 Q48 (plug and play)
-* 2006 Q33 (plug and play)
-* 2007 Q45
-* 2007 Q36 a (plug and play)
-* 2008 Q31 a (plug and play)
-* 2009 Q35 (fullblown)
-    * Watch out for what the % are givens as of
-* 2011 Q18 (plug and play)
-* 2013 Q13 (plug and play)
-* 2013 Q18 $\star\star$ (fullblown + B9 truncate shift!!!)
-* 2014 Q19 a $\star$ (Use entry ratio with limited denominator when looking up table)
-
-XS
-
-* 2008 Q31 b
-* 2014 Q19 c
-
-Concepts
-
-* 2000 Q38 c $\star$ (LDD vs XS)
-* 2001 Q12 (LDD considerations)
-* 2002 Q44 $\star$ (LDD vs XS)
-    * d: higher uncertainty of loss for XS so higher ELF
-* 2003 Q34 $\star$ (LDD vs XS, payment pattern)
-* 2005 Q34 $\star$ (LDD vs full)
-* 2006 Q31 $\star$ (LDD vs XS)
-* 2007 Q36 bc (LDD vs full)
-* 2008 Q31 c (LDD vs XS)
-* 2009 Q29 (LDD vs XS)
-* 2011 Q18 (LDD vs XS)
-* 2013 Q16 $\star$ (More related to Retro section with LLM charges)
-* 2014 Q19 b $\star$ (LDD advantages)
-* 2014 Q19 a $\star$ (LDD vs XS in profit and tax)
-* Practice 1 (Describe 2 ways to price)
-
-### Fisher
-
-Calculate charges and expected loss
-
-* 2002 Q39 $\star\star$ (charges calculations)
-    * Tricky wording with the retention vs limits for retro
-* 2003 Q35 $\star$ (lookup tables with ICRLL)
-* 2004 Q46 (expected loss with charge)
-* 2005 Q36 (expected loss with charge)
-* 2006 Q36 (expected loss with charge)
-* 2007 Q33 $\star$ (expected loss with charge, LLM and ICRLL)
-* 2008 Q30 (expected loss with charge)
-* 2009 Q27 $\star$ (% error)
-* 2010 Q24 (% error)
-    * Make assumption on ELF and assuming looking at % error
-* 2010 Q28 $\star$ (Tbl M constuction then get LDD prem)
-    * Make assumption about table being unlimited
-* 2011 Q19 (expected loss with charge, with charget interpolation)
-* 2011 Q23 ($ Error)
-* 2012 Q20 $\star$ (expected loss with charge on AK policies table lookup)
-* 2013 Q19 a (expected loss with charge)
-* 2014 Q16 a $\star$ (backsolve occ limit)
-* 2014 Q16 b $\star$ (Lee diagram)
-* 2014 Q16 c $\star$ (Compare to retro)
-
-Concepts
-
-* 2003 Q12 (charges)
-* 2008 Q33 $\star$ (error impact, fisher comments)
-    * [TIA](http://www.theinfiniteactuary.com/mb/viewtopic.php?f=17866&t=15045)
-* 2013 Q19 b $\star$ (ICRLL)
-    * The presence of a per occurrence limit (in addition to an aggregate limit) reduces the variance in entry ratios for a group of risks of a given size that are used to construct a (Limited Loss) Table M. As such, the (Limited Loss) Table M curve will be flatter than without the per occurrence limit, and the insurance charges for a given entry ratio will be smaller. Using a regular Table M without adjustment would result in an overlap with the charge for the per occurrence limit.
-This reduction in the variance of entry ratios is also what happens for groups of larger risk sizes, since the law of large numbers gives their loss ratios more stability. As such, the ICRLL procedure uses the Table M curve for a group of larger risks to approximate the use of a Limited Loss Table M curve
-    
-## Must Know Formulas
-
-LDD by components
-
-* $\text{LDD Prem} = \dfrac{ (EEL + \phi^{LLM}(r_G) \times EPL) + EL \: (ULAE + LBA) + SP \: (GO + CR)}{1 - A - T - p}$
-
-XS by components
-
-* $\text{XS Prem} = \dfrac{(EEL + \phi^{LLM}(r_G) \times EPL) \times (1 + ULAE) + SP \: (GO)}{1 - A - T - p}$
-
-***
-
-Straight Deductible
-
-* $PLER = \dfrac{L_r + (N-n)r}{L}$
-
-Disappearing Deductible
-
-* $PLER = \dfrac{L_r + L_R - (L_R - rN_R)\frac{R}{R-r}}{L}$
-
-$\begin{array}{ll}
-  L_r &=  \text{Total losses from claims with loss size }\leq r \\
-  N &= \text{Total # of claims} \\
-  n &= \text{Total # of claims with loss size }\leq r \\
-  r &= \text{Deductible amount} \\
-  L &= \text{Total losses} \\
-  & \\
-  &\text{For Disappearing only} \\
-  & \\
-  L_R &=  \text{Total losses from claims with loss size } r < \lambda < R \\
-  N_R &=  \text{Total # of claims with loss size } r < \lambda < R \\
-\end{array}$
-
-***
-
-LDD by discount
-
-* $D = \dfrac{(ELR)(PLER)(f)}{1-A-T-p}$
-
-XS by discount varies with Net Premium
-
-* $D = \dfrac{(ELR)(PLER)(f)}{1 - A - T - p - u - i - gh}$
-
-XS by discount varies with XS L&ALAE
-
-* $D = \dfrac{(ELR)(PLER)(f)(1+u_E+i_E+g_E h_E)}{1 - A - T - p}$
-
-ULAE$(u)$, Inspection Expense$(i)$, and Portion$(g)$ of Home Office Expense$(h)$
-
-***
-
-X-med policies by discount
-
-* $P = \dfrac{E - kE_M+ eP}{1-A-T}$
-
-Adj under retro rating x-med
-
-* $C' = 1 + (C - 1)\dfrac{1-A-T-e}{(1-D)(1-A-T)-e}$
-
-## Questions
-
-* Why is G&A as % of SP?

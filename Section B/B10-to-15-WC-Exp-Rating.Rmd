@@ -113,7 +113,7 @@ Concepts:
 CALCULATING G, SRP, SACC
 
 * Formula calc
-* Trend is from mid point of experience period to average accident date
+* The SACC data should be trended from the midpoint of the last three years of unit plan data to the midpoint of the experience period
 * G is calculated using losses used in experience rating, so technically there's limit now after 1998 changes
 
 ### Venter

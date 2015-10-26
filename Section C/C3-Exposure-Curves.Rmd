@@ -1,11 +1,145 @@
 ---
 title: "The Swiss Re Exposure Curves and the MBBEFD Distribution Class"
+author: "Bernegger"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
     toc: true
     toc_depth: 4
 ---
+
+## Cliff's Summary
+
+Exposure curve relation ships other factors
+
+* ILFs
+* XS Ratio $R(L)$
+
+Bernegger exposure curve
+
+* $G(d) = \dfrac{\mathrm{E}[X;dM]}{\mathrm{E}[X]} = \dfrac{\mathrm{E}[y;d]}{\mathrm{E}[y]}$
+* $G(0) = 0$
+* $G(1) = 1$
+* $G'(d) \geq 0$
+* $G''(d) \leq 0$
+* Know the conditions so you can check if a curve is valid
+
+From first principles
+
+* $G(d) = \dfrac{\int_0^{d} 1 - F(y) \: dy}{\int_0^{1}1-F(y)\:dy} = \dfrac{\int_0^{dM} 1 - F(x) \: dx}{\int_0^{\infty}x\:f(x)} \:dx$
+
+Mean, CDF, Pr(Total Loss)
+
+* $\mathrm{E}[y] = \mu = \dfrac{1}{G'(0)}$
+
+* $F(d) = 
+\begin{cases}
+  1 & d = 1 \\
+  1 - \dfrac{G'(d)}{G'(0)} & 0 \leq d < 1\\
+\end{cases}$
+
+    * Know how to back out $F(d)$ with $G(d)$
+
+* $p = 1 - F(1^-) = \dfrac{G'(1)}{G'(0)}$
+    * $0 \leq p \leq \mu \leq 1$
+    
+***
+
+MBBEFD
+
+* $G(x) = \dfrac{ln(a+b^x)-ln(a+1)}{ln(a+b) - ln(a+1)}$
+
+    * Know which one is a and b if they fille it with numbers
+
+* $F(x) =
+  \begin{cases}
+    1 & x = 1 \\
+    1 - \dfrac{(a+1)b^x}{a+b^x} & 0 \leq x < 1 \\
+  \end{cases}$
+
+* $p = 1 - F(1^-) = \dfrac{(a+1)b}{a+b}$
+
+Conditions
+
+* Sub in $a = \dfrac{(g-1)b}{1-gb}$ to $G(x)$
+    * $g \geq 1$
+    * $b \geq 0$
+
+Different cases of MBBEFD parameters
+
+* Probably don't have to memorize, just know some of the special cases
+* For the $bg=1$ case, $b=p$
+
+***
+
+Unlimited distributions and the conditions
+
+* $G(\infty) = 1$
+* $G'(\infty) = 0$
+    * No total losses
+
+$\mu$ is the same but doesn't have to be $\leq 1$
+
+$p$ not Pr(Total Loss) any more, just loss exceeding reference value
+
+$p = \dfrac{G'(1)}{G'(0)}$
+
+$0 \leq p \leq 1$
+
+***
+
+Exposure rating with MBBEFD
+
+* Gross Prem $\times$ ELR $\times$ Exposure factor for layer
+* Know how to get the $\mu$ and $p$ with different differential
+
+[Curve Fitting]($MBBEFD-curve-fit) of MBBEFD
+
+***
+
+[Swiss Re](#swiss-re) curve
+
+## Types of Exam Questions
+<span style="color=green">Questions a bit thin</span>
+
+Curve properties, $p$, derive curve, parameters
+
+* 2011 Q9 a $\star$ (MBBEFD exposure factor with $G(d)$ $G'(d)$ given)
+* 2011 Q9 b $\star$ (MBBEFD $p$ with $G(d)$ $G'(d)$ given)
+* 2012 Q8 a $\star$ (Check conditions of $G(d)$ given)
+* 2012 Q8 c $\star$ (Meaning of $b$ for the special case)
+* 2013 Q20 $\star$ (Derive $G(d)$ from first principle)
+* 2013 Q22 $\star$ (Defective, but need back solve numbers)
+* Practice 2 $\star$ (Properties of a given curve)
+* Practice 3 $\star$ (Describe the process of fitting)
+* Practice 4 $\star$ (The thing about dividing between ceding and reinsurer)
+
+Plug and play with curve
+
+* 2012 Q8 b (Given MBBEFD speical case)
+* 2013 Q20 b
+* Practice 1
+
+UNLIMITED EXPOSURE CURVE GIVEN b, g PARAMETERS
+
+* $p$ can be a reference, not just max
+* Memorize the MBBEFD curve
+
+LIMITED EXPOSURE CURVE GIVEN $\mu$, p PARAMETERS
+
+* Come back later for this calculation
+
+APPROXIMATE THE SWISS RE EXPOSURE CURVES
+
+* Skipped for now
+
+CDF AND EXPECTED LOSSES
+
+* Need to memorize the formulas
+
+## Questions
+
+* Not super sure about the thing about dividing between ceding and reinsurer
 
 ## Basics and recap from Clark on Exposure Curves
 
@@ -308,119 +442,3 @@ $c \in \{1.5, 2.0, 3.0, 4.0\}$ matches $\{Y_1,Y_2,Y_3,Y_4\}$
 $c = 5.0$ also coincides well with a Lloyd’s curve used for rating industrial risks
 
 When $c = 0 \Rightarrow g(0) = 1$ $\therefore$ $p = \frac{1}{g} = 1$, so the curve corresponds to a dist^n^ of total losses
-
-## Cliff's Summary
-
-Exposure curve relation ships other factors
-
-* ILFs
-* XS Ratio $R(L)$
-
-Bernegger exposure curve
-
-* $G(d) = \dfrac{\mathrm{E}[X;dM]}{\mathrm{E}[X]} = \dfrac{\mathrm{E}[y;d]}{\mathrm{E}[y]}$
-* $G(0) = 0$
-* $G(1) = 1$
-* $G'(d) \geq 0$
-* $G''(d) \leq 0$
-* Know the conditions so you can check if a curve is valid
-
-From first principles
-
-* $G(d) = \dfrac{\int_0^{d} 1 - F(y) \: dy}{\int_0^{1}1-F(y)\:dy} = \dfrac{\int_0^{dM} 1 - F(x) \: dx}{\int_0^{\infty}x\:f(x)} \:dx$
-
-Mean, CDF, Pr(Total Loss)
-
-* $\mathrm{E}[y] = \mu = \dfrac{1}{G'(0)}$
-
-* $F(d) = 
-\begin{cases}
-  1 & d = 1 \\
-  1 - \dfrac{G'(d)}{G'(0)} & 0 \leq d < 1\\
-\end{cases}$
-
-    * Know how to back out $F(d)$ with $G(d)$
-
-* $p = 1 - F(1^-) = \dfrac{G'(1)}{G'(0)}$
-    * $0 \leq p \leq \mu \leq 1$
-    
-***
-
-MBBEFD
-
-* $G(x) = \dfrac{ln(a+b^x)-ln(a+1)}{ln(a+b) - ln(a+1)}$
-
-    * Know which one is a and b if they fille it with numbers
-
-* $F(x) =
-  \begin{cases}
-    1 & x = 1 \\
-    1 - \dfrac{(a+1)b^x}{a+b^x} & 0 \leq x < 1 \\
-  \end{cases}$
-
-* $p = 1 - F(1^-) = \dfrac{(a+1)b}{a+b}$
-
-Conditions
-
-* Sub in $a = \dfrac{(g-1)b}{1-gb}$ to $G(x)$
-    * $g \geq 1$
-    * $b \geq 0$
-
-Different cases of MBBEFD parameters
-
-* Probably don't have to memorize, just know some of the special cases
-* For the $bg=1$ case, $b=p$
-
-***
-
-Unlimited distributions and the conditions
-
-* $G(\infty) = 1$
-* $G'(\infty) = 0$
-    * No total losses
-
-$\mu$ is the same but doesn't have to be $\leq 1$
-
-$p$ not Pr(Total Loss) any more, just loss exceeding reference value
-
-$p = \dfrac{G'(1)}{G'(0)}$
-
-$0 \leq p \leq 1$
-
-***
-
-Exposure rating with MBBEFD
-
-* Gross Prem $\times$ ELR $\times$ Exposure factor for layer
-* Know how to get the $\mu$ and $p$ with different differential
-
-[Curve Fitting]($MBBEFD-curve-fit) of MBBEFD
-
-***
-
-[Swiss Re](#swiss-re) curve
-
-## Types of Exam Questions
-<span style="color=green">Questions a bit thin</span>
-
-Curve properties, $p$, derive curve, parameters
-
-* 2011 Q9 a $\star$ (MBBEFD exposure factor with $G(d)$ $G'(d)$ given)
-* 2011 Q9 b $\star$ (MBBEFD $p$ with $G(d)$ $G'(d)$ given)
-* 2012 Q8 a $\star$ (Check conditions of $G(d)$ given)
-* 2012 Q8 c $\star$ (Meaning of $b$ for the special case)
-* 2013 Q20 $\star$ (Derive $G(d)$ from first principle)
-* 2013 Q22 $\star$ (Defective, but need back solve numbers)
-* Practice 2 $\star$ (Properties of a given curve)
-* Practice 3 $\star$ (Describe the process of fitting)
-* Practice 4 $\star$ (The thing about dividing between ceding and reinsurer)
-
-Plug and play with curve
-
-* 2012 Q8 b (Given MBBEFD speical case)
-* 2013 Q20 b
-* Practice 1
-
-## Questions
-
-* Not super sure about the thing about dividing between ceding and reinsurer
