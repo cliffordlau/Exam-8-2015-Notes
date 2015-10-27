@@ -12,6 +12,8 @@ output:
 
 Know the XS Ratio formula
 
+* XS Ratio is for **severity** ONLY
+
 * [Vanilla](#vanillaxsratio)
 
 * In [segments](#segmentxsratio)
@@ -87,12 +89,16 @@ Purpose of the paper is to examine the impact of dispersion of LDFs on XS ratios
 ## 2 Development Concerns that Impact XS Ratios
 
 <a name="development"></a>
+
 1. Different size of claims may have different development pattern
 2. **Dispersion Effect**: Losses of the same size might develop differently
 
 ## XS Ratio Formula
 <a name="vanillaxsratio"></a>
 $\text{XS Ratio at limit } L = R(L) = \dfrac{\int_L^{\infty} (x - L) \: f(x)dx}{\int_0^{\infty} x \: f(x) dx} = \dfrac{\int_L^{\infty}G(x)dx}{\mathrm{E}[X]} = \dfrac{\mathrm{E}[X] - \mathrm{E}[X;L]}{\mathrm{E}[L]}$ <span style="color:red;background-color:yellow">Know</span>
+
+* XS Ratio is for severity only!
+* ELPPF is the one where you look at the ratio of limited PP $\div$ PP
 
 Graphical representation of the XS ratio:
 

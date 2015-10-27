@@ -344,7 +344,7 @@ Use with experience rating to price non-proportional reinsurance
 Use current risk profile + estimated loss dist^n^
 
 * Loss dist^n^ used to determine the $\mathrm{E}[L]$ in the treat layer can be based on: *ILF*, *ELF*, *Exposure Curve*
-* $\text{Exposure Curve} \Rightarrow \dfrac{\mathrm{E}[Loss_limited]}{\mathrm{E}[Loss]} = f(limit)$ = 1 - XS Ratio @ each limit
+* $\text{Exposure Curve} \Rightarrow \dfrac{\mathrm{E}[Loss_{limited}]}{\mathrm{E}[Loss]} = f(limit)$ = 1 - XS Ratio @ each limit
 
 ## Proportional Reinsurance
 
@@ -733,7 +733,11 @@ $\dfrac{\mathrm{E}[x; \min(UL + PL, UL + AP +Lim)] - \mathrm{E}[x;\min(UL+PL,UL+
 Exposure factor for an umbrella policy *with* drop-down coverage with probability $\phi$:  
 <span style="color:red;background-color:yellow">Memorize Formula</span>
 
-$\dfrac{ {\color{blue}{\left\{\mathrm{E}[x; \min(UL + PL, UL + AP +Lim)] - \mathrm{E}[x;\min(UL+PL,UL+AP)]\right\} } }(1-\phi) + \left\{ \mathrm{E}[x; \min(PL, AP+Lim)]-\mathrm{E}[x; \min(PL,AP)] \right\}\phi} { {\color{blue}{\left\{\mathrm{E}[x;UL+PL]-\mathrm{E}[x;UL]\right\} }  }(1-\phi) + \mathrm{E}[x;PL]\phi}$
+$\begin{array}{cc}
+  & &\dfrac{ {\color{blue}{\left\{\mathrm{E}[x; \min(UL + PL, UL + AP +Lim)] - \mathrm{E}[x;\min(UL+PL,UL+AP)]\right\} } }(1-\phi)} { {\color{blue}{\left\{\mathrm{E}[x;UL+PL]-\mathrm{E}[x;UL]\right\} }  }(1-\phi) + \mathrm{E}[x;PL]\phi} \\
+  \\
+  &+ &\dfrac{\left\{ \mathrm{E}[x; \min(PL, AP+Lim)]-\mathrm{E}[x; \min(PL,AP)] \right\}\phi} { {\color{blue}{\left\{\mathrm{E}[x;UL+PL]-\mathrm{E}[x;UL]\right\} }  }(1-\phi) + \mathrm{E}[x;PL]\phi}
+\end{array}$
 
 The second part multiplied by $\phi$ is the same as before except $UL=0$
 

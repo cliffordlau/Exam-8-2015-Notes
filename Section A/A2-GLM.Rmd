@@ -231,6 +231,7 @@ $E[Y] = \mu = g^{-1}(\eta)$
 **Note**: 
 
 * For Poisson and Gamma, higher variance for larger values $\Rightarrow$ less weight
+    * Gamma gives even less weight to Poisson since the $V(x) = x^2$
 * For Tweedie: $1 < p < 2$ is Poisson Gamma
 * Side notes on [Tweedie](http://blog.revolutionanalytics.com/2014/10/a-note-on-tweedie.html)
 

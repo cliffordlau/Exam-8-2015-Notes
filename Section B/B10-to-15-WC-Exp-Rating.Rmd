@@ -34,14 +34,14 @@ Know the 3 tests + 1 criteria:
 
 Rationales for split plans and various NCCI modifications
 
-Mostly Dorweiler test
+[Dorweiler](#Dorweiler) test
 
-All different iterations of the NCCI plans
+[Different iterations](#NCCI-history) of the NCCI plans
 
 * All the changes and purpose
 * Assumptions on the $B$ and $K$
 
-Purpose of experience rating
+[Purpose](#exp-rating-purpose) of experience rating
 
 ### Gillam & Snader 1
 
@@ -248,6 +248,7 @@ $Mod = \dfrac{A_p + W A_e + (1 - W)E_e + B}{E_{total} + B}$
 * $E_{total} = E_p + W E_e + (1-W)E_e$
 
 ## Purpose of Experience Rating
+<a name="exp-rating-purpose"></a>
 
 Relates an insured's premium for $policy_t$ to their own loss experience from $policy_{t-1}$
 
@@ -260,9 +261,9 @@ Mostly just assumes Sch Mod = 1 $\therefore$ Standard Premium = Modified Premium
 
 Experience rating is suitable for WC $\because$ lots of variations within a classification plan due to level of control over safety practices
 
-Experience rating helps further distinguish between risks within a classification for things that typically doesn't have a separate rating for, e.g. Compensation, variation in premise, operating processes, materials, managements, employee morale, claim consciousness, relation to the community, etc
+Experience rating helps further **distinguish between risks within a classification for things that typically doesn't have a separate rating for**, e.g. Compensation, variation in premise, operating processes, materials, managements, employee morale, claim consciousness, relation to the community, etc
 
-Credibility of actual loss experience depends on:
+**Credibility** of actual loss experience depends on:
 
 * Size of the insured (e.g. payroll)
 * $\sigma$ between the loss experience of risks within a classification
@@ -488,6 +489,7 @@ $A_p = I + \sum\limits_{i=1}^{N-1}(1-d)^i I + (1-d)^N (A-NI)$
 $A_e = \hat{A} - A_p$
 
 ## History of NCCI Experience Rating
+<a name="NCCI-history"></a>
 
 | Time Period | Highlights |
 | ----------- | ---------- |
@@ -609,6 +611,7 @@ Correct $Z$ $\Rightarrow$ maximizing predictive accuracy of plan
 3 test for predictive accuracy of the plan; All tests are performed for each size group separately
 
 ### Test 1: Dorweiler's Test
+<a name="Dorweiler"></a>
 
 **Setup:**
 

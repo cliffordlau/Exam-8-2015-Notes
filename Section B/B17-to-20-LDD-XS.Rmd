@@ -467,8 +467,8 @@ Just make sure you're applying charges to the right kind of loss
 
 **Loss Elimination Ratio**
 
-* In retro rating: $\dfrac{\mathrm{E}[Loss > occ]}{\mathrm{E}[Loss]}
-* Gillam & Snader 3 (LDD and XS): $\dfrac{\mathrm{E}[Loss < occ]}{\mathrm{E}[Loss]}
+* In retro rating: $\dfrac{\mathrm{E}[Loss > occ]}{\mathrm{E}[Loss]}$
+* Gillam & Snader 3 (LDD and XS): $\dfrac{\mathrm{E}[Loss < occ]}{\mathrm{E}[Loss]}$
 * Difference due to looking at different POV, both are losses that are eliminated
 
 ## Pricing LDD: By Components  

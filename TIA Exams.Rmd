@@ -1,0 +1,142 @@
+---
+title: "TIA Exams"
+author: "TIA"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
+---
+
+## Exam 2015
+
+### Q1
+
+Know how the experience rating ties in with the 3 risk classification principles
+
+### Q2
+
+For GLM know how the error distribution affect the fit
+
+* Higher variance function gets less weight for the higher values
+
+### Q3
+
+Know how it all fits with like Merit and Territory rating
+
+* Still not 100% sure, lots of arithemtics
+
+### Q4
+
+You can just straight weight the $R(L)$ for different injury types here
+
+* Doesn't even have to normalize
+
+Do XS ratio under entry ratio is just to normalize the mean
+
+### Q5
+
+Straight forward quintile test from multi cred proc
+
+### Q6
+
+Calculate net charge based on lee diagram for Table L charge
+
+### Q7
+
+Get the retro premium at adjustment with LLM table
+
+### Q8
+
+Purpose of Table L
+
+NCCI solution to the occ/agg overlap
+
+Pros and cons for table L and ICRLL
+
+### Q9
+
+Standard Table L Lookup
+
+### Q10
+
+For 2 years of inflation you have to do it 1 year at a time
+
+* Not as striaght forward as it first seems
+
+Consistency test after inflation proof
+
+* Need to know what the first 2 order of differential is for ILF
+
+### Q11
+
+XS ratio only relies on the severity distribution
+
+Know the $R(L)$ formula as well as the dispersion formula
+
+### Q12
+
+Standard truncate and shift question
+
+### Q13
+
+Off balance explanation on increasing rate adequacy
+
+### Q14
+
+Exp mod quintile test
+
+### Q15
+
+Fullblown NCCI experience rating
+
+* Note that disease and multi claim limits are looked at seperately
+
+### Q16
+
+Get AER, for CM so not development
+
+### Q17
+
+The ex med formula...
+
+* Doesn't have to memorize just know that what varies and what doesn't and you can back it out
+
+And why not all of med is reduced
+
+### Q18
+
+Build table M
+
+Part b should probably have a way to simplify...
+
+Know what happens when the \# of risk increase
+
+### Q19
+
+k is the ELPPF
+
+Look up table 4B for ELG
+
+This is for the XS losses in the LDD
+
+### Q20
+
+Cat model modules
+
+### Q21
+
+Recursive freq and sev
+
+With sliding scale commission
+
+### Q22
+
+Inuring treaty refers to ground-up loss, and the 2nd treaty refers to loss net of the first treaty
+
+Mix of exposure and experience rating
+
+## Exam 2014
+
+### Q1
+

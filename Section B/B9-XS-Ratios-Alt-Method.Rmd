@@ -14,7 +14,6 @@ Overall procedure:
 
 1. Initial data adjustments
 2. Mean residual life exploratory analysis
-    *
 3. Pre fit adjustments
 
 Truncate and shift data

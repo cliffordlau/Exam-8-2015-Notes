@@ -143,7 +143,7 @@ MARGINAL RATE, 1-WAY CONSISTENCY TEST
 
 1. ILF $\uparrow$ when k $\uparrow$
 2. Decreasing marginal ILF
-3. $\ILF''(k) < 0$
+3. $ILF''(k) < 0$
 
 4-WAY CONSISTENCY TEST
 
@@ -290,7 +290,7 @@ For ILF in layer $L$ XS $R$:
 **Key Assumptions** <span style="color:red;background-color:yellow">Important Concept</span>
 
 1. All u/w expenses & profit are variable and don't vary by limit
-    * IRL not true, $\uparrow$ limits $\Rightarrow$ Volatility $\uparrow$ $\Rightarrow$ $\rightarrow$ profit load
+    * IRL not true, $\uparrow$ limits $\Rightarrow$ Volatility $\uparrow$ $\Rightarrow$ $\uparrow$ profit load
     * This is loosen with the risk adjusted ILFs
 2. Frequency $\perp\!\!\!\perp$ Severity
 3. $Freq_i = Freq_j \forall \: \text{limits} \: i, \: j$

@@ -33,6 +33,8 @@ Exceedance Probability Curves (and 2 other types)
 
 [Insurability conditions](#insurability-condition)
 
+* Considerations when setting rates (Some Cat specific)
+
 Formula to provide coverage or not
 
 * $Pr(Loss > n \times Premium + Surplus) < Pr(Insolvency)$
@@ -47,6 +49,7 @@ Know the concerns with Cat models
 Open issues with ratemaking with Cat Models
 
 * Mostly [actuarial](#actuarial-accceptance) issues
+* Regulatory and public acceptance issues too
 
 Aleatory vs Epistemic uncertainty
 
@@ -104,9 +107,9 @@ OEP CURVES AND ALE AND PM
 
 * OEP Calc
 
-## Qeustions
+## Questions
 
-AAL Formula
+AAL Formula doesn't quite make sense
 
 ## Intro to Catastrophe Models
 
@@ -282,7 +285,7 @@ This is an OEP from ground up, you can have it for different stakeholders and it
 
 **Conditional exceedance probability (CEP)**
 
-* $Pr(Loss_i > k | i occurs)$
+* $Pr(Loss_i > k | i \: occurs)$
 * Useful for setting reserves after event
 
 ## Insurability of Catastrophe Risks
@@ -495,7 +498,7 @@ Important to assess cat risk at the portfolio level in addition to individual le
 <a name="cat-ptf-issues"></a>
 **Data quality**
 
-Important for key variables like construction type and age of building; Good data $\downarrow$ septicemic uncertainty
+Important for key variables like construction type and age of building; Good data $\downarrow$ epistemic uncertainty
 
 **Uncertainty Modeling**
 
