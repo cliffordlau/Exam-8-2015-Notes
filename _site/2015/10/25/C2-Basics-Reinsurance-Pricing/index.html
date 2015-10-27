@@ -88,7 +88,7 @@
 
 <meta name="author" content="Clark" />
 
-<meta name="date" content="2015-10-25" />
+<meta name="date" content="2015-10-26" />
 
 <title>Basics of Reinsurance Pricing</title>
 
@@ -142,7 +142,7 @@ img {
 <div id="header">
 <h1 class="title">Basics of Reinsurance Pricing</h1>
 <h4 class="author"><em>Clark</em></h4>
-<h4 class="date"><em>October 25, 2015</em></h4>
+<h4 class="date"><em>October 26, 2015</em></h4>
 </div>
 
 <div id="TOC">
@@ -521,7 +521,7 @@ img {
 <p>Use current risk profile + estimated loss dist<sup>n</sup></p>
 <ul>
 <li>Loss dist<sup>n</sup> used to determine the <span class="math">\(\mathrm{E}[L]\)</span> in the treat layer can be based on: <em>ILF</em>, <em>ELF</em>, <em>Exposure Curve</em></li>
-<li><span class="math">\(\text{Exposure Curve} \Rightarrow \dfrac{\mathrm{E}[Loss_limited]}{\mathrm{E}[Loss]} = f(limit)\)</span> = 1 - XS Ratio @ each limit</li>
+<li><span class="math">\(\text{Exposure Curve} \Rightarrow \dfrac{\mathrm{E}[Loss_{limited}]}{\mathrm{E}[Loss]} = f(limit)\)</span> = 1 - XS Ratio @ each limit</li>
 </ul>
 </div>
 </div>
@@ -901,7 +901,7 @@ img {
 <li><span class="math">\(Lim\)</span>: Treaty Limit</li>
 </ul>
 <p>Exposure factor for an umbrella policy <em>with</em> drop-down coverage with probability <span class="math">\(\phi\)</span>:<br /><span style="color:red;background-color:yellow">Memorize Formula</span></p>
-<p><span class="math">\(\dfrac{ {\color{blue}{\left\{\mathrm{E}[x; \min(UL + PL, UL + AP +Lim)] - \mathrm{E}[x;\min(UL+PL,UL+AP)]\right\} } }(1-\phi) + \left\{ \mathrm{E}[x; \min(PL, AP+Lim)]-\mathrm{E}[x; \min(PL,AP)] \right\}\phi} { {\color{blue}{\left\{\mathrm{E}[x;UL+PL]-\mathrm{E}[x;UL]\right\} } }(1-\phi) + \mathrm{E}[x;PL]\phi}\)</span></p>
+<p><span class="math">\(\begin{array}{cc}  &amp; &amp;\dfrac{ {\color{blue}{\left\{\mathrm{E}[x; \min(UL + PL, UL + AP +Lim)] - \mathrm{E}[x;\min(UL+PL,UL+AP)]\right\} } }(1-\phi)} { {\color{blue}{\left\{\mathrm{E}[x;UL+PL]-\mathrm{E}[x;UL]\right\} } }(1-\phi) + \mathrm{E}[x;PL]\phi} \\  \\  &amp;+ &amp;\dfrac{\left\{ \mathrm{E}[x; \min(PL, AP+Lim)]-\mathrm{E}[x; \min(PL,AP)] \right\}\phi} { {\color{blue}{\left\{\mathrm{E}[x;UL+PL]-\mathrm{E}[x;UL]\right\} } }(1-\phi) + \mathrm{E}[x;PL]\phi} \end{array}\)</span></p>
 <p>The second part multiplied by <span class="math">\(\phi\)</span> is the same as before except <span class="math">\(UL=0\)</span></p>
 <hr />
 <p>Applies the exposure factor to the Umbrella LR</p>

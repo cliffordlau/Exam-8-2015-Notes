@@ -14,7 +14,7 @@ layout: default
 
 <meta name="author" content="Anderson" />
 
-<meta name="date" content="2015-10-22" />
+<meta name="date" content="2015-10-27" />
 
 <title>A2 A Practitioner’s Guide to GLM</title>
 
@@ -68,7 +68,7 @@ img {
 <div id="header">
 <h1 class="title">A2 A Practitioner’s Guide to GLM</h1>
 <h4 class="author"><em>Anderson</em></h4>
-<h4 class="date"><em>October 22, 2015</em></h4>
+<h4 class="date"><em>October 27, 2015</em></h4>
 </div>
 
 <div id="TOC">
@@ -323,7 +323,10 @@ img {
 </table>
 <p><strong>Note</strong>:</p>
 <ul>
-<li>For Poisson and Gamma, higher variance for larger values <span class="math">\(\Rightarrow\)</span> less weight</li>
+<li>For Poisson and Gamma, higher variance for larger values <span class="math">\(\Rightarrow\)</span> less weight
+<ul>
+<li>Gamma gives even less weight to Poisson since the <span class="math">\(V(x) = x^2\)</span></li>
+</ul></li>
 <li>For Tweedie: <span class="math">\(1 &lt; p &lt; 2\)</span> is Poisson Gamma</li>
 <li>Side notes on <a href="http://blog.revolutionanalytics.com/2014/10/a-note-on-tweedie.html">Tweedie</a></li>
 </ul>
