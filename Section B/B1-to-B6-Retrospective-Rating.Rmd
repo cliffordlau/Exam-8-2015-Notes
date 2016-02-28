@@ -368,6 +368,16 @@ GCP:
 
 * $\text{Guaranteed Cost Premium} = (e + \mathrm{E}[A])T = (1-D)P$
 
+Retro premium:
+
+* For Table M:
+    * $\mathrm{E}[R] = \big\{b + C(\mathrm{E}[A] - I)\big\}T$
+* For LLM:
+    * $\mathrm{E}[R^*] = \big\{b^{LLM} + C(\mathrm{E}[A^*] - I^{LLM})+PCF\big\}T$
+* For L:
+    * $\mathrm{E}[R^*] = \big\{b^{L} + C(\mathrm{E}[A] - I^{L})\big\}T$
+
+
 Basic premium if balanced plan:
 
 * $b = e - (C - 1)\mathrm{E}[A] + CI$
@@ -650,6 +660,7 @@ NCCI do full rates or loss costs depending on the state
 
 * For losses, LR, entry ratios, etc
 * Each data point is a single policy for a single term
+* So have to group losses by risk (policy)
 
 **Table M Charge**
 
@@ -1168,6 +1179,14 @@ $\phi^L(r) = \int\limits_r^{\infty} (y-r)dF^*(y) + k$ <span style="background-co
 * Note the addition of k, charge for per occ limit, is in the table L charge
 
 $\psi^L(r) = \int\limits_0^{r} (r-y)dF^*(y)$
+
+Premium size goes to $\infty$:
+
+$\phi^L(r) =
+  \begin{cases}
+    1 - r &r \leq 1 - k\\
+    k &r > 1 - k
+  \end{cases}$
 
 Key properties all the same except:
 

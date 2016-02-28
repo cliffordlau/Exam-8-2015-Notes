@@ -140,3 +140,147 @@ Mix of exposure and experience rating
 
 ### Q1
 
+List out 3 potential issues under all classification criteria
+
+### Q2
+
+Aliasing
+
+Only when it's a lin comb between explanatory variables
+
+### Q3
+
+Lots of arithemtic and also needs to know how to get R with a distribution
+
+### Q4
+
+support for experience rating
+
+### Q5
+
+Support for adjustments to the data before getting $R(L)$
+
+### Q6
+
+Summary of the multi dimension credibility proc
+
+### Q7
+
+Table M, don't forget to aggregate losses on a policy level
+
+### Q8
+
+Draw lee diagram
+
+### Q9
+
+Back out from GCP for Retro
+
+### Q10
+
+Standard Table Lookup questions
+
+Make sure we're applying the XS Ratio appropriately
+
+### Q11
+
+Know the charge relationship plots when premium size increase
+
+Pretty difficult charge question
+
+### Q12
+
+Simply ILF and change in % losses
+
+### Q13
+
+XS Ratio in chunks and dispersion
+
+### Q14
+
+Off balance calca and also explanation of what it is
+
+### Q15
+
+Multiple class code lookup for experience rating
+
+### Q16
+
+Testing plan for one of the NCCI changes
+
+### Q17
+
+ISO Experience rating
+
+For development portion of the AER, use the date from policy inception to evaluation date
+
+### Q18
+
+Simple LDD with explanation
+
+### Q19
+
+Simple charge lookup, need to use the right LER
+
+### Q20
+
+Cat model modules
+
+### Q21
+
+Retro calc with the swing plan
+
+## Exam 2013
+
+### Q6
+
+k mean
+
+### Q8
+
+Consistency test and adverse selection
+
+### Q9
+
+Problem with standard loss development
+
+
+### Q10
+
+Truncate shift
+
+### Q11
+
+Impact of limiting losses
+
+### Q13
+
+Dorwieller and Off balance
+
+### Q16
+
+ISO Exp
+
+### Q17
+
+NCCI Experience, make sure we don't use ALAE
+
+### Q18
+
+unbalanced Retro
+
+### Q19
+
+LDD
+
+### Q20
+
+Retro
+
+### Q21
+
+All the open issues with cat model with details on actuarial acceptance
+
+### Q22
+
+Exposure curve conditions
