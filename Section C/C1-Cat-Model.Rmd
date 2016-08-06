@@ -4,6 +4,9 @@ date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
     toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
     toc_depth: 4
 ---
 
@@ -345,7 +348,7 @@ Cat model can determine an **equitable AAL for different risk** based on:
 2. **Location attributes**: Proximity and susceptibility to hazard of the building
     * e.g. fault lines, coast, soil type, etc
     
-## Regulation & Catastrophe Modeling
+## Regulation & CAT Modeling
 
 Reasons for lack of regulatory supports:
 
@@ -399,7 +402,7 @@ Retro fit discount only based on expert judgment not from data
 
 Note that the insurance commissioner ruled that the last 2 points are appropriate
 
-## Open Issues of Ratemaking with Catastrophe Models
+## Open Issues of Ratemaking w/ CAT Models
 
 Open issues regarding the use of catastrophe models in ratemaking decisions
 

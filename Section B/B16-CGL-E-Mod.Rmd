@@ -5,6 +5,9 @@ date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
     toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
     toc_depth: 4
 ---
 
@@ -199,8 +202,10 @@ $(4)$ Detrend to same level as historical
 * By subline and year of experience
 * Use the column in Table 14 related to **Rule 5B**
 
-### Present Average Company Rate Method
+### Method 2
 <a name="presentavg"></a>
+
+Present Average Company Rate Method
 
 Additional Requirements:  
 Special u/w exposure base
@@ -231,8 +236,10 @@ $(6)$ Only adjust for PP trend
 * Use the column in Table 14 related to **Rule 5C**
 * Since using $(1)$ we don't need to trend exposure
 
-### Historical Exposures @ Present Company Rates Method
+### Method 3
 <a name="historicalexp"></a>
+
+Historical Exposures @ Present Company Rates Method
 
 Additional Requirements:  
 Actual exposures by **class** + **location** + **year** + **subline** of the experience period
@@ -292,7 +299,7 @@ $LDF$
 
 <span style="color:green">2003 Q4</span> Basic limits losses subject to experience modification is the numerator of the AER
 
-## Comparison with NCCI Experience Rating
+## Comparison with NCCI Exp Rating
 <a name="comparison"></a>
 <span style="color:red;background-color:yellow">Important Concepts</span>
 
@@ -313,7 +320,9 @@ $LDF$
 | Loss limit         | Basic limit & MSL     | SAL (multi-claim/disease) |
 | Responds to        | Frequency mostly      | Frequency and severity   | 
 
-## Miscellaneous items in ISO Manual (Neve tested)
+## Miscellaneous items in ISO Manual
+
+(Neve tested)
 
 Rule 5H:  
 Adj historical loss experience to match deductible level of prospective policy

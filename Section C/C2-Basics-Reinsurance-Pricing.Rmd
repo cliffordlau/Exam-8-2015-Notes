@@ -5,6 +5,9 @@ date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
     toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
     toc_depth: 4
 ---
 
@@ -315,7 +318,9 @@ Think of losses on an **AY** basis and relates to **EP**
 
 Experience and exposure rating
 
-### Experience Rating (Burn Cost Model)
+### Experience Rating
+
+Burn Cost Model
 
 Primary approach for proportional reinsurance
 
@@ -480,7 +485,7 @@ Note:
 Gross refers to the property per risk XoL treaty being priced  
 Net refers to net of inuring reinsurance (reinsurance that applies before this treaty)
 
-### Pricing Per Risk XoL: Experience Rating
+### Per Risk XoL: Experience Rating
 
 1. **Historical subject premium** and **loss data**
     * Ideally $\geq$ 10 yrs (longer than proportion)
@@ -499,7 +504,7 @@ Net refers to net of inuring reinsurance (reinsurance that applies before this t
     * Loss cost should be random around the average
 6. Load loss cost for profit and expenses
 
-### Pricing Per Risk XoL: Exposure Rating  
+### Per Risk XoL: Exposure Rating  
 <span style="color:green">2005 Q34, 2009 Q27</span>
 
 **Exposure Curves:**
@@ -590,7 +595,7 @@ $\text{Reinsurer's loss} = GNEPI \times ELR \times P(p)$
 
 The loss cost of the treaty is then the sumproduct of the above and ELR by layers
 
-## Per Occurrence XoL: Casualty
+## Per Occ XoL: Casualty
 
 Usually separated into 3 layers
 
@@ -609,7 +614,7 @@ Only hit when:
 * ALAE included in the treaty; or
 * Workers compensation losses above the attachment point <span style="color:green">2000 Q53</span>
 
-### Pricing Per Occurrence XoL: Experience Rating
+### Per Occ XoL: Experience Rating
 
 1. Historical premium and loss
     * *ALAE separate* from loss
@@ -635,7 +640,7 @@ Only hit when:
     * Expected loss cost = average loss cost across years
 6. Load for TVM, expenses and risk load
 
-#### Experience Rating ALAE Treatments
+#### Exp Rating ALAE Treatments
 
 ***Included with loss***
 
@@ -645,7 +650,7 @@ Treat L&ALAE as a single amount when comparing to limit and retention
 
 $\text{Pro-rata ALAE} = \dfrac{\text{Loss in treaty}}{\text{Ground-up loss net of inuring}} \times \text{Ground-up ALAE net of inuring}$
 
-### Pricing Per Occurrence XoL: Exposure Rating
+### Per Occ XoL: Exposure Rating
 
 Use industry severity dist^n^ to get ILFs (GL, AL) or ELFs (WC)
 

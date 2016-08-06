@@ -6,6 +6,9 @@ layout: default
 output: 
   html_document:
     toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
     toc_depth: 4
 ---
 
@@ -229,7 +232,7 @@ $X =$ Random loss
 
 $h(X)$ is the cost function for what the insurer has to pay for loss amount $X$ given deductible, limits, and co-insurance
 
-### Limit $k$
+### Limit k
 
 $h(X;k) =
   \begin{cases}
@@ -244,7 +247,7 @@ $\begin{array}{clcl}
 
 ![alt text](figures/Exam 8 B1-7 - 10.png)
 
-### Limit $L$ and Deductible $R$
+### Limit L and Deductible R
 
 $L$ is defined as the max the insurer has to pay
 
@@ -346,7 +349,7 @@ layers, so rates should not increase more for higher limits than for lower limit
 | $k_1$             | $ILF(k_1)$ | $\dfrac{ILF(k_1) - ILF(k_0)}{k_1-k_0}$ |
 | $\uparrow$ | $\uparrow$ | $\downarrow$ |
 
-### Reasons for Inconsistency: Anti-Selection
+### Anti-Selection
 
 <span style="color:green">Good Questions 2011 Q10b</span>
 
@@ -392,7 +395,9 @@ If $\alpha$ is monotonic then $F_1(x_1) = F(x)$
 
 ***
 
-### For constant inflation $x_1 = \alpha(x) = ax$
+### Constant Inflation
+
+Constant inflation $x_1 = \alpha(x) = ax$
 
 $\mathrm{E}[h(X_1;b)] = a\mathrm{E}[h(X;\frac{b}{a})]$<span style="color:red;background-color:yellow">Important Memorize</span>
 
@@ -486,6 +491,7 @@ $\begin{array}{lll}
 Premium $=\mathrm{E}[n]\left\{ \mathrm{E}[h(X)] + \lambda \mathrm{E}[h(x)^2] \right\}$
 
 ## Problems in Creating a Severity Distribution from Empirical Data
+
 <a name="problem-emp"></a><span style="color:red;background-color:yellow">Memorize Concept</span>
 
 1. Future development on claims

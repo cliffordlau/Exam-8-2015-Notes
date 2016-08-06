@@ -5,6 +5,9 @@ date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
     toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
     toc_depth: 4
 ---
 
@@ -93,7 +96,7 @@ Exposure rating with MBBEFD
 * Gross Prem $\times$ ELR $\times$ Exposure factor for layer
 * Know how to get the $\mu$ and $p$ with different differential
 
-[Curve Fitting]($MBBEFD-curve-fit) of MBBEFD
+[Curve Fitting](#MBBEFD-curve-fit) of MBBEFD
 
 ***
 
@@ -141,7 +144,7 @@ CDF AND EXPECTED LOSSES
 
 * Not super sure about the thing about dividing between ceding and reinsurer
 
-## Basics and recap from Clark on Exposure Curves
+## Recap: Clark on Exposure Curves
 
 Exposure curve:
 Dist^n^ of $\dfrac{\text{Expected limited losses @ various limits}}{\text{Expected unlimited losses}}$ on various limit

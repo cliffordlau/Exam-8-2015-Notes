@@ -5,6 +5,9 @@ date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
     toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
     toc_depth: 4
 ---
 
@@ -400,7 +403,7 @@ What is the state differential in finding the Adjusted Expected Loss
 
 What is that E[L]/E[A] formula
 
-## Recall: Prospective WC Rating
+## Prospective WC Rating
 
 <span style="color:green">2000 Q6</span>
 
@@ -425,7 +428,7 @@ $(1) \times (2) \times (3) \times (4)$ **Guaranteed Cost Premium**
 * Reflects lower proportion of fixed expense for larger risk
     * Usually calculated by Standard Premium tiers
 
-## Retrospective Rating: Intro
+## Retro Rating: Intro
 
 Uses insured's loss experience during the current policy term to determine their current policy premium
 
@@ -446,7 +449,7 @@ The starting point for retro premium is the standard premium
 * GCP only uses expected losses to calculate the premium
 * Retro premiums use a combination of expected loss (i.e., the insurance charge and savings) and actual loss to calculate the premiums
 
-## Retrospective Rating: w/o Occurence Limit  
+## Retro Rating: w/o Occ Limit  
 <span style="color:red;background-color:yellow">Important Formulas</span>
 
 NCCI retro premium formula for each individual policy
@@ -507,7 +510,7 @@ $b = e - (C - 1)\mathrm{E}[A] + CI$
 
 <span style="color:green">2001 Q32</span>
 
-## Understanding the Net Insurance Charge: w/o Net Insurance Charge
+## Net Insurance Charge
 
 Ignore the retro development for now
 
@@ -555,13 +558,13 @@ Entry ratio at maximum premium $= r_G = \dfrac{A_G}{\mathrm{E}[A]}$
 
 Entry ratio at minimum premium $= r_H = \dfrac{A_H}{\mathrm{E}[A]}$
 
-## Retrospective Rating: with Occurence Limit
+## Retro Rating: with Occ Limit
 
 Per occurrence limit impact the likelihood of hitting the max/min premiums $\Rightarrow$ Table M not appropriate $\Rightarrow$ Need to recognize the potential overlap between the occurrence and aggregate limits
 
 3 options to handle this:
 
-### Option 1: Limited Loss Table M  
+### Option 1: LLM  
 <span style="color:red;background-color:yellow">Important Formulas</span>
 
 $R^* = (b^{LLM} + CA^* + PCF + PCV) T$<span style="color:red;background-color:yellow">Memorize</span>
@@ -592,7 +595,7 @@ Caveat:
 
 * Charge need to vary by occ limit, entry ratio, risk size group, HG, etc
 
-### Option 2: Table M with ICRLL Adjustment (NCCI)
+### Option 2: Table M w/ ICRLL (NCCI)
 
 ICRLL = Insurance Charge Reflecting Loss Limitation
 
@@ -620,7 +623,7 @@ $V$ varies by occ limit
 
 * $\uparrow$ limits $\uparrow$ $V$ $\because$ $\uparrow$ potential for development
 
-## NCCI Filings for Optional Components
+## NCCI Filings (Opt Components)
 
 NCCI do full rates or loss costs depending on the state
 
@@ -940,7 +943,7 @@ Graphs of Entry Ratios vs Table M Charge/Savings as premium size increase
 
 ![alt text](figures/Exam 8 B1-7 - 3.png)
 
-### Net Insurance Charge - w/o Occurence Limit  
+### Net Insurance Charge - w/o Occ Limit  
 <span style="color:red;background-color:yellow">Important Concepts</span>
 
 $R = (b + C \times {\color{blue}L}) \times T \: \: \: \: {\color{blue}L} = \left\{
@@ -1061,7 +1064,7 @@ Note:
 
 ## Limited Loss Table M
 
-### Constructing a Limited Loss Table M
+### Constructing a LLM
 
 Same as Table M but with limited losses $A^*$ for each policy
 
@@ -1069,7 +1072,7 @@ Entry Ratio: $r^* = \dfrac{A^*}{\mathrm{E}[A^*]}$
 
 Note that the denominator of the Entry Ratio is the $\mathrm{E}[A^*]$, where as in Table L it's not limited $\mathrm{E}[A^*]$
 
-### Understanding a Limited Loss Table M
+### Understanding a LLM
 
 Note that the y axis is now limited entry ratios $y^*$
 

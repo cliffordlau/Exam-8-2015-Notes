@@ -5,6 +5,9 @@ date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
     toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
     toc_depth: 4
 ---
 
@@ -343,7 +346,9 @@ $Mod = (1 - Z) + Z \dfrac{P}{E} \times \dfrac{A}{P}$
 
 ***
 
-#### $K_E$: Credibility Constant
+#### Credibility Constant
+
+$K_E$: Credibility Constant
 
 $K_E$ could be:
 
@@ -902,7 +907,9 @@ $> +20%$ change will be investigated; Similar to SRP, can't decrease
 
 ***
 
-#### Ballast (B),  Weighting Value (W) (and C = $K_e$)
+#### Ballast (B),  Weighting Value (W) and C
+
+Ballast (B),  Weighting Value (W) (and C = $K_e$)
 
 $\begin{array}{llll}
   B &= \max \left( 7500, \: E \times \dfrac{0.1E + 2{,}500G}{E + 700G} \right) &= K_p & B>0 \\
@@ -935,7 +942,9 @@ $E_e = E - E_p$
 
 ELRs and D-Ratios are calculated at the same time and using the same data as the filed rates
 
-#### $ELR_i$ Expected Loss Ratio by Class: 
+#### Expected Loss Ratio by Class: 
+
+$ELR_i$ Expected Loss Ratio by Class
 
 ***Step 0. Starting Point***
 
@@ -983,8 +992,11 @@ Not in syllabus
 
 <span style="color=red;background-color=yellow">?Question?</span> Use the value of E in the NCCI tables to find the values for W and B. (from 2011 Q15)
 
-#### $D_i$ D-ratios by Class  
+#### D-ratios by Class
+
 <span style="color:red">Calculation not in syllabus</span>
+
+$D_i$ D-ratios by Class
 
 Portion of loss that will be primary
 

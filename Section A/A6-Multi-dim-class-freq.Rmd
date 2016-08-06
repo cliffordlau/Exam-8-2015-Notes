@@ -5,6 +5,9 @@ date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
     toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
     toc_depth: 4
 ---
 
@@ -150,7 +153,7 @@ Looks at $\dfrac{\text{Claim Counts}_{Type}}{\text{Claim Counts}_{TT}}$
 | X      | x         | Major Claims |
 | Y      | y         | Minor Claims |
 
-### For class code $i$ in year $t$
+### For class code *i* in year *t*
 
 \# of TT **claims** in *class* $i$ in *year* $t$
 
@@ -174,7 +177,7 @@ Claim count **relativity** by *class* $i$
 
 * ${\color{red}\Box}_i = \dfrac{\sum\limits_{i=1}^N m_{i,t}{\color{red}\Box}_{i,t}}{m_i}$
 
-### For HG $h$ in year $t$
+### For HG *h* in year *t*
 
 \# of TT **claims** in *HG* $h$ in *year* $t$
 

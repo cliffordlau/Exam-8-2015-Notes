@@ -5,6 +5,9 @@ date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
     toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
     toc_depth: 4
 ---
 
@@ -215,7 +218,8 @@ $g^{-1}(x) = x$
 Must be **differentiable** and **monotonic**  
 $E[Y] = \mu = g^{-1}(\eta)$
 
-## Common exponential family distributions and their variance functions  
+## Common exponential family dist^n^
+
 <span style="color:red;background-color:yellow">Memorize</span>
 <a name="var-fun"></a>
 
@@ -286,7 +290,7 @@ Logit is good for retention as is has prob $0 < p < 1$
 * Logit is basically the natural log odds
 * Odd is $\frac{p}{1-p}$
 
-## Offset Term $(\xi)$
+## Offset Term
 
 To fix the impact of an explanatory variable
 
