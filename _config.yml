@@ -3,9 +3,11 @@ description: "CAS Exam 8 Notes"
 
 baseurl: /Exam-8-2015-Notes
 
-paginate: 10
+paginate: 40
 
 markdown: rdiscount
 permalink: pretty
-highlighter: pygments
+highlighter: rouge
 github: [Repository metadata]
+
+gems: [jekyll-paginate]
