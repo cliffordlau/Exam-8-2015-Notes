@@ -1,5 +1,5 @@
 # Exam-8-2015-Notes
 
-Notes for CAS Exam 8 2015 sitting
+Notes for CAS Exam 8 [2015 sitting](http://cliffordlau.github.io/Exam-8-2015-Notes/)
 
-Eventually will cover all 3 sections A to C
+This will eventually be moved to Bookdown so it won't look as ugly
